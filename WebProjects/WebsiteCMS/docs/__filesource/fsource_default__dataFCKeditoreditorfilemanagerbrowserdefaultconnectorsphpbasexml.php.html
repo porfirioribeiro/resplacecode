@@ -1,0 +1,124 @@
+<html>
+<head>
+<title>File Source for basexml.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">default</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+  		  [ <a href="../classtrees_default.html" class="menu">class tree: default</a> ]
+		  [ <a href="../elementindex_default.html" class="menu">index: default</a> ]
+		  [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_default.html">default</a><br />
+            <br /><br />
+                  
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file basexml.php</h1>
+<p>Documentation is available at <a href="../default/_data_FCKeditor_editor_filemanager_browser_default_connectors_php_basexml_php.html">basexml.php</a></p>
+<div class="php">
+<div class="listing"><pre><ol><li><a name="a1"></a><span class="src-php">&lt;?php</span></li>
+<li><a name="a2"></a><span class="src-comm">/*</span></li>
+<li><a name="a3"></a><span class="src-comm"> * FCKeditor - The text editor for Internet - http://www.fckeditor.net</span></li>
+<li><a name="a4"></a><span class="src-comm"> * Copyright (C) 2003-2007 Frederico Caldeira Knabben</span></li>
+<li><a name="a5"></a><span class="src-comm"> *</span></li>
+<li><a name="a6"></a><span class="src-comm"> * == BEGIN LICENSE ==</span></li>
+<li><a name="a7"></a><span class="src-comm"> *</span></li>
+<li><a name="a8"></a><span class="src-comm"> * Licensed under the terms of any of the following licenses at your</span></li>
+<li><a name="a9"></a><span class="src-comm"> * choice:</span></li>
+<li><a name="a10"></a><span class="src-comm"> *</span></li>
+<li><a name="a11"></a><span class="src-comm"> *  - GNU General Public License Version 2 or later (the &quot;GPL&quot;)</span></li>
+<li><a name="a12"></a><span class="src-comm"> *    http://www.gnu.org/licenses/gpl.html</span></li>
+<li><a name="a13"></a><span class="src-comm"> *</span></li>
+<li><a name="a14"></a><span class="src-comm"> *  - GNU Lesser General Public License Version 2.1 or later (the &quot;LGPL&quot;)</span></li>
+<li><a name="a15"></a><span class="src-comm"> *    http://www.gnu.org/licenses/lgpl.html</span></li>
+<li><a name="a16"></a><span class="src-comm"> *</span></li>
+<li><a name="a17"></a><span class="src-comm"> *  - Mozilla Public License Version 1.1 or later (the &quot;MPL&quot;)</span></li>
+<li><a name="a18"></a><span class="src-comm"> *    http://www.mozilla.org/MPL/MPL-1.1.html</span></li>
+<li><a name="a19"></a><span class="src-comm"> *</span></li>
+<li><a name="a20"></a><span class="src-comm"> * == END LICENSE ==</span></li>
+<li><a name="a21"></a><span class="src-comm"> *</span></li>
+<li><a name="a22"></a><span class="src-comm"> * These functions define the base of the XML response sent by the PHP</span></li>
+<li><a name="a23"></a><span class="src-comm"> * connector.</span></li>
+<li><a name="a24"></a><span class="src-comm"> */</span></li>
+<li><a name="a25"></a>&nbsp;</li>
+<li><a name="a26"></a><span class="src-key">function </span><a href="../default/_data_FCKeditor_editor_filemanager_browser_default_connectors_php_basexml_php.html#functionSetXmlHeaders">SetXmlHeaders</a><span class="src-sym">(</span><span class="src-sym">)</span></li>
+<li><a name="a27"></a><span class="src-sym">{</span></li>
+<li><a name="a28"></a>    <a href="http://www.php.net/ob_end_clean">ob_end_clean</a><span class="src-sym">(</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a29"></a>&nbsp;</li>
+<li><a name="a30"></a>    <span class="src-comm">// Prevent the browser from caching the result.</span></li>
+<li><a name="a31"></a>    <span class="src-comm">// Date in the past</span></li>
+<li><a name="a32"></a>    <a href="http://www.php.net/header">header</a><span class="src-sym">(</span><span class="src-str">'Expires: Mon, 26 Jul 1997 05:00:00 GMT'</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a33"></a>    <span class="src-comm">// always modified</span></li>
+<li><a name="a34"></a>    <a href="http://www.php.net/header">header</a><span class="src-sym">(</span><span class="src-str">'Last-Modified: ' </span>. <a href="http://www.php.net/gmdate">gmdate</a><span class="src-sym">(</span><span class="src-str">'D, d M Y H:i:s'</span><span class="src-sym">) </span>. <span class="src-str">' GMT'</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a35"></a>    <span class="src-comm">// HTTP/1.1</span></li>
+<li><a name="a36"></a>    <a href="http://www.php.net/header">header</a><span class="src-sym">(</span><span class="src-str">'Cache-Control: no-store, no-cache, must-revalidate'</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a37"></a>    <a href="http://www.php.net/header">header</a><span class="src-sym">(</span><span class="src-str">'Cache-Control: post-check=0, pre-check=0'</span><span class="src-sym">, </span><span class="src-id">false</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a38"></a>    <span class="src-comm">// HTTP/1.0</span></li>
+<li><a name="a39"></a>    <a href="http://www.php.net/header">header</a><span class="src-sym">(</span><span class="src-str">'Pragma: no-cache'</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a40"></a>&nbsp;</li>
+<li><a name="a41"></a>    <span class="src-comm">// Set the response format.</span></li>
+<li><a name="a42"></a>    <a href="http://www.php.net/header">header</a><span class="src-sym">( </span><span class="src-str">'Content-Type:text/xml; charset=utf-8' </span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a43"></a><span class="src-sym">}</span></li>
+<li><a name="a44"></a>&nbsp;</li>
+<li><a name="a45"></a><span class="src-key">function </span><a href="../default/_data_FCKeditor_editor_filemanager_browser_default_connectors_php_basexml_php.html#functionCreateXmlHeader">CreateXmlHeader</a><span class="src-sym">( </span><span class="src-var">$command</span><span class="src-sym">, </span><span class="src-var">$resourceType</span><span class="src-sym">, </span><span class="src-var">$currentFolder </span><span class="src-sym">)</span></li>
+<li><a name="a46"></a><span class="src-sym">{</span></li>
+<li><a name="a47"></a>    <a href="../default/_data_FCKeditor_editor_filemanager_browser_default_connectors_php_basexml_php.html#functionSetXmlHeaders">SetXmlHeaders</a><span class="src-sym">(</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a48"></a>&nbsp;</li>
+<li><a name="a49"></a>    <span class="src-comm">// Create the XML document header.</span></li>
+<li><a name="a50"></a>    echo <span class="src-str">'&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;' </span><span class="src-sym">;</span></li>
+<li><a name="a51"></a>&nbsp;</li>
+<li><a name="a52"></a>    <span class="src-comm">// Create the main &quot;Connector&quot; node.</span></li>
+<li><a name="a53"></a>    echo <span class="src-str">'&lt;Connector command=&quot;' </span>. <span class="src-var">$command </span>. <span class="src-str">'&quot; resourceType=&quot;' </span>. <span class="src-var">$resourceType </span>. <span class="src-str">'&quot;&gt;' </span><span class="src-sym">;</span></li>
+<li><a name="a54"></a>&nbsp;</li>
+<li><a name="a55"></a>    <span class="src-comm">// Add the current folder node.</span></li>
+<li><a name="a56"></a>    echo <span class="src-str">'&lt;CurrentFolder path=&quot;' </span>. <a href="../default/_data_FCKeditor_editor_filemanager_browser_default_connectors_php_util_php.html#functionConvertToXmlAttribute">ConvertToXmlAttribute</a><span class="src-sym">( </span><span class="src-var">$currentFolder </span><span class="src-sym">) </span>. <span class="src-str">'&quot; url=&quot;' </span>. <a href="../default/_data_FCKeditor_editor_filemanager_browser_default_connectors_php_util_php.html#functionConvertToXmlAttribute">ConvertToXmlAttribute</a><span class="src-sym">( </span><a href="../default/_data_FCKeditor_editor_filemanager_browser_default_connectors_php_io_php.html#functionGetUrlFromPath">GetUrlFromPath</a><span class="src-sym">( </span><span class="src-var">$resourceType</span><span class="src-sym">, </span><span class="src-var">$currentFolder </span><span class="src-sym">) ) </span>. <span class="src-str">'&quot; /&gt;' </span><span class="src-sym">;</span></li>
+<li><a name="a57"></a><span class="src-sym">}</span></li>
+<li><a name="a58"></a>&nbsp;</li>
+<li><a name="a59"></a><span class="src-key">function </span><a href="../default/_data_FCKeditor_editor_filemanager_browser_default_connectors_php_basexml_php.html#functionCreateXmlFooter">CreateXmlFooter</a><span class="src-sym">(</span><span class="src-sym">)</span></li>
+<li><a name="a60"></a><span class="src-sym">{</span></li>
+<li><a name="a61"></a>    echo <span class="src-str">'&lt;/Connector&gt;' </span><span class="src-sym">;</span></li>
+<li><a name="a62"></a><span class="src-sym">}</span></li>
+<li><a name="a63"></a>&nbsp;</li>
+<li><a name="a64"></a><span class="src-key">function </span><a href="../default/_data_FCKeditor_editor_filemanager_browser_default_connectors_php_basexml_php.html#functionSendError">SendError</a><span class="src-sym">( </span><span class="src-var">$number</span><span class="src-sym">, </span><span class="src-var">$text </span><span class="src-sym">)</span></li>
+<li><a name="a65"></a><span class="src-sym">{</span></li>
+<li><a name="a66"></a>    <a href="../default/_data_FCKeditor_editor_filemanager_browser_default_connectors_php_basexml_php.html#functionSetXmlHeaders">SetXmlHeaders</a><span class="src-sym">(</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a67"></a>&nbsp;</li>
+<li><a name="a68"></a>    <span class="src-comm">// Create the XML document header</span></li>
+<li><a name="a69"></a>    echo <span class="src-str">'&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;' </span><span class="src-sym">;</span></li>
+<li><a name="a70"></a>&nbsp;</li>
+<li><a name="a71"></a>    echo <span class="src-str">'&lt;Connector&gt;&lt;Error number=&quot;' </span>. <span class="src-var">$number </span>. <span class="src-str">'&quot; text=&quot;' </span>. <a href="http://www.php.net/htmlspecialchars">htmlspecialchars</a><span class="src-sym">( </span><span class="src-var">$text </span><span class="src-sym">) </span>. <span class="src-str">'&quot; /&gt;&lt;/Connector&gt;' </span><span class="src-sym">;</span></li>
+<li><a name="a72"></a>&nbsp;</li>
+<li><a name="a73"></a>    <span class="src-key">exit </span><span class="src-sym">;</span></li>
+<li><a name="a74"></a><span class="src-sym">}</span></li>
+<li><a name="a75"></a><span class="src-php">?&gt;</span></li>
+</ol></pre></div>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Sat, 12 May 2007 21:14:11 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.3.0RC3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

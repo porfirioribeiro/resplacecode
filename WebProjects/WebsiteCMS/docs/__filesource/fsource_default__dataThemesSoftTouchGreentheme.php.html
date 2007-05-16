@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>File Source for theme.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">default</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+  		  [ <a href="../classtrees_default.html" class="menu">class tree: default</a> ]
+		  [ <a href="../elementindex_default.html" class="menu">index: default</a> ]
+		  [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_default.html">default</a><br />
+            <br /><br />
+                  
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file theme.php</h1>
+<p>Documentation is available at <a href="../default/_data_Themes_SoftTouch_Green_theme_php.html">theme.php</a></p>
+<div class="php">
+<div class="listing"><pre><ol><li><a name="a1"></a><span class="src-php">&lt;?php</span></li>
+<li><a name="a2"></a><span class="src-comm">//theme path is already known!!</span></li>
+<li><a name="a3"></a><span class="src-comm">//$tpath=$this-&gt;themespath.&quot;Rigid-Blue/&quot;;</span></li>
+<li><a name="a4"></a><span class="src-comm">//echo $this-&gt;themespath.$this-&gt;selectedskin;</span></li>
+<li><a name="a4"></a>&nbsp;</li>
+<li><a name="a5"></a><span class="src-var">$tpath</span>=<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">themespath</span>.<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">selectedskin</span><span class="src-sym">;</span></li>
+<li><a name="a6"></a><span class="src-inc">include</span><span class="src-sym">(</span><span class="src-str">&quot;module.php&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a7"></a><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">addCSS</span><span class="src-sym">(</span><span class="src-var">$tpath</span>.<span class="src-str">&quot;style.css&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a8"></a><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">addPreloadImg</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span></li>
+<li><a name="a9"></a>    <span class="src-var">$tpath</span>.<span class="src-str">&quot;Images/collapse.png&quot;</span><span class="src-sym">,</span></li>
+<li><a name="a10"></a>    <span class="src-var">$tpath</span>.<span class="src-str">&quot;Images/collapse_over.png&quot;</span><span class="src-sym">,</span></li>
+<li><a name="a11"></a>    <span class="src-var">$tpath</span>.<span class="src-str">&quot;Images/minimize_left.png&quot;</span><span class="src-sym">,</span></li>
+<li><a name="a12"></a>    <span class="src-var">$tpath</span>.<span class="src-str">&quot;Images/minimize_left_over.png&quot;</span><span class="src-sym">,</span></li>
+<li><a name="a13"></a>    <span class="src-var">$tpath</span>.<span class="src-str">&quot;Images/minimize_right.png&quot;</span><span class="src-sym">,</span></li>
+<li><a name="a14"></a>    <span class="src-var">$tpath</span>.<span class="src-str">&quot;Images/minimize_right_over.png&quot;</span><span class="src-sym">,</span></li>
+<li><a name="a15"></a>    <span class="src-var">$tpath</span>.<span class="src-str">&quot;Images/ns_close_over.png&quot;</span></li>
+<li><a name="a16"></a><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li><a name="a17"></a>&nbsp;</li>
+<li><a name="a18"></a><span class="src-comm">//Now we setup all the template material</span></li>
+<li><a name="a19"></a><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id">theme_title</span>=<span class="src-str">'</span></li>
+<li><a name="a20"></a><span class="src-str">        &lt;div class=&quot;MainMid&quot;&gt;                </span></li>
+<li><a name="a21"></a><span class="src-str">            &lt;div class=&quot;MainLeft&quot;&gt;                </span></li>
+<li><a name="a22"></a><span class="src-str">            &lt;/div&gt;                </span></li>
+<li><a name="a23"></a><span class="src-str">            &lt;div class=&quot;MainRight&quot;&gt;                </span></li>
+<li><a name="a24"></a><span class="src-str">            &lt;/div&gt;</span></li>
+<li><a name="a25"></a><span class="src-str">            &lt;div class=&quot;TitleImage&quot;&gt;&lt;/div&gt;</span></li>
+<li><a name="a26"></a><span class="src-str">        &lt;/div&gt;</span></li>
+<li><a name="a27"></a><span class="src-str">        '</span><span class="src-sym">;</span></li>
+<li><a name="a28"></a>        </li>
+<li><a name="a29"></a><span class="src-comm">//now we setup the page layout (the shell)</span></li>
+<li><a name="a30"></a><span class="src-key">function </span><a href="../default/_data_Themes_Pastel_Orange_theme_php.html#functiontheme_shell">theme_shell</a><span class="src-sym">(</span><span class="src-var">$ModulesTop</span><span class="src-sym">,</span><span class="src-var">$ModulesLeft</span><span class="src-sym">,</span><span class="src-var">$ModulesCenter</span><span class="src-sym">,</span><span class="src-var">$ModulesTop</span><span class="src-sym">,</span><span class="src-var">$ModulesRight</span><span class="src-sym">,</span><span class="src-var">$ModulesBottom</span><span class="src-sym">)</span></li>
+<li><a name="a31"></a>    <span class="src-sym">{</span></li>
+<li><a name="a32"></a>        <span class="src-php">?&gt;</span></li>
+<li><a name="a33"></a>        &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot; &gt;                </li>
+<li><a name="a34"></a>            &lt;tr&gt;</li>
+<li><a name="a35"></a>                &lt;td colspan=&quot;3&quot; style=&quot;<span class="src-php">&lt;?=</span><a href="http://www.php.net/count">count</a><span class="src-sym">(</span><span class="src-var">$ModulesTop</span><span class="src-sym">)</span>==<span class="src-num">0</span>?<span class="src-str">&quot;display: none&quot;</span>:<span class="src-str">&quot;&quot;</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&gt;</li>
+<li><a name="a36"></a>                <span class="src-php">&lt;?php                </span></li>
+<li><a name="a37"></a>                    <span class="src-key">foreach </span><span class="src-sym">(</span><span class="src-var">$ModulesTop </span><span class="src-key">as </span><span class="src-var">$value</span><span class="src-sym">) </span><span class="src-sym">{</span></li>
+<li><a name="a38"></a>                        <span class="src-var">$value</span><span class="src-sym">-&gt;</span><span class="src-id">write</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a39"></a>                    <span class="src-sym">}               </span></li>
+<li><a name="a40"></a>                <span class="src-php">?&gt;                </span></li>
+<li><a name="a41"></a>                &lt;/td&gt;</li>
+<li><a name="a42"></a>            &lt;/tr&gt;</li>
+<li><a name="a43"></a>            &lt;tr&gt;           </li>
+<li><a name="a44"></a>                &lt;td id=&quot;LeftColumn&quot; style=&quot;<span class="src-php">&lt;?=</span><a href="http://www.php.net/count">count</a><span class="src-sym">(</span><span class="src-var">$ModulesLeft</span><span class="src-sym">)</span>==<span class="src-num">0</span>?<span class="src-str">&quot;display: none&quot;</span>:<span class="src-str">&quot;&quot;</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&gt;  </li>
+<li><a name="a45"></a>                <span class="src-php">&lt;?php</span></li>
+<li><a name="a46"></a>                    <span class="src-key">foreach </span><span class="src-sym">(</span><span class="src-var">$ModulesLeft </span><span class="src-key">as </span><span class="src-var">$value</span><span class="src-sym">) </span><span class="src-sym">{</span></li>
+<li><a name="a47"></a>                        <span class="src-var">$value</span><span class="src-sym">-&gt;</span><span class="src-id">write</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a48"></a>                    <span class="src-sym">}               </span></li>
+<li><a name="a49"></a>                <span class="src-php">?&gt;</span></li>
+<li><a name="a50"></a>                &lt;/td&gt;        </li>
+<li><a name="a51"></a>                &lt;td id=&quot;CenterColumn&quot; style=&quot;<span class="src-php">&lt;?=</span><a href="http://www.php.net/count">count</a><span class="src-sym">(</span><span class="src-var">$ModulesCenter</span><span class="src-sym">)</span>==<span class="src-num">0</span>?<span class="src-str">&quot;display: none&quot;</span>:<span class="src-str">&quot;&quot;</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&gt;</li>
+<li><a name="a52"></a>                <span class="src-php">&lt;?php                   </span></li>
+<li><a name="a53"></a>                    <span class="src-key">foreach </span><span class="src-sym">(</span><span class="src-var">$ModulesCenter </span><span class="src-key">as </span><span class="src-var">$value</span><span class="src-sym">) </span><span class="src-sym">{</span></li>
+<li><a name="a54"></a>                        <span class="src-var">$value</span><span class="src-sym">-&gt;</span><span class="src-id">write</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a55"></a>                    <span class="src-sym">}               </span></li>
+<li><a name="a56"></a>                <span class="src-php">?&gt;</span></li>
+<li><a name="a57"></a>                &lt;/td&gt;    </li>
+<li><a name="a58"></a>                &lt;td id=&quot;RightColumn&quot; style=&quot;<span class="src-php">&lt;?=</span><a href="http://www.php.net/count">count</a><span class="src-sym">(</span><span class="src-var">$ModulesRight</span><span class="src-sym">)</span>==<span class="src-num">0</span>?<span class="src-str">&quot;display: none&quot;</span>:<span class="src-str">&quot;&quot;</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&gt;</li>
+<li><a name="a59"></a>                <span class="src-php">&lt;?php</span></li>
+<li><a name="a60"></a>                    <span class="src-key">foreach </span><span class="src-sym">(</span><span class="src-var">$ModulesRight </span><span class="src-key">as </span><span class="src-var">$value</span><span class="src-sym">) </span><span class="src-sym">{</span></li>
+<li><a name="a61"></a>                        <span class="src-var">$value</span><span class="src-sym">-&gt;</span><span class="src-id">write</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a62"></a>                    <span class="src-sym">}               </span></li>
+<li><a name="a63"></a>                <span class="src-php">?&gt;</span></li>
+<li><a name="a64"></a>                &lt;/td&gt;                  </li>
+<li><a name="a65"></a>            &lt;/tr&gt;</li>
+<li><a name="a66"></a>            &lt;tr&gt;                </li>
+<li><a name="a67"></a>                &lt;td colspan=&quot;3&quot; style=&quot;<span class="src-php">&lt;?=</span><a href="http://www.php.net/count">count</a><span class="src-sym">(</span><span class="src-var">$ModulesBottom</span><span class="src-sym">)</span>==<span class="src-num">0</span>?<span class="src-str">&quot;display: none&quot;</span>:<span class="src-str">&quot;&quot;</span><span class="src-sym">;</span><span class="src-php">?&gt;</span>&quot;&gt;</li>
+<li><a name="a68"></a>                <span class="src-php">&lt;?php</span></li>
+<li><a name="a69"></a>                    <span class="src-key">foreach </span><span class="src-sym">(</span><span class="src-var">$ModulesBottom </span><span class="src-key">as </span><span class="src-var">$value</span><span class="src-sym">) </span><span class="src-sym">{</span></li>
+<li><a name="a70"></a>                        <span class="src-var">$value</span><span class="src-sym">-&gt;</span><span class="src-id">write</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a71"></a>                    <span class="src-sym">}               </span></li>
+<li><a name="a72"></a>                <span class="src-php">?&gt; </span></li>
+<li><a name="a73"></a>                &lt;/td&gt;                </li>
+<li><a name="a74"></a>            &lt;/tr&gt;           </li>
+<li><a name="a75"></a>        &lt;/table&gt;</li>
+<li><a name="a76"></a>        <span class="src-php">&lt;?php</span></li>
+<li><a name="a77"></a>    <span class="src-sym">}</span></li>
+<li><a name="a78"></a><span class="src-php">?&gt;</span></li>
+</ol></pre></div>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Sat, 12 May 2007 21:14:40 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.3.0RC3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

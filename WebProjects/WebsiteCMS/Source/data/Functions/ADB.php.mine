@@ -1,0 +1,172 @@
+<?php
+class ArrayMap {
+	static function is($w){
+		return is_a($w,ArrayMap);
+	}
+	var $arr=null;
+	function ArrayMap($arr=array()){
+		$this->arr=$arr;
+	}
+	/**
+	 * Create a new Map and return it
+	 * @param string $key
+	 * @return ArrayMap
+	 */
+	function addMap($key){
+		$this->arr[$key]=new ArrayMap();
+		return $this->arr[$key];
+	}
+	function del($key){
+		unset($this->arr[$key]);
+	}
+	function put($key,$value){
+		return $this->arr[$key]=$value;
+	}
+	function ren($key,$nkey){
+		$v=$this->get($key);
+		$this->del($key);
+		$this->put($nkey,$v);
+	}
+	function getKeyFromPath($path){
+		$p=preg_split("/\./",$path);
+		$cmap=$this;		
+		foreach ($p as $k=>$item) {
+			if ($k==count($p)-1){
+				if (!$cmap->isMap($item)){
+					return array("map"=>$cmap,"key"=>$item);
+				}else{
+					return null;
+				}				
+			}else{
+				if ($cmap->isMap($item)){
+					$cmap=$cmap->getMap($item);
+				}else{
+					return null;
+				}
+			}
+		}	
+	}
+	function putPath($path,$value){
+		/*$p=preg_split("/\./",$path);
+		$cmap=$this;		
+		foreach ($p as $k=>$item) {
+			if ($k==count($p)-1){
+				if (!$cmap->isMap($item)){
+					$cmap->put($item,$value);
+				}else{
+					return;
+				}				
+			}else{
+				if ($cmap->isMap($item)){
+					$cmap=$cmap->getMap($item);
+				}else{
+					return;
+				}
+			}
+		}	*/
+		$k=$this->getKeyFromPath($path);
+		$k["map"]->put($k["key"],$value);			
+	}
+	function getPath($path){
+		/*$p=preg_split("/\./",$path);
+		$cmap=$this;		
+		foreach ($p as $k=>$item) {
+			if ($k==count($p)-1){
+				if (!$cmap->isMap($item)){
+					$cmap->get($item);
+				}else{
+					return;
+				}				
+			}else{
+				if ($cmap->isMap($item)){
+					$cmap=$cmap->getMap($item);
+				}else{
+					return;
+				}
+			}
+		}*/
+		$k=$this->getKeyFromPath($path);
+		return $k["map"]->get($k["key"]);	
+	}
+	function delPath($path){
+		$k=$this->getKeyFromPath($path);
+		$k["map"]->del($k["key"]);
+	}
+	function renPath($path,$rpath){
+		$k=$this->getKeyFromPath($path);
+		$rk=$this->getKeyFromPath($rpath);
+		$v=$k["map"]->get($k["key"]);
+		$k["map"]->del($k["key"]);
+		$rk["map"]->put($rk["key"],$v);
+	}
+	/**
+	 * Get an item
+	 * @param string $key
+	 * @return any
+	 */
+	function get($key,$default=null){
+		$k=$this->arr[$key];
+		if ($k!=null){
+		  if (is_a($k,ArrayMap)){
+        return $k;
+      }else{
+        return stripslashes($k);
+      }	
+		}
+		return $default;		
+	}
+	/**
+	 * Get or create a Map
+	 * @param string $key
+	 * @return ArrayMap
+	 */
+	function getMap($key){
+		$k=$this->arr[$key];
+		if ($k!=null && is_a($k,ArrayMap)){
+			return $k;		
+		}else{
+			return $this->addMap($key);
+		}
+	}
+	function isMap($key){
+		$k=$this->arr[$key];
+		return ($k!=null && is_a($k,ArrayMap));
+	}
+	/**
+	 * Return the array with all itens
+	 * @return Array
+	 */
+	function getArray(){
+		return $this->arr;
+	}
+	function clean(){
+		$this->arr=null;
+		$this->arr=array();
+	}
+}
+class ADB extends ArrayMap {
+	var $file;
+	function ADB($file=null){		
+		if ($file!=null){
+			$this->load($file);
+		}
+	}
+	function load($file){
+		$this->file=$file;
+		if (is_readable($file)){
+			$arr=unserialize(file_get_contents($file));
+			if (is_array($arr)){
+				$this->arr=$arr;
+			}
+		}		
+		echo $f;
+	}
+	function save($file){
+		$this->file=$file;
+		file_put_contents($file,serialize($this->arr));
+	}
+	function close(){
+		$this->save($this->file);
+	}
+}
+?>

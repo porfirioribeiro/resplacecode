@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>File Source for index.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">default</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+  		  [ <a href="../classtrees_default.html" class="menu">class tree: default</a> ]
+		  [ <a href="../elementindex_default.html" class="menu">index: default</a> ]
+		  [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_default.html">default</a><br />
+            <br /><br />
+                  
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file index.php</h1>
+<p>Documentation is available at <a href="../default/_data_Pages_index_php.html">index.php</a></p>
+<div class="php">
+<div class="listing"><pre><ol><li><a name="a1"></a><span class="src-php">&lt;?php</span></li>
+<li><a name="a2"></a><span class="src-inc">include_once </span><span class="src-var">$path</span>.<span class="src-str">'site.php'</span><span class="src-sym">;</span></li>
+<li><a name="a3"></a><span class="src-var">$page</span>=<span class="src-key">new </span><span class="src-id"><a href="../default/TPVsite_page.html">TPVsite_page</a></span><span class="src-sym">(</span><span class="src-var">$path</span><span class="src-sym">,</span><span class="src-str">&quot;Main Site&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a4"></a><span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">addMeta</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'name' </span>=&gt; <span class="src-str">'keywords'</span><span class="src-sym">,</span><span class="src-str">'content' </span>=&gt; <span class="src-str">'resplace,cms,website'</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li><a name="a5"></a><span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">addDefaults</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a6"></a><span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">add</span><span class="src-sym">(</span><span class="src-str">&quot;Menu&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a7"></a><span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">add</span><span class="src-sym">(</span><span class="src-str">&quot;PageRate&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a8"></a>&nbsp;</li>
+<li><a name="a9"></a><span class="src-key">class </span><a href="../default/internalHtml.html">internalHtml</a> <span class="src-key">extends </span><a href="../default/Module.html#methodModule">Module</a> <span class="src-sym">{</span></li>
+<li><a name="a10"></a>    <span class="src-key">function </span><a href="../default/internalHtml.html#methodinternalHtml">internalHtml</a><span class="src-sym">(</span><span class="src-var">$page</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a11"></a>        <span class="src-var">$this</span><span class="src-sym">-&gt;</span><a href="../default/Module.html#var$title">title</a>=<span class="src-str">&quot;Class method&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a12"></a>        <span class="src-id">parent</span><span class="src-sym">::</span><span class="src-id">Module</span><span class="src-sym">(</span><span class="src-var">$page</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a13"></a>    <span class="src-sym">}</span></li>
+<li><a name="a14"></a>    <span class="src-key">function </span><a href="../default/internalHtml.html#methodcontent">content</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a15"></a>        <span class="src-php">?&gt;</span></li>
+<li><a name="a16"></a>        Testing the creation of a module using the more complicated class method.        </li>
+<li><a name="a17"></a>        <span class="src-php">&lt;?php</span></li>
+<li><a name="a18"></a>    <span class="src-sym">}</span></li>
+<li><a name="a19"></a><span class="src-sym">}</span></li>
+<li><a name="a20"></a>&nbsp;</li>
+<li><a name="a21"></a><span class="src-key">function </span><a href="../default/_data_Pages_home_php.html#functionsomeContent">someContent</a><span class="src-sym">(</span><span class="src-var">$mod</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a22"></a>    <span class="src-php">?&gt;</span></li>
+<li><a name="a23"></a>    Create function method</li>
+<li><a name="a24"></a>    <span class="src-php">&lt;?php</span></li>
+<li><a name="a25"></a><span class="src-sym">}</span></li>
+<li><a name="a26"></a><span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">add</span><span class="src-sym">(</span><a href="../default/internalHtml.html#methodinternalHtml">internalHtml</a><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a27"></a><span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">add</span><span class="src-sym">(</span><span class="src-str">&quot;SkinChanger&quot;</span><span class="src-sym">,</span><a href="../default/Module.html#methodModule">Module</a><span class="src-sym">::</span><span class="src-id">RIGHT</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a28"></a><span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">add</span><span class="src-sym">(</span><span class="src-str">&quot;Lfp&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a29"></a><span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">add</span><span class="src-sym">(</span><span class="src-str">&quot;Box&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a30"></a><span class="src-comm">//o.O a bug!! NOTE: look at output title?!?!</span></li>
+<li><a name="a31"></a><span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">addF</span><span class="src-sym">(</span><a href="../default/_data_Pages_home_php.html#functionsomeContent">someContent</a><span class="src-sym">,</span><span class="src-str">&quot;Testing the creation of a module using the create function method.&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a32"></a><span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">create</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a33"></a><span class="src-php">?&gt;</span></li>
+</ol></pre></div>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Sat, 12 May 2007 21:14:22 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.3.0RC3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
