@@ -1,0 +1,185 @@
+<html>
+<head>
+<title>File Source for PagesManage.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">default</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+  		  [ <a href="../classtrees_default.html" class="menu">class tree: default</a> ]
+		  [ <a href="../elementindex_default.html" class="menu">index: default</a> ]
+		  [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_default.html">default</a><br />
+            <br /><br />
+                  
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file PagesManage.php</h1>
+<p>Documentation is available at <a href="../default/_admin_Modules_PagesManage_php.html">PagesManage.php</a></p>
+<div class="php">
+<div class="listing"><pre><ol><li><a name="a1"></a><span class="src-php">&lt;?php</span></li>
+<li><a name="a2"></a><span class="src-key">class </span><a href="../default/PagesManage.html">PagesManage</a> <span class="src-key">extends </span><span class="src-id">Module </span><span class="src-sym">{</span></li>
+<li><a name="a3"></a>    <span class="src-key">function </span><a href="../default/PagesManage.html#methodPagesManage">PagesManage</a><span class="src-sym">(</span><span class="src-var">$page</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a4"></a>        <span class="src-id">parent</span><span class="src-sym">::</span><span class="src-id">Module</span><span class="src-sym">(</span><span class="src-var">$page</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a5"></a>        <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">title</span>=<span class="src-str">&quot;Page's Management&quot;</span><span class="src-sym">;        </span></li>
+<li><a name="a6"></a>        <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">side</span>=<span class="src-id">Module</span><span class="src-sym">::</span><span class="src-id">CENTER</span><span class="src-sym">;</span></li>
+<li><a name="a7"></a>    <span class="src-sym">}</span></li>
+<li><a name="a8"></a>    <span class="src-key">function </span><a href="../default/PagesManage.html#methodcontent">content</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a9"></a>        <span class="src-key">global </span><span class="src-var">$path</span><span class="src-sym">;</span></li>
+<li><a name="a10"></a>        </li>
+<li><a name="a11"></a>        <span class="src-php">?&gt;</span></li>
+<li><a name="a12"></a>        &lt;fieldset&gt;</li>
+<li><a name="a13"></a>        &lt;legend&gt;Page Explorer&lt;/legend&gt;</li>
+<li><a name="a14"></a>        Heres a list of pages that exist in the DB:&lt;br /&gt;&lt;br /&gt;</li>
+<li><a name="a15"></a>        <span class="src-php">&lt;?php</span></li>
+<li><a name="a16"></a>        <span class="src-var">$db</span>= <span class="src-key">new </span><span class="src-id"><a href="../default/ADB.html">ADB</a></span><span class="src-sym">(</span><span class="src-var">$path</span>.<span class="src-str">&quot;db/files.db&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a17"></a>        <span class="src-key">foreach </span><span class="src-sym">(</span><span class="src-var">$db</span><span class="src-sym">-&gt;</span><span class="src-id">arr </span><span class="src-key">as </span><span class="src-var">$key</span>=&gt;<span class="src-var">$value</span><span class="src-sym">) </span><span class="src-sym">{</span></li>
+<li><a name="a18"></a>            echo <span class="src-str">'[&lt;a href=&quot;?manage=pages&amp;amp;page=page-edit&amp;amp;pageid='</span>.<span class="src-var">$key</span>.<span class="src-str">'&quot;&gt;Edit&lt;/a&gt;] [&lt;a href=&quot;?manage=pages&amp;amp;page=page-edit&amp;amp;pageiddel='</span>.<span class="src-var">$key</span>.<span class="src-str">'&quot;&gt;Del&lt;/a&gt;] - &lt;a href=&quot;'</span>.<a href="http://www.php.net/str_replace">str_replace</a><span class="src-sym">(</span><span class="src-str">&quot;data/&quot;</span><span class="src-sym">,</span><span class="src-str">&quot;&quot;</span><span class="src-sym">,</span><span class="src-var">$path</span><span class="src-sym">)</span>.<span class="src-str">'getfile.php?page='</span>.<span class="src-var">$key</span>.<span class="src-str">'&quot; target=&quot;_blank&quot;&gt;'</span>.<span class="src-var">$key</span>.<span class="src-str">'&lt;/a&gt;&lt;br&gt;'</span><span class="src-sym">;</span></li>
+<li><a name="a19"></a>            <span class="src-sym">}</span></li>
+<li><a name="a20"></a>        echo<span class="src-str">'&lt;br&gt;</span></li>
+<li><a name="a21"></a><span class="src-str">        &lt;a href=&quot;?manage=pages&amp;amp;page=page-add&quot;&gt;Add new page&lt;/a&gt;'</span><span class="src-sym">;</span></li>
+<li><a name="a22"></a>        </li>
+<li><a name="a23"></a>        <span class="src-comm">//Add a page</span></li>
+<li><a name="a24"></a>        <span class="src-php">?&gt;</span>&lt;/fieldset&gt;&lt;br /&gt;</li>
+<li><a name="a25"></a>            </li>
+<li><a name="a26"></a>            <span class="src-php">&lt;?php</span></li>
+<li><a name="a27"></a>        <span class="src-key">if </span><span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'page'</span><span class="src-sym">]</span>==<span class="src-str">&quot;page-add&quot;</span><span class="src-sym">)</span></li>
+<li><a name="a28"></a>            <span class="src-sym">{</span></li>
+<li><a name="a29"></a>            <span class="src-php">?&gt;</span></li>
+<li><a name="a30"></a>            &lt;fieldset&gt;</li>
+<li><a name="a31"></a>            &lt;legend&gt;Add new page&lt;/legend&gt;</li>
+<li><a name="a32"></a>            &lt;form action=&quot;<span class="src-php">&lt;?=</span><span class="src-var">$_SERVER</span><span class="src-sym">[</span><span class="src-str">'PHP_SELF'</span><span class="src-sym">]</span><span class="src-sym">; </span><span class="src-php">?&gt;</span>&quot; method=&quot;post&quot;&gt;</li>
+<li><a name="a33"></a>            &lt;input type=&quot;hidden&quot; name=&quot;manage&quot; value=&quot;pages&quot; /&gt;</li>
+<li><a name="a34"></a>            &lt;b&gt;Page ID:&lt;/b&gt;&lt;br /&gt;&lt;i&gt;Set a some text or a number which will be used to load your page using index.php?page=Page ID.&lt;/i&gt;&lt;br /&gt;</li>
+<li><a name="a35"></a>            &lt;input name=&quot;pageid&quot; type=&quot;text&quot; /&gt;&lt;br /&gt;&lt;br /&gt;</li>
+<li><a name="a36"></a>            &lt;b&gt;Small Description:&lt;/b&gt;&lt;br /&gt;&lt;i&gt;A small description of the page, used in tooltip.&lt;/i&gt;&lt;br /&gt;</li>
+<li><a name="a37"></a>            &lt;input name=&quot;smalldesc&quot; type=&quot;text&quot; /&gt;&lt;br /&gt;&lt;br /&gt;</li>
+<li><a name="a38"></a>            &lt;b&gt;Large Description:&lt;/b&gt;&lt;br /&gt;&lt;i&gt;A large description of the page.&lt;/i&gt;&lt;br /&gt;</li>
+<li><a name="a39"></a>            &lt;input name=&quot;largedesc&quot; type=&quot;text&quot; /&gt;&lt;br /&gt;&lt;br /&gt;</li>
+<li><a name="a40"></a>            &lt;textarea id=&quot;datap&quot; class=&quot;codepress php&quot; cols=&quot;100%&quot; rows=&quot;30&quot; wrap=&quot;off&quot;&gt;&lt;/textarea&gt;</li>
+<li><a name="a41"></a>            &lt;textarea name=&quot;data&quot; style=&quot;display:none;&quot;&gt;&lt;/textarea&gt;&lt;br /&gt;</li>
+<li><a name="a42"></a>            &lt;input type=&quot;button&quot; onclick=&quot;datap.toggleEditor();&quot; value=&quot;Toggle Editor&quot; /&gt;</li>
+<li><a name="a43"></a>            &lt;input name=&quot;addpage&quot; value=&quot;Create Page&quot; onclick=&quot;data.value = datap.getCode();&quot; type=&quot;submit&quot;&gt;</li>
+<li><a name="a44"></a>            &lt;/form&gt;</li>
+<li><a name="a45"></a>            </li>
+<li><a name="a46"></a>            &lt;/fieldset&gt;</li>
+<li><a name="a47"></a>            </li>
+<li><a name="a48"></a>            <span class="src-php">&lt;?php</span></li>
+<li><a name="a49"></a>            <span class="src-sym">}</span></li>
+<li><a name="a50"></a>        </li>
+<li><a name="a51"></a>        <span class="src-comm">//add a page - submit</span></li>
+<li><a name="a52"></a>        <span class="src-key">if </span><span class="src-sym">(</span><span class="src-var">$_POST</span><span class="src-sym">[</span><span class="src-str">'addpage'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a53"></a>            <span class="src-php">?&gt;</span>&lt;fieldset&gt;</li>
+<li><a name="a54"></a>            &lt;legend&gt;Add new page&lt;/legend&gt;</li>
+<li><a name="a55"></a>            Request should have succeeded.</li>
+<li><a name="a56"></a>            &lt;/fieldset&gt;<span class="src-php">&lt;?php</span></li>
+<li><a name="a57"></a>            <span class="src-var">$pageid</span>=<a href="http://www.php.net/str_replace">str_replace</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">&quot; &quot;</span><span class="src-sym">,</span><span class="src-str">&quot;/&quot;</span><span class="src-sym">)</span><span class="src-sym">,</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">&quot;_&quot;</span><span class="src-sym">,</span><span class="src-str">&quot;_&quot;</span><span class="src-sym">)</span><span class="src-sym">,</span><span class="src-var">$_POST</span><span class="src-sym">[</span><span class="src-str">'pageid'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a58"></a>            </li>
+<li><a name="a59"></a>            <a href="../default/_admin_Functions_functions_php.html#functionWriteFile">WriteFile</a><span class="src-sym">(</span><span class="src-var">$path</span>.<span class="src-str">&quot;Pages/&quot;</span>.<span class="src-var">$pageid</span>.<span class="src-str">&quot;.php&quot;</span><span class="src-sym">,</span><a href="http://www.php.net/stripslashes">stripslashes</a><span class="src-sym">(</span><span class="src-var">$_POST</span><span class="src-sym">[</span><span class="src-str">'data'</span><span class="src-sym">]</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li><a name="a60"></a>            <span class="src-var">$db</span>= <span class="src-key">new </span><span class="src-id"><a href="../default/ADB.html">ADB</a></span><span class="src-sym">(</span><span class="src-var">$path</span>.<span class="src-str">&quot;db/files.db&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a61"></a>            <span class="src-var">$somemap</span>=<span class="src-var">$db</span><span class="src-sym">-&gt;</span><span class="src-id">getMap</span><span class="src-sym">(</span><span class="src-var">$pageid</span><span class="src-sym">)</span><span class="src-sym">;</span><span class="src-comm">//you only need maps for organize the db</span></li>
+<li><a name="a62"></a>            <span class="src-var">$somemap</span><span class="src-sym">-&gt;</span><span class="src-id">put</span><span class="src-sym">(</span><span class="src-str">&quot;smalldesc&quot;</span><span class="src-sym">,</span><span class="src-var">$_POST</span><span class="src-sym">[</span><span class="src-str">'smalldesc'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a63"></a>            <span class="src-var">$somemap</span><span class="src-sym">-&gt;</span><span class="src-id">put</span><span class="src-sym">(</span><span class="src-str">&quot;largedesc&quot;</span><span class="src-sym">,</span><span class="src-var">$_POST</span><span class="src-sym">[</span><span class="src-str">'largedesc'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a64"></a>            <span class="src-var">$db</span><span class="src-sym">-&gt;</span><span class="src-id">close</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span><span class="src-comm">//this is what saves the db</span></li>
+<li><a name="a65"></a>            <span class="src-sym">}</span></li>
+<li><a name="a66"></a>            </li>
+<li><a name="a67"></a>        <span class="src-comm">//edit a page</span></li>
+<li><a name="a68"></a>        <span class="src-key">if </span><span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'page'</span><span class="src-sym">]</span>==<span class="src-str">&quot;page-edit&quot;</span><span class="src-sym">)</span></li>
+<li><a name="a69"></a>            <span class="src-sym">{</span></li>
+<li><a name="a70"></a>                </li>
+<li><a name="a71"></a>            <span class="src-key">if </span><span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'pageiddel'</span><span class="src-sym">]</span><span class="src-sym">)</span></li>
+<li><a name="a72"></a>                <span class="src-sym">{</span></li>
+<li><a name="a73"></a>                <span class="src-var">$db</span>= <span class="src-key">new </span><span class="src-id"><a href="../default/ADB.html">ADB</a></span><span class="src-sym">(</span><span class="src-var">$path</span>.<span class="src-str">&quot;db/files.db&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a74"></a>                <span class="src-comm">//$somemap=$db-&gt;getMap($_GET['pageiddel']);//you only need maps for organize the db</span></li>
+<li><a name="a75"></a>                <span class="src-var">$db</span><span class="src-sym">-&gt;</span><span class="src-id">del</span><span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'pageiddel'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a76"></a>                <span class="src-comm">//$somemap-&gt;del(&quot;largedesc&quot;);</span></li>
+<li><a name="a77"></a>                <span class="src-var">$db</span><span class="src-sym">-&gt;</span><span class="src-id">close</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span><span class="src-comm">//this is what saves the db</span></li>
+<li><a name="a78"></a>                <a href="http://www.php.net/unlink">unlink</a><span class="src-sym">(</span><span class="src-var">$path</span>.<span class="src-str">&quot;Pages/&quot;</span>.<span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'pageiddel'</span><span class="src-sym">]</span>.<span class="src-str">&quot;.php&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a79"></a>                <span class="src-sym">}</span></li>
+<li><a name="a80"></a>            </li>
+<li><a name="a81"></a>            <span class="src-key">if </span><span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'pageid'</span><span class="src-sym">]</span><span class="src-sym">)</span></li>
+<li><a name="a82"></a>                <span class="src-sym">{</span></li>
+<li><a name="a83"></a>                <span class="src-php">?&gt;</span></li>
+<li><a name="a84"></a>                &lt;fieldset&gt;</li>
+<li><a name="a85"></a>                &lt;legend&gt;Editing '<span class="src-php">&lt;?=</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'pageid'</span><span class="src-sym">]</span><span class="src-sym">; </span><span class="src-php">?&gt;</span>'&lt;/legend&gt;</li>
+<li><a name="a86"></a>                <span class="src-php">&lt;?php</span></li>
+<li><a name="a87"></a>                </li>
+<li><a name="a88"></a>                <span class="src-var">$smalldesc</span>=<span class="src-var">$db</span><span class="src-sym">-&gt;</span><span class="src-id">get</span><span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'pageid'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">get</span><span class="src-sym">(</span><span class="src-str">&quot;smalldesc&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a89"></a>                <span class="src-var">$largedesc</span>=<span class="src-var">$db</span><span class="src-sym">-&gt;</span><span class="src-id">get</span><span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'pageid'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">get</span><span class="src-sym">(</span><span class="src-str">&quot;largedesc&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a90"></a>                </li>
+<li><a name="a91"></a>                <span class="src-var">$file</span>=<span class="src-var">$path</span>.<span class="src-str">&quot;Pages/&quot;</span>.<span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'pageid'</span><span class="src-sym">]</span>.<span class="src-str">&quot;.php&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a92"></a>                <span class="src-var">$fh</span>=<a href="http://www.php.net/fopen">fopen</a><span class="src-sym">(</span><span class="src-var">$file</span><span class="src-sym">,</span><span class="src-str">'r'</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a93"></a>                <span class="src-var">$filedata</span>=<a href="http://www.php.net/fread">fread</a><span class="src-sym">(</span><span class="src-var">$fh</span><span class="src-sym">,</span><a href="http://www.php.net/filesize">filesize</a><span class="src-sym">(</span><span class="src-var">$file</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li><a name="a94"></a>                <a href="http://www.php.net/fclose">fclose</a><span class="src-sym">(</span><span class="src-var">$fh</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a95"></a>                <span class="src-php">?&gt;</span></li>
+<li><a name="a96"></a>                </li>
+<li><a name="a97"></a>                </li>
+<li><a name="a98"></a>                &lt;form action=&quot;<span class="src-php">&lt;?=</span><span class="src-var">$_SERVER</span><span class="src-sym">[</span><span class="src-str">'PHP_SELF'</span><span class="src-sym">]</span><span class="src-sym">; </span><span class="src-php">?&gt;</span>&quot; method=&quot;post&quot;&gt;</li>
+<li><a name="a99"></a>                &lt;input type=&quot;hidden&quot; name=&quot;manage&quot; value=&quot;pages&quot; /&gt;</li>
+<li><a name="a100"></a>                &lt;b&gt;Page ID:&lt;/b&gt;&lt;br /&gt;&lt;i&gt;Set a some text or a number which will be used to load your page using index.php?page=Page ID.&lt;/i&gt;&lt;br /&gt;</li>
+<li><a name="a101"></a>                &lt;input name=&quot;pageid&quot; type=&quot;text&quot; value=&quot;<span class="src-php">&lt;?=</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">'pageid'</span><span class="src-sym">]</span><span class="src-sym">; </span><span class="src-php">?&gt;</span>&quot; /&gt;&lt;br /&gt;&lt;br /&gt;</li>
+<li><a name="a102"></a>                &lt;b&gt;Small Description:&lt;/b&gt;&lt;br /&gt;&lt;i&gt;A small description of the page, used in tooltip.&lt;/i&gt;&lt;br /&gt;</li>
+<li><a name="a103"></a>                &lt;input name=&quot;smalldesc&quot; type=&quot;text&quot; value=&quot;<span class="src-php">&lt;?=</span><span class="src-var">$smalldesc</span><span class="src-sym">; </span><span class="src-php">?&gt;</span>&quot; /&gt;&lt;br /&gt;&lt;br /&gt;</li>
+<li><a name="a104"></a>                &lt;b&gt;Large Description:&lt;/b&gt;&lt;br /&gt;&lt;i&gt;A large description of the page.&lt;/i&gt;&lt;br /&gt;</li>
+<li><a name="a105"></a>                &lt;input name=&quot;largedesc&quot; type=&quot;text&quot; value=&quot;<span class="src-php">&lt;?=</span><span class="src-var">$largedesc</span><span class="src-sym">; </span><span class="src-php">?&gt;</span>&quot; /&gt;&lt;br /&gt;&lt;br /&gt;</li>
+<li><a name="a106"></a>                &lt;textarea id=&quot;datap&quot; class=&quot;codepress php&quot; cols=&quot;100%&quot; rows=&quot;30&quot; wrap=&quot;off&quot;&gt;<span class="src-php">&lt;?=</span><span class="src-var">$filedata</span><span class="src-sym">; </span><span class="src-php">?&gt;</span>&lt;/textarea&gt;&lt;br /&gt;</li>
+<li><a name="a107"></a>                &lt;input type=&quot;button&quot; onclick=&quot;datap.toggleEditor();&quot; value=&quot;Toggle Editor&quot; /&gt;</li>
+<li><a name="a108"></a>                &lt;textarea name=&quot;data&quot; style=&quot;display:none;&quot;&gt;&lt;/textarea&gt;</li>
+<li><a name="a109"></a>                &lt;input name=&quot;editpage&quot; value=&quot;Save Edit&quot; onclick=&quot;data.value = datap.getCode();&quot; type=&quot;submit&quot;&gt;</li>
+<li><a name="a110"></a>                &lt;/form&gt;</li>
+<li><a name="a111"></a>                </li>
+<li><a name="a112"></a>                <span class="src-php">&lt;?php</span></li>
+<li><a name="a113"></a>                <span class="src-sym">}</span></li>
+<li><a name="a114"></a>                <span class="src-php">?&gt;</span>&lt;/fieldset&gt;<span class="src-php">&lt;?php</span></li>
+<li><a name="a115"></a>            <span class="src-sym">}</span></li>
+<li><a name="a116"></a>        </li>
+<li><a name="a117"></a>        <span class="src-comm">//edit a page - submit</span></li>
+<li><a name="a118"></a>        <span class="src-key">if </span><span class="src-sym">(</span><span class="src-var">$_POST</span><span class="src-sym">[</span><span class="src-str">'editpage'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a119"></a>            <span class="src-php">?&gt;</span>&lt;fieldset&gt;</li>
+<li><a name="a120"></a>            &lt;legend&gt;Editing...&lt;/legend&gt;</li>
+<li><a name="a121"></a>            Request should have succeeded.</li>
+<li><a name="a122"></a>            &lt;/fieldset&gt;<span class="src-php">&lt;?php</span></li>
+<li><a name="a123"></a>            <span class="src-var">$pageid</span>=<a href="http://www.php.net/str_replace">str_replace</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">&quot; &quot;</span><span class="src-sym">,</span><span class="src-str">&quot;/&quot;</span><span class="src-sym">)</span><span class="src-sym">,</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">&quot;_&quot;</span><span class="src-sym">,</span><span class="src-str">&quot;_&quot;</span><span class="src-sym">)</span><span class="src-sym">,</span><span class="src-var">$_POST</span><span class="src-sym">[</span><span class="src-str">'pageid'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a124"></a>            </li>
+<li><a name="a125"></a>            <a href="../default/_admin_Functions_functions_php.html#functionWriteFile">WriteFile</a><span class="src-sym">(</span><span class="src-var">$path</span>.<span class="src-str">&quot;Pages/&quot;</span>.<span class="src-var">$pageid</span>.<span class="src-str">&quot;.php&quot;</span><span class="src-sym">,</span><a href="http://www.php.net/stripslashes">stripslashes</a><span class="src-sym">(</span><span class="src-var">$_POST</span><span class="src-sym">[</span><span class="src-str">'data'</span><span class="src-sym">]</span><span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li><a name="a126"></a>            </li>
+<li><a name="a127"></a>            <span class="src-var">$db</span>= <span class="src-key">new </span><span class="src-id"><a href="../default/ADB.html">ADB</a></span><span class="src-sym">(</span><span class="src-var">$path</span>.<span class="src-str">&quot;db/files.db&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a128"></a>            <span class="src-var">$somemap</span>=<span class="src-var">$db</span><span class="src-sym">-&gt;</span><span class="src-id">getMap</span><span class="src-sym">(</span><span class="src-var">$pageid</span><span class="src-sym">)</span><span class="src-sym">;</span><span class="src-comm">//you only need maps for organize the db</span></li>
+<li><a name="a129"></a>            <span class="src-var">$somemap</span><span class="src-sym">-&gt;</span><span class="src-id">put</span><span class="src-sym">(</span><span class="src-str">&quot;smalldesc&quot;</span><span class="src-sym">,</span><span class="src-var">$_POST</span><span class="src-sym">[</span><span class="src-str">'smalldesc'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a130"></a>            <span class="src-var">$somemap</span><span class="src-sym">-&gt;</span><span class="src-id">put</span><span class="src-sym">(</span><span class="src-str">&quot;largedesc&quot;</span><span class="src-sym">,</span><span class="src-var">$_POST</span><span class="src-sym">[</span><span class="src-str">'largedesc'</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a131"></a>            <span class="src-var">$db</span><span class="src-sym">-&gt;</span><span class="src-id">close</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span><span class="src-comm">//this is what saves the db</span></li>
+<li><a name="a132"></a>            <span class="src-sym">}</span></li>
+<li><a name="a133"></a>            </li>
+<li><a name="a134"></a>        <span class="src-sym">}</span></li>
+<li><a name="a135"></a>    <span class="src-sym">}</span></li>
+<li><a name="a136"></a><span class="src-php">?&gt;</span></li>
+</ol></pre></div>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Sat, 12 May 2007 21:46:01 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.3.0RC3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

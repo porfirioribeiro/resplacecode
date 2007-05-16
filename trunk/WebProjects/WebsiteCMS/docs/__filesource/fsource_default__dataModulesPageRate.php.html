@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>File Source for PageRate.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">default</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+  		  [ <a href="../classtrees_default.html" class="menu">class tree: default</a> ]
+		  [ <a href="../elementindex_default.html" class="menu">index: default</a> ]
+		  [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_default.html">default</a><br />
+            <br /><br />
+                  
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file PageRate.php</h1>
+<p>Documentation is available at <a href="../default/_data_Modules_PageRate_php.html">PageRate.php</a></p>
+<div class="php">
+<div class="listing"><pre><ol><li><a name="a1"></a><span class="src-php">&lt;?php</span></li>
+<li><a name="a2"></a>&nbsp;</li>
+<li><a name="a3"></a><span class="src-key">if </span><span class="src-sym">(</span>isset<span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">&quot;RatePage&quot;</span><span class="src-sym">]</span><span class="src-sym">) </span>&amp;&amp; isset<span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">&quot;page&quot;</span><span class="src-sym">]</span><span class="src-sym">) </span>&amp;&amp; isset<span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">&quot;path&quot;</span><span class="src-sym">]</span><span class="src-sym">))</span><span class="src-sym">{</span></li>
+<li><a name="a4"></a>    <span class="src-inc">include </span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">&quot;path&quot;</span><span class="src-sym">]</span>.<span class="src-str">&quot;data/Functions/ADB.php&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a5"></a>    <span class="src-var">$db</span>=<span class="src-key">new </span><span class="src-id"><a href="../default/ADB.html">ADB</a></span><span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">&quot;path&quot;</span><span class="src-sym">]</span>.<span class="src-str">&quot;data/db/PageRater.db&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a6"></a>    <span class="src-var">$page</span>=<span class="src-var">$db</span><span class="src-sym">-&gt;</span><span class="src-id">getMap</span><span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">&quot;page&quot;</span><span class="src-sym">]</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a7"></a>    <span class="src-var">$votes</span>=<span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">get</span><span class="src-sym">(</span><span class="src-str">&quot;votes&quot;</span><span class="src-sym">,</span><span class="src-str">&quot;0&quot;</span><span class="src-sym">)</span>+<span class="src-num">1</span><span class="src-sym">;</span></li>
+<li><a name="a8"></a>    <span class="src-var">$rank</span>=<span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">get</span><span class="src-sym">(</span><span class="src-str">&quot;rank&quot;</span><span class="src-sym">,</span><span class="src-str">&quot;0&quot;</span><span class="src-sym">)</span>+<span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">&quot;RatePage&quot;</span><span class="src-sym">]</span><span class="src-sym">;</span></li>
+<li><a name="a9"></a>    <span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">put</span><span class="src-sym">(</span><span class="src-str">&quot;votes&quot;</span><span class="src-sym">,</span><span class="src-var">$votes</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a10"></a>    <span class="src-var">$page</span><span class="src-sym">-&gt;</span><span class="src-id">put</span><span class="src-sym">(</span><span class="src-str">&quot;rank&quot; </span><span class="src-sym">,</span><span class="src-var">$rank</span><span class="src-sym">)</span><span class="src-sym">;    </span></li>
+<li><a name="a11"></a>    <span class="src-var">$rv</span>=<a href="http://www.php.net/round">round</a><span class="src-sym">(</span><span class="src-var">$rank</span>/<span class="src-var">$votes</span><span class="src-sym">,</span><span class="src-num">2</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a12"></a>    echo <span class="src-var">$votes</span>.<span class="src-str">&quot;-&quot;</span>.<span class="src-var">$rank</span>.<span class="src-str">&quot;-&quot;</span>.<span class="src-var">$rv</span><span class="src-sym">;</span></li>
+<li><a name="a13"></a>    <span class="src-var">$db</span><span class="src-sym">-&gt;</span><span class="src-id">close</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a14"></a><span class="src-sym">}</span><span class="src-key">else</span><span class="src-sym">{</span></li>
+<li><a name="a15"></a>    <span class="src-key">class </span><a href="../default/PageRate.html">PageRate</a> <span class="src-key">extends </span><span class="src-id">Module </span><span class="src-sym">{</span></li>
+<li><a name="a16"></a>        <span class="src-key">function </span><a href="../default/PageRate.html#methodPageRate">PageRate</a><span class="src-sym">(</span><span class="src-var">$page</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a17"></a>            <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">page</span>=<span class="src-var">$page</span><span class="src-sym">;</span></li>
+<li><a name="a18"></a>            <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">side</span>=<span class="src-id">Module</span><span class="src-sym">::</span><span class="src-id">LEFT</span><span class="src-sym">;</span></li>
+<li><a name="a19"></a>            <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">title</span>=<span class="src-str">&quot;Rate this Page&quot;</span><span class="src-sym">;    </span></li>
+<li><a name="a20"></a>            <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">dbPath</span>=<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">page</span><span class="src-sym">-&gt;</span><span class="src-id">path</span>.<span class="src-str">&quot;db/PageRater.db&quot;</span><span class="src-sym">;</span></li>
+<li><a name="a21"></a>            <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">db</span>=<span class="src-key">new </span><span class="src-id"><a href="../default/ADB.html">ADB</a></span><span class="src-sym">(</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">dbPath</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a22"></a>            <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">pg</span>=<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">db</span><span class="src-sym">-&gt;</span><span class="src-id">getMap</span><span class="src-sym">(</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">page</span><span class="src-sym">-&gt;</span><span class="src-id">id</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a23"></a>            <span class="src-var">$url</span>=<a href="http://www.php.net/str_replace">str_replace</a><span class="src-sym">(</span><span class="src-var">$_SERVER</span><span class="src-sym">[</span><span class="src-str">&quot;DOCUMENT_ROOT&quot;</span><span class="src-sym">]</span><span class="src-sym">, </span><span class="src-str">&quot;&quot;</span><span class="src-sym">, </span><a href="http://www.php.net/preg_replace">preg_replace</a><span class="src-sym">(</span><span class="src-str">&quot;/\\\/&quot;</span><span class="src-sym">,</span><span class="src-str">&quot;/&quot;</span><span class="src-sym">,</span>__FILE__<span class="src-sym">))</span><span class="src-sym">;</span></li>
+<li><a name="a24"></a>            <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">page</span><span class="src-sym">-&gt;</span><span class="src-id">addJSCode</span><span class="src-sym">(</span><span class="src-str">&quot;</span></li>
+<li><a name="a25"></a><span class="src-str">                function PageRate(rate){</span></li>
+<li><a name="a26"></a><span class="src-str">                    var url='&quot;</span>.<span class="src-var">$url</span>.<span class="src-str">&quot;';</span></li>
+<li><a name="a27"></a><span class="src-str">                    new Ajax.Request(</span></li>
+<li><a name="a28"></a><span class="src-str">                        url, </span></li>
+<li><a name="a29"></a><span class="src-str">                        {</span></li>
+<li><a name="a30"></a><span class="src-str">                            method: 'get', </span></li>
+<li><a name="a31"></a><span class="src-str">                            parameters: '?RatePage='+rate+'&amp;page='+'&quot;</span>.<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">page</span><span class="src-sym">-&gt;</span><span class="src-id">id</span>.<span class="src-str">&quot;'+'&amp;path='+'&quot;</span>.<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">page</span><span class="src-sym">-&gt;</span><span class="src-id">absRoot</span>.<span class="src-str">&quot;</span><span class="src-str">', </span></li>
+<li><a name="a32"></a></span><span class="src-str">                            <span class="src-id">onComplete</span>: <span class="src-id">function</span>(<span class="src-id">req</span>)<span class="src-sym">{</span></span></li>
+<li><a name="a33"></a></span><span class="src-str">                                <span class="src-id">var</span> <span class="src-id">opts</span>=<span class="src-id">req</span>.<span class="src-id">responseText</span>.<span class="src-id">split</span>('-');</span></li>
+<li><a name="a34"></a></span><span class="src-str">                                $('<span class="src-id">PageRate_votes</span>').<span class="src-id">innerHTML</span>=<span class="src-id">opts</span><span class="src-sym">[</span>0<span class="src-sym">]</span>;</span></li>
+<li><a name="a35"></a></span><span class="src-str">                                $('<span class="src-id">PageRate_rank</span>').<span class="src-id">innerHTML</span>=<span class="src-id">opts</span><span class="src-sym">[</span>2<span class="src-sym">]</span>;</span></li>
+<li><a name="a36"></a></span><span class="src-str">                                $('<span class="src-id">PageRate_progress</span>').<span class="src-id">style</span>.<span class="src-id">width</span>=(<span class="src-id">parseFloat</span>(<span class="src-id">opts</span><span class="src-sym">[</span>2<span class="src-sym">]</span>)*100)/5+'<span class="src-id">px</span>';</span></li>
+<li><a name="a37"></a></span><span class="src-str">                            <span class="src-sym">}</span></span></li>
+<li><a name="a38"></a></span><span class="src-str">                    <span class="src-sym">}</span>);                </span></li>
+<li><a name="a39"></a></span><span class="src-str">                <span class="src-sym">}</span></span></li>
+<li><a name="a40"></a></span><span class="src-str">            </span><span class="src-str">&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a41"></a>        <span class="src-sym">}</span></li>
+<li><a name="a42"></a>        <span class="src-key">function </span><a href="../default/PageRate.html#methodcontent">content</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a43"></a>            <span class="src-key">if </span><span class="src-sym">(</span>isset<span class="src-sym">(</span><span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">&quot;RatePage&quot;</span><span class="src-sym">]</span><span class="src-sym">))</span><span class="src-sym">{</span></li>
+<li><a name="a44"></a>                <span class="src-var">$r</span>=<span class="src-var">$_GET</span><span class="src-sym">[</span><span class="src-str">&quot;RatePage&quot;</span><span class="src-sym">]</span><span class="src-sym">;</span></li>
+<li><a name="a45"></a>                <span class="src-key">if </span><span class="src-sym">(</span><span class="src-var">$r</span>==<span class="src-str">&quot;1&quot; </span>|| <span class="src-var">$r</span>==<span class="src-str">&quot;2&quot; </span>|| <span class="src-var">$r</span>==<span class="src-str">&quot;3&quot; </span>|| <span class="src-var">$r</span>==<span class="src-str">&quot;4&quot; </span>|| <span class="src-var">$r</span>==<span class="src-str">&quot;5&quot;</span><span class="src-sym">)</span><span class="src-sym">{</span></li>
+<li><a name="a46"></a>                    <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">pg</span><span class="src-sym">-&gt;</span><span class="src-id">put</span><span class="src-sym">(</span><span class="src-str">&quot;votes&quot;</span><span class="src-sym">,</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">pg</span><span class="src-sym">-&gt;</span><span class="src-id">get</span><span class="src-sym">(</span><span class="src-str">&quot;votes&quot;</span><span class="src-sym">,</span><span class="src-str">&quot;0&quot;</span><span class="src-sym">)</span>+<span class="src-num">1</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a47"></a>                    <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">pg</span><span class="src-sym">-&gt;</span><span class="src-id">put</span><span class="src-sym">(</span><span class="src-str">&quot;rank&quot;</span><span class="src-sym">,</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">pg</span><span class="src-sym">-&gt;</span><span class="src-id">get</span><span class="src-sym">(</span><span class="src-str">&quot;rank&quot;</span><span class="src-sym">,</span><span class="src-str">&quot;0&quot;</span><span class="src-sym">)</span>+<span class="src-var">$r</span><span class="src-sym">)</span><span class="src-sym">;                </span></li>
+<li><a name="a48"></a>                <span class="src-sym">}</span></li>
+<li><a name="a49"></a>            <span class="src-sym">}</span></li>
+<li><a name="a50"></a>            <span class="src-var">$rank</span>=<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">pg</span><span class="src-sym">-&gt;</span><span class="src-id">get</span><span class="src-sym">(</span><span class="src-str">&quot;rank&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a51"></a>            <span class="src-var">$votes</span>=<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">pg</span><span class="src-sym">-&gt;</span><span class="src-id">get</span><span class="src-sym">(</span><span class="src-str">&quot;votes&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a52"></a>            <span class="src-key">if </span><span class="src-sym">(</span><span class="src-var">$votes</span>&gt;<span class="src-num">0</span><span class="src-sym">)</span><span class="src-sym">{        </span></li>
+<li><a name="a53"></a>                <span class="src-var">$rv</span>=<a href="http://www.php.net/round">round</a><span class="src-sym">(</span><span class="src-var">$rank</span>/<span class="src-var">$votes</span><span class="src-sym">,</span><span class="src-num">2</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a54"></a>            <span class="src-sym">}</span><span class="src-key">else</span><span class="src-sym">{</span></li>
+<li><a name="a55"></a>                <span class="src-var">$rv</span>=<span class="src-num">0</span><span class="src-sym">;    </span></li>
+<li><a name="a56"></a>            <span class="src-sym">}        </span></li>
+<li><a name="a57"></a>            <span class="src-var">$p</span>=<span class="src-var">$_SERVER</span><span class="src-sym">[</span><span class="src-str">'PHP_SELF'</span><span class="src-sym">]</span><span class="src-sym">;</span></li>
+<li><a name="a58"></a>            </li>
+<li><a name="a59"></a>            <span class="src-php">?&gt;</span></li>
+<li><a name="a60"></a>                Rank: &lt;span id=&quot;PageRate_rank&quot;&gt;<span class="src-php">&lt;?=</span><span class="src-var">$rv</span><span class="src-php">?&gt;</span>&lt;/span&gt; / 5  Votes: &lt;span id=&quot;PageRate_votes&quot;&gt;<span class="src-php">&lt;?=</span><span class="src-var">$votes</span><span class="src-php">?&gt;</span>&lt;/span&gt;</li>
+<li><a name="a61"></a>                &lt;div style=&quot;width:100px;background-color:white;border:1px solid black;height: 10px;&quot;&gt;            </li>
+<li><a name="a62"></a>                    &lt;div id=&quot;PageRate_progress&quot; style=&quot;position: static;left:0px;top:0px;background-image:URL(<span class="src-php">&lt;?=</span><span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">page</span><span class="src-sym">-&gt;</span><span class="src-id">modulespath</span>.<span class="src-str">&quot;Data/PR.png&quot;</span><span class="src-php">?&gt;</span>) ;height: 100%;width: <span class="src-php">&lt;?=</span><span class="src-sym">(</span><span class="src-num">100</span>*<span class="src-var">$rv</span><span class="src-sym">)</span>/<span class="src-num">5</span><span class="src-php">?&gt;</span>px;&quot;&gt;&lt;/div&gt;</li>
+<li><a name="a63"></a>                &lt;/div&gt;</li>
+<li><a name="a64"></a>                &lt;div&gt;</li>
+<li><a name="a65"></a>                    &lt;a href=&quot;javascript:;&quot; onclick=&quot;PageRate(1)&quot;&gt;1&lt;/a&gt;</li>
+<li><a name="a66"></a>                    &lt;a href=&quot;javascript:;&quot; onclick=&quot;PageRate(2)&quot;&gt;2&lt;/a&gt;</li>
+<li><a name="a67"></a>                    &lt;a href=&quot;javascript:;&quot; onclick=&quot;PageRate(3)&quot;&gt;3&lt;/a&gt;</li>
+<li><a name="a68"></a>                    &lt;a href=&quot;javascript:;&quot; onclick=&quot;PageRate(4)&quot;&gt;4&lt;/a&gt;</li>
+<li><a name="a69"></a>                    &lt;a href=&quot;javascript:;&quot; onclick=&quot;PageRate(5)&quot;&gt;5&lt;/a&gt;</li>
+<li><a name="a70"></a>                &lt;/div&gt;</li>
+<li><a name="a71"></a>            <span class="src-php">&lt;?php</span></li>
+<li><a name="a72"></a>            <span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">db</span><span class="src-sym">-&gt;</span><span class="src-id">close</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a73"></a>        <span class="src-sym">}</span></li>
+<li><a name="a74"></a>    <span class="src-sym">}</span></li>
+<li><a name="a75"></a><span class="src-sym">}</span></li>
+<li><a name="a76"></a><span class="src-php">?&gt;</span></li>
+</ol></pre></div>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Sat, 12 May 2007 21:46:00 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.3.0RC3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

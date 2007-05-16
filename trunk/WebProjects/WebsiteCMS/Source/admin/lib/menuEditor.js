@@ -1,0 +1,21 @@
+var menuEditor={
+	addKey:function(el){
+		el.form.url.disabled="disabled";
+		el.form.act.value="addKey";		
+	},
+	addItem:function(el){
+		el.form.url.disabled="";	
+		el.form.act.value="addItem";		
+	},
+	changeKey:function(el,key){
+		el.form.name.value=key;
+		el.form.url.disabled="disabled";
+		el.form.act.value="changeKey";
+	},
+	changeItem:function(el,name,url){
+		el.form.url.disabled="";	
+		el.form.name.value=name;
+		el.form.url.value=url;	
+		el.form.act.value="changeItem";	
+	}
+};

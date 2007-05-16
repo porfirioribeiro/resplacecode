@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>File Source for getfile.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">default</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+  		  [ <a href="../classtrees_default.html" class="menu">class tree: default</a> ]
+		  [ <a href="../elementindex_default.html" class="menu">index: default</a> ]
+		  [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_default.html">default</a><br />
+            <br /><br />
+                  
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file getfile.php</h1>
+<p>Documentation is available at <a href="../default/_getfile_php.html">getfile.php</a></p>
+<div class="php">
+<div class="listing"><pre><ol><li><a name="a1"></a><span class="src-php">&lt;?php</span></li>
+<li><a name="a2"></a><span class="src-doc">/**</span></li>
+<li><a name="a3"></a><span class="src-doc"> * $Id: getfile.php, v#.#.#, 2007-MAY-08</span></li>
+<li><a name="a4"></a><span class="src-doc"> * </span><span class="src-doc-tag">@Author:</span><span class="src-doc"> Dean Williams &lt; email &gt;</span></li>
+<li><a name="a5"></a><span class="src-doc"> * </span><span class="src-doc-tag">@Author:</span><span class="src-doc"> Porfirio Ribeiro &lt; email &gt;</span></li>
+<li><a name="a6"></a><span class="src-doc"> * </span><span class="src-doc-tag">@Build:</span><span class="src-doc"> 20070508</span></li>
+<li><a name="a7"></a><span class="src-doc"> * </span><span class="src-doc-tag">@Notes:</span></li>
+<li><a name="a8"></a><span class="src-doc"> *  [05-08-07 @ 10:32PM PST] - Organized and added header to document &lt; steve &gt;</span></li>
+<li><a name="a9"></a><span class="src-doc"> */</span></li>
+<li><a name="a10"></a> </li>
+<li><a name="a11"></a> <span class="src-comm">// Common Definitions</span></li>
+<li><a name="a12"></a> <a href="http://www.php.net/define">define</a><span class="src-sym">( </span><span class="src-str">&quot;PATH&quot;</span><span class="src-sym">, </span><span class="src-str">&quot;data/&quot; </span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a13"></a> </li>
+<li><a name="a14"></a> <span class="src-comm">// Initialize new session</span></li>
+<li><a name="a15"></a> <a href="http://www.php.net/session_start">session_start</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a16"></a> </li>
+<li><a name="a17"></a> <span class="src-comm">// Basic Definitions</span></li>
+<li><a name="a18"></a><span class="src-comm">//$_REQUEST['page'] = preg_match(&quot;/[^a-z0-9_-]/&quot;, '', strtolower( $_REQUEST['page'] ));</span></li>
+<li><a name="a18"></a> </li>
+<li><a name="a19"></a> <span class="src-var">$Page </span>= <a href="http://www.php.net/strtolower">strtolower</a><span class="src-sym">( </span><span class="src-var">$_REQUEST</span><span class="src-sym">[</span><span class="src-str">'page'</span><span class="src-sym">] </span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a20"></a> <span class="src-var">$Action </span>= <span class="src-var">$_REQUEST</span><span class="src-sym">[</span><span class="src-str">'action'</span><span class="src-sym">]</span><span class="src-sym">;</span></li>
+<li><a name="a21"></a>&nbsp;</li>
+<li><a name="a22"></a> <span class="src-comm">// Do we have a page set?</span></li>
+<li><a name="a23"></a> <span class="src-key">if</span><span class="src-sym">( </span><span class="src-sym">!</span>isset<span class="src-sym">( </span><span class="src-var">$_REQUEST</span><span class="src-sym">[</span><span class="src-str">'page'</span><span class="src-sym">] </span><span class="src-sym">) )</span></li>
+<li><a name="a24"></a> <span class="src-sym">{</span></li>
+<li><a name="a25"></a>     <span class="src-comm">// If not load from a session</span></li>
+<li><a name="a26"></a>    <span class="src-var">$Page </span>= <span class="src-var">$_SESSION</span><span class="src-sym">[</span><span class="src-str">'page'</span><span class="src-sym">]</span><span class="src-sym">;</span></li>
+<li><a name="a27"></a> <span class="src-sym">}</span></li>
+<li><a name="a28"></a> </li>
+<li><a name="a29"></a> <span class="src-comm">// Create a new session for our page</span></li>
+<li><a name="a30"></a> <span class="src-var">$_SESSION</span><span class="src-sym">[</span><span class="src-str">'page'</span><span class="src-sym">] </span>= <span class="src-var">$Page</span><span class="src-sym">;</span></li>
+<li><a name="a31"></a> </li>
+<li><a name="a32"></a> <span class="src-key">if</span><span class="src-sym">( </span><a href="http://www.php.net/file_exists">file_exists</a><span class="src-sym">( </span><span class="src-id"><a href="../default/_getfile_php.html#definePATH">PATH</a> </span>. <span class="src-str">&quot;</span><span class="src-id">Pages</span>/<span class="src-var">$Page</span>.<span class="src-id">php</span><span class="src-str">&quot; </span><span class="src-sym">) )</span></li>
+<li><a name="a33"></a> <span class="src-sym">{</span></li>
+<li><a name="a34"></a>     <span class="src-inc">include</span><span class="src-sym">( </span><span class="src-id">PATH </span>. <span class="src-str">&quot;</span><span class="src-id">Pages</span>/<span class="src-var">$Page</span>.<span class="src-id">php</span><span class="src-str">&quot; </span><span class="src-sym">)</span><span class="src-sym">;</span></li>
+<li><a name="a35"></a>    echo<span class="src-str">'huh'</span><span class="src-sym">;</span></li>
+<li><a name="a36"></a> <span class="src-sym">}</span></li>
+<li><a name="a37"></a><span class="src-php">?&gt;</span></li>
+</ol></pre></div>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Sat, 12 May 2007 21:14:20 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.3.0RC3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

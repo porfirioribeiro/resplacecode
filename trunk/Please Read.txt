@@ -1,0 +1,13 @@
+Welcome to the resplace.net SVN, our SVN contains all the current source codes of our projects aswell as latest stable and BETA builds of projects. To help navigate our projects we have sorted them out into categorys, this may also be useful for people who just want to see our java projects for example.
+
+The first set of directorys split projects depending on what there being developed in, for instance JavaProjects contains all our Java programmed projects such as JEmote.
+
+Within these directorys are the project names, and within the project directory there are 2 directorys "source" contains the most recent source code (what we are working on) you may be lucky enough to get a build which works good but dont expect everything to be great since it is the current build. The other directory is "Builds" in here we will place designated BETA release's for those looking for a more stable build to test, we will also place final releases in this directory.
+
+Want to help with a project or two?
+-----------------------------------
+
+If you would like to help us with a project and you have not been given developer rights on the SVN then the way to become a developer (or even if you dont want to become a developer, you just want to help out once or twice) is to first register to our forums, get the current source code and do your modifications and whatever, then create a patch and send it to us, we will apply the patch and test your modifications, if we like your modifications (rare that we wont) we will apply them to our permanent source. If you continue providing good help we will ask you to become a developer which means you have direct editing access to our SVN.
+
+Thanks!
+

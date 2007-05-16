@@ -1,0 +1,21 @@
+;Configuration File made by Zend Studio PHPDocumentor Wizard, Sat May 12 21:45:48 BST 2007
+pear=off
+
+filename=D:\xampp\htdocs\Resplace\WebProjects\WebsiteCMS\Source\data\setup.php,D:\xampp\htdocs\Resplace\WebProjects\WebsiteCMS\Source\data\site.php
+
+output=HTML:Smarty:PHP
+
+customtags=lastedited,notes
+
+parseprivate=off
+
+directory=D:\xampp\htdocs\Resplace\WebProjects\WebsiteCMS\Source\admin\Functions,D:\xampp\htdocs\Resplace\WebProjects\WebsiteCMS\Source\admin\Modules,D:\xampp\htdocs\Resplace\WebProjects\WebsiteCMS\Source\data\Functions,D:\xampp\htdocs\Resplace\WebProjects\WebsiteCMS\Source\data\Modules
+
+target=D:\xampp\htdocs\Resplace\WebProjects\WebsiteCMS\docs
+
+title=Resplace Website System
+
+sourcecode=on
+
+javadocdesc=off
+

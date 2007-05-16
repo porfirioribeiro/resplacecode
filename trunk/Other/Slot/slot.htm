@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Untitled Document</title>
+		<script type="text/javascript" language="JavaScript" src="firebug/firebug.js"></script>
+		<script type="text/javascript" language="JavaScript" src="Class.js"></script>
+		<script type="text/javascript" language="JavaScript" src="HTML.js"></script>
+		<script type="text/javascript" language="JavaScript">
+
+/*window.onerror=function(m,file,line){
+	alert("Message:\n"+m+"\nFile:"+file+"\nLine:"+line);
+};
+*/
+if (console.open){
+	console.open();
+}
+$Debug=console.log;
+
+var Sprite=Class({
+	_creator:function(){
+		return new Image();
+	},
+	Constructor:function(src){
+		this._src=src;
+		if (Sprite.AutoPreload){
+			this.src=src;
+		}	
+		Sprite.Sprites.push(this);
+		Sprite.totalSprites++;
+		addEventTo(this,"load",this._onLoad);
+	},
+	totalSprites:0,
+	loadedSprites:0,
+	Sprites:[],
+	AutoPreload:false,
+	preload:function(){
+		if (!Sprite.AutoPreload){
+			for (var i=0;i<Sprite.Sprites.length;i++){
+				Sprite.Sprites[i].preload();
+			}
+		}				
+	},
+	onload:function(){},
+	onloadSprite:function(n){},
+	prototype:{
+		preloaded:false,
+		preload:function(){
+			if (!Sprite.AutoPreload){
+				this.src=this._src;
+				this.preloaded=true;
+			}				
+		},
+		doAfterPreload:function(obj,method){
+			if (this.width>0 && this.height>0){
+				method.call(obj);
+			}else{
+				addEventTo(this,"load",function(){method.call(obj);});
+			}
+		},
+		_onLoad:function(){
+			Sprite.loadedSprites++;
+			if (Sprite.totalSprites===0){
+				Sprite.onloadSprite(0);
+			}else{
+				Sprite.onloadSprite(Math.roundN((Sprite.loadedSprites/Sprite.totalSprites)*100,2));
+			}		
+			if (Sprite.loadedSprites==Sprite.totalSprites){
+				Sprite.onload();
+			}
+		}	
+	}
+});
+
+var sprRight=new Sprite("Image/right.png");
+var sprLeft =new Sprite("Image/Left2.png");
+new Sprite("Image/help.png");
+new Sprite("Image/exit.png");
+new Sprite("Image/money.png");
+new Sprite("Image/coin.png");
+new Sprite("Image/o.png");
+new Sprite("Image/ok.png");
+new Sprite("Image/tilt.png");
+new Sprite("Image/play.png");
+new Sprite("Image/itens.png");
+new Sprite("Image/bg.png");
+new Sprite("Image/puller.png");
+Sprite.preload();
+
+var SprButton=Class({
+	Extends:HTML.Div,
+	Constructor:function(x,y,spr){
+		this.setX(x);
+		this.setY(y);
+		this.setSprite(spr);
+		this.addEvent("mouseover",this.onMouseOver);
+		this.addEvent("mouseout",this.onMouseOut);
+		this.addEvent("mousedown",this.onMouseDown);
+		this.addEvent("mouseup",this.onMouseUp);
+	},
+	prototype:{
+		style:{
+			position:"absolute"
+		},
+		setX:function(x,down){
+			if (nDef(down)){
+				this.up_x=x;
+				this.down_x=x+2
+			}
+			this.Super.setX.call(this,x);
+		},
+		setY:function(y,down){
+			if (nDef(down)){
+				this.up_y=y;
+				this.down_y=y+2
+			}
+			this.Super.setY.call(this,y);			
+		},
+		setSprite:function(spr){
+			if(!Sprite.is(spr)){return;}
+			this.spr=spr;
+			this.spr.doAfterPreload(this,function(){
+				this.style.backgroundImage="URL("+this.spr.src+")";
+				this.setWidth(this.spr.width);
+				this.setHeight(this.spr.height);					
+			});
+		},
+		onMouseOver:function(e){
+			this.fadeAfterFade(0.7,30);			
+		},
+		onMouseOut:function(e){			
+			this.fadeAfterFade(1,30);
+			this.setX(this.up_x,true);
+			this.setY(this.up_y,true);			
+		},
+		onMouseDown:function(e){
+			this.setX(this.down_x,true);
+			this.setY(this.down_y,true);
+			e.stop();
+		},
+		onMouseUp:function(e){
+			this.setX(this.up_x,true);
+			this.setY(this.up_y,true);
+			e.stop();
+		}
+	}
+});
+
+var spbRight=new SprButton(100,100,sprLeft);
+var spbLeft=new SprButton(100,150,sprLeft);
+$Body.add(spbRight);
+$Body.add(spbLeft);
+addOnLoad(function(){
+	
+	var btn=HTML.fromId("somebtn");
+	btn.fadeOut(100);
+	btn.addEvent("mouseover",function(e){
+		alert(e.getX());
+	});
+});
+
+	</script>
+	</head>
+	<body>
+		<button id="somebtn" onmousedown="$ID(this).fadeIn(100)">fadeIn</button>
+		<button onmousedown="$ID(this).fadeTo(0.5,100)" onmouseover="alert($E(event).getX());">fadeOut</button>
+		<img src="Image/spacer.png" width="41" height="41" style="filter: progid:DXImageTransform.Microsoft.BasicImage(opacity=0.5)  progid:DXImageTransform.Microsoft.AlphaImageLoader(src='Image/Left2.png', sizingMethod='image')" alt="">
+	</body>
+</html>
+<!--
+progid:DXImageTransform.Microsoft.Alpha(opacity:50)
+-->

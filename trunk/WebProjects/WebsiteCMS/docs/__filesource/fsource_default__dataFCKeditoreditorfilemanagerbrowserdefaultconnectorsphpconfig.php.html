@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>File Source for config.php</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">default</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+  		  [ <a href="../classtrees_default.html" class="menu">class tree: default</a> ]
+		  [ <a href="../elementindex_default.html" class="menu">index: default</a> ]
+		  [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_default.html">default</a><br />
+            <br /><br />
+                  
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Source for file config.php</h1>
+<p>Documentation is available at <a href="../default/_data_FCKeditor_editor_filemanager_browser_default_connectors_php_config_php.html">config.php</a></p>
+<div class="php">
+<div class="listing"><pre><ol><li><a name="a1"></a><span class="src-php">&lt;?php</span></li>
+<li><a name="a2"></a><span class="src-comm">/*</span></li>
+<li><a name="a3"></a><span class="src-comm"> * FCKeditor - The text editor for Internet - http://www.fckeditor.net</span></li>
+<li><a name="a4"></a><span class="src-comm"> * Copyright (C) 2003-2007 Frederico Caldeira Knabben</span></li>
+<li><a name="a5"></a><span class="src-comm"> *</span></li>
+<li><a name="a6"></a><span class="src-comm"> * == BEGIN LICENSE ==</span></li>
+<li><a name="a7"></a><span class="src-comm"> *</span></li>
+<li><a name="a8"></a><span class="src-comm"> * Licensed under the terms of any of the following licenses at your</span></li>
+<li><a name="a9"></a><span class="src-comm"> * choice:</span></li>
+<li><a name="a10"></a><span class="src-comm"> *</span></li>
+<li><a name="a11"></a><span class="src-comm"> *  - GNU General Public License Version 2 or later (the &quot;GPL&quot;)</span></li>
+<li><a name="a12"></a><span class="src-comm"> *    http://www.gnu.org/licenses/gpl.html</span></li>
+<li><a name="a13"></a><span class="src-comm"> *</span></li>
+<li><a name="a14"></a><span class="src-comm"> *  - GNU Lesser General Public License Version 2.1 or later (the &quot;LGPL&quot;)</span></li>
+<li><a name="a15"></a><span class="src-comm"> *    http://www.gnu.org/licenses/lgpl.html</span></li>
+<li><a name="a16"></a><span class="src-comm"> *</span></li>
+<li><a name="a17"></a><span class="src-comm"> *  - Mozilla Public License Version 1.1 or later (the &quot;MPL&quot;)</span></li>
+<li><a name="a18"></a><span class="src-comm"> *    http://www.mozilla.org/MPL/MPL-1.1.html</span></li>
+<li><a name="a19"></a><span class="src-comm"> *</span></li>
+<li><a name="a20"></a><span class="src-comm"> * == END LICENSE ==</span></li>
+<li><a name="a21"></a><span class="src-comm"> *</span></li>
+<li><a name="a22"></a><span class="src-comm"> * Configuration file for the File Manager Connector for PHP.</span></li>
+<li><a name="a23"></a><span class="src-comm"> */</span></li>
+<li><a name="a24"></a><span class="src-inc">include_once </span><span class="src-str">'../../../../../../../setup.php'</span><span class="src-sym">;</span></li>
+<li><a name="a25"></a><span class="src-key">global </span><span class="src-var">$Config </span><span class="src-sym">;</span></li>
+<li><a name="a26"></a>&nbsp;</li>
+<li><a name="a27"></a><span class="src-comm">// SECURITY: You must explicitelly enable this &quot;connector&quot;. (Set it to &quot;true&quot;).</span></li>
+<li><a name="a28"></a><span class="src-var">$Config</span><span class="src-sym">[</span><span class="src-str">'Enabled'</span><span class="src-sym">] </span>= <span class="src-id">true </span><span class="src-sym">;</span></li>
+<li><a name="a29"></a>&nbsp;</li>
+<li><a name="a30"></a>&nbsp;</li>
+<li><a name="a31"></a><span class="src-comm">// Path to user files relative to the document root.</span></li>
+<li><a name="a32"></a><span class="src-var">$Config</span><span class="src-sym">[</span><span class="src-str">'UserFilesPath'</span><span class="src-sym">] </span>= <span class="src-var">$UploadPath </span><span class="src-sym">;</span></li>
+<li><a name="a33"></a>&nbsp;</li>
+<li><a name="a34"></a><span class="src-comm">// Fill the following value it you prefer to specify the absolute path for the</span></li>
+<li><a name="a35"></a><span class="src-comm">// user files directory. Usefull if you are using a virtual directory, symbolic</span></li>
+<li><a name="a36"></a><span class="src-comm">// link or alias. Examples: 'C:\\MySite\\userfiles\\' or '/root/mysite/userfiles/'.</span></li>
+<li><a name="a37"></a><span class="src-comm">// Attention: The above 'UserFilesPath' must point to the same directory.</span></li>
+<li><a name="a37"></a>&nbsp;</li>
+<li><a name="a38"></a><span class="src-var">$Config</span><span class="src-sym">[</span><span class="src-str">'UserFilesAbsolutePath'</span><span class="src-sym">] </span>= <span class="src-var">$AbsUploadPath </span><span class="src-sym">;</span></li>
+<li><a name="a39"></a>&nbsp;</li>
+<li><a name="a40"></a><span class="src-comm">// Due to security issues with Apache modules, it is reccomended to leave the</span></li>
+<li><a name="a41"></a><span class="src-comm">// following setting enabled.</span></li>
+<li><a name="a41"></a>&nbsp;</li>
+<li><a name="a42"></a><span class="src-var">$Config</span><span class="src-sym">[</span><span class="src-str">'ForceSingleExtension'</span><span class="src-sym">] </span>= <span class="src-id">true </span><span class="src-sym">;</span></li>
+<li><a name="a43"></a>&nbsp;</li>
+<li><a name="a44"></a><span class="src-var">$Config</span><span class="src-sym">[</span><span class="src-str">'AllowedExtensions'</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">'File'</span><span class="src-sym">]    </span>= <span class="src-key">array</span><span class="src-sym">(</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a45"></a><span class="src-var">$Config</span><span class="src-sym">[</span><span class="src-str">'DeniedExtensions'</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">'File'</span><span class="src-sym">]        </span>= <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'html'</span><span class="src-sym">,</span><span class="src-str">'htm'</span><span class="src-sym">,</span><span class="src-str">'php'</span><span class="src-sym">,</span><span class="src-str">'php2'</span><span class="src-sym">,</span><span class="src-str">'php3'</span><span class="src-sym">,</span><span class="src-str">'php4'</span><span class="src-sym">,</span><span class="src-str">'php5'</span><span class="src-sym">,</span><span class="src-str">'phtml'</span><span class="src-sym">,</span><span class="src-str">'pwml'</span><span class="src-sym">,</span><span class="src-str">'inc'</span><span class="src-sym">,</span><span class="src-str">'asp'</span><span class="src-sym">,</span><span class="src-str">'aspx'</span><span class="src-sym">,</span><span class="src-str">'ascx'</span><span class="src-sym">,</span><span class="src-str">'jsp'</span><span class="src-sym">,</span><span class="src-str">'cfm'</span><span class="src-sym">,</span><span class="src-str">'cfc'</span><span class="src-sym">,</span><span class="src-str">'pl'</span><span class="src-sym">,</span><span class="src-str">'bat'</span><span class="src-sym">,</span><span class="src-str">'exe'</span><span class="src-sym">,</span><span class="src-str">'com'</span><span class="src-sym">,</span><span class="src-str">'dll'</span><span class="src-sym">,</span><span class="src-str">'vbs'</span><span class="src-sym">,</span><span class="src-str">'js'</span><span class="src-sym">,</span><span class="src-str">'reg'</span><span class="src-sym">,</span><span class="src-str">'cgi'</span><span class="src-sym">,</span><span class="src-str">'htaccess'</span><span class="src-sym">,</span><span class="src-str">'asis'</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a46"></a>&nbsp;</li>
+<li><a name="a47"></a><span class="src-var">$Config</span><span class="src-sym">[</span><span class="src-str">'AllowedExtensions'</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">'Image'</span><span class="src-sym">]    </span>= <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'jpg'</span><span class="src-sym">,</span><span class="src-str">'gif'</span><span class="src-sym">,</span><span class="src-str">'jpeg'</span><span class="src-sym">,</span><span class="src-str">'png'</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a48"></a><span class="src-var">$Config</span><span class="src-sym">[</span><span class="src-str">'DeniedExtensions'</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">'Image'</span><span class="src-sym">]    </span>= <span class="src-key">array</span><span class="src-sym">(</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a49"></a>&nbsp;</li>
+<li><a name="a50"></a><span class="src-var">$Config</span><span class="src-sym">[</span><span class="src-str">'AllowedExtensions'</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">'Flash'</span><span class="src-sym">]    </span>= <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'swf'</span><span class="src-sym">,</span><span class="src-str">'fla'</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a51"></a><span class="src-var">$Config</span><span class="src-sym">[</span><span class="src-str">'DeniedExtensions'</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">'Flash'</span><span class="src-sym">]    </span>= <span class="src-key">array</span><span class="src-sym">(</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a52"></a>&nbsp;</li>
+<li><a name="a53"></a><span class="src-var">$Config</span><span class="src-sym">[</span><span class="src-str">'AllowedExtensions'</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">'Media'</span><span class="src-sym">]    </span>= <span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'swf'</span><span class="src-sym">,</span><span class="src-str">'fla'</span><span class="src-sym">,</span><span class="src-str">'jpg'</span><span class="src-sym">,</span><span class="src-str">'gif'</span><span class="src-sym">,</span><span class="src-str">'jpeg'</span><span class="src-sym">,</span><span class="src-str">'png'</span><span class="src-sym">,</span><span class="src-str">'avi'</span><span class="src-sym">,</span><span class="src-str">'mpg'</span><span class="src-sym">,</span><span class="src-str">'mpeg'</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a54"></a><span class="src-var">$Config</span><span class="src-sym">[</span><span class="src-str">'DeniedExtensions'</span><span class="src-sym">]</span><span class="src-sym">[</span><span class="src-str">'Media'</span><span class="src-sym">]    </span>= <span class="src-key">array</span><span class="src-sym">(</span><span class="src-sym">) </span><span class="src-sym">;</span></li>
+<li><a name="a55"></a>&nbsp;</li>
+<li><a name="a56"></a><span class="src-php">?&gt;</span></li>
+</ol></pre></div>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Sat, 12 May 2007 21:14:13 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.3.0RC3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
