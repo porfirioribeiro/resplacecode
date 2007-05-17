@@ -18,7 +18,7 @@ class internalHtml extends Module {
 	}
 }
 
-$db= new ADB($path."db/settings.db");
+$db= new ResDB($path."db/settings.db");
 				$somemap=$db->getMap("SiteTitle");//you only need maps for organize the db
 				$somemap->put("set","My Website");
 				$somemap->put("about","Default page title is none is specified.");

@@ -1,6 +1,6 @@
 <?php 
-include_once "data/Functions/ADB.php";
-$db=new ADB("Data/db/Menu.db");
+include_once "data/Functions/ResDB.php";
+$db=new ResDB("Data/db/Menu.db");
 $m1=$db->addMap("1");
 $m1->put("name","Home");
 $m1->put("url","http://resplace.net/");

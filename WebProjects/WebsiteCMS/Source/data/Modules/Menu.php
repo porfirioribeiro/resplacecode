@@ -13,7 +13,7 @@ class Menu extends Module {
 		$this->page=$page;
 		$this->side=Module::LEFT;
 		$this->title="Menu";
-		$this->db=new ADB("Data/db/Menu.db");
+		$this->db=new ResDB(dirname(__FILE__)."/../db/Menu.db.php");
 	}
 	function expandMenu($mnu){
 		for ($i=1;$i<=count($mnu);$i++){
@@ -25,7 +25,7 @@ class Menu extends Module {
 					<a style="display:block; text-decoration:none;" href="javascript:;" onclick="$('<?=$id?>').toggle();"><?=$val->get("name")?></a>
 					<div id="<?=$id?>" style="display:none;padding-left:10px">
 					<?php
-						$this->expandMenu($val->getArray());
+						$this->expandMenu($val);
 					?>
 					</div>
 					<?php				
@@ -43,7 +43,7 @@ class Menu extends Module {
 	}
 	function content(){
 	?>
-		<?=$this->expandMenu($this->db->getArray())?>
+		<?=$this->expandMenu($this->db)?>
 	<?php
 	}
 }

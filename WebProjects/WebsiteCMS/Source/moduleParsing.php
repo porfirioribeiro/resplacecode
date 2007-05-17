@@ -1,5 +1,5 @@
 <?php
-include_once "data/Functions/ADB.php";
+include_once "data/Functions/ResDB.php";
 include_once "data/Functions/Template.php";
 
 $moduleTpl=new Template("My name is #{name} and i am #{age} years old!");

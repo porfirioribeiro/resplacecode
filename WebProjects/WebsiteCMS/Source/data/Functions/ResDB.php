@@ -1,5 +1,8 @@
 <?php
 class ArrayMap extends ArrayObject{
+	static function is($w){
+		return is_a($w,ArrayMap);
+	}
 	//Array functions
 	/**
 	 * Clean the ArrayMap
@@ -68,6 +71,9 @@ class ArrayMap extends ArrayObject{
 	 */
 	function addMap($map,$overwrite=false){
 		return $this[$map]=($overwrite || !$this->isMap($map))?new ArrayMap():$this[$map];
+	}
+	function getMap($map){
+		return ($this->isMap($map))?$this[$map]:$this->addMap($map);
 	}
 	//Path functions
 	/**
@@ -142,16 +148,16 @@ class ResDB extends ArrayMap {
 	}
 	function load($file=""){
 		$this->file=$file;
-		if (is_file(dirname(__FILE__)."/".$this->file)) {
-			include dirname(__FILE__)."/".$this->file;
+		if (is_file($this->file)) {
+			include $this->file;
 			if (!$this->data==null){
 				ob_start();
-				$serialized=gzuncompress($this->data);
+				/*$serialized=gzuncompress($this->data);
 				$err=ob_get_clean();
 				if ($err!=""){
 					return;
-				}			
-				$arr=unserialize($serialized);
+				}			*/
+				$arr=unserialize($this->data);
 				if (!is_a($arr,ResDB)){
 					return;
 				}
@@ -162,7 +168,7 @@ class ResDB extends ArrayMap {
 	}
 	function save($file=""){
 		$this->file=$file;
-		file_put_contents(dirname(__FILE__)."/".$this->file,'<?php '.chr(10).'/*Do Not Hand Edit This file!!!! The DB may became corrupted!!!*/'.chr(10).' if (!isset($this)){die("You cant just came and see the data sorry");}$this->data="'.gzcompress(serialize($this)).'";?>');
+		file_put_contents($this->file,'<?php '.chr(10).'/*Do Not Hand Edit This file!!!! The DB may became corrupted!!!*/'.chr(10).' if (!isset($this)){die("You cant just came and see the data sorry");}$this->data=\''.serialize($this)."';?>");
 	}
 	function close(){
 		$this->save($this->file);

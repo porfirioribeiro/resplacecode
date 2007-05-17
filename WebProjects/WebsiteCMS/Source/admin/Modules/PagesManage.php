@@ -13,8 +13,8 @@ class PagesManage extends Module {
 		<legend>Page Explorer</legend>
 		Heres a list of pages that exist in the DB:<br /><br />
 		<?php
-		$db= new ADB($path."db/files.db");
-		foreach ($db->arr as $key=>$value) {
+		$db= new ResDB($path."db/files.db");
+		foreach ($db as $key=>$value) {
 			echo '[<a href="?manage=pages&amp;page=page-edit&amp;pageid='.$key.'">Edit</a>] [<a href="?manage=pages&amp;page=page-edit&amp;pageiddel='.$key.'">Del</a>] - <a href="'.str_replace("data/","",$path).'getfile.php?page='.$key.'" target="_blank">'.$key.'</a><br>';
 			}
 		echo'<br>
@@ -57,7 +57,7 @@ class PagesManage extends Module {
 			$pageid=str_replace(array(" ","/"),array("_","_"),$_POST['pageid']);
 			
 			WriteFile($path."Pages/".$pageid.".php",stripslashes($_POST['data']));
-			$db= new ADB($path."db/files.db");
+			$db= new ResDB($path."db/files.db");
 			$somemap=$db->getMap($pageid);//you only need maps for organize the db
 			$somemap->put("smalldesc",$_POST['smalldesc']);
 			$somemap->put("largedesc",$_POST['largedesc']);
@@ -70,7 +70,7 @@ class PagesManage extends Module {
 				
 			if ($_GET['pageiddel'])
 				{
-				$db= new ADB($path."db/files.db");
+				$db= new ResDB($path."db/files.db");
 				//$somemap=$db->getMap($_GET['pageiddel']);//you only need maps for organize the db
 				$db->del($_GET['pageiddel']);
 				//$somemap->del("largedesc");
@@ -124,7 +124,7 @@ class PagesManage extends Module {
 			
 			WriteFile($path."Pages/".$pageid.".php",stripslashes($_POST['data']));
 			
-			$db= new ADB($path."db/files.db");
+			$db= new ResDB($path."db/files.db");
 			$somemap=$db->getMap($pageid);//you only need maps for organize the db
 			$somemap->put("smalldesc",$_POST['smalldesc']);
 			$somemap->put("largedesc",$_POST['largedesc']);
