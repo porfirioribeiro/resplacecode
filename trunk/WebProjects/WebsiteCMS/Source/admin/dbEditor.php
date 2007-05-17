@@ -27,7 +27,7 @@ class dbEditor extends Module {
 	 $this->page->addPreloadImg($this->fdaO); 
 	}
 	function extend($map,$path){
-		foreach ($map->arr as $key=>$value) {
+		foreach ($map as $key=>$value) {
 			$p=$path.(($path=="")?"":".").$key;		
 			$id =str_replace(".","_",$p);				
 			?>
@@ -82,10 +82,10 @@ class dbEditor extends Module {
 	}
 	function content(){
 		$root=str_replace("data/","",$this->page->path);
-		$dbFile=$root.$_GET["place"]."/db/".$_GET["db"];
+		$dbFile="../".$_GET["place"]."/db/".$_GET["db"];
 		$dbPath=$_GET["place"]."/db/".$_GET["db"];
 		if ($_GET["action"]=="addDB"){	
-			$db=new ADB($dbFile);
+			$db=new ResDB($dbFile);
 			$db->put("aaa","ok");
 			$db->del("aaa");	
 			$db->close();		
@@ -110,7 +110,7 @@ class dbEditor extends Module {
 			</script>
 			<?php		
 		}else if ($_GET["action"]=="editKey"){
-			$db=new ADB($dbFile);
+			$db=new ResDB($dbFile);
 			$db->renPath($_GET["path"],$_GET["newPath"]);
 			$db->close();
 			?>
@@ -119,7 +119,7 @@ class dbEditor extends Module {
 			</script>
 			<?php			
 		}else if ($_GET["action"]=="delKey"){
-			$db=new ADB($dbFile);
+			$db=new ResDB($dbFile);
 			$db->delPath($_GET["path"],$_GET["newPath"]);
 			$db->close();
 			?>
@@ -128,7 +128,7 @@ class dbEditor extends Module {
 			</script>
 			<?php			
 		}else if ($_GET["action"]=="editValue"){
-			$db=new ADB($dbFile);		
+			$db=new ResDB($dbFile);		
 			?>
 			<form action="">
 				<input type="hidden" name="action" value="setKey">
@@ -143,7 +143,7 @@ class dbEditor extends Module {
 			<?php			
 			$db->close();
 		}else if ($_GET["action"]=="setKey"){
-			$db=new ADB($dbFile);
+			$db=new ResDB($dbFile);
 			$db->putPath($_GET["path"],$_GET["value"]);
 			$db->close();
 			?>
@@ -151,16 +151,16 @@ class dbEditor extends Module {
 				document.location="<?=$_SERVER['PHP_SELF']."?action=editdb&place=".$_GET["place"]."&db=".$_GET["db"]?>";
 			</script>
 			<?php			
-		}else if ($_GET["action"]=="editdb"){			
+		}else if ($_GET["action"]=="editdb"){		
 			if (is_file($dbFile)){
-				$db=new ADB($dbFile);
+				$db=new ResDB($dbFile);
 				$this->fd=$this->page->path."Style/menu/folder.gif";	
 				$fdO=$this->page->path."Style/menu/folderOpen.gif";	
 			   $fda=$this->page->path."Style/menu/folderAniClose.gif";	
 			   $this->fdaO=$this->page->path."Style/menu/folderAniOpen.gif";	
 				?>
 				Editing: <br>
-				<a href="javascript:void(0)" onclick="var _K_=prompt('Select the name for this database\nDont forget the final .db','<?=$_GET["db"]?>');if (_K_!==null && _K_!==''){if (!_K_.endsWith('.db')){_K_+='.db'} document.location=location.search+'&action=renDB&newDBname='+_K_}">
+				<a href="javascript:void(0)" onclick="var _K_=prompt('Select the name for this database\nDont forget the final .db.php','<?=$_GET["db"]?>');if (_K_!==null && _K_!==''){if (!_K_.endsWith('.db.php')){_K_+='.db.php'} document.location=location.search+'&action=renDB&newDBname='+_K_}">
 					 <img alt="Rename" title="Rename this Database" border="0" style="vertical-align:middle" src="icons/editclear.png">
 				</a>
 				<a href="javascript:void(0)" onclick="if (confirm('Delete this Database?\n<?=$_GET["db"]?>')){document.location='?action=delDB&place=<?=$_GET["place"]?>&db=<?=$_GET["db"]?>'}">

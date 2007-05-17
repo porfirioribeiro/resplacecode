@@ -1,9 +1,6 @@
 /**
  * @author porfirio.ribeiro@sapo.pt
  */
-String.prototype.endsWith=function(w){
-	return (this.lastIndexOf(w)==(this.length-w.length));
-}
 /**
  * 
  */

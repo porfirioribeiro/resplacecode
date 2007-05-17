@@ -10,14 +10,14 @@ $page->addJS("lib/menuEditor.js");
 
 class menuEditor extends Module {
 	/** 
-	 * @var ADB 
+	 * @var ResDB 
 	 */
 	var $db;
 	function menuEditor($page){
 		parent::Module($page);
 		$this->title="Menu editor";
 		$this->side=Module::CENTER;
-		$this->db=new ADB($this->page->path."db/Menu.db");
+		$this->db=new ResDB($this->page->path."db/Menu.db");
 	}
 	function finish(){
 		$this->db->close();
