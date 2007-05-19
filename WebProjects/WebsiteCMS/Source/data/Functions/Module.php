@@ -46,13 +46,13 @@ class Module{
 					$modcont=$p->module_left->evaluate(array("module_nsdisplay"=>$this->nsDisplay(),"module_id_right"=>$moduleCARight,"module_collapse"=>$this->collapseCreate($module)));        
 	              
 	            }elseif ($this->side==Module::CENTER){  
-	               $modcont=$p->module_center->evaluate(array("module_nsdisplay"=>$this->nsDisplay(),"module_id_right"=>$moduleCARight,"module_collapse"=>$this->collapseCreate($module)));  
+	               $modcont=$p->module_center->evaluate(array("module_nsdisplay"=>$this->nsDisplay(),"module_id_right"=>$moduleCARight,"module_id_left"=>$moduleCALeft,"module_collapse"=>$this->collapseCreate($module)));  
 				      	
 	            }elseif ($this->side==Module::TOP){  
-	               $modcont=$p->module_top->evaluate(array("module_nsdisplay"=>$this->nsDisplay(),"module_id_right"=>$moduleCARight,"module_collapse"=>$this->collapseCreate($module)));  
+	               $modcont=$p->module_top->evaluate(array("module_nsdisplay"=>$this->nsDisplay(),"module_id_right"=>$moduleCARight,"module_id_left"=>$moduleCALeft,"module_collapse"=>$this->collapseCreate($module)));  
 				      	
 	            }elseif ($this->side==Module::BOTTOM){  
-	               $modcont=$p->module_bottom->evaluate(array("module_nsdisplay"=>$this->nsDisplay(),"module_id_right"=>$moduleCARight,"module_collapse"=>$this->collapseCreate($module)));  
+	               $modcont=$p->module_bottom->evaluate(array("module_nsdisplay"=>$this->nsDisplay(),"module_id_right"=>$moduleCARight,"module_id_left"=>$moduleCALeft,"module_collapse"=>$this->collapseCreate($module)));  
 				      	
 	            }elseif ($this->side==Module::RIGHT){        
 	               $modcont=$p->module_right->evaluate(array("module_nsdisplay"=>$this->nsDisplay(),"module_id_left"=>$moduleCALeft,"module_collapse"=>$this->collapseCreate($module))); 

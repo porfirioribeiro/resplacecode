@@ -54,10 +54,10 @@ $this->module_top=new Template("
 ");
 
 $this->module_bottom=new Template("  	
-	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"<?=$moduleCALeft?>\" #{module_collapse}></div>  
+	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"#{module_id_left}\" #{module_collapse}></div>  
 	                <div class=\"TitleRight\">                            
 	                </div>   
-	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"<?=$moduleCARight?>\" #{module_collapse}></div>
+	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"#{module_id_right}\" #{module_collapse}></div>
 ");
 
 //Now we setup all the template material
