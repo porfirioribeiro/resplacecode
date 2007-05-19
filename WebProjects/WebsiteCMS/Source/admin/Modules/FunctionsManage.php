@@ -25,7 +25,7 @@ class FunctionsManage extends Module {
 			}
 		?>
 		<br>
-		<a href="?manage=functions&amp;add=add">Add new module</a>
+		<a href="?manage=functions&amp;add=add">Add new function</a>
 		</fieldset><br>
 		<?php
 		
@@ -42,12 +42,11 @@ class FunctionsManage extends Module {
 			<fieldset>
 		<legend>Edit function '<?=$_GET['edit']; ?>'</legend>
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-			<input type="hidden" name="manage" value="modules" />
+			<input type="hidden" name="manage" value="functions" />
 			<input type="hidden" name="edit" value="<?=$_GET['edit']; ?>" />
-			<textarea id="datap" class="codepress php" cols="100%" rows="30" wrap="off"><?=$filedata; ?></textarea><br />
-			<input type="button" onclick="datap.toggleEditor();" value="Toggle Editor" />
-			<textarea name="data" style="display:none;"></textarea>
-			<input name="editpage" value="Save Edit" onclick="data.value = datap.getCode();" type="submit">
+			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"><?=$filedata; ?></textarea>
+			<textarea name="data" style="display:none;"></textarea><br />
+			<input name="editpage" value="Save Edit" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 			</fieldset>
 			<?php
@@ -60,13 +59,13 @@ class FunctionsManage extends Module {
 			<fieldset>
 		<legend>Create a function</legend>
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-			<input type="hidden" name="manage" value="modules" />
+			<input type="hidden" name="manage" value="functions" />
 			<b>Function Name:</b><br>
 			The name of your function (remember the class you would normally use, uses this name):<br>
 			<input type="text" name="edit" value="" /><br><br>
 			<b>Function Code:</b><br>
 			The code for your function:<br>
-			<textarea id="datap" class="codepress php" cols="100%" rows="30" wrap="off">&lt;?php
+			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;">&lt;?php
 /*
  * My Module
  * Notes: My Module Notes
@@ -84,10 +83,9 @@ class MyModule extends Module {
 	//module content here
 	}
 }
-?&gt;</textarea><br />
-			<input type="button" onclick="datap.toggleEditor();" value="Toggle Editor" />
-			<textarea name="data" style="display:none;"></textarea>
-			<input name="editpage" value="Save Edit" onclick="data.value = datap.getCode();" type="submit">
+?&gt;</textarea>
+			<textarea name="data" style="display:none;"></textarea><br />
+			<input name="editpage" value="Add Function" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 			</fieldset>
 			<?php
@@ -111,7 +109,7 @@ class MyModule extends Module {
 			<legend>Editing...</legend>
 			Request should have succeeded.
 			</fieldset><?php
-			unlink($page->modulespath.$_GET['del'].".php");
+			unlink($page->functionspath.$_GET['del'].".php");
 			}
 			
 		}
