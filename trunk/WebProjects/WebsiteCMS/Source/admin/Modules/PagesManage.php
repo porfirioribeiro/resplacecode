@@ -37,10 +37,9 @@ class PagesManage extends Module {
 			<input name="smalldesc" type="text" /><br /><br />
 			<b>Large Description:</b><br /><i>A large description of the page.</i><br />
 			<input name="largedesc" type="text" /><br /><br />
-			<textarea id="datap" class="codepress php" cols="100%" rows="30" wrap="off"></textarea>
+			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"></textarea>
 			<textarea name="data" style="display:none;"></textarea><br />
-			<input type="button" onclick="datap.toggleEditor();" value="Toggle Editor" />
-			<input name="addpage" value="Create Page" onclick="data.value = datap.getCode();" type="submit">
+			<input name="addpage" value="Create Page" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 			
 			</fieldset>
@@ -103,11 +102,10 @@ class PagesManage extends Module {
 				<input name="smalldesc" type="text" value="<?=$smalldesc; ?>" /><br /><br />
 				<b>Large Description:</b><br /><i>A large description of the page.</i><br />
 				<input name="largedesc" type="text" value="<?=$largedesc; ?>" /><br /><br />
-				<textarea id="datap" class="codepress php" cols="100%" rows="30" wrap="off"><?=$filedata; ?></textarea><br />
-				<input type="button" onclick="datap.toggleEditor();" value="Toggle Editor" />
-				<textarea name="data" style="display:none;"></textarea>
-				<input name="editpage" value="Save Edit" onclick="data.value = datap.getCode();" type="submit">
-				</form>
+				<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"><?=$filedata; ?></textarea>
+			<textarea name="data" style="display:none;"></textarea><br />
+			<input name="addpage" value="Save Edit" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
+			</form>
 				
 				<?php
 				}
