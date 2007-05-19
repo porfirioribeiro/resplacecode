@@ -3,6 +3,50 @@ class ArrayMap extends ArrayObject{
 	static function is($w){
 		return is_a($w,ArrayMap);
 	}
+	var $it;
+	var $fn;
+	/**
+	 * Check if theres more to iterate and return teh iterator or false
+	 * @return ArrayIterator
+	 */
+	function iterate(){
+		if ($this->it==null){
+			$this->it=$this->getIterator();
+		}
+		if ($this->it->valid()){
+			return $this->it;
+		}else{
+			$this->it=null;
+			return false;
+		}
+	}
+	function each($arg0,$arg1=null){
+		foreach ($this as $key => $value) {
+			if (is_object($arg0)){
+				$arg0->$arg1($this,$key,$value);
+			}elseif (function_exists($arg0)){
+				$arg0($this,$key,$value);
+			}		
+		}		
+	}
+	function toJSON(){
+		$js=print_r($this,true);
+		$js=str_replace("(","{",$js);
+		$js=str_replace(")","}",$js);
+		$js=str_replace("[",'"',$js);
+		$js=str_replace("]",'"',$js);
+		echo $js."<br>";
+		$js=preg_replace("/(ArrayMap\sObject\s)*/",'',$js);
+		$js=preg_replace("/=>(.*)/",':"${1}"',$js);
+		$js=preg_replace("/(\s*)/",'',$js);
+		$js=preg_replace("/\"\{\"/",'{',$js);
+		$js=preg_replace("/(\"\")/",'","',$js);
+		$js=preg_replace("/(\"}\")/",'"},"',$js);
+		$js=preg_replace("/\}\"/",'},"',$js);
+		//$js=str_replace("_#","(",$js);
+		//$js=str_replace("#_",")",$js);
+		return $js;
+	}
 	//Array functions
 	/**
 	 * Clean the ArrayMap
