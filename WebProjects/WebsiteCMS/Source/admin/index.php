@@ -8,7 +8,11 @@ $page->addModuleSearchPath("Modules/");
 $page->addJS("codepress.js");
 $page->addDefaults();
 
-
+$psswd="letmein";
+			
+			if ($_POST['psswd']==$psswd){
+				$_SESSION['admin_session']=md5("logged in");
+				}
 
 if ($_SESSION['admin_session']!=md5("logged in")){
 	class internalHtml extends Module {
@@ -19,11 +23,7 @@ if ($_SESSION['admin_session']!=md5("logged in")){
 		function content(){
 			global $path;
 			//set the admin password
-			$psswd="letmein";
 			
-			if ($_POST['psswd']==$psswd){
-				$_SESSION['admin_session']=md5("logged in");
-				}
 			?>
 			Welcome to the admin panel, please login below.<br /><br />
 			
