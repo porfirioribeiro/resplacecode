@@ -150,7 +150,7 @@ class ResDB extends ArrayMap {
 	function load($file=""){
 		$this->file=$file;
 		if (is_file($this->file)) {
-			ob_start();
+			//ob_start();
 			$serialized=gzuncompress(file_get_contents($this->file));
 			if ($serialized!==false){
 				$arr=unserialize($serialized);
@@ -159,7 +159,7 @@ class ResDB extends ArrayMap {
 				}
 				parent::__construct($arr);				
 			}
-			ob_clean();
+			//ob_clean();
 		}					
 	}
 	function save($file=""){
