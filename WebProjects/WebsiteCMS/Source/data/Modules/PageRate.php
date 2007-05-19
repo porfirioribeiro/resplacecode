@@ -12,7 +12,7 @@
 
 if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 	include $_GET["path"]."data/Functions/ResDB.php";
-	$db=new ResDB(dirname(__FILE__)."/"."../db/PageRater.db.php");
+	$db=new ResDB(dirname(__FILE__)."/"."../db/PageRater.db");
 	$page=$db->getMap($_GET["page"]);
 	$ips=explode(",",$page->get("ip",""));
 	foreach ($ips as $ipc){
@@ -45,7 +45,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 			$this->page=$page;
 			$this->side=Module::LEFT;
 			$this->title="Rate this Page";	
-			$this->dbPath=dirname(__FILE__)."/"."../db/PageRater.db.php";
+			$this->dbPath=dirname(__FILE__)."/"."../db/PageRater.db";
 			$this->db=new ResDB($this->dbPath);
 			$this->pg=$this->db->getMap($this->page->id);
 			$url=str_replace($_SERVER["DOCUMENT_ROOT"], "", preg_replace("/\\\/","/",__FILE__));
