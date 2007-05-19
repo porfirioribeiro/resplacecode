@@ -5,7 +5,16 @@ include_once $path.'site.php';
 $page=new WebMS($path,"Admin Panel");
 $page->addFunctionSearchPath("Functions/");
 $page->addModuleSearchPath("Modules/");
-$page->addJS("codepress.js");
+$page->addJS("edit_area/edit_area_full.js");
+$page->addJSCode("
+editAreaLoader.init({
+			id: \"use_php\"	// id of the textarea to transform		
+			,start_highlight: true	// if start with highlight
+			,allow_resize: \"both\"
+			,allow_toggle: true
+			,language: \"en\"
+			,syntax: \"php\"	
+		});");
 $page->addDefaults();
 
 $psswd="letmein";

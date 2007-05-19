@@ -44,10 +44,9 @@ class ModulesManage extends Module {
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input type="hidden" name="manage" value="modules" />
 			<input type="hidden" name="edit" value="<?=$_GET['edit']; ?>" />
-			<textarea id="datap" class="codepress php" cols="100%" rows="30" wrap="off"><?=$filedata; ?></textarea><br />
-			<input type="button" onclick="datap.toggleEditor();" value="Toggle Editor" />
-			<textarea name="data" style="display:none;"></textarea>
-			<input name="editpage" value="Save Edit" onclick="data.value = datap.getCode();" type="submit">
+			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"><?=$filedata; ?></textarea>
+			<textarea name="data" style="display:none;"></textarea><br />
+			<input name="editpage" value="Save Edit" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 			</fieldset>
 			<?php
@@ -66,7 +65,7 @@ class ModulesManage extends Module {
 			<input type="text" name="edit" value="" /><br><br>
 			<b>Module Code:</b><br>
 			The code for your module:<br>
-			<textarea id="datap" class="codepress php" cols="100%" rows="30" wrap="off">&lt;?php
+			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;">&lt;?php
 /*
  * My Module
  * Notes: My Module Notes
@@ -84,10 +83,9 @@ class MyModule extends Module {
 	//module content here
 	}
 }
-?&gt;</textarea><br />
-			<input type="button" onclick="datap.toggleEditor();" value="Toggle Editor" />
-			<textarea name="data" style="display:none;"></textarea>
-			<input name="editpage" value="Save Edit" onclick="data.value = datap.getCode();" type="submit">
+?&gt;</textarea>
+			<textarea name="data" style="display:none;"></textarea><br />
+			<input name="editpage" value="Create Module" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 			</fieldset>
 			<?php
