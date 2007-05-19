@@ -164,6 +164,9 @@ class WebMS{
     }
     ?>
     <script type="text/javascript" language="JavaScript">
+    	function __onloads(){
+    		<?php echo $this->OnLoads?>
+    	}
     	var Site={
     		path:"<?=$this->path?>"
     	};
@@ -194,7 +197,7 @@ class WebMS{
 	</script>
     <title><?php echo $this->title; ?></title>        
   </head> 
-  <body onload="__preload_images();<?php echo $this->OnLoads?>"> 
+  <body onload="__preload_images();__onloads();"> 
 	<?php 				
 	if ($this->ShowNSWarn){
 	?>		

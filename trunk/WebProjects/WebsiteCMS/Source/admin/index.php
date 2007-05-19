@@ -6,7 +6,8 @@ $page=new WebMS($path,"Admin Panel");
 $page->addFunctionSearchPath("Functions/");
 $page->addModuleSearchPath("Modules/");
 $page->addJS("edit_area/edit_area_full.js");
-$page->addJSCode("
+$page->addOnLoad("
+if ($('use_php')){
 editAreaLoader.init({
 			id: \"use_php\"	// id of the textarea to transform		
 			,start_highlight: true	// if start with highlight
@@ -14,7 +15,10 @@ editAreaLoader.init({
 			,allow_toggle: true
 			,language: \"en\"
 			,syntax: \"php\"	
-		});");
+			,plugins:\"charmap,syntax_selection\"
+			,toolbar:\" save, |,syntax_selection, charmap, |, search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight,fullscreen, |, help\",
+			syntax_selection_allow:\"php,js,css,html\"
+		});}");
 $page->addDefaults();
 
 $psswd="letmein";
