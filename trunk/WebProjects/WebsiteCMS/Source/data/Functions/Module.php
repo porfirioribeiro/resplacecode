@@ -85,7 +85,9 @@ class Module{
 	}
 	function write(){
 		$this->start();
+		?><div><?php
 		$this->content();
+		?></div><?php
 		$this->end();	
 	}
 }

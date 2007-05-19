@@ -59,7 +59,7 @@ class AdminMenu2 extends Module {
 		</fieldset><br />
 		<fieldset>
 		<legend>Misc:</legend>
-		<a href="?manage=pages">Database</a><br>
+		<a href="?manage=dbEditor">Database</a><br>
 		</fieldset>
 		<?php
 	}
@@ -86,19 +86,20 @@ $page->add(AdminMenu2,Module::LEFT);
 if ($_GET['manage']) {$manage=$_GET['manage'];}
 if ($_POST['manage']) {$manage=$_POST['manage'];}
 
-if ($manage=="pages"){
+if ($manage=="pages") {
 	$page->add("PagesManage");
-	} else if ($manage=="modules"){
+}else if ($manage=="modules") {
 	$page->add("ModulesManage");
-	} else if ($manage=="functions"){
+}else if ($manage=="functions") {
 	$page->add("FunctionsManage");
-	}
-	else
-	{
+}else if ($manage=="dbEditor") {
+	$page->add("dbEditor");
+	$page->add("dbList",Module::RIGHT);
+}else{
 	$page->add(welcome,Module::CENTER);
-	}
+}
 
-
+/**/
 //
 
 $page->create();

@@ -13,8 +13,9 @@ function collapseToogle(module,el){
 	var hRight=document.getElementById(module+"_CAR");
 	var moduleEl=document.getElementById(module+"_CT");
 	var str;
+	Effect.toggle(moduleEl,"slide",1)
 	if (moduleEl.style.display=="block" || moduleEl.style.display===""){
-		moduleEl.style.display="none";
+		//moduleEl.style.display="none";
 		Cookie.Write(module+"_CL","none");
 		if (hLeft!==null){
 			str=(el==hLeft)?"Over":"";
@@ -25,7 +26,7 @@ function collapseToogle(module,el){
 			hRight.className="SmallIcon UnCollapseIcon"+str;
 		}		
 	}else if (moduleEl.style.display=="none"){
-		moduleEl.style.display="block";
+		//moduleEl.style.display="block";
 		Cookie.Write(module+"_CL","block",50000);
 		if (hLeft!==null){
 			str=(el==hLeft)?"Over":"";
