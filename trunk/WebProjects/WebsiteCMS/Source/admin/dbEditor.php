@@ -160,7 +160,7 @@ class dbEditor extends Module {
 			   $this->fdaO=$this->page->path."Style/menu/folderAniOpen.gif";	
 				?>
 				Editing: <br>
-				<a href="javascript:void(0)" onclick="var _K_=prompt('Select the name for this database\nDont forget the final .db.php','<?=$_GET["db"]?>');if (_K_!==null && _K_!==''){if (!_K_.endsWith('.db.php')){_K_+='.db.php'} document.location=location.search+'&action=renDB&newDBname='+_K_}">
+				<a href="javascript:void(0)" onclick="var _K_=prompt('Select the name for this database\nDont forget the final .db','<?=$_GET["db"]?>');if (_K_!==null && _K_!==''){if (!_K_.endsWith('.db')){_K_+='.db'} document.location=location.search+'&action=renDB&newDBname='+_K_}">
 					 <img alt="Rename" title="Rename this Database" border="0" style="vertical-align:middle" src="icons/editclear.png">
 				</a>
 				<a href="javascript:void(0)" onclick="if (confirm('Delete this Database?\n<?=$_GET["db"]?>')){document.location='?action=delDB&place=<?=$_GET["place"]?>&db=<?=$_GET["db"]?>'}">

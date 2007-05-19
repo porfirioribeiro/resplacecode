@@ -143,32 +143,30 @@ class ArrayMap extends ArrayObject{
 class ResDB extends ArrayMap {
 	var $file;
 	var $data;
+	var $error;
 	function ResDB($file=""){
 		$this->load($file);
 	}
 	function load($file=""){
 		$this->file=$file;
 		if (is_file($this->file)) {
-			include $this->file;
-			if (!$this->data==null){
-				ob_start();
-				/*$serialized=gzuncompress($this->data);
-				$err=ob_get_clean();
-				if ($err!=""){
-					return;
-				}			*/
-				$arr=unserialize($this->data);
+			ob_start();
+			$serialized=gzuncompress(file_get_contents($this->file));
+			if ($serialized!==false){
+				$arr=unserialize($serialized);
 				if (!is_a($arr,ResDB)){
-					return;
+					echo ("Error unserializing");
 				}
-				parent::__construct($arr);
+				parent::__construct($arr);				
 			}
-			$this->data=null;
+			ob_clean();
 		}					
 	}
 	function save($file=""){
 		$this->file=$file;
-		file_put_contents($this->file,'<?php '.chr(10).'/*Do Not Hand Edit This file!!!! The DB may became corrupted!!!*/'.chr(10).' if (!isset($this)){die("You cant just came and see the data sorry");}$this->data=\''.serialize($this)."';?>");
+		$serialized=serialize($this);
+		$out=gzcompress($serialized);		
+		file_put_contents($this->file,$out);
 	}
 	function close(){
 		$this->save($this->file);

@@ -19,7 +19,7 @@ class dbList extends Module {
 		<form action="">
 			<input type="hidden" name="action" value="addDB">
 			<input type="hidden" name="place" value="data">
-			<input type="text" name="db" onkeydown="if (event.keyCode==13){if (!this.value.endsWith('.db.php') && this.value!==''){this.value+='.db.php';}}" value="" onblur="if (!this.value.endsWith('.db.php') && this.value!==''){this.value+='.db.php'}"><br>
+			<input type="text" name="db" onkeydown="if (event.keyCode==13){if (!this.value.endsWith('.db') && this.value!==''){this.value+='.db';}}" value="" onblur="if (!this.value.endsWith('.db') && this.value!==''){this.value+='.db'}"><br>
 			<input type="submit" onclick="this.form.db.blur();" value="Add Database">
 		</form>
 		<?php
