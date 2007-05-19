@@ -89,7 +89,9 @@ class WebMS{
 	function addJS($file){
 		$lib=$this->findFilesOnPath(array($this->libpath,""),$file);
 		if ($lib!=null){
-			$this->JS_files[]=$lib;
+			if (array_search($lib,$this->JS_files)===false){
+				$this->JS_files[]=$lib;			
+			}		
 		}		
 	}
 	function addJSCode($code){
@@ -98,7 +100,9 @@ class WebMS{
 	function embedJS($file){
 		$lib=$this->findFilesOnPath(array($this->libpath,""),$file);
 		if ($lib!=null){
-			$this->JS_filez[]=$lib;
+			if (array_search($lib,$this->JS_filesz)===false){
+				$this->JS_filesz[]=$lib;			
+			}				
 		}	
 	}
 	function addMeta($meta){
