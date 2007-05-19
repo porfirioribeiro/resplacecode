@@ -40,17 +40,17 @@ $this->module_right=new Template("
 ");
 
 $this->module_center=new Template("  	
-	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"<?=$moduleCALeft?>\" #{module_collapse}></div>  
+	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"#{module_id_left}\" #{module_collapse}></div>  
 	                <div class=\"TitleRight\">                            
 	                </div>   
-	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"<?=$moduleCARight?>\" #{module_collapse}></div>
+	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"#{module_id_right}\" #{module_collapse}></div>
 ");
 
 $this->module_top=new Template("  	
-	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"<?=$moduleCALeft?>\" #{module_collapse}></div>  
+	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"#{module_id_left}\" #{module_collapse}></div>  
 	                <div class=\"TitleRight\">                            
 	                </div>   
-	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"<?=$moduleCARight?>\" #{module_collapse}></div>
+	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"#{module_id_right}\" #{module_collapse}></div>
 ");
 
 $this->module_bottom=new Template("  	
