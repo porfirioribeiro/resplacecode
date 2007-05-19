@@ -39,7 +39,7 @@ class PagesManage extends Module {
 			<input name="largedesc" type="text" /><br /><br />
 			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"></textarea>
 			<textarea name="data" style="display:none;"></textarea><br />
-			<input name="addpage" value="Create Page" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
+			<input name="addpage" value="Create Page" id="EditAreaSubmit" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 			
 			</fieldset>
@@ -104,7 +104,7 @@ class PagesManage extends Module {
 				<input name="largedesc" type="text" value="<?=$largedesc; ?>" /><br /><br />
 				<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"><?=$filedata; ?></textarea>
 			<textarea name="data" style="display:none;"></textarea><br />
-			<input name="addpage" value="Save Edit" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
+			<input name="addpage" value="Save Edit" id="EditAreaSubmit" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 				
 				<?php

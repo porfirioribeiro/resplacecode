@@ -44,9 +44,16 @@ class FunctionsManage extends Module {
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input type="hidden" name="manage" value="functions" />
 			<input type="hidden" name="edit" value="<?=$_GET['edit']; ?>" />
+<<<<<<< .mine
+			<textarea id="datap" class="codepress php" cols="100%" rows="30" wrap="off"><?=$filedata; ?></textarea><br />
+			<input type="button" onclick="datap.toggleEditor();" value="Toggle Editor" />
+			<textarea name="data" style="display:none;"></textarea>
+			<input name="editpage" value="Save Edit" id="EditAreaSubmit" onclick="data.value = datap.getCode();" type="submit">
+=======
 			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"><?=$filedata; ?></textarea>
 			<textarea name="data" style="display:none;"></textarea><br />
 			<input name="editpage" value="Save Edit" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
+>>>>>>> .r15
 			</form>
 			</fieldset>
 			<?php
@@ -83,9 +90,16 @@ class MyModule extends Module {
 	//module content here
 	}
 }
+<<<<<<< .mine
+?&gt;</textarea><br />
+			<input type="button" onclick="datap.toggleEditor();" value="Toggle Editor" />
+			<textarea name="data" style="display:none;"></textarea>
+			<input name="editpage" value="Save Edit" id="EditAreaSubmit" onclick="data.value = datap.getCode();" type="submit">
+=======
 ?&gt;</textarea>
 			<textarea name="data" style="display:none;"></textarea><br />
 			<input name="editpage" value="Add Function" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
+>>>>>>> .r15
 			</form>
 			</fieldset>
 			<?php
