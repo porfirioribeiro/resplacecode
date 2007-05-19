@@ -65,22 +65,37 @@ class AdminMenu2 extends Module {
 	}
 }
 
+//welcome admin!
+class welcome extends Module {
+	function welcome($page){
+		$this->side=Module::CENTER;
+		$this->title="Welcome admin";
+		parent::Module($page);
+	}
+	function content(){
+		?>
+		Welcome <b>admin</b>, to the WebMS administration panel, this panel should enable you to do what you need to do to the WebMS system. If there is some functionality you believe should be included on this panel or you have some suggestions for improvements then please post at our forums.<br /><br />
+		Thanks for chosing WebMS to manage your website content, if you like this system then please consider donating some change so we can keep the project going strong, alternatively if you ar good with PHP then why not help develop the project further?
+		<?php
+	}
+}
+
+
 //$page->add(AdminMenu,Module::TOP);
 $page->add(AdminMenu2,Module::LEFT);
 if ($_GET['manage']) {$manage=$_GET['manage'];}
 if ($_POST['manage']) {$manage=$_POST['manage'];}
 
-if ($manage=="pages")
-	{
+if ($manage=="pages"){
 	$page->add("PagesManage");
-	}
-if ($manage=="modules")
-	{
+	} else if ($manage=="modules"){
 	$page->add("ModulesManage");
-	}
-if ($manage=="functions")
-	{
+	} else if ($manage=="functions"){
 	$page->add("FunctionsManage");
+	}
+	else
+	{
+	$page->add(welcome,Module::CENTER);
 	}
 
 

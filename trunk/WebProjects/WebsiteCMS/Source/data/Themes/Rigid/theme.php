@@ -67,7 +67,9 @@ $this->page_title=new Template("
             </div>                
             <div class=\"MainRight\">                
             </div>
+			<div align=\"center\">
 			<div class=\"TitleImage\"></div>
+			</div>
         </div>");
 		
 $this->page_content=new Template("
