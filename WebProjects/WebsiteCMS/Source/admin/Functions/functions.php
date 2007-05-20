@@ -1,4 +1,5 @@
 <?php
+//deprecated :)
 function AdminEditor($handle,$file){
 		
 		?><form action="<?=$_SERVER['PHP_SELF']; ?>" method="post"><?php
