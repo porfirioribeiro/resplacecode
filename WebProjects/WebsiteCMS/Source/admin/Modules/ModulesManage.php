@@ -8,6 +8,30 @@ class ModulesManage extends Module {
 	function content(){
 		global $path, $page;
 		
+		//edit submit
+		if ($_POST['editpage'])
+			{
+			?>
+			<fieldset>
+			<legend>Editing...</legend>
+			Request should have succeeded.
+			<?php
+			WriteFile($page->modulespath.$_POST['edit'].".php",stripslashes($_POST['data']));
+			?></fieldset><br /><?php
+			}
+			
+		//delete
+		if ($_GET['del'])
+			{
+			?>
+			<fieldset>
+			<legend>Editing...</legend>
+			Request should have succeeded.
+			<?php
+			unlink($page->modulespath.$_GET['del'].".php");
+			?></fieldset><br /><?php
+			}
+		
 		?>
 		<fieldset>
 		<legend>Modules Explorer</legend>
@@ -100,28 +124,6 @@ class MyModule extends Module {
 			</fieldset>
 			<?php
 			}
-		//edit submit
-		if ($_POST['editpage'])
-			{
-			?>
-			<fieldset>
-			<legend>Editing...</legend>
-			Request should have succeeded.
-			</fieldset><?php
-			
-			WriteFile($page->modulespath.$_POST['edit'].".php",stripslashes($_POST['data']));
-			}
-		//delete
-		if ($_GET['del'])
-			{
-			?>
-			<fieldset>
-			<legend>Editing...</legend>
-			Request should have succeeded.
-			</fieldset><?php
-			unlink($page->modulespath.$_GET['del'].".php");
-			}
-			
 		}
 	}
 ?>

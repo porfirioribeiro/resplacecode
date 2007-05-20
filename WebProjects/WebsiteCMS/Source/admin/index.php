@@ -71,10 +71,10 @@ class AdminMenu2 extends Module {
 		<a href="index.php">Admin Home</a><br /><br />
 		<fieldset>
 		<legend>Manage:</legend>
-		<a href="?manage=pages">Pages</a><br>
+		<a href="?manage=pages">Web Pages</a><br>
 		<a href="?manage=modules">Add-In Modules</a><br>
 		<a href="?manage=functions">Add-In Functions</a><br>
-		<a href="?manage=pages">Skins</a><br><br />
+		<a href="?manage=files">Other Files</a><br><br />
 		<a href="?manage=dbEditor">Database's</a><br>
 		</fieldset><br />
 		<fieldset>
@@ -123,6 +123,8 @@ if ($manage=="pages") {
 	$page->add("ModulesManage");
 }else if ($manage=="functions") {
 	$page->add("FunctionsManage");
+}else if ($manage=="files") {
+	$page->add("Files");
 }else if ($manage=="dbEditor") {
 	$page->add("dbEditor");
 	$page->add("dbList",Module::RIGHT);
