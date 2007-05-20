@@ -2,7 +2,7 @@
 class ModulesManage extends Module {
 	function ModulesManage($page){
 		parent::Module($page);
-		$this->title="Page's Management";		
+		$this->title="Module's Management";		
 		$this->side=Module::CENTER;
 	}
 	function content(){
@@ -12,20 +12,30 @@ class ModulesManage extends Module {
 		<fieldset>
 		<legend>Modules Explorer</legend>
 		Heres a list of the currently installed modules:<br><br>
+		<table width="400" border="1" bordercolor="#9bcf82" cellspacing="2" cellpadding="2">
 		<?php
 		$files=GetFiles($page->modulespath);
-		
-		foreach ($files as $fil) {
-		
-			$name=explode('.',$fil);
-			if ($name[1]=='php') {
+		if (count($files)) {
+			foreach ($files as $fil) {
 			
-				echo'[<a href="?manage=modules&amp;edit='.$name[0].'">Edit</a>] [<a href="?manage=modules&amp;del='.$name[0].'">Del</a>] - '.($name[0]).'<br>';
+				$name=explode('.',$fil);
+				if ($name[1]=='php') {
+				
+					
+					echo'<tr>
+								<td><a href="?manage=modules&amp;edit='.$name[0].'"><img alt="Edit" title="Edit this module" border="0" style="vertical-align:middle" src="icons/edit.png"></a></td>
+								<td><a href="javascript:void(0)" onclick="if (confirm(\'You sure you want to delete this module?\n'.$name[0].'\')){document.location=\'?manage=modules&del='.$name[0].'\'}"><img alt="Delete" title="Delete this module" border="0" style="vertical-align:middle" src="icons/button_cancel.png"></a></td>
+								<td width="100%">'.$name[0].'</td>
+							  </tr>';
+					}
 				}
+			} else {
+				echo'<tr><td colspan="3">There are no existing modules.</td></tr>';
 			}
 		?>
+		<tr><td colspan="3"><a href="?manage=modules&amp;add=add">Add new module</a></td></tr>
+		</table>
 		<br>
-		<a href="?manage=modules&amp;add=add">Add new module</a>
 		</fieldset><br>
 		<?php
 		

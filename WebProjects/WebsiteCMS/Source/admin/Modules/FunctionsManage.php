@@ -2,7 +2,7 @@
 class FunctionsManage extends Module {
 	function FunctionsManage($page){
 		parent::Module($page);
-		$this->title="Page's Management";		
+		$this->title="Function's Management";		
 		$this->side=Module::CENTER;
 	}
 	function content(){
@@ -12,20 +12,30 @@ class FunctionsManage extends Module {
 		<fieldset>
 		<legend>Functions Explorer</legend>
 		Heres a list of the currently installed functions:<br><br>
+		<table width="400" border="1" bordercolor="#9bcf82" cellspacing="2" cellpadding="2">
 		<?php
 		$files=GetFiles($page->functionspath);
-		
-		foreach ($files as $fil) {
-		
-			$name=explode('.',$fil);
-			if ($name[1]=='php') {
+		if (count($files)) {
+			foreach ($files as $fil) {
 			
-				echo'[<a href="?manage=functions&amp;edit='.$name[0].'">Edit</a>] [<a href="?manage=functions&amp;del='.$name[0].'">Del</a>] - '.($name[0]).'<br>';
+				$name=explode('.',$fil);
+				if ($name[1]=='php') {
+				
+					
+					echo'<tr>
+								<td><a href="?manage=functions&amp;edit='.$name[0].'"><img alt="Edit" title="Edit this function" border="0" style="vertical-align:middle" src="icons/edit.png"></a></td>
+								<td><a href="javascript:void(0)" onclick="if (confirm(\'You sure you want to delete this function?\n'.$name[0].'\')){document.location=\'?manage=functions&del='.$name[0].'\'}"><img alt="Delete" title="Delete this function" border="0" style="vertical-align:middle" src="icons/button_cancel.png"></a></td>
+								<td width="100%">'.$name[0].'</td>
+							  </tr>';
+					}
 				}
+			} else {
+				echo'<tr><td colspan="3">There are no existing functions.</td></tr>';
 			}
 		?>
+		<tr><td colspan="3"><a href="?manage=functions&amp;add=add">Add new function</a></td></tr>
+		</table>
 		<br>
-		<a href="?manage=functions&amp;add=add">Add new function</a>
 		</fieldset><br>
 		<?php
 		
@@ -44,10 +54,9 @@ class FunctionsManage extends Module {
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input type="hidden" name="manage" value="functions" />
 			<input type="hidden" name="edit" value="<?=$_GET['edit']; ?>" />
-			<textarea id="datap" class="codepress php" cols="100%" rows="30" wrap="off"><?=$filedata; ?></textarea><br />
-			<input type="button" onclick="datap.toggleEditor();" value="Toggle Editor" />
-			<textarea name="data" style="display:none;"></textarea>
-			<input name="editpage" value="Save Edit" id="EditAreaSubmit" onclick="data.value = datap.getCode();" type="submit">
+			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"><?=$filedata; ?></textarea>
+			<textarea name="data" style="display:none;"></textarea><br />
+			<input name="editpage" value="Save Edit" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 			</fieldset>
 			<?php
@@ -61,33 +70,32 @@ class FunctionsManage extends Module {
 		<legend>Create a function</legend>
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input type="hidden" name="manage" value="functions" />
-			<b>Function Name:</b><br>
+			<b>function Name:</b><br>
 			The name of your function (remember the class you would normally use, uses this name):<br>
 			<input type="text" name="edit" value="" /><br><br>
-			<b>Function Code:</b><br>
+			<b>function Code:</b><br>
 			The code for your function:<br>
 			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;">&lt;?php
 /*
- * My Module
- * Notes: My Module Notes
+ * My function
+ * Notes: My function Notes
  * Author: Who am i?
  */
-class MyModule extends Module {
-	function MyModule($page){
+class Myfunction extends function {
+	function Myfunction($page){
 		$this->page=$page;
-		//where do you want module LEFT, RIGHT, BOTTOM, TOP, CENTER?
-		$this->side=Module::RIGHT;
-		//module title
+		//where do you want function LEFT, RIGHT, BOTTOM, TOP, CENTER?
+		$this->side=function::RIGHT;
+		//function title
 		$this->title="Box.net Files";
 	}
 	function content(){
-	//module content here
+	//function content here
 	}
 }
-?&gt;</textarea><br />
-			<input type="button" onclick="datap.toggleEditor();" value="Toggle Editor" />
-			<textarea name="data" style="display:none;"></textarea>
-			<input name="editpage" value="Save Edit" id="EditAreaSubmit" onclick="data.value = datap.getCode();" type="submit">
+?&gt;</textarea>
+			<textarea name="data" style="display:none;"></textarea><br />
+			<input name="editpage" value="Create function" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 			</fieldset>
 			<?php
