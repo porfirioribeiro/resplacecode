@@ -5,6 +5,7 @@ include_once $path.'site.php';
 $page=new WebMS($path,"Admin Panel");
 $page->addFunctionSearchPath("Functions/");
 $page->addModuleSearchPath("Modules/");
+$page->addModuleSearchPath("AdminPanes/");
 $page->addJS("edit_area/edit_area_full.js");
 $page->addJSCode("
 function editAreaSaveHandler(){
@@ -71,14 +72,25 @@ class AdminMenu2 extends Module {
 		<fieldset>
 		<legend>Manage:</legend>
 		<a href="?manage=pages">Pages</a><br>
-		<a href="?manage=modules">Modules</a><br>
-		<a href="?manage=functions">Functions</a><br>
+		<a href="?manage=modules">Add-In Modules</a><br>
+		<a href="?manage=functions">Add-In Functions</a><br>
 		<a href="?manage=pages">Skins</a><br><br />
-		<a href="?manage=pages">Other Files</a><br>
+		<a href="?manage=dbEditor">Database's</a><br>
 		</fieldset><br />
 		<fieldset>
-		<legend>Misc:</legend>
-		<a href="?manage=dbEditor">Database</a><br>
+		<legend>Options:</legend>
+		<?php
+		$files=GetFiles("AdminPanes");
+		if (count($files)) {
+			foreach ($files as $fil) {
+			
+				$name=explode('.',$fil);
+				if ($name[1]=='php') {
+					echo'<a href="?managep='.$name[0].'">'.$name[0].'</a><br>';
+					}
+				}
+			}
+		?>
 		</fieldset>
 		<?php
 	}
@@ -115,8 +127,22 @@ if ($manage=="pages") {
 	$page->add("dbEditor");
 	$page->add("dbList",Module::RIGHT);
 }else{
-	$page->add(welcome,Module::CENTER);
+	if (!isset($_REQUEST['managep']))
+		{$page->add(welcome,Module::CENTER);}
 }
+
+$files=GetFiles("AdminPanes");
+if (count($files)) {
+	foreach ($files as $fil) {
+	
+		$name=explode('.',$fil);
+		if ($name[1]=='php') {
+			if ($name[0]==$_REQUEST['managep']) {
+				$page->add($name[0]);
+				}
+			}
+		}
+	}
 
 /**/
 //
