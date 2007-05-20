@@ -12,13 +12,22 @@ class PagesManage extends Module {
 		<fieldset>
 		<legend>Page Explorer</legend>
 		Heres a list of pages that exist in the DB:<br /><br />
+		<table width="400" border="1" bordercolor="#9bcf82" cellspacing="2" cellpadding="2">
 		<?php
 		$db= new ResDB($path."db/files.db");
-		foreach ($db as $key=>$value) {
-			echo '[<a href="?manage=pages&amp;page=page-edit&amp;pageid='.$key.'">Edit</a>] [<a href="?manage=pages&amp;page=page-edit&amp;pageiddel='.$key.'">Del</a>] - <a href="'.str_replace("data/","",$path).'getfile.php?page='.$key.'" target="_blank">'.$key.'</a><br>';
+		if (count($db)) {
+			foreach ($db as $key=>$value) {
+				echo'<tr>
+							<td><a href="?manage=pages&amp;page=page-edit&amp;pageid='.$key.'"><img alt="Edit" title="Edit this page" border="0" style="vertical-align:middle" src="icons/edit.png"></a></td>
+							<td><a href="javascript:void(0)" onclick="if (confirm(\'You sure you want to delete this page?\n'.$key.'\')){document.location=\'?manage=pages&page=page-edit&pageiddel='.$key.'\'}"><img alt="Delete" title="Delete this page" border="0" style="vertical-align:middle" src="icons/button_cancel.png"></a></td>
+							<td width="100%"><a href="'.str_replace("data/","",$path).'getfile.php?page='.$key.'" target="_blank">'.$key.'</a></td>
+						  </tr>';
+				}
+			} else {
+				echo'<tr><td colspan="3">There are no existing pages.</td></tr>';
 			}
-		echo'<br>
-		<a href="?manage=pages&amp;page=page-add">Add new page</a>';
+		echo'<tr><td colspan="3"><a href="?manage=pages&amp;page=page-add">Add new page</a></td></tr></table><br>
+		';
 		
 		//Add a page
 		?></fieldset><br />
