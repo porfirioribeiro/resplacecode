@@ -8,6 +8,30 @@ class FunctionsManage extends Module {
 	function content(){
 		global $path, $page;
 		
+		//edit submit
+		if ($_POST['editpage'])
+			{
+			?>
+			<fieldset>
+			<legend>Editing...</legend>
+			Request should have succeeded.
+			<?php
+			WriteFile($page->functionspath.$_POST['edit'].".php",stripslashes($_POST['data']));
+			?></fieldset><br /><?php
+			}
+			
+		//delete
+		if ($_GET['del'])
+			{
+			?>
+			<fieldset>
+			<legend>Delete...</legend>
+			Request should have succeeded.
+			<?php
+			unlink($page->functionspath.$_GET['del'].".php");
+			?></fieldset><br /><?php
+			}
+		
 		?>
 		<fieldset>
 		<legend>Functions Explorer</legend>
@@ -99,27 +123,6 @@ class Myfunction extends function {
 			</form>
 			</fieldset>
 			<?php
-			}
-		//edit submit
-		if ($_POST['editpage'])
-			{
-			?>
-			<fieldset>
-			<legend>Editing...</legend>
-			Request should have succeeded.
-			</fieldset><?php
-			
-			WriteFile($page->functionspath.$_POST['edit'].".php",stripslashes($_POST['data']));
-			}
-		//delete
-		if ($_GET['del'])
-			{
-			?>
-			<fieldset>
-			<legend>Editing...</legend>
-			Request should have succeeded.
-			</fieldset><?php
-			unlink($page->functionspath.$_GET['del'].".php");
 			}
 			
 		}
