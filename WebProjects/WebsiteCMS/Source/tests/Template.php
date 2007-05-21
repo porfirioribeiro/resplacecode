@@ -46,6 +46,11 @@ class Template{
 	function parse($object){
 		return $this->evaluate($object);
 	}
+	/**
+	 * Get one template inside other
+	 * @param String $part
+	 * @return Template
+	 */
 	function get($part){
 		$stexp=$this->patern[0]."start:".$part.$this->patern[1];
 		$enexp=$this->patern[0]."end:".$part.$this->patern[1];

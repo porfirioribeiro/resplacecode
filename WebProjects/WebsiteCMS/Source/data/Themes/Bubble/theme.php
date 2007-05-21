@@ -14,97 +14,16 @@ $this->addPreloadImg(array(
 	$tpath."Images/minimize_right_over.png"
 ));
 
-//Module Templates
-$this->module_main=new Template("
-		<div id=#{module_id} class=\"Module\">                  
-            <div class=\"TitleMid\">                            
-                <div class=\"TitleLeft\">                            
-                </div>
-				#{module_type}
-				<div class=\"TitleText\">
-                    #{module_title}                            
-                </div>                        
-            </div>
-					                      
-				<div class=\"Box\" id=\"#{module_container_id}\" style=\"display:#{module_control}\">
-					<div class=\"BoxContent\">
-						#{module_content}
-					</div>
-				<div class=\"BoxBotLeft\"><div class=\"BoxBotRight\"></div></div>
-				</div>
-				
-			");
-			
-$this->module_left=new Template("    
-	                <div class=\"TitleRight\">                            
-	                </div>       	
-	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"#{module_id_right}\" #{module_collapse}></div>  
-");
-
-$this->module_right=new Template("  	
-	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"#{module_id_left}\" #{module_collapse}></div> 
-					<div class=\"TitleRight\">                            
-	                </div> 
-");
-
-$this->module_center=new Template("  	
-	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"#{module_id_left}\" #{module_collapse}></div>  
-	                <div class=\"TitleRight\">                            
-	                </div>   
-	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"#{module_id_right}\" #{module_collapse}></div>
-");
-
-$this->module_top=new Template("  	
-	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"#{module_id_left}\" #{module_collapse}></div>  
-	                <div class=\"TitleRight\">                            
-	                </div>   
-	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"#{module_id_right}\" #{module_collapse}></div>
-");
-
-$this->module_bottom=new Template("  	
-	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"#{module_id_left}\" #{module_collapse}></div>  
-	                <div class=\"TitleRight\">                            
-	                </div>   
-	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"#{module_id_right}\" #{module_collapse}></div>
-");
-
-//Now we setup all the template material
-$this->page_title=new Template("
-		<div class=\"MainMid\"> 
-			<div class=\"Box\">                
-				<div class=\"TopLeft\"><div class=\"TopRight\"></div></div>                
-				
-				<div align=\"center\">
-				<div class=\"TitleImage\"></div>
-				</div>
-				<div class=\"BoxBotLeft\"><div class=\"BoxBotRight\"></div></div>
-			</div>
-		</div>");
-		
-$this->page_content=new Template("
-		<table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" >                
-            <tr>
-            	<td colspan=\"3\" style=\"#{display_modulestop}\">
-            	#{write_modulestop}           	
-            	</td>
-            </tr>
-            <tr>           
-            	<td id=\"LeftColumn\" style=\"#{display_modulesleft}\">  
-            	#{write_modulesleft}
-            	</td>        
-            	<td id=\"CenterColumn\" style=\"#{display_modulescenter}\">
-            	#{write_modulescenter}
-            	</td>	
-            	<td id=\"RightColumn\" style=\"#{display_modulesright}\">
-            	#{write_modulesright}
-            	</td>	              
-            </tr>
-			<tr>				
-				<td colspan=\"3\" style=\"#{display_modulesbottom}\">
-            	#{write_modulesbottom} 
-				</td>				
-			</tr>           
-        </table>
-		");
+$tpl=new TplFile(dirname(__FILE__)."/theme.tpl");
+$modTpl=$tpl->get("module");
+$this->module_main=$modTpl->get("main");
+$this->module_left=$modTpl->get("left");
+$this->module_right=$modTpl->get("right");
+$this->module_center=$modTpl->get("center");
+$this->module_top=$modTpl->get("top");
+$this->module_bottom=$modTpl->get("bottom");
+$pageTpl=$tpl->get("page");
+$this->page_title=$pageTpl->get("title");
+$this->page_content=$pageTpl->get("content");
 		
 ?>

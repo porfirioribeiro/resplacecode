@@ -20,4 +20,14 @@ foreach ($data as $dt){
 }
 
 echo $tabletpl->parse(array("rows"=>$rows));
+
+$tt=new Template("
+	#{start:module}
+		#{start:top}
+			#{name} is here
+		#{end:top}
+	#{end:module}
+");
+echo $tt->get("module")->get("top")->parse(array("name"=>"Porfirio"));
+
 ?>
