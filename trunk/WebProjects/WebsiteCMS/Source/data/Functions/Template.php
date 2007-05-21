@@ -8,10 +8,8 @@
 * @lastedit 12-05-07
 */
 class Template{
-	/** @var String The default patern */
-	const patern="#{*}:#[*]";
 	/** @var String The Patern */
-	var $patern=Template::patern;
+	var $patern=array("#{","}");
 	/** @var String The Template */
 	var $template="";
 	/**
@@ -33,20 +31,46 @@ class Template{
 	 * @return String The result of the combination with patern and $object
 	 */
 	function evaluate($object){
-		$paterns=preg_split("/:/",$this->patern);
-		$varpt=preg_split("/\*/",$paterns[0]);
-		$fnpt=preg_split("/\*/",$paterns[1]);
 		$result=$this->template;
 		if (class_exists("ArrayMap") && ArrayMap::is($object)){
 			foreach ($object->listPaths() as $value) {
-				$result=preg_replace("/".$varpt[0].$value.$varpt[1]."/",$object->getPath($value),$result);
+				$result=preg_replace("/".$this->patern[0].$value.$this->patern[1]."/",$object->getPath($value),$result);
 			}
 		}else if (is_array($object)){
 			foreach ($object as $key => $value) {
-				$result=preg_replace("/".$varpt[0].$key.$varpt[1]."/",$value,$result);
+				$result=preg_replace("/".$this->patern[0].$key.$this->patern[1]."/",$value,$result);
 			}
 		}
 		return $result;
+	}
+	function parse($object){
+		return $this->evaluate($object);
+	}
+	/**
+	 * Get one template inside other
+	 * @param String $part
+	 * @return Template
+	 */
+	function get($part){
+		$stexp=$this->patern[0]."start:".$part.$this->patern[1];
+		$enexp=$this->patern[0]."end:".$part.$this->patern[1];
+		$start=strpos($this->template,$stexp);
+		$end=strpos($this->template,$enexp);
+		$tpl="";
+		if ($start!==false && $end!==false){
+			$start+=strlen($stexp);
+			$tpl=substr($this->template,$start,$end-$start);
+		}
+		return new Template($tpl);
+	}
+}
+
+class TplFile extends Template {
+	function TplFile($file,$patern=null){
+		$this->template=file_get_contents($file);
+		if ($patern){
+			$this->patern=$patern;
+		}		
 	}
 }
 ?>
