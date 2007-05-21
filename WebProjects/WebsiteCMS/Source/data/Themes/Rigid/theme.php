@@ -25,7 +25,9 @@ $this->module_main=new Template("
                     #{module_title}                            
                 </div>                        
             </div> 			                      
-            <div class=\"BoxContent\" id=\"#{module_container_id}\" style=\"display:#{module_control}\">");
+            <div class=\"BoxContent\" id=\"#{module_container_id}\" style=\"display:#{module_control}\">
+			#{module_content}
+			</div>");
 			
 $this->module_left=new Template("    
 	                <div class=\"TitleRight\">                            

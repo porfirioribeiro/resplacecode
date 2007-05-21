@@ -59,35 +59,33 @@ class Module{
 				   
 	            }	
 				$mic= ($this->NoScript)?"block":$_COOKIE[$module."_CL"];
-				echo $p->module_main->evaluate(array("module_id"=>$module,"module_type"=>$modcont,"module_title"=>$this->title,"module_container_id"=>$moduleContainerID,"module_control"=>$mic));
+				
+				ob_start();
+				$this->content();
+				$woot=ob_get_contents();
+				ob_end_clean();
+				
+				echo $p->module_main->evaluate(array("module_id"=>$module,"module_type"=>$modcont,"module_title"=>$this->title,"module_container_id"=>$moduleContainerID,"module_control"=>$mic,"module_content"=>$woot));
 
 	}
 	function content(){
-	?>
-		<!-- Empty Module -->
-	<?php
-		/*if (isset($this->content2)){
-			$this->content2();
-		}*/
-		
+		echo'<div>';
 		$fn=$this->content2;
 		$fn($this);
+		echo'</div>';
 	}	
 	function finish(){
 		//code to be executed on the end
 	}
 	function end(){
 	?>
-            </div>	
 		</div> 
 	<?php
 		$this->finish();
 	}
 	function write(){
 		$this->start();
-		?><div><?php
-		$this->content();
-		?></div><?php
+		
 		$this->end();	
 	}
 }

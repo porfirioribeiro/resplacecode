@@ -23,7 +23,7 @@ class WebMS{
 	var $stylepath="Style/";
 	var $credits=Array();
 	var $selectedskin="";
-	var $defaultskin="Rigid/Blue/";
+	var $defaultskin="Bubble/RoyalBlue/";
 	var $CSS_files=Array();
 	var $JS_files=Array();
 	var $JS_filez=Array();
@@ -252,7 +252,8 @@ class WebMS{
 		foreach ($this->ModulesTop as $value){
 			$value->write();
 		}
-		$modulestopout=ob_get_clean();
+		$modulestopout=ob_get_contents();
+		ob_end_clean();
 		ob_start();
 		
 		$modulestopstyle=count($this->ModulesTop)==0?"display: none":"";
@@ -260,7 +261,8 @@ class WebMS{
 		foreach ($this->ModulesLeft as $value){
 			$modulesleftout=$value->write();
 		}
-		$modulesleftout=ob_get_clean();
+		$modulesleftout=ob_get_contents();
+		ob_end_clean();
 		ob_start();
 		
 		$modulesleftstyle=count($this->ModulesLeft)==0?"display: none":"";
@@ -268,7 +270,8 @@ class WebMS{
 		foreach ($this->ModulesRight as $value){
 			$modulesrightout=$value->write();
 		} 
-		$modulesrightout=ob_get_clean();
+		$modulesrightout=ob_get_contents();
+		ob_end_clean();
 		ob_start();
 		
 		$modulesrightstyle=count($this->ModulesRight)==0?"display: none":"";
@@ -276,7 +279,8 @@ class WebMS{
 		foreach ($this->ModulesCenter as $value){
 			$modulescenterout=$value->write();
 		}
-		$modulescenterout=ob_get_clean();
+		$modulescenterout=ob_get_contents();
+		ob_end_clean();
 		ob_start();
 		
 		$modulescenterstyle=count($this->ModulesCenter)==0?"display: none":"";
@@ -284,7 +288,8 @@ class WebMS{
 		foreach ($this->ModulesBottom as $value){
 			$modulesbottomout=$value->write();
 		}
-		$modulesbottomout=ob_get_clean();
+		$modulesbottomout=ob_get_contents();
+		ob_end_clean();
 		//ob_end_clean();
 		
 		$modulesbottomstyle=count($this->ModulesBottom)==0?"display: none":""; 
