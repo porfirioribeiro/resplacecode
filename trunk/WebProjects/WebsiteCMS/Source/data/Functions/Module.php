@@ -61,7 +61,9 @@ class Module{
 				$mic= ($this->NoScript)?"block":$_COOKIE[$module."_CL"];
 				
 				ob_start();
+				echo'<div>';
 				$this->content();
+				echo'</div>';
 				$woot=ob_get_contents();
 				ob_end_clean();
 				
@@ -69,10 +71,10 @@ class Module{
 
 	}
 	function content(){
-		echo'<div>';
+		
 		$fn=$this->content2;
 		$fn($this);
-		echo'</div>';
+		
 	}	
 	function finish(){
 		//code to be executed on the end
