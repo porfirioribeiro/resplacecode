@@ -7,22 +7,8 @@ $data=array(
 	array("name"=>"Dean","age"=>"19")
 );
 
-$tpl=new Template("
-	#{start:cell}
-		<td>#{content}</td>
-	#{end:cell}
-	#{start:row}
-		<tr>#{name}#{age}</tr>
-	#{end:row}
-	#{start:table}
-		<table border='1'>
-				<tr>
-					<td>Name:</td><td>Age:</td>
-				</tr>
-				#{rows}
-		</table>
-	#{end:table}
-	");
+
+$tpl=new TplFile("table.tpl");
 
 $celltpl=$tpl->get("cell");
 $rowtpl=$tpl->get("row");

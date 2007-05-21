@@ -59,4 +59,13 @@ class Template{
 		return new Template($tpl);
 	}
 }
+
+class TplFile extends Template {
+	function TplFile($file,$patern=null){
+		$this->template=file_get_contents($file);
+		if ($patern){
+			$this->patern=$patern;
+		}		
+	}
+}
 ?>
