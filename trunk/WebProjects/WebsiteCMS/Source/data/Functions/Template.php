@@ -32,13 +32,26 @@ class Template{
 	 */
 	function evaluate($object){
 		$result=$this->template;
+		$st=preg_quote($this->patern[0], '/');
+		$ed=preg_quote($this->patern[1], '/');
 		if (class_exists("ArrayMap") && ArrayMap::is($object)){
 			foreach ($object->listPaths() as $value) {
-				$result=preg_replace("/".$this->patern[0].$value.$this->patern[1]."/",$object->getPath($value),$result);
+				$key=$value;
+				$value=$object->getPath($value);
+
+				if (is_bool($value)){
+					$result=preg_replace("/".$st."iif:".$key.",(.*),(.*)".$ed."/",($value)?'${1}':'${2}',$result);
+				}else{
+					$result=preg_replace("/".$st.$key.$ed."/",$value,$result);
+				}
 			}
 		}else if (is_array($object)){
 			foreach ($object as $key => $value) {
-				$result=preg_replace("/".$this->patern[0].$key.$this->patern[1]."/",$value,$result);
+				if (is_bool($value)){
+					$result=preg_replace("/".$st."iif:".$key.",(.*),(.*)".$ed."/",($value)?'${1}':'${2}',$result);
+				}else{
+					$result=preg_replace("/".$this->patern[0].$key.$this->patern[1]."/",$value,$result);
+				}		
 			}
 		}
 		return $result;

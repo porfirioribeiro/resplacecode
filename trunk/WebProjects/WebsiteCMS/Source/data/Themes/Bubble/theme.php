@@ -5,6 +5,7 @@
 $tpath=$this->themespath.$this->selectedskin;
 //include("module.php");
 $this->addCSS($tpath."style.css");
+$this->addJS($this->themespath."Bubble/theme.js");
 $this->addPreloadImg(array(
 	$tpath."Images/collapse.png",
 	$tpath."Images/collapse_over.png",
@@ -15,15 +16,8 @@ $this->addPreloadImg(array(
 ));
 
 $tpl=new TplFile(dirname(__FILE__)."/theme.tpl");
-$modTpl=$tpl->get("module");
-$this->module_main=$modTpl->get("main");
-$this->module_left=$modTpl->get("left");
-$this->module_right=$modTpl->get("right");
-$this->module_center=$modTpl->get("center");
-$this->module_top=$modTpl->get("top");
-$this->module_bottom=$modTpl->get("bottom");
-$pageTpl=$tpl->get("page");
-$this->page_title=$pageTpl->get("title");
-$this->page_content=$pageTpl->get("content");
+$this->moduleTpl=$tpl->get("module");
+$this->pageTpl=$tpl->get("page");
+
 		
 ?>

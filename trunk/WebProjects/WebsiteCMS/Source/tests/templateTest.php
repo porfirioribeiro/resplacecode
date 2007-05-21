@@ -2,32 +2,16 @@
 include_once "../data/Functions/ResDB.php";
 include_once "Template.php";
 
-$data=array(
-	array("name"=>"Porfirio","age"=>"26"),
-	array("name"=>"Dean","age"=>"19")
-);
 
+preg_replace("/#\{iif:check,(.*),(.*)\}/",(false)?'${1}':'${2}',"#{iif:check,if true,if false}");
 
-$tpl=new TplFile("table.tpl");
-
-$celltpl=$tpl->get("cell");
-$rowtpl=$tpl->get("row");
-$tabletpl=$tpl->get("table");
-
-$rows="";
-foreach ($data as $dt){
-	$rows.=$rowtpl->parse(array("name"=>$celltpl->parse(array("content"=>$dt["name"])),"age"=>$celltpl->parse(array("content"=>$dt["age"]))));
-}
-
-echo $tabletpl->parse(array("rows"=>$rows));
-
-$tt=new Template("
-	#{start:module}
-		#{start:top}
-			#{name} is here
-		#{end:top}
-	#{end:module}
+$tpl=new Template("
+	I am #{iif:iscool,cool,not cool}!<br> 
+	#{kk}
 ");
-echo $tt->get("module")->get("top")->parse(array("name"=>"Porfirio"));
 
+$map=new ArrayMap();
+$map->put("iscool",false);
+$map->put("kk","lolz");
+echo $tpl->parse($map);
 ?>
