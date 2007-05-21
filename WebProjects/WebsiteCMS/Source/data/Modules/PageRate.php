@@ -30,7 +30,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 		$page->put("rank" ,$rank);
 		$page->put("ip" ,$ip);
 		$rv=round($rank/$votes,2);
-		echo $votes."-".$rank."-".$rv;
+		echo $votes."-".$rank."-".$rv."- You rated this page ".$_GET["RatePage"];
 	}else{
 		$votes=$page->get("votes","0");
 		$rank=$page->get("rank","0");
@@ -48,7 +48,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 			$this->dbPath=dirname(__FILE__)."/"."../db/PageRater.db";
 			$this->db=new ResDB($this->dbPath);
 			$this->pg=$this->db->getMap($this->page->id);
-			$url=str_replace($_SERVER["DOCUMENT_ROOT"], "", preg_replace("/\\\/","/",__FILE__));
+			$url=str_replace($_SERVER["DOCUMENT_ROOT"],"", preg_replace("/\\\/","/",__FILE__));
 			$this->page->addJSCode("
 				function PageRate(rate){
 					var url='".$url."';
@@ -115,7 +115,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 				}else{
 					?>
                     <div id="PageRate_rate">
-                    	<b>You rated this page.</b>
+                    	<b>Thanks!</b>
                     </div>
                     <?php
 				}
