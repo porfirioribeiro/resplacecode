@@ -19,7 +19,6 @@ class PagesManage extends Module {
 			WriteFile($path."Pages/".$pageid.".php",stripslashes($_POST['data']));
 			$db= new ResDB($path."db/files.db");
 			$somemap=$db->getMap($pageid);//you only need maps for organize the db
-			$somemap->put("name",$_POST['name']);
 			$somemap->put("smalldesc",$_POST['smalldesc']);
 			$somemap->put("largedesc",$_POST['largedesc']);
 			$db->close();//this is what saves the db
@@ -53,7 +52,6 @@ class PagesManage extends Module {
 			
 			$db= new ResDB($path."db/files.db");
 			$somemap=$db->getMap($pageid);//you only need maps for organize the db
-			$somemap->put("name",$_POST['name']);
 			$somemap->put("smalldesc",$_POST['smalldesc']);
 			$somemap->put("largedesc",$_POST['largedesc']);
 			$db->close();//this is what saves the db
@@ -69,11 +67,10 @@ class PagesManage extends Module {
 		$db= new ResDB($path."db/files.db");
 		if (count($db)) {
 			foreach ($db as $key=>$value) {
-				$name=$db->get($key)->get("name");
 				echo'<tr>
 							<td><a href="?manage=pages&amp;page=page-edit&amp;pageid='.$key.'"><img alt="Edit" title="Edit this page" border="0" style="vertical-align:middle" src="icons/edit.png"></a></td>
 							<td><a href="javascript:void(0)" onclick="if (confirm(\'You sure you want to delete this page?\n'.$key.'\')){document.location=\'?manage=pages&pageiddel='.$key.'\'}"><img alt="Delete" title="Delete this page" border="0" style="vertical-align:middle" src="icons/button_cancel.png"></a></td>
-							<td width="100%"><a href="'.str_replace("data/","",$path).'getfile.php?page='.$key.'" target="_blank">'.$name.'</a></td>
+							<td width="100%"><a href="'.str_replace("data/","",$path).'getfile.php?page='.$key.'" target="_blank">'.$key.'</a></td>
 						  </tr>';
 				}
 			} else {
@@ -93,10 +90,8 @@ class PagesManage extends Module {
 			<legend>Add new page</legend>
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input type="hidden" name="manage" value="pages" />
-			<b>Page ID:</b><br /><i>Set a some text or a number which uniqly identifies the page, used as filename and when navigating to a page via ?page=</i><br />
+			<b>Page ID:</b><br /><i>Set a some text or a number which will be used to load your page using index.php?page=Page ID.</i><br />
 			<input name="pageid" type="text" /><br /><br />
-			<b>Page Name:</b><br /><i>The name of the page (used in page explorer and as name in generated menu):</i><br />
-			<input name="name" type="text" /><br /><br />
 			<b>Small Description:</b><br /><i>A small description of the page, used in tooltip.</i><br />
 			<input name="smalldesc" type="text" /><br /><br />
 			<b>Large Description:</b><br /><i>A large description of the page.</i><br />
@@ -124,7 +119,6 @@ class PagesManage extends Module {
 				
 				$smalldesc=$db->get($_GET['pageid'])->get("smalldesc");
 				$largedesc=$db->get($_GET['pageid'])->get("largedesc");
-				$name=$db->get($_GET['pageid'])->get("name");
 				
 				$file=$path."Pages/".$_GET['pageid'].".php";
 				$fh=fopen($file,'r');
@@ -137,8 +131,6 @@ class PagesManage extends Module {
 				<input type="hidden" name="manage" value="pages" />
 				<b>Page ID:</b><br /><i>Set a some text or a number which will be used to load your page using index.php?page=Page ID.</i><br />
 				<input name="pageid" type="text" value="<?=$_GET['pageid']; ?>" /><br /><br />
-				<b>Page Name:</b><br /><i>The name of the page (used in page explorer and as name in generated menu):</i><br />
-			<input name="name" type="text" value="<?=$name; ?>" /><br /><br />
 				<b>Small Description:</b><br /><i>A small description of the page, used in tooltip.</i><br />
 				<input name="smalldesc" type="text" value="<?=$smalldesc; ?>" /><br /><br />
 				<b>Large Description:</b><br /><i>A large description of the page.</i><br />

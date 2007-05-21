@@ -55,7 +55,7 @@ class WebMS{
 		$RootPath=str_replace($_SERVER["DOCUMENT_ROOT"], "", $AbsRootPath);	
 		$this->absRoot=$AbsRootPath;
 		$this->root=$RootPath;	
-	    $this->id=str_replace(array("/","\\","-"," ","."),"_",$_SERVER['PHP_SELF']);
+	    $this->id=str_replace(array("/","\\","-"," ","."),"_",$_SERVER['PHP_SELF'].$_REQUEST['page']);
 	    $this->path=$_path;
 	    $this->themespath=$this->path.$this->themespath;
 	    $this->modulespath=$this->path.$this->modulespath;
