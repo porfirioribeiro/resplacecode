@@ -182,6 +182,21 @@ class ArrayMap extends ArrayObject{
 		$map->put($nkey,$v);
 		$map->del($k);
 	}
+	private function searchPath($map,&$path,$tree){
+		foreach ($map as $key => $value) {
+			if (ArrayMap::is($value)){
+				$tree.=$key;		
+				$this->searchPath($map->get($key),$path,$tree);
+			}else {
+				$path[]=$tree.(($tree=="")?"":".").$key;
+			}
+		}
+	}
+	function listPaths(){
+		$paths=array();
+		$this->searchPath($this,$paths,"");
+		return $paths;
+	}
 }
 
 class ResDB extends ArrayMap {

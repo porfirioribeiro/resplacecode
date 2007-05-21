@@ -1,38 +1,37 @@
 <?php
 include_once "../data/Functions/ResDB.php";
-include_once "../data/Functions/Template.php";
+include_once "Template.php";
 
-$tpl=new Template("My name is #{name} and i am #{age} years old!");
-?>
-$tpl=new Template("My name is #{name} and i am #{age} years old!");<br>
-echo $tpl->evaluate(array("name"=>"porfirio","age"=>26));<br>
+$data=array(
+	array("name"=>"Porfirio","age"=>"26"),
+	array("name"=>"Dean","age"=>"19")
+);
 
-<?php
-echo $tpl->evaluate(array("name"=>"porfirio","age"=>26))."<br>";
+$tpl=new Template("
+	#{start:cell}
+		<td>#{content}</td>
+	#{end:cell}
+	#{start:row}
+		<tr>#{name}#{age}</tr>
+	#{end:row}
+	#{start:table}
+		<table border='1'>
+				<tr>
+					<td>Name:</td><td>Age:</td>
+				</tr>
+				#{rows}
+		</table>
+	#{end:table}
+	");
 
-?>
-$map=new ArrayMap();<br>
-$map->put("name","Porfirio");<br>
-$map->put("age",26);<br>
-$adrs=$map->addMap("adress");<br>
-$adrs->put("country","Portugal");<br>
-$adrs->put("town","Alcobaça");<br>
-echo $tpl->evaluate($map);<br><br>
-<?php
-$map=new ArrayMap();
-$map->put("name","Porfirio");
-$map->put("age",26);
-$adrs=$map->addMap("adress");
-$adrs->put("country","Portugal");
-$adrs->put("town","Alcobaça");
+$celltpl=$tpl->get("cell");
+$rowtpl=$tpl->get("row");
+$tabletpl=$tpl->get("table");
 
-echo $tpl->evaluate($map)."<br>";
-?>
-$tpl2=new Template("My name is #{name} and i am #{age} years old! My town is #{adress.town} and my country is #{adress.country}");<br>
-echo $tpl2->evaluate($map);<br><br>
-<?php
-$tpl2=new Template("My name is #{name} and i am #{age} years old! My town is #{adress.town} and my country is #{adress.country}");
-echo $tpl2->evaluate($map);
+$rows="";
+foreach ($data as $dt){
+	$rows.=$rowtpl->parse(array("name"=>$celltpl->parse(array("content"=>$dt["name"])),"age"=>$celltpl->parse(array("content"=>$dt["age"]))));
+}
 
-
+echo $tabletpl->parse(array("rows"=>$rows));
 ?>

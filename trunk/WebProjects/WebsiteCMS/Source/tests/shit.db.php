@@ -1,5 +1,0 @@
-<?php 
-/*Do Not Hand Edit This file!!!! The DB may became corrupted!!!*/
- if (!isset($this)){die("You cant just came and see the data sorry");}$this->data="xœó·2µR
-J-vqR²2´ª.¶2±RJÎÏÏQ²3ó2“S•¬kÏ*
-";?>
