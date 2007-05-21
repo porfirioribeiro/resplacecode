@@ -48,6 +48,8 @@ class WebMS{
 	var $module_top;
 	var $module_bottom;
 	var $page_content;
+	var $moduleTpl;
+	var $pageTpl;
 	function WebMS($_path="data/",$_title=""){
 		$this->self=$this;
 		$AbsRootPath=preg_replace("/data(\/|\\\)site.php/","",__FILE__);
@@ -242,7 +244,7 @@ class WebMS{
 		
 		//place title code
 		//echo $this->theme_title;
-		echo $this->page_title->evaluate(array());
+		echo $this->pageTpl->get("title")->evaluate(array());
 		
 		//place the page content as desired
 		//theme_shell($this->ModulesTop,$this->ModulesLeft,$this->ModulesCenter,$this->ModulesTop,$this->ModulesRight,$this->ModulesBottom);
@@ -295,7 +297,7 @@ class WebMS{
 		$modulesbottomstyle=count($this->ModulesBottom)==0?"display: none":""; 
 		//var_dump($modulesbottomout);
 		
-		echo $this->page_content->evaluate(array(
+		echo $this->pageTpl->get("content")->evaluate(array(
 			"write_modulestop"=>$modulestopout,"display_modulestop"=>$modulestopstyle,
 			"write_modulesleft"=>$modulesleftout,"display_modulesleft"=>$modulesleftstyle,
 			"write_modulesright"=>$modulesrightout,"display_modulesright"=>$modulesrightstyle,
