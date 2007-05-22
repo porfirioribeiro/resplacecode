@@ -128,6 +128,9 @@ if ($manage=="pages") {
 }else if ($manage=="dbEditor") {
 	$page->add("dbEditor");
 	$page->add("dbList",Module::RIGHT);
+}else if ($manage=="menuEditor") {
+	$page->add("menuEditor");
+	//$page->add("dbList",Module::RIGHT);
 }else{
 	if (!isset($_REQUEST['managep']))
 		{$page->add(welcome,Module::CENTER);}

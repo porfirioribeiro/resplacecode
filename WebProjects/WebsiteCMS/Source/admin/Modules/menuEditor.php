@@ -1,19 +1,18 @@
 <?php
-/**
-* Menu module<br>
-* This module builds the menu from the DB
-* Licenced under GPLv2 read GPL.txt for details
-* @version 1
-* @copyright � 2007 ResPlace Team
-* @lastedit 14-05-07
-*/
 
-class Menu extends Module {
-	function Menu($page){
-		$this->page=$page;
-		$this->side=Module::LEFT;
-		$this->title="Menu";
-		$this->db=new ResDB(dirname(__FILE__)."/../db/Menu.db");
+class menuEditor extends Module {
+	/** 
+	 * @var ResDB 
+	 */
+	var $db;
+	function menuEditor($page){
+		parent::Module($page);
+		$this->title="Menu editor";
+		$this->side=Module::CENTER;
+		$this->db=new ResDB($this->page->path."db/Menu.db");
+	}
+	function finish(){
+		$this->db->close();
 	}
 	function expandMenu($mnu){
 		for ($i=1;$i<=count($mnu);$i++){
@@ -45,5 +44,5 @@ class Menu extends Module {
 	<?php
 	}
 }
-?>
 
+?>

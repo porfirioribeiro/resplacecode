@@ -20,7 +20,7 @@
     <!--
     It uses the same vars as :default
     only use this if you want to overide the default template on right collumn modules
-    -->       		
+    -->  		
 	#{end:right}	
 	#{start:center}		
     <!--
