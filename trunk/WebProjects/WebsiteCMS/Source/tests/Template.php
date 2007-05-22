@@ -49,6 +49,8 @@ class Template{
 			foreach ($object as $key => $value) {
 				if (is_bool($value)){
 					$result=preg_replace("/".$st."iif:".$key.",(.*),(.*)".$ed."/",($value)?'${1}':'${2}',$result);
+					$result=preg_replace("/".$st."if:".$key.$ed."\s*(.*)\s*".$st."else:".$key.$ed."\s*(.*)\s*".$st."endif:".$key.$ed."/",($value)?'${1}':'${2}',$result);
+					$result=preg_replace("/".$st."if:".$key.$ed."\s*(.*)\s*".$st."endif:".$key.$ed."/",($value)?'${1}':'',$result);
 				}else{
 					$result=preg_replace("/".$this->patern[0].$key.$this->patern[1]."/",$value,$result);
 				}		
@@ -75,6 +77,13 @@ class Template{
 			$tpl=substr($this->template,$start,$end-$start);
 		}
 		return new Template($tpl);
+	}
+	function isPart($part){
+		$stexp=$this->patern[0]."start:".$part.$this->patern[1];
+		$enexp=$this->patern[0]."end:".$part.$this->patern[1];
+		$start=strpos($this->template,$stexp);
+		$end=strpos($this->template,$enexp);
+		return ($start!==false && $end!==false);
 	}
 }
 

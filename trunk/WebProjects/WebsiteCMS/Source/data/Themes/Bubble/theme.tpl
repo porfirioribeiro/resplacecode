@@ -1,58 +1,53 @@
 #{start:module}
-	#{start:main}
-		<div id=#{module_id} class="Module">                  
-			#{module_header}         
-			<div class="Box" id="#{module_id_container}" style="display:#{module_display}">
+	#{start:default}
+		<div id="#{id}" class="Module">                  
+	        <div class="TitleMid">                            
+	            <div class="TitleLeft"></div>
+			    <div style="float:left;" id="#{id}_left_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
+			    <div class="TitleRight"></div>   
+			    <div style="float:right;" id="#{id}_right_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>
+				<div class="TitleText">#{title}</div>                        
+	        </div>	        
+			<div class="Box" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
 				<div class="BoxContent">
-					#{module_content}
+					#{content}
 				</div>
 			<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
 			</div>	
 		</div> 			
-	#{end:main}		
+	#{end:default}		
 	#{start:left}	
-        <div class="TitleMid">                            
-	        <div class="TitleLeft"></div>
-		    <div class="TitleRight"></div>       	
-		    <div style="float:right" id="#{module_id_right}" class="SmallIcon #{iif:module_collapsed,CollapseIcon,UnCollapseIcon}" onmouseover="collapseOverOut('#{module_id}',this,true)" onmouseout="collapseOverOut('#{module_id}',this,false)" onclick="collapseToogle('#{module_id}',this)"></div>  
-			<div class="TitleText">#{module_title}</div>                        
-        </div>	
+		<div id="#{id}" class="Module">                  
+	        <div class="TitleMid">                            
+		        <div class="TitleLeft"></div>
+			    <div class="TitleRight"></div>       	
+			    <div style="float:right" id="#{id}_right_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
+				<div class="TitleText">#{title}</div>                        
+	        </div>	       
+			<div class="Box" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
+				<div class="BoxContent">
+					#{content}
+				</div>
+			<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
+			</div>	
+		</div> 	
 	#{end:left}	
 	#{start:right}	
-        <div class="TitleMid">                            
-            <div class="TitleLeft"></div>	
-		    <div style="float:left;" id="#{module_id_left}" class="SmallIcon #{iif:module_collapsed,CollapseIcon,UnCollapseIcon}" onmouseover="collapseOverOut('#{module_id}',this,true)" onmouseout="collapseOverOut('#{module_id}',this,false)" onclick="collapseToogle('#{module_id}',this)"></div> 
-			<div class="TitleRight"></div> 
-			<div class="TitleText">#{module_title}</div>                        
-        </div>			
+		<div id="#{id}" class="Module">                  
+	        <div class="TitleMid">                            
+	            <div class="TitleLeft"></div>	
+			    <div style="float:left;" id="#{id}_left_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div> 
+				<div class="TitleRight"></div> 
+				<div class="TitleText">#{title}</div>                        
+	        </div>	       
+			<div class="Box" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
+				<div class="BoxContent">
+					#{content}
+				</div>
+			<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
+			</div>	
+		</div>         		
 	#{end:right}	
-	#{start:center}		
-        <div class="TitleMid">                            
-            <div class="TitleLeft"></div>
-		    <div style="float:left;" id="#{module_id_left}" class="SmallIcon #{iif:module_collapsed,CollapseIcon,UnCollapseIcon}" onmouseover="collapseOverOut('#{module_id}',this,true)" onmouseout="collapseOverOut('#{module_id}',this,false)" onclick="collapseToogle('#{module_id}',this)"></div>  
-		    <div class="TitleRight"></div>   
-		    <div style="float:right;" id="#{module_id_right}" class="SmallIcon #{iif:module_collapsed,CollapseIcon,UnCollapseIcon}" onmouseover="collapseOverOut('#{module_id}',this,true)" onmouseout="collapseOverOut('#{module_id}',this,false)" onclick="collapseToogle('#{module_id}',this)"></div>
-			<div class="TitleText">#{module_title}</div>                        
-        </div>	
-	#{end:center}
-	#{start:top}	
-        <div class="TitleMid">                            
-            <div class="TitleLeft"></div>
-			<div style="float:left;" id="#{module_id_left}" class="SmallIcon #{iif:module_collapsed,CollapseIcon,UnCollapseIcon}" onmouseover="collapseOverOut('#{module_id}',this,true)" onmouseout="collapseOverOut('#{module_id}',this,false)" onclick="collapseToogle('#{module_id}',this)"></div>  
-			<div class="TitleRight"></div>   
-			<div style="float:right;" id="#{module_id_right}" class="SmallIcon #{iif:module_collapsed,CollapseIcon,UnCollapseIcon}" onmouseover="collapseOverOut('#{module_id}',this,true)" onmouseout="collapseOverOut('#{module_id}',this,false)" onclick="collapseToogle('#{module_id}',this)"></div>
-			<div class="TitleText">#{module_title}</div>                        
-        </div>	
-	#{end:top}	
-	#{start:bottom}		
-        <div class="TitleMid">                            
-            <div class="TitleLeft"></div>
-			<div style="float:left;" id="#{module_id_left}" class="SmallIcon #{iif:module_collapsed,CollapseIcon,UnCollapseIcon}" onmouseover="collapseOverOut('#{module_id}',this,true)" onmouseout="collapseOverOut('#{module_id}',this,false)" onclick="collapseToogle('#{module_id}',this)"></div>  
-			<div class="TitleRight"></div>   
-			<div style="float:right;" id="#{module_id_right}" class="SmallIcon #{iif:module_collapsed,CollapseIcon,UnCollapseIcon}" onmouseover="collapseOverOut('#{module_id}',this,true)" onmouseout="collapseOverOut('#{module_id}',this,false)" onclick="collapseToogle('#{module_id}',this)"></div>
-			<div class="TitleText">#{module_title}</div>                        
-        </div>				
-	#{end:bottom}	
 #{end:module}
 
 #{start:page}	
@@ -60,7 +55,7 @@
 		<div class="MainMid"> 
 			<div class="Box">                
 				<div class="TopLeft"><div class="TopRight"></div></div>                
-				
+				<div style="float:right;" id="AjaxLoader"></div>
 				<div align="center">
 				<div class="TitleImage"></div>
 				</div>

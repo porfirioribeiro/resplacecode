@@ -41,15 +41,9 @@ class WebMS{
 	var $ModulesBottom=array();
 	var $alerts=array();
 	//templates
-	var $module_main;
-	var $module_left;
-	var $module_right;
-	var $module_center;
-	var $module_top;
-	var $module_bottom;
-	var $page_content;
 	var $moduleTpl;
 	var $pageTpl;
+	var $menuTpl;
 	function WebMS($_path="data/",$_title=""){
 		$this->self=$this;
 		$AbsRootPath=preg_replace("/data(\/|\\\)site.php/","",__FILE__);
@@ -127,6 +121,7 @@ class WebMS{
 	}
 	function addDefaults(){		
 		$this->addJS("prototype.js");	
+		$this->addJS("protoExt.js");
 		$this->addJS("cookie.js");	
 		$this->addJS("site.js");	
 		$this->addOnLoad("el=$('AjaxLoader');if (el){el.hide();Ajax.Responders.register({onCreate: function(){el.show();},onComplete: function(){if(Ajax.activeRequestCount==0){el.hide();}}})}");

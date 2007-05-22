@@ -1,43 +1,31 @@
 
-function collapseToogle(module,el){
-	var hLeft=document.getElementById(module+"_CAL");
-	var hRight=document.getElementById(module+"_CAR");
-	var moduleEl=document.getElementById(module+"_CT");
-	var str;
-	Effect.toggle(moduleEl,"slide",1)
-	if (moduleEl.style.display=="block" || moduleEl.style.display===""){
-		//moduleEl.style.display="none";
-		Cookie.Write(module+"_CL","none");
-		if (hLeft!==null){
-			str=(el==hLeft)?"Over":"";
-			hLeft.className="SmallIcon UnCollapseIcon"+str;
+function collapseToogle(el,module,cookie){
+	var hLeft=$(module+"_left_icon");
+	var hRight=$(module+"_right_icon");
+	var moduleEl=$(module+"_container");
+	/* Small workaround for make you not be able to collapse while colapsing ;)*/
+	if (!moduleEl["___collapsing__"]){
+		moduleEl["___collapsing__"]=true;
+		Effect.toggle(moduleEl,"slide",{
+			afterFinish:function(){
+				moduleEl["___collapsing__"]=false;					
+			}
+		});
+		if (hLeft){
+			Effect.Fade(hLeft,{duration:0.5,to:0.1,afterFinish:function(){
+				hLeft.toggleClasseNameWith("CollapseIcon","UnCollapseIcon");
+				Effect.Appear(hLeft,{duration:0.5});
+			}});
 		}
-		if (hRight!==null){
-			str=(el==hRight)?"Over":"";
-			hRight.className="SmallIcon UnCollapseIcon"+str;
-		}		
-	}else if (moduleEl.style.display=="none"){
-		//moduleEl.style.display="block";
-		Cookie.Write(module+"_CL","block",50000);
-		if (hLeft!==null){
-			str=(el==hLeft)?"Over":"";
-			hLeft.className="SmallIcon CollapseIcon"+str;
-		}
-		if (hRight!==null){
-			str=(el==hRight)?"Over":"";
-			hRight.className="SmallIcon CollapseIcon"+str;
-		}		
+		if (hRight){
+			Effect.Fade(hRight,{duration:0.5,to:0.1,afterFinish:function(){
+				hRight.toggleClasseNameWith("CollapseIcon","UnCollapseIcon");
+				Effect.Appear(hRight,{duration:0.5});		
+			}});		
+		}	
+		
+		Cookie.Write(cookie,moduleEl.visible());	
+	}else{
+		//alert("wait, we are still collapsing this one...");	
 	}
-}
-function collapseOverOut(module,el,over){
-	module=document.getElementById(module+"_CT");
-	var classe="SmallIcon ";
-	if (module.style.display=="none"){
-		classe+="Un";
-	}	
-	classe+="CollapseIcon";
-	if (over){
-		classe+="Over";
-	}
-	el.className=classe;
 }

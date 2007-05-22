@@ -27,43 +27,48 @@ class Module{
 	}
 	function write(){
 		$module="MODULE_".preg_replace("/\W*/","",$this->title);
-		$moduleContainerID=$module."_CT";
-		$moduleCALeft=$module."_CAL";
-		$moduleCARight=$module."_CAR";
 		$minTitle=preg_replace("/[^a-z0-9_+& ]*/i","",$this->title);
 		$p=$this->page;
-		$display=$this->NoScript?"":$_COOKIE[$module."_CL"];
-		$isDisplay=($display=="none");
-		$data=array(
-			"module_title"=>$this->title,
-			"module_id"=>$module,
-			"module_id_right" =>$moduleCARight,
-			"module_id_left"  =>$moduleCALeft,
-			"module_id_container"=>$moduleContainerID,
-			"module_display"=>$display,
-			"module_collapsed" =>($_COOKIE[$module."_CL"]=="none")
-		);
-		$tpl=$p->moduleTpl;
-        if ($this->side==Module::LEFT){
-			$modcont=$tpl->get("left")->evaluate($data);                  
-        }elseif ($this->side==Module::CENTER){  
-           $modcont=$tpl->get("center")->evaluate($data);  	      	
-        }elseif ($this->side==Module::TOP){  
-           $modcont=$tpl->get("top")->evaluate($data);      	
-        }elseif ($this->side==Module::BOTTOM){  
-           $modcont=$tpl->get("bottom")->evaluate($data);     	
-        }elseif ($this->side==Module::RIGHT){        
-           $modcont=$tpl->get("right")->evaluate($data);	   
-        }			
 		ob_start();
 		echo'<div>';
 		$this->content();
 		echo'</div>';
-		$woot=ob_get_contents();
+		$content=ob_get_contents();
 		ob_end_clean();
-		$data["module_header"]=$modcont;
-		$data["module_content"]=$woot;
-		echo $modcont=$tpl->get("main")->evaluate($data);
+		$data=array(
+			"title"=>$this->title,
+			"id"=>$module,
+			"cookie"=>$module."_Cookie",
+			"collapsed" =>($this->NoScript || ($_COOKIE[$module."_Cookie"]=="true")),
+			"content" =>$content
+		);		
+		$modcont=null;
+		$tpl=$p->moduleTpl;
+        if ($this->side==Module::LEFT){
+        	if ($tpl->isPart("left")){
+        		$modcont=$tpl->get("left")->evaluate($data); 
+        	}	                 
+        }elseif ($this->side==Module::CENTER){  
+        	if ($tpl->isPart("center")){
+        		$modcont=$tpl->get("center")->evaluate($data); 
+        	} 	      	
+        }elseif ($this->side==Module::TOP){  
+        	if ($tpl->isPart("top")){
+        		$modcont=$tpl->get("top")->evaluate($data); 
+        	}   	
+        }elseif ($this->side==Module::BOTTOM){  
+        	if ($tpl->isPart("bottom")){
+        		$modcont=$tpl->get("bottom")->evaluate($data); 
+        	}    	
+        }elseif ($this->side==Module::RIGHT){        
+        	if ($tpl->isPart("right")){
+        		$modcont=$tpl->get("right")->evaluate($data); 
+        	}	   
+        }
+		if ($modcont==null){
+			$modcont=$tpl->get("default")->evaluate($data);
+		}
+		echo $modcont;
 		$this->finish();
 	}
 	function content(){		

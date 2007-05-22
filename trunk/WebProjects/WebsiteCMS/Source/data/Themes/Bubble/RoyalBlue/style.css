@@ -7,6 +7,14 @@ body {
 	font-size:12px;
 	background-color:#cfcfff;
 }
+#AjaxLoader{
+	background-image: url(Images/ajax-loader.gif);
+	width: 220px;
+	height: 19px;
+	float: right;
+	margin-top: 5px;
+	background-repeat: no-repeat;
+}
 /* Stuff in tables */
 table {
 	border:1px solid #cfcfff;
