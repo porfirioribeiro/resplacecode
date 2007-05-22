@@ -1,7 +1,7 @@
 <?php
-include_once "setup.php";
-session_start();
 
+session_start();
+include_once "setup.php";
 class WebMS{
 	static $self;
 	private $cr_clmn="";
