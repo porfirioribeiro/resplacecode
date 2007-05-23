@@ -40,7 +40,7 @@ class WebMS_Options_collapse extends Module {
 			<input name="collapse_javascript" type="radio" value="no" onclick="document.getElementById('js_effects').style.display='none'" /> No<br /><br />
 			<div id="js_effects" style="display:none">
 				<b>What effect would you like to use?</b><br />
-				<input name="javascript_effects"  type="radio" value="yes" /> Yes<br />
+				<input name="javascript_effects"  type="radio" value="slide" /> Slide In/Out<br />
 				<input name="javascript_effects" type="radio" value="no" /> No<br />
 			</div>
 		</form>
