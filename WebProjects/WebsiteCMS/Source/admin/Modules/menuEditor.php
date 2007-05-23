@@ -22,7 +22,7 @@ class menuEditor extends Module {
 					$id=preg_replace(array("/-/","/ /"),"_",$val->get("name"));
 					?>
 					<a style="display:block; text-decoration:none;" href="javascript:;" onclick="$('<?=$id?>').toggle();"><?=$val->get("name")?></a>
-					<div id="<?=$id?>" style="display:none;padding-left:10px">
+					<div id="<?=$id?>" style="display:;padding-left:10px">
 					<?php
 						$this->expandMenu($val);
 					?>

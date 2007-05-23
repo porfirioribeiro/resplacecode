@@ -170,6 +170,7 @@ class dbEditor extends Module {
 					Manual Add
 				</a>
 				<form action="" id="ManualADD" style="display:none;">
+					<input type="hidden" name="manage" value="dbEditor">
 					<input type="hidden" name="action" value="setKey">
 					<input type="hidden" name="place" value="<?=$_GET["place"]?>">
 					<input type="hidden" name="db" value="<?=$_GET["db"]?>">

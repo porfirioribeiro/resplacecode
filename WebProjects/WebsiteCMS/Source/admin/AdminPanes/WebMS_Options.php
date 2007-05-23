@@ -36,12 +36,15 @@ class WebMS_Options_collapse extends Module {
 		Below are some options regarding how WebMS handles modules and how they collapse, you can choose to use javascript collapse effects or not, and what javascript effect you wish to use.<br /><br />
 		<form name="form1" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<b>Use JavaScript for collapsing modules?</b><br />
-			<input name="collapse_javascript" type="radio" value="yes" onclick="document.getElementById('js_effects').style.display='block'" /> Yes<br />
-			<input name="collapse_javascript" type="radio" value="no" onclick="document.getElementById('js_effects').style.display='none'" /> No<br /><br />
+			<label><input name="collapse_javascript" type="radio" value="yes" onclick="Effect.Appear('js_effects',{duration:0.3})/*$('js_effects').show()*/"> Yes</label><br />
+			<label><input name="collapse_javascript" type="radio" value="no" onclick="Effect.Fade('js_effects',{duration:0.3})/*$('js_effects').hide()*/"  checked="checked"> No</label><br /><br />
 			<div id="js_effects" style="display:none">
 				<b>What effect would you like to use?</b><br />
-				<input name="javascript_effects"  type="radio" value="slide" /> Slide In/Out<br />
-				<input name="javascript_effects" type="radio" value="no" /> No<br />
+				<label><input name="javascript_effects"  type="radio" value="slide" /> Slide In/Out</label><br />
+				<label><input name="javascript_effects" type="radio" value="no" /> No</label><br />
+				<!-- 
+				<label onclick="console.log($A(this.form.javascript_effects).filter(function(){return true;}));">See Live</label>
+				 -->
 			</div>
 		</form>
 		<?php
