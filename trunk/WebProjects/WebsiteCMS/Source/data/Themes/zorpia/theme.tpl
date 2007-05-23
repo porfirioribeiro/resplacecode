@@ -2,7 +2,7 @@
 	#{start:default}
 		<div id="#{id}" class="Module">                  
 	        <div class="modules_c_title">      	
-			    <div style="float:right" id="#{id}_left_icon" class="SmallIcon2 #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
+			    <div style="float:right" id="#{id}_right_icon" class="SmallIcon2 #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
 				<div class="TitleText">#{title}</div>                        
 	        </div>	       
 			<div class="modules_c_content" id="#{id}_container" style="display:#{iif:collapsed,none,block}">

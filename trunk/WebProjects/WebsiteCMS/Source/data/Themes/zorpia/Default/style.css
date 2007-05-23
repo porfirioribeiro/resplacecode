@@ -29,6 +29,7 @@ body {
 	padding:4px;
 	margin:2px;
 	margin-bottom:20px;
+	text-align:left;
 }
 
 /* modules on center */
@@ -42,6 +43,7 @@ body {
 .modules_c_content {
 	padding:4px;
 	margin-bottom:5px;
+	text-align:left;
 }
 
 a {
