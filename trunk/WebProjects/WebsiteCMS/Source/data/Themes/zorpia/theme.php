@@ -5,7 +5,7 @@
 $tpath=$this->themespath.$this->selectedskin;
 //include("module.php");
 $this->addCSS($tpath."style.css");
-$arr=explode("/",$tpath);
+$arr=explode("/",$this->selectedskin);
 $this->addJS($this->themespath.$arr[0]."/theme.js");
 $this->addPreloadImg(array(
 	$tpath."Images/collapse.png",
