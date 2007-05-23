@@ -34,8 +34,15 @@ class WebMS_Options_collapse extends Module {
 		
 		?>
 		Below are some options regarding how WebMS handles modules and how they collapse, you can choose to use javascript collapse effects or not, and what javascript effect you wish to use.<br /><br />
-		<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-			<b>Use JavaScript for collapsing modules?</b>
+		<form name="form1" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
+			<b>Use JavaScript for collapsing modules?</b><br />
+			<input name="collapse_javascript" type="radio" value="yes" onclick="document.getElementById('js_effects').style.display='block'" /> Yes<br />
+			<input name="collapse_javascript" type="radio" value="no" onclick="document.getElementById('js_effects').style.display='none'" /> No<br /><br />
+			<div id="js_effects" style="display:none">
+				<b>What effect would you like to use?</b><br />
+				<input name="javascript_effects"  type="radio" value="yes" /> Yes<br />
+				<input name="javascript_effects" type="radio" value="no" /> No<br />
+			</div>
 		</form>
 		<?php
 		}
