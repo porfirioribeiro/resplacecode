@@ -143,7 +143,8 @@ if (count($files)) {
 		$name=explode('.',$fil);
 		if ($name[1]=='php') {
 			if ($name[0]==$_REQUEST['managep']) {
-				$page->add($name[0]);
+				include("AdminPanes/".$fil);
+				//$page->add($name[0]);
 				}
 			}
 		}
