@@ -71,6 +71,7 @@ class AdminMenu2 extends Module {
 		<a href="index.php">Admin Home</a><br /><br />
 		<fieldset>
 		<legend>Manage:</legend>
+		<a href="?manage=menu">Menu</a><br>
 		<a href="?manage=pages">Web Pages</a><br>
 		<a href="?manage=modules">Add-In Modules</a><br>
 		<a href="?manage=functions">Add-In Functions</a><br>
@@ -128,7 +129,7 @@ if ($manage=="pages") {
 }else if ($manage=="dbEditor") {
 	$page->add("dbEditor");
 	$page->add("dbList",Module::RIGHT);
-}else if ($manage=="menuEditor") {
+}else if ($manage=="menu") {
 	$page->add("menuEditor");
 	//$page->add("dbList",Module::RIGHT);
 }else{
