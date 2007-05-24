@@ -30,7 +30,7 @@ function toggleEl(el,ct){
 			?>
 			 <div style="margin-top:0px;">
 			<?php
-			 if (is_a($value,ArrayMap)){
+			 if (ArrayMap::is($value)){
 				?>
 				<img class="dbEditExpCollHandle" src="<?=$this->fd?>" onclick="var el=$('<?=$id?>');el.toggle();this.src=(el.style.display=='')?'<?=$this->fdaO?>':'<?=$this->fda?>';" style="cursor:pointer;">
 				<?php
@@ -45,7 +45,7 @@ function toggleEl(el,ct){
 			 	<img alt="Delete" title="Delete this key" border="0" style="vertical-align:middle" src="icons/button_cancel.png">
 			 </a>		
 			 <?php
-			 if (!is_a($value,ArrayMap)){
+			 if (!ArrayMap::is($value)){
 			 ?>			
 				 <a href="javascript:void(0)" onclick="$('<?=$id."_edit"?>').toggle();//var _Path_='<?=$p?>';document.location=location.search+'&action=editValue&path=<?=$p?>'">
 				 	<img alt="Edit" title="Edit the value of this key" border="0" style="vertical-align:middle" src="icons/edit.png">
@@ -56,7 +56,7 @@ function toggleEl(el,ct){
 			<?=$key?>
 			</div>
 			<?php
-			if (is_a($value,ArrayMap)){		
+			if (ArrayMap::is($value)){		
 				echo '<div class="dbEditExpCollContainer" style="display:none;padding-left:13px;" id="'.$id.'">		';			
 				$this->extend($value,$p);	
 				echo "</div>";			

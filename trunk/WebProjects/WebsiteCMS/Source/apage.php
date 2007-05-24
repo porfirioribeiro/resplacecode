@@ -38,11 +38,11 @@ function someContent($mod){
 	</table>
 	<?php
 }
-$page->add(internalHtml);
+$page->add("internalHtml");
 $page->add("SkinChanger",Module::RIGHT);
 $page->add("Lfp");
 $page->add("Box");
 //o.O a bug!! NOTE: look at output title?!?!
-$page->addF(someContent,"Create function method");
+$page->addF("someContent","Create function method");
 $page->create();
 ?>

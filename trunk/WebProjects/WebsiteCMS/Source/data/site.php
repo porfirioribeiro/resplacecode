@@ -4,7 +4,6 @@ session_start();
 include_once "lib/error_reporter.php";
 include_once "setup.php";
 class WebMS{
-	static $self;
 	private $cr_clmn="";
 	var $title="";
 	var $content_type="text/html; charset=windows-1250";
@@ -316,7 +315,7 @@ class WebMS{
 	function add($mod,$side=null,$pos="bottom"){	
 		if (is_object($mod)){
 			$modl=$mod;
-		}else if (class_exists($mod) && is_subclass_of($mod,Module)){
+		}else if (class_exists($mod) && is_subclass_of($mod,"Module")){
 			$modl=new $mod($this);		
 		}else{
 			$m=$this->findFilesOnPath($this->modulesSearchPath,$mod.".php");

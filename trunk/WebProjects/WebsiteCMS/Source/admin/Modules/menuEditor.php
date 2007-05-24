@@ -17,6 +17,7 @@ class menuEditor extends Module {
 	function expandMenu($mnu,$path){
 		for ($i=1;$i<=count($mnu);$i++){
 			$val=$mnu[$i];
+			$p=(($path=="")?"":$path.".").$i;
 			if (ArrayMap::is($val)){
 				if ($val->isMap("1")){
 					$id=preg_replace(array("/-/","/ /"),"_",$val->get("name"));
@@ -34,7 +35,7 @@ class menuEditor extends Module {
 					$name=$val->get("name");
 					$url =$val->get("url"); 			
 					?>
-					- <?=$i.$name?>-<?=$url?>"
+					- <?=$p.$name?>-<?=$url?>"
 					<br>
 					<?php	
 				}

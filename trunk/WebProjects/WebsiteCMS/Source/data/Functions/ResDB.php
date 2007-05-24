@@ -1,7 +1,7 @@
 <?php
 class ArrayMap extends ArrayObject{
 	static function is($w){
-		return is_a($w,ArrayMap);
+		return $w instanceof ArrayMap;
 	}
 	var $it;
 	var $fn;
@@ -105,7 +105,7 @@ class ArrayMap extends ArrayObject{
 	 * @return Bool
 	 */
 	function isMap($map){
-		return is_a($this[$map],ArrayMap);
+		return ArrayMap::is($this[$map]);
 	}
 	/**
 	 * Creates a new ArrayMap and add it to the current map
@@ -203,6 +203,9 @@ class ResDB extends ArrayMap {
 	var $file;
 	var $data;
 	var $error;
+	static function is($w){
+		return $w instanceof ResDB;
+	}
 	function ResDB($file=""){
 		$this->load($file);
 	}
@@ -213,7 +216,7 @@ class ResDB extends ArrayMap {
 			$serialized=gzuncompress(file_get_contents($this->file));
 			if ($serialized!==false){
 				$arr=unserialize($serialized);
-				if (!is_a($arr,ResDB)){
+				if (!ResDB::is($arr)){
 					echo ("Error unserializing");
 				}
 				parent::__construct($arr);				
