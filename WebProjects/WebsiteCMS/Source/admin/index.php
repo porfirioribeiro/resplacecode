@@ -55,7 +55,7 @@ if ($_SESSION['admin_session']!=md5("logged in")){
 			<?php
 			}
 		}
-	$page->add(internalHtml);
+	$page->add("internalHtml");
 	$page->create();
 	exit();
 	}
@@ -115,7 +115,7 @@ class welcome extends Module {
 
 
 //$page->add(AdminMenu,Module::TOP);
-$page->add(AdminMenu2,Module::LEFT);
+$page->add("AdminMenu2",Module::LEFT);
 if ($_GET['manage']) {$manage=$_GET['manage'];}
 if ($_POST['manage']) {$manage=$_POST['manage'];}
 
@@ -135,7 +135,7 @@ if ($manage=="pages") {
 	//$page->add("dbList",Module::RIGHT);
 }else{
 	if (!isset($_REQUEST['managep']))
-		{$page->add(welcome,Module::CENTER);}
+		{$page->add("welcome",Module::CENTER);}
 }
 
 $files=GetFiles("AdminPanes");
