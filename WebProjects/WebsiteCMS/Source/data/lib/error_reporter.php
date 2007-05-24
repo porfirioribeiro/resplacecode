@@ -64,14 +64,14 @@
 	if(function_exists('debug_backtrace')){
         //print "backtrace:\n";
 		$ret[] = "Backtrace :"; 
-        $backtrace = debug_backtrace();
-        array_shift($backtrace);
-        foreach($backtrace as $i=>$l){
-            $ret[]= "[$i] in function <b>{$l['class']}{$l['type']}{$l['function']}</b>";
-            if($l['file']) $ret[]= " in <b>{$l['file']}</b>";
-            if($l['line']) $ret[]= " on line <b>{$l['line']}</b>";
-            print "\n";
-        }
+        //$backtrace = debug_backtrace();
+        //array_shift($backtrace);
+        //foreach($backtrace as $i=>$l){
+        //    $ret[]= "[$i] in function <b>{$l['class']}{$l['type']}{$l['function']}</b>";
+        //    if($l['file']) $ret[]= " in <b>{$l['file']}</b>";
+        //    if($l['line']) $ret[]= " on line <b>{$l['line']}</b>";
+        //    print "\n";
+        //}
     }
 
 	  $ret[] = " ";
@@ -87,15 +87,10 @@
     //mail($to, "Error on " . $_SERVER['SERVER_NAME'], $error, $headers); 
 	
 	//log the error instead of using mail :)
-	if (file_exists("errors.log")) {
-		$fh=fopen("errors.log",'w');
-		fwrite($fh,$error);
-		fclose($fh);
-	}else{
+	
 		$fh=fopen("errors.log",'a');
 		fwrite($fh,$error);
 		fclose($fh);
-	}
   } 
   
   $old_error_handler = set_error_handler("errorHandler");       
