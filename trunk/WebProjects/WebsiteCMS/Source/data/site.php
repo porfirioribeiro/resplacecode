@@ -4,6 +4,7 @@ session_start();
 include_once "lib/error_reporter.php";
 include_once "setup.php";
 class WebMS{
+
 	private $cr_clmn="";
 	var $title="";
 	var $content_type="text/html; charset=windows-1250";
@@ -32,7 +33,6 @@ class WebMS{
 	var $OnLoads="";
 	var $RSS=Array();
 	var $imgPreload=array();
-	var $NoScript=false;
 	var $ShowNSWarn=true;
 	var $ModulesTop=array();
 	var $ModulesLeft=array();
@@ -51,7 +51,11 @@ class WebMS{
 		$RootPath=str_replace($_SERVER["DOCUMENT_ROOT"], "", $AbsRootPath);	
 		$this->absRoot=$AbsRootPath;
 		$this->root=$RootPath;	
-	    $this->id=str_replace(array("/","\\","-"," ","."),"_",$_SERVER['PHP_SELF'].$_REQUEST['page']);
+		$this->id=$_SERVER['PHP_SELF'];
+		if (isset($_REQUEST['page'])){
+			$this->id.=$_REQUEST['page'];
+		}
+	    $this->id=str_replace(array("/","\\","-"," ","."),"_",$this->id);
 	    $this->path=$_path;
 	    $this->themespath=$this->path.$this->themespath;
 	    $this->modulespath=$this->path.$this->modulespath;
@@ -61,20 +65,6 @@ class WebMS{
 		$this->title=$_title." - tpvgames.co.uk";
 		$this->modulesSearchPath[]=$this->modulespath;
 		$this->functionsSearchPath[]=$this->functionspath;
-		if (isset($_GET["NoScript"])){	
-			$this->NoScript=true;			
-		}elseif (isset($_GET["Script"])){
-			$this->NoScript=false;
-		}else {
-			$this->NoScript=($_COOKIE["NoScript"]=="true");
-		}
-		setcookie("NoScript",$this->NoScript?"true":"false");
-		if (isset($_GET["CloseNoScript"])){
-			setcookie("ShowNSWarn","false");		
-			$this->ShowNSWarn=false;
-		}else {
-			$this->ShowNSWarn=($_COOKIE["ShowNSWarn"]!="false");
-		}
 	}
 	function addCSS($file){
 		$style=$this->findFilesOnPath(array($this->stylepath,""),$file);
@@ -185,11 +175,6 @@ class WebMS{
 	foreach ($this->JS_codes as $key=>$value) {
     	echo $value."\n";
     }    
-	if ($this->NoScript){
-	?>
-		document.location="<?=$_SERVER['PHP_SELF'];?>?Script";
-	<?php	
-	}
 	?>		
 	</script>
     <title><?php echo $this->title; ?></title>        
@@ -201,28 +186,13 @@ class WebMS{
 		<noscript>
 			<div class="AlertBox">		
 				<div class="warn"></div>	
-				<a class="close" href="<?=$_SERVER['PHP_SELF'];?>?CloseNoScript&amp;NoScript"></a>	
 				Your browser does not seem to support JavaScript which is required for some features of this website, please enable JavaScript or update your browser, then refresh the page.			
-				<?php
-				if (!$this->NoScript){									
-				?>
-				<a href="<?=$_SERVER['PHP_SELF'];?>?NoScript">Go to NoScript page</a>
-				<?php
-				}
-				?>
 			</div>		
 		</noscript> 
 	<?php
 	}
 	?>		
 	<?php 				
-	if ($this->NoScript){									
-	?>
-	<script type="text/javascript" language="JavaScript">
-		document.location="<?=$_SERVER['PHP_SELF'];?>?Script";
-	</script> 
-	<?php
-	}
 	foreach ($this->alerts as $ale => $alert) {
 		?>
 		<div class="AlertBox">
@@ -386,7 +356,7 @@ class WebMS{
 					$contents[] = $file;
 				}
 			}
-			($sortorder == 0) ? asort($contents) : rsort($contents);
+			asort($contents);
 		}
 		
 		if(is_array($contents)){

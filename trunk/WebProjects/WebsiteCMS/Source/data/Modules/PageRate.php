@@ -4,7 +4,7 @@
 * This module allows a visitor to rate a page
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright © 2007 ResPlace Team
+* @copyright ï¿½ 2007 ResPlace Team
 * @lastedit 12-05-07
 *
 *@notes Need to gather IP address to stop multiple rating.
@@ -94,6 +94,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 
 				;
 				$ips=explode(",",$this->pg->get("ip",""));
+				$nope=0;
 				foreach ($ips as $ipc){
 					if ($ipc==$_SERVER['REMOTE_ADDR'])
 					{
