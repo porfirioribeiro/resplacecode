@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include_once "lib/error_reporter.php";
 include_once "setup.php";
 class WebMS{
 	static $self;
