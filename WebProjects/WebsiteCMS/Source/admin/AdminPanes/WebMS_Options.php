@@ -21,31 +21,36 @@ class WebMS_Options extends Module {
 	
 	//multiple panes need to be called onto the page
 	//shit it adds them before the main one xd
-	$page->add(WebMS_Options_collapse);
+	$page->add(WebMS_Options_module);
 	
-class WebMS_Options_collapse extends Module {
-	function WebMS_Options_collapse($page){
+class WebMS_Options_module extends Module {
+	function WebMS_Options_module($page){
 		parent::Module($page);
-		$this->title="Module Collapsing";		
+		$this->title="Module's";		
 		$this->side=Module::CENTER;
 	}
 	function content(){
 		global $path;
 		
 		?>
-		Below are some options regarding how WebMS handles modules and how they collapse, you can choose to use javascript collapse effects or not, and what javascript effect you wish to use.<br /><br />
+		Below are some options regarding how WebMS handles modules such as how they collapse and how they behave.<br /><br />
 		<form name="form1" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-			<b>Use JavaScript for collapsing modules?</b><br />
+			<b>Use effects when collapsing modules?</b><br />
+			<i>If you would like some kind of effect when a module is collapsed then select "yes".</i><br />
 			<label><input name="collapse_javascript" type="radio" value="yes" onclick="Effect.Appear('js_effects',{duration:0.3})/*$('js_effects').show()*/"> Yes</label><br />
 			<label><input name="collapse_javascript" type="radio" value="no" onclick="Effect.Fade('js_effects',{duration:0.3})/*$('js_effects').hide()*/"  checked="checked"> No</label><br /><br />
 			<div id="js_effects" style="display:none">
 				<b>What effect would you like to use?</b><br />
 				<label><input name="javascript_effects"  type="radio" value="slide" /> Slide In/Out</label><br />
-				<label><input name="javascript_effects" type="radio" value="no" /> No</label><br />
+				<label><input name="javascript_effects" type="radio" value="fade" /> Fade In/Out</label><br />
 				<!-- 
 				<label onclick="console.log($A(this.form.javascript_effects).filter(function(){return true;}));">See Live</label>
 				 -->
-			</div>
+			</div><br />
+			<b>Remember module state?</b><br />
+			<i>Would you like the system to create cookies on the users machine to remember the modules states?</i><br />
+			<label><input name="remember_state"  type="radio" value="yes" /> Yes</label><br />
+				<label><input name="remember_state" type="radio" value="no" /> No</label><br />
 		</form>
 		<?php
 		}
