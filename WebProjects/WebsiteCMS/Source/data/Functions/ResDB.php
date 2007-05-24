@@ -1,7 +1,7 @@
 <?php
 class ArrayMap extends ArrayObject{
 	static function is($w){
-		return $w instanceof ArrayMap;
+		return ($w instanceof ArrayMap);
 	}
 	var $it;
 	var $fn;
@@ -105,7 +105,7 @@ class ArrayMap extends ArrayObject{
 	 * @return Bool
 	 */
 	function isMap($map){
-		return ArrayMap::is($this[$map]);
+		return (isset($this[$map]) &&  ArrayMap::is($this[$map]));
 	}
 	/**
 	 * Creates a new ArrayMap and add it to the current map

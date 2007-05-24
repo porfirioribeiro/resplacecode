@@ -17,6 +17,9 @@ class Menu extends Module {
 	}
 	function expandMenu($mnu){
 		for ($i=1;$i<=count($mnu);$i++){
+			if (!isset($mnu[$i])){
+				return;
+			}
 			$val=$mnu[$i];
 			if (ArrayMap::is($val)){
 				if ($val->isMap("1")){

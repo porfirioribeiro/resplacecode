@@ -4,7 +4,7 @@
 * This module allows a visitor to select which skin to use on the website
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright © 2007 ResPlace Team
+* @copyright ï¿½ 2007 ResPlace Team
 * @lastedit 12-05-07
 */
 
@@ -18,7 +18,7 @@ class SkinChanger extends Module {
 	?>
 	This will test the change skin (external) module. Lets see :D	
     <?php
-	if ($_REQUEST['page']) {?>
+	if (isset($_REQUEST['page'])) {?>
 	<form name="ChangeSkin" method="POST" action="<?=$_SERVER['PHP_SELF'].'?page='.$_REQUEST['page']; ?>">
     <?php
 	}else{?>

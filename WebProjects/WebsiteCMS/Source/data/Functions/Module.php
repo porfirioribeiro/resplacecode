@@ -4,7 +4,7 @@
 * Contains the code to build the Modules for the site
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright © 2007 ResPlace Team
+* @copyright ï¿½ 2007 ResPlace Team
 * @lastedit 12-05-07
 */
 
@@ -39,7 +39,7 @@ class Module{
 			"title"=>$this->title,
 			"id"=>$module,
 			"cookie"=>$module."_Cookie",
-			"collapsed" =>($this->NoScript || ($_COOKIE[$module."_Cookie"]=="true")),
+			"collapsed" =>(isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")),
 			"content" =>$content
 		);		
 		$modcont=null;

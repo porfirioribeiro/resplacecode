@@ -4,7 +4,7 @@
 * This script finds out what browser the user is using
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright © 2003 Gary White
+* @copyright ï¿½ 2003 Gary White
 * @lastedit 10-11-03
 */
 /*****************************************************************
@@ -30,6 +30,7 @@ class Browser{
 		$bd['platform'] = "Unknown";
 		$bd['browser'] = "Unknown";
 		$bd['version'] = "Unknown";
+		$bd['aol'] = false;
 		$this->UserAgent = $agent;
 
 		// find operating system
