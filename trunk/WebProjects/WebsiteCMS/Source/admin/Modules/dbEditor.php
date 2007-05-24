@@ -1,21 +1,27 @@
 <?php
 class dbEditor extends Module {
-  var $fd;
-  var $fdO;
-  var $fda;	
-  var $fdaO;	
+	var $fd;
+	var $fdO;
+	var $fda;	
+	var $fdaO;	
 	function dbEditor($page){
 		parent::Module($page);
 		$this->title="Database editor";
 		$this->is->side=Module::CENTER;
-  $this->fd=$this->page->path."Style/menu/folder.gif";	
-  $this->fdO=$this->page->path."Style/menu/folderOpen.gif";	
-  $this->fda=$this->page->path."Style/menu/folderAniClose.gif";	
-  $this->fdaO=$this->page->path."Style/menu/folderAniOpen.gif";
-	 $this->page->addPreloadImg($this->fd);
-	 $this->page->addPreloadImg($this->fdO); 
-	 $this->page->addPreloadImg($this->fda); 
-	 $this->page->addPreloadImg($this->fdaO); 
+		$this->fd=$this->page->path."Style/menu/folder.gif";	
+		$this->fdO=$this->page->path."Style/menu/folderOpen.gif";	
+		$this->fda=$this->page->path."Style/menu/folderAniClose.gif";	
+		$this->fdaO=$this->page->path."Style/menu/folderAniOpen.gif";
+		$this->page->addJSCode("
+function toggleEl(el,ct){
+	el=$(el);ct=$(ct);
+	if (el){
+		if (el.visible()}{
+			Effect.Fade(el);
+		}
+	}
+}
+		"); 
 	}
 	function extend($map,$path){
 		foreach ($map as $key=>$value) {
