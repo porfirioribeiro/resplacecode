@@ -1,4 +1,5 @@
 <?php
+
 //Set path to the data/ directory FIRST:
 $path="../data/";
 include_once $path.'site.php';
@@ -42,7 +43,7 @@ if ($_SESSION['admin_session']!=md5("logged in")){
 			parent::Module($page);
 		}
 		function content(){
-			global $path;
+			global $path, $devmode;
 			//set the admin password
 			
 			?>
@@ -92,9 +93,26 @@ class AdminMenu2 extends Module {
 					}
 				}
 			}
+		
+		//developer mode
+		$devmode='Developer Mode';
+		if ($_POST['dev']) {
+			if ($_SESSION['developer_mode']==true) {
+				$_SESSION['developer_mode']=false;
+				$devmode='Visitor Mode';
+			}else{
+				$_SESSION['developer_mode']=true;
+			}
+		}
+		
 		?>
-		</fieldset>
+		</fieldset><br />
+		<form method="post" action="<?=$_SERVER['PHP_SELF']; ?>">
+			<input name="dev" type="submit" value="<?=$devmode; ?>" />
+		</form>
 		<?php
+		
+		
 	}
 }
 

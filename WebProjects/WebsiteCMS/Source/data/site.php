@@ -4,7 +4,7 @@ session_start();
 include_once "lib/error_reporter.php";
 include_once "setup.php";
 class WebMS{
-
+	
 	private $cr_clmn="";
 	var $title="";
 	var $content_type="text/html; charset=windows-1250";
@@ -62,7 +62,7 @@ class WebMS{
 	    $this->functionspath=$this->path.$this->functionspath;
 	    $this->libpath=$this->path.$this->libpath;
 	    $this->stylepath=$this->path.$this->stylepath;
-		$this->title=$_title." - tpvgames.co.uk";
+		$this->title=$_title." - resplace.net";
 		$this->modulesSearchPath[]=$this->modulespath;
 		$this->functionsSearchPath[]=$this->functionspath;
 	}
@@ -120,6 +120,11 @@ class WebMS{
 		}					
 	}
 	function create(){
+	
+	//developer mode alert
+	if ($_SESSION['developer_mode']==true) {
+		$this->addAlert("Developer Mode","You are currently in Developer Mode, any errors that occur will cause an automatic halt of the system. Also you can view some useful variables at the bottom of the page. <br><b>Note:</b><i>developer mode is only active on the machine + browser you activated it on via a session.</i>");
+	}
     ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -269,12 +274,20 @@ class WebMS{
 			"write_modulescenter"=>$modulescenterout,"display_modulescenter"=>$modulescenterstyle,
 			"write_modulesbottom"=>$modulesbottomout,"display_modulesbottom"=>$modulesbottomstyle));
 		
-		?>                 
-        			
+		
+		//developer mode
+		if ($_SESSION['developer_mode']==true) {
+			echo'<br><br><hr><div align="left"><b>$_REQUEST:</b><br>';
+			foreach($_REQUEST as $key=>$value) 
+				echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$key => $value<br>";
+			echo'</div>';
+		}
+		?> 
+		                			
     </div>        
   </body>
 </html>
-    <?php  
+    <?php
 	}
 	function addF($fn,$title,$side=Module::CENTER ,$pos="bottom"){		
 		$mod=new Module($this);
