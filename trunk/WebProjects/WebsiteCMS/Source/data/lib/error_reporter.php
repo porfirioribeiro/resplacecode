@@ -57,13 +57,13 @@
     $ret[] = "IP            : " . $_SERVER['REMOTE_ADDR']; 
     $ret[] = "Host          : " . gethostbyaddr($_SERVER['REMOTE_ADDR']); 
     $ret[] = "Method        : " . $_SERVER['REQUEST_METHOD']; 
-    $ret[] = "Method Vars   :"; 
+    $ret[] = '$_REQUEST     :'; 
     foreach($_REQUEST as $key=>$value) 
       $ret[] = "           $key => $value"; 
 	 
-	if(function_exists('debug_backtrace')){
+	//if(function_exists('debug_backtrace')){
         //print "backtrace:\n";
-		$ret[] = "Backtrace :"; 
+		//$ret[] = "Backtrace :"; 
         //$backtrace = debug_backtrace();
         //array_shift($backtrace);
         //foreach($backtrace as $i=>$l){
@@ -72,7 +72,7 @@
         //    if($l['line']) $ret[]= " on line <b>{$l['line']}</b>";
         //    print "\n";
         //}
-    }
+    //}
 
 	  $ret[] = " ";
 	  $ret[] = " ";
@@ -91,7 +91,20 @@
 		$fh=fopen("errors.log",'a');
 		fwrite($fh,$error);
 		fclose($fh);
+		
+		if (!isset($_SESSION['developer_mode']))
+			$_SESSION['developer_mode']=false;
+		
+		if ($_SESSION['developer_mode']==true) {
+		echo'<div align="center"><b>Developer Mode: CODE ERROR!</b><br>
+		<i>Fix the error or report it and disable developer mode to view this page.</i></div><br><br>
+		
+		<div style="border: 1px solid black; padding:2px">';
+		die(str_replace(array("\n"," "),array("<br>","&nbsp;"),$error).'</div><br><br><i>This error has been logged.</i>');
+		}
   } 
   
-  $old_error_handler = set_error_handler("errorHandler");       
+  $old_error_handler = set_error_handler("errorHandler"); 
+  
+       
 ?>
