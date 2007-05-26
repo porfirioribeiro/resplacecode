@@ -40,6 +40,7 @@ class WebMS{
 	var $ModulesRight=array();
 	var $ModulesBottom=array();
 	var $alerts=array();
+	var $resdbq=0;
 	//templates
 	var $moduleTpl;
 	var $pageTpl;
@@ -274,6 +275,8 @@ class WebMS{
 			"write_modulescenter"=>$modulescenterout,"display_modulescenter"=>$modulescenterstyle,
 			"write_modulesbottom"=>$modulesbottomout,"display_modulesbottom"=>$modulesbottomstyle));
 		
+		//send out the footer
+		echo $this->pageTpl->get("footer")->evaluate(array("ResDB_queries"=>$this->resdbq));
 		
 		//developer mode
 		if ($_SESSION['developer_mode']==true) {

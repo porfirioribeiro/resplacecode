@@ -203,17 +203,20 @@ class ResDB extends ArrayMap {
 	var $file;
 	var $data;
 	var $error;
+	var $resdbq;
 	static function is($w){
 		return $w instanceof ResDB;
 	}
 	function ResDB($file=""){
 		$this->load($file);
+		$WebMS->resdbq+=1;
 	}
 	function load($file=""){
 		$this->file=$file;
 		if (is_file($this->file)) {
 			//ob_start();
 			$serialized=gzuncompress(file_get_contents($this->file));
+			
 			if ($serialized!==false){
 				$arr=unserialize($serialized);
 				if (!ResDB::is($arr)){
@@ -232,6 +235,8 @@ class ResDB extends ArrayMap {
 	}
 	function close(){
 		$this->save($this->file);
+		$WebMS->resdbq+=1;
+		
 	}
 }
 ?>

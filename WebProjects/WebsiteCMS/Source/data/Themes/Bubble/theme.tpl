@@ -87,5 +87,17 @@
 				</td>				
 			</tr>           
 		</table>
-	#{end:content}	
+	#{end:content}
+	#{start:footer}
+		<div class="MainMid"> 
+			<div class="Box">                
+				<div class="TopLeft"><div class="TopRight"></div></div>                
+				<div align="center">
+					powered by <a href="resplace.net" title="Module based PHP website management system">OpenWebMS</a><br />
+					Genereated in <span style="color:#990000">0.00</span> sec/s with <span style="color:#990000">#{ResDB_queries}</span> ResDB Queries
+				</div>
+				<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
+			</div>
+		</div>
+	#{end:footer}
 #{end:page}			
