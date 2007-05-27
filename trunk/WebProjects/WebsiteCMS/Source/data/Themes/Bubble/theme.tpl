@@ -93,8 +93,8 @@
 			<div class="Box">                
 				<div class="TopLeft"><div class="TopRight"></div></div>                
 				<div align="center">
-					powered by <a href="resplace.net" title="Module based PHP website management system">OpenWebMS</a><br />
-					Genereated in <span style="color:#990000">#{ResDB_load}</span> sec/s with <span style="color:#990000">#{ResDB_queries}</span> ResDB Queries
+					<div style="padding-bottom:2px">powered by <a href="resplace.net" title="Module based PHP website management system">OpenWebMS</a> | Copyright &copy; resplace.net</div>
+					<img src="#{imgpath}gen_php.png" alt="[DB]" title="Generated in #{WebMS_load} sec/s" /> <img src="#{imgpath}gen_resdb.png" alt="[DB]" title="#{ResDB_queries} ResDB Queries" /> <img src="#{imgpath}html401.png" alt="[HTML 4.01]" title="HTML 4.01 Complient" />
 				</div>
 				<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
 			</div>
