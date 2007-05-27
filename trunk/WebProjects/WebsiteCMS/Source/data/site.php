@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$pagebegin=microtime();
 include_once "lib/error_reporter.php";
 include_once "setup.php";
 class WebMS{
@@ -40,7 +41,7 @@ class WebMS{
 	var $ModulesRight=array();
 	var $ModulesBottom=array();
 	var $alerts=array();
-	var $resdbq=0;
+	//var $resdbq=0;
 	//templates
 	var $moduleTpl;
 	var $pageTpl;
@@ -276,7 +277,9 @@ class WebMS{
 			"write_modulesbottom"=>$modulesbottomout,"display_modulesbottom"=>$modulesbottomstyle));
 		
 		//send out the footer
-		echo $this->pageTpl->get("footer")->evaluate(array("ResDB_queries"=>$this->resdbq));
+		echo $this->pageTpl->get("footer")->evaluate(array(
+			"ResDB_queries"=>ArrayMap::$resdbopen+ArrayMap::$resdbclose,
+			"ResDB_load"=>round(microtime()-$pagebegin,2)));
 		
 		//developer mode
 		if ($_SESSION['developer_mode']==true) {
