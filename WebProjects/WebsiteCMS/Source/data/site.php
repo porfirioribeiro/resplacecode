@@ -1,12 +1,13 @@
 <?php
 
 session_start();
-$pagebegin=microtime();
+
 include_once "lib/error_reporter.php";
 include_once "setup.php";
 class WebMS{
 	
 	private $cr_clmn="";
+	
 	var $title="";
 	var $content_type="text/html; charset=windows-1250";
 	var $favicon="http://tpvgames.co.uk/favicon.ico";
@@ -19,6 +20,7 @@ class WebMS{
 	var $themespath="Themes/";
 	var $modulespath="Modules/";
 	var $modulesSearchPath=array();
+	var $pagebegin=0;
 	var $functionsSearchPath=array();
 	var $functionspath="Functions/";
 	var $libpath="lib/";
@@ -47,6 +49,8 @@ class WebMS{
 	var $pageTpl;
 	var $menuTpl;
 	function WebMS($_path="data/",$_title=""){
+		$starttime = explode(' ', microtime());
+		$this->pagebegin=$starttime[1] + $starttime[0];
 		$this->self=$this;
 		$AbsRootPath=preg_replace("/data(\/|\\\)site.php/","",__FILE__);
 		$AbsRootPath=preg_replace("/\\\/","/",$AbsRootPath);
@@ -277,9 +281,10 @@ class WebMS{
 			"write_modulesbottom"=>$modulesbottomout,"display_modulesbottom"=>$modulesbottomstyle));
 		
 		//send out the footer
+		$starttime = explode(' ', microtime());
 		echo $this->pageTpl->get("footer")->evaluate(array(
 			"ResDB_queries"=>ArrayMap::$resdbopen+ArrayMap::$resdbclose,
-			"ResDB_load"=>round(microtime()-$pagebegin,2)));
+			"ResDB_load"=>round(($starttime[1] + $starttime[0])-$this->pagebegin,2)));
 		
 		//developer mode
 		if ($_SESSION['developer_mode']==true) {

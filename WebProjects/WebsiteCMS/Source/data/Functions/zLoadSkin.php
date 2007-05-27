@@ -7,6 +7,7 @@
 * @copyright © 2007 ResPlace Team
 * @lastedit 14-05-07
 */
+$skindone=0;
 
 if (isset($_POST['SkinMenu'])){
 	$_SESSION['currentskin']=$_POST['SkinMenu'];
