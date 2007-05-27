@@ -42,8 +42,9 @@
 		<div id="#{id}" class="Module">                  
 	        <div class="modules_lrtb_title">      	
 			    <div style="float:right" id="#{id}_top_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
-				<div class="TitleText">#{title}</div>                        
-	        </div>	       
+				<div class="TitleText">#{title}</div> 
+				                      
+	        </div>	     
 			<div class="modules_lrtb_content" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
 				<div class="BoxContent">
 					#{content}
@@ -78,6 +79,7 @@
 				<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
 			</div>
 		</div>
+		
 	#{end:title}	
 	#{start:content}	
 		<table cellpadding="0" cellspacing="0" width="100%" >                
@@ -103,5 +105,11 @@
 				</td>				
 			</tr>           
 		</table>
-	#{end:content}	
+	#{end:content}
+	#{start:footer}
+		<div class="Footer"> 
+					<div style="padding-bottom:2px">powered by <a href="resplace.net" title="Module based PHP website management system">OpenWebMS</a> | Copyright &copy; resplace.net</div>
+					<img src="#{imgpath}gen_php.png" alt="[DB]" title="Generated in #{WebMS_load} sec/s" /> <img src="#{imgpath}gen_resdb.png" alt="[DB]" title="#{ResDB_queries} ResDB Queries" /> <img src="#{imgpath}html401.png" alt="[HTML 4.01]" title="HTML 4.01 Complient" />
+		</div>
+	#{end:footer}
 #{end:page}			

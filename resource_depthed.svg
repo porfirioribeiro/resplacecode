@@ -225,6 +225,118 @@
        x2="157.0193"
        y2="687.68389"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4801"
+       id="linearGradient2245"
+       gradientUnits="userSpaceOnUse"
+       x1="194.28571"
+       y1="325.21933"
+       x2="354.28571"
+       y2="325.21933" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4801"
+       id="linearGradient2247"
+       gradientUnits="userSpaceOnUse"
+       x1="54.69288"
+       y1="659.99297"
+       x2="160.30712"
+       y2="659.99297"
+       gradientTransform="matrix(7.3185752e-2,0,0,7.3185752e-2,652.2013,963.06099)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3145"
+       id="linearGradient2249"
+       gradientUnits="userSpaceOnUse"
+       x1="288.84906"
+       y1="303.79077"
+       x2="288.76984"
+       y2="346.64789" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5962"
+       id="linearGradient2251"
+       gradientUnits="userSpaceOnUse"
+       x1="57.980703"
+       y1="687.68389"
+       x2="157.0193"
+       y2="687.68389"
+       gradientTransform="matrix(7.3185752e-2,0,0,5.7790512e-2,652.2013,974.6793)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4340"
+       id="linearGradient2253"
+       gradientUnits="userSpaceOnUse"
+       x1="287.68878"
+       y1="346.64789"
+       x2="288.16891"
+       y2="303.79077" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4340"
+       id="linearGradient2255"
+       gradientUnits="userSpaceOnUse"
+       x1="287.68878"
+       y1="346.64789"
+       x2="288.16891"
+       y2="303.79077" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4801"
+       id="linearGradient2909"
+       gradientUnits="userSpaceOnUse"
+       x1="194.28571"
+       y1="325.21933"
+       x2="354.28571"
+       y2="325.21933" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4801"
+       id="linearGradient2911"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(7.3185752e-2,0,0,7.3185752e-2,653.09724,925.99825)"
+       x1="54.69288"
+       y1="659.99297"
+       x2="160.30712"
+       y2="659.99297" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3145"
+       id="linearGradient2913"
+       gradientUnits="userSpaceOnUse"
+       x1="288.84906"
+       y1="303.79077"
+       x2="288.76984"
+       y2="346.64789" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5962"
+       id="linearGradient2915"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(7.3185752e-2,0,0,5.7790512e-2,653.09724,937.61656)"
+       x1="57.980703"
+       y1="687.68389"
+       x2="157.0193"
+       y2="687.68389" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4340"
+       id="linearGradient2917"
+       gradientUnits="userSpaceOnUse"
+       x1="287.68878"
+       y1="346.64789"
+       x2="288.16891"
+       y2="303.79077" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4340"
+       id="linearGradient2919"
+       gradientUnits="userSpaceOnUse"
+       x1="287.68878"
+       y1="346.64789"
+       x2="288.16891"
+       y2="303.79077" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -237,14 +349,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="345.42166"
-     inkscape:cy="514.91914"
+     inkscape:cx="713.41921"
+     inkscape:cy="56.38843"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:window-width="957"
      inkscape:window-height="690"
-     inkscape:window-x="44"
-     inkscape:window-y="58" />
+     inkscape:window-x="87"
+     inkscape:window-y="50"
+     showguides="true"
+     inkscape:guide-bbox="true" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -484,5 +598,328 @@
          style="fill:url(#linearGradient4400);fill-opacity:1;stroke:none"
          sodipodi:type="arc" />
     </g>
+    <rect
+       style="fill:#c5c5ff;fill-opacity:1;stroke:#550000;stroke-width:1.17647064000000000;stroke-opacity:1"
+       id="rect2261"
+       width="18.82353"
+       height="18.82353"
+       x="491.08823"
+       y="980.45044"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\gen_php.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ababff;fill-opacity:1;stroke:#8e8eff;stroke-width:1.17647064;stroke-opacity:1"
+       id="rect2842"
+       width="20"
+       height="20"
+       x="627.72876"
+       y="1000.4711"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\gen_php.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#0000ff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1"
+       id="path2844"
+       sodipodi:cx="442.5"
+       sodipodi:cy="990.36218"
+       sodipodi:rx="12.5"
+       sodipodi:ry="12"
+       d="M 455,990.36218 A 12.5,12 0 1 1 430,990.36218 A 12.5,12 0 1 1 455,990.36218 z"
+       transform="matrix(0.7686212,0,0,0.8006471,222.38513,216.93165)"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\gen_php.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#800000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:'Bitstream Vera Sans'"
+       x="630.95544"
+       y="1014.4918"
+       id="text2257"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\gen_php.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan2259"
+         x="630.95544"
+         y="1014.4918">?&gt;</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:#0000ff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1"
+       id="path2846"
+       sodipodi:cx="442.5"
+       sodipodi:cy="990.36218"
+       sodipodi:rx="12.5"
+       sodipodi:ry="12"
+       d="M 455,990.36218 A 12.5,12 0 1 1 430,990.36218 A 12.5,12 0 1 1 455,990.36218 z"
+       transform="matrix(0.7686212,0,0,0.8006471,249.63446,191.62251)"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#c5c5ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:'Bitstream Vera Sans'"
+       x="512.90326"
+       y="1018.3441"
+       id="text2848"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\gen_php.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan2850"
+         x="512.90326"
+         y="1018.3441">?&gt;</tspan></text>
+    <rect
+       style="fill:#ababff;fill-opacity:1;stroke:#8e8eff;stroke-width:1.17647064;stroke-opacity:1"
+       id="rect3233"
+       width="20"
+       height="20"
+       x="649.92712"
+       y="1000.4711"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:url(#linearGradient2245);fill-opacity:1;stroke:none"
+       id="path2233"
+       sodipodi:cx="274.28571"
+       sodipodi:cy="325.21933"
+       sodipodi:rx="80"
+       sodipodi:ry="21.428572"
+       d="M 354.28571,325.21933 A 80,21.428572 0 1 1 194.28571,325.21933 A 80,21.428572 0 1 1 354.28571,325.21933 z"
+       transform="matrix(4.812436e-2,0,0,7.3185752e-2,646.87035,980.35189)"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:url(#linearGradient2247);fill-opacity:1;stroke:none"
+       d="M 656.20404,1004.1412 C 656.88462,1006.1373 663.25292,1006.1373 663.9335,1004.1412 L 663.9335,1017.0048 C 663.59321,1019.0748 656.44711,1019.1487 656.20404,1017.0048 L 656.20404,1004.1412 z"
+       id="path2235"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:url(#linearGradient2249);fill-opacity:1;stroke:none"
+       id="path2237"
+       sodipodi:cx="274.28571"
+       sodipodi:cy="325.21933"
+       sodipodi:rx="80"
+       sodipodi:ry="21.428572"
+       d="M 354.28571,325.21933 A 80,21.428572 0 1 1 194.28571,325.21933 A 80,21.428572 0 1 1 354.28571,325.21933 z"
+       transform="matrix(4.5855755e-2,0,0,6.9735739e-2,647.53008,981.6465)"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:url(#linearGradient2251);fill-opacity:1;stroke:none"
+       d="M 656.44466,1011.5697 C 656.76829,1010.1619 663.53348,1010.2589 663.69288,1011.5697 L 663.69288,1017.2406 C 663.61439,1018.3843 657.15384,1018.8792 656.44466,1017.2406 L 656.44466,1011.5697 z"
+       id="path2239"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:url(#linearGradient2253);fill-opacity:1;stroke:none"
+       id="path2241"
+       sodipodi:cx="274.28571"
+       sodipodi:cy="325.21933"
+       sodipodi:rx="80"
+       sodipodi:ry="21.428572"
+       d="M 354.28571,325.21933 A 80,21.428572 0 1 1 194.28571,325.21933 A 80,21.428572 0 1 1 354.28571,325.21933 z"
+       transform="matrix(4.5855755e-2,0,0,6.9735739e-2,647.46688,994.1804)"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:url(#linearGradient2255);fill-opacity:1;stroke:none"
+       id="path2243"
+       sodipodi:cx="274.28571"
+       sodipodi:cy="325.21933"
+       sodipodi:rx="80"
+       sodipodi:ry="21.428572"
+       d="M 354.28571,325.21933 A 80,21.428572 0 1 1 194.28571,325.21933 A 80,21.428572 0 1 1 354.28571,325.21933 z"
+       transform="matrix(4.5855755e-2,0,0,-6.9735739e-2,647.49958,1034.5757)"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ababff;fill-opacity:1;stroke:#8e8eff;stroke-width:1.17647064;stroke-opacity:1"
+       id="rect3241"
+       width="66"
+       height="20"
+       x="672.47937"
+       y="1000.3787"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\html401.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#550000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:'Bitstream Vera Sans'"
+       x="675.53717"
+       y="1014.6761"
+       id="text3243"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\html401.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3245"
+         x="675.53717"
+         y="1014.6761">HTML</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:'Bitstream Vera Sans'"
+       x="712.0661"
+       y="1014.6762"
+       id="text3247"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\Bubble\RoyalBlue\Images\html401.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3249"
+         x="712.0661"
+         y="1014.6762">4.01</tspan></text>
+    <rect
+       style="fill:#bfdd97;fill-opacity:1;stroke:#79ab3b;stroke-width:1.17647064000000000;stroke-opacity:1"
+       id="rect2879"
+       width="20"
+       height="20"
+       x="628.62469"
+       y="963.40839"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\zorpia\Default\Images\gen_php.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#800000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:'Bitstream Vera Sans'"
+       x="631.85138"
+       y="977.42908"
+       id="text2881"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\zorpia\Default\Images\gen_php.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan2883"
+         x="631.85138"
+         y="977.42908">?&gt;</tspan></text>
+    <rect
+       style="fill:#bfdd97;fill-opacity:1;stroke:#79ab3b;stroke-width:1.17647064000000000;stroke-opacity:1"
+       id="rect2885"
+       width="20"
+       height="20"
+       x="650.82306"
+       y="963.40839"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\zorpia\Default\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:url(#linearGradient2909);fill-opacity:1;stroke:none"
+       id="path2887"
+       sodipodi:cx="274.28571"
+       sodipodi:cy="325.21933"
+       sodipodi:rx="80"
+       sodipodi:ry="21.428572"
+       d="M 354.28571,325.21933 A 80,21.428572 0 1 1 194.28571,325.21933 A 80,21.428572 0 1 1 354.28571,325.21933 z"
+       transform="matrix(4.812436e-2,0,0,7.3185752e-2,647.76629,943.28915)"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\zorpia\Default\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:url(#linearGradient2911);fill-opacity:1;stroke:none"
+       d="M 657.09998,967.07846 C 657.78056,969.07456 664.14886,969.07456 664.82944,967.07846 L 664.82944,979.94206 C 664.48915,982.01206 657.34305,982.08596 657.09998,979.94206 L 657.09998,967.07846 z"
+       id="path2889"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\zorpia\Default\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:url(#linearGradient2913);fill-opacity:1;stroke:none"
+       id="path2891"
+       sodipodi:cx="274.28571"
+       sodipodi:cy="325.21933"
+       sodipodi:rx="80"
+       sodipodi:ry="21.428572"
+       d="M 354.28571,325.21933 A 80,21.428572 0 1 1 194.28571,325.21933 A 80,21.428572 0 1 1 354.28571,325.21933 z"
+       transform="matrix(4.5855755e-2,0,0,6.9735739e-2,648.42602,944.58376)"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\zorpia\Default\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:url(#linearGradient2915);fill-opacity:1;stroke:none"
+       d="M 657.3406,974.50696 C 657.66423,973.09916 664.42942,973.19616 664.58882,974.50696 L 664.58882,980.17786 C 664.51033,981.32156 658.04978,981.81646 657.3406,980.17786 L 657.3406,974.50696 z"
+       id="path2893"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\zorpia\Default\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:url(#linearGradient2917);fill-opacity:1;stroke:none"
+       id="path2895"
+       sodipodi:cx="274.28571"
+       sodipodi:cy="325.21933"
+       sodipodi:rx="80"
+       sodipodi:ry="21.428572"
+       d="M 354.28571,325.21933 A 80,21.428572 0 1 1 194.28571,325.21933 A 80,21.428572 0 1 1 354.28571,325.21933 z"
+       transform="matrix(4.5855755e-2,0,0,6.9735739e-2,648.36282,957.11766)"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\zorpia\Default\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:url(#linearGradient2919);fill-opacity:1;stroke:none"
+       id="path2897"
+       sodipodi:cx="274.28571"
+       sodipodi:cy="325.21933"
+       sodipodi:rx="80"
+       sodipodi:ry="21.428572"
+       d="M 354.28571,325.21933 A 80,21.428572 0 1 1 194.28571,325.21933 A 80,21.428572 0 1 1 354.28571,325.21933 z"
+       transform="matrix(4.5855755e-2,0,0,-6.9735739e-2,648.39552,997.51296)"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\zorpia\Default\Images\gen_resdb.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#bfdd97;fill-opacity:1;stroke:#79ab3b;stroke-width:1.17647064000000000;stroke-opacity:1"
+       id="rect2899"
+       width="66"
+       height="20"
+       x="673.37531"
+       y="963.31598"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\zorpia\Default\Images\html401.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#550000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:'Bitstream Vera Sans'"
+       x="676.43311"
+       y="977.61334"
+       id="text2901"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\zorpia\Default\Images\html401.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan2903"
+         x="676.43311"
+         y="977.61334">HTML</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:'Bitstream Vera Sans'"
+       x="712.96204"
+       y="977.61346"
+       id="text2905"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\My Documents\localhost\resplace\WebProjects\WebsiteCMS\Source\data\Themes\zorpia\Default\Images\html401.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan2907"
+         x="712.96204"
+         y="977.61346">4.01</tspan></text>
   </g>
 </svg>

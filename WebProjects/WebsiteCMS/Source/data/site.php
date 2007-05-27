@@ -283,8 +283,9 @@ class WebMS{
 		//send out the footer
 		$starttime = explode(' ', microtime());
 		echo $this->pageTpl->get("footer")->evaluate(array(
+			"imgpath"=>$this->themespath.$this->selectedskin."Images/",
 			"ResDB_queries"=>ArrayMap::$resdbopen+ArrayMap::$resdbclose,
-			"ResDB_load"=>round(($starttime[1] + $starttime[0])-$this->pagebegin,2)));
+			"WebMS_load"=>round(($starttime[1] + $starttime[0])-$this->pagebegin,2)));
 		
 		//developer mode
 		if ($_SESSION['developer_mode']==true) {
