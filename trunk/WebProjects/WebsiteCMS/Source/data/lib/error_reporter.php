@@ -88,7 +88,7 @@
 	
 	//log the error instead of using mail :)
 	
-		$fh=fopen("errors.log",'a');
+		$fh=fopen("./errors.log",'a');
 		fwrite($fh,$error);
 		fclose($fh);
 		
