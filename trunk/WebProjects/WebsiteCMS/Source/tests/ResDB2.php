@@ -179,23 +179,49 @@ class ResDB_Row extends ArrayMap {
 	function _($q){
 		return $this->getBy($q);
 	}
+	/**
+	 * Limit the rows
+	 * @param Number $start
+	 * @return ResDB_Row
+	 */
 	function limitFrom($start){
 		$arr=(Array)$this;
 		$arr=array_splice($arr,$start,count($arr));
 		unset($this);
 		return new ResDB_Row($arr);
 	}
+	/**
+	 * Limit the rows
+	 * @param Number $end
+	 * @return ResDB_Row
+	 */
 	function limitTo($end){
 		$arr=(Array)$this;
 		$arr=array_splice($arr,0,$end);
 		unset($this);
 		return new ResDB_Row($arr);		
 	}
+	/**
+	 * Limit the rows
+	 * @param Number $start
+	 * @param Number $end
+	 * @return ResDB_Row
+	 */
 	function limit($start,$end){
 		$arr=(Array)$this;
 		$arr=array_splice($arr,$start,$end);
 		unset($this);
 		return new ResDB_Row($arr);				
+	}
+	/**
+	 * Reverse
+	 * @return ResDB_Row
+	 */
+	function reverse(){
+		$arr=(Array)$this;
+		$arr=array_reverse($arr);
+		unset($this);
+		return new ResDB_Row($arr);	
 	}
 }
 
