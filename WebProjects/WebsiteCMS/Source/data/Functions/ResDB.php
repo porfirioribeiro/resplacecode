@@ -5,8 +5,6 @@ class ArrayMap extends ArrayObject{
 	}
 	var $it;
 	var $fn;
-	static $resdbopen=0;
-	static $resdbclose=0;
 	/**
 	 * Check if theres more to iterate and return teh iterator or false
 	 * @return ArrayIterator
@@ -205,12 +203,14 @@ class ResDB extends ArrayMap {
 	var $file;
 	var $data;
 	var $error;
+	static $resdbopen=0;
+	static $resdbclose=0;
 	static function is($w){
 		return $w instanceof ResDB;
 	}
 	function ResDB($file=""){
 		$this->load($file);
-		ArrayMap::$resdbopen++;
+		ResDB::$resdbopen++;
 	}
 	function load($file=""){
 		$this->file=$file;
@@ -233,7 +233,7 @@ class ResDB extends ArrayMap {
 		$serialized=serialize($this);
 		$out=gzcompress($serialized);		
 		file_put_contents($this->file,$out);
-		ArrayMap::$resdbclose++;
+		ResDB::$resdbclose++;
 	}
 	function close(){
 		$this->save($this->file);

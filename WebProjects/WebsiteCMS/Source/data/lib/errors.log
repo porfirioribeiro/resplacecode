@@ -1,0 +1,127 @@
+Date          : May 28, 2007, 10:02:28 am
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\ResPlace\WebProjects\WebsiteCMS\Source\data\site.php
+On line       : 131
+Error         : Undefined index:  developer_mode
+IP            : 81.193.41.145
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : May 28, 2007, 10:02:51 am
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\ResPlace\WebProjects\WebsiteCMS\Source\data\Themes\SoftTouch\theme.php
+On line       : 46
+Error         : Undefined variable: moduleCALeft
+IP            : 81.193.41.145
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => SoftTouch/Gray/
+           MODULE_Createfunctionmethod_Cookie => false
+           PHPSESSID => a255a628da59b968a677a5a9c816a5ab
+ 
+ 
+Date          : May 28, 2007, 10:02:51 am
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\ResPlace\WebProjects\WebsiteCMS\Source\data\Themes\SoftTouch\theme.php
+On line       : 49
+Error         : Undefined variable: moduleCARight
+IP            : 81.193.41.145
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => SoftTouch/Gray/
+           MODULE_Createfunctionmethod_Cookie => false
+           PHPSESSID => a255a628da59b968a677a5a9c816a5ab
+ 
+ 
+Date          : May 28, 2007, 10:02:51 am
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\ResPlace\WebProjects\WebsiteCMS\Source\data\Themes\SoftTouch\theme.php
+On line       : 53
+Error         : Undefined variable: moduleCALeft
+IP            : 81.193.41.145
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => SoftTouch/Gray/
+           MODULE_Createfunctionmethod_Cookie => false
+           PHPSESSID => a255a628da59b968a677a5a9c816a5ab
+ 
+ 
+Date          : May 28, 2007, 10:02:51 am
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\ResPlace\WebProjects\WebsiteCMS\Source\data\Themes\SoftTouch\theme.php
+On line       : 56
+Error         : Undefined variable: moduleCARight
+IP            : 81.193.41.145
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => SoftTouch/Gray/
+           MODULE_Createfunctionmethod_Cookie => false
+           PHPSESSID => a255a628da59b968a677a5a9c816a5ab
+ 
+ 
+Date          : May 28, 2007, 10:02:51 am
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\ResPlace\WebProjects\WebsiteCMS\Source\data\Themes\SoftTouch\theme.php
+On line       : 60
+Error         : Undefined variable: moduleCALeft
+IP            : 81.193.41.145
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => SoftTouch/Gray/
+           MODULE_Createfunctionmethod_Cookie => false
+           PHPSESSID => a255a628da59b968a677a5a9c816a5ab
+ 
+ 
+Date          : May 28, 2007, 10:02:51 am
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\ResPlace\WebProjects\WebsiteCMS\Source\data\Themes\SoftTouch\theme.php
+On line       : 63
+Error         : Undefined variable: moduleCARight
+IP            : 81.193.41.145
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => SoftTouch/Gray/
+           MODULE_Createfunctionmethod_Cookie => false
+           PHPSESSID => a255a628da59b968a677a5a9c816a5ab
+ 
+ 
+Date          : May 28, 2007, 10:03:06 am
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\ResPlace\WebProjects\WebsiteCMS\Source\data\site.php
+On line       : 131
+Error         : Undefined index:  developer_mode
+IP            : 81.193.41.145
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : May 28, 2007, 11:12:25 am
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\ResPlace\WebProjects\WebsiteCMS\Source\data\site.php
+On line       : 131
+Error         : Undefined index:  developer_mode
+IP            : 81.193.41.145
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Classmethod_CL => block
+ 
+ 
