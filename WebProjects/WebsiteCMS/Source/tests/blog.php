@@ -4,10 +4,10 @@ include_once $path.'site.php';
 $page=new WebMS($path,"Blog");
 $page->addDefaults();
 
-include "ResDB2.php";
 
 
-$db=new ResDB2("table.db",true);
+
+$db=new ResDB("Blog","",true);
 $table=$db->addTable("cool",array("AI"=>"id","title","body"));//this will only add a table if it doesnt exist yet ;)
 
 //$table->insert(array("title"=>"My first entry","body"=>"This is my first entry!"));
@@ -25,7 +25,7 @@ if (isset($_GET["admin"])){
 	$post=$tpl->get("post")->parse($post[0]);
 	$ct=$tpl->get("showpost")->parse(array("post"=>$post));
 }else{
-	$rows=$table->getAll()->reverse();
+	$rows=$table->getAll()->getBy("body<>")->reverse();
 	$posts="";
 	foreach ($rows as $row) {
 		$posts.=$tpl->get("post")->parse($row);
@@ -41,6 +41,7 @@ $page->addS('
 <a href="blog.php?admin">Admin</a>
 ',"Blog Menu",Module::LEFT);
 $page->addS($ct,"Blog");
+$page->addS(print_r($db,true),"Array dump");
 $db->close();
 $page->create();
 ?>

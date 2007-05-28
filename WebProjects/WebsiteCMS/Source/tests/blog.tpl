@@ -18,6 +18,7 @@
 		Title<br><input type="text" name="title"><br>
 		Body<br>
 		<textarea rows="7" cols="15" name="body"></textarea>
+		<input type="submit" value="Save">
 	</form>
 </div>
 #{end:addpost}

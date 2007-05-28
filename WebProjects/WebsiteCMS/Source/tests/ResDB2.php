@@ -4,11 +4,7 @@
 
 class ResDB2 extends ResDB {
 	function ResDB2($name="",$tabled=false){
-		parent::ResDB($name);
-		if ($tabled==true){
-			$this["isTabled"]=$tabled;
-			$this->addMap("tables");
-		}	
+
 	}
 	function isTabled(){
 		return ($this->contains("isTabled") && $this["isTabled"]);
