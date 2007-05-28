@@ -11,12 +11,21 @@
 	<div>#{body}</div>
 </div>
 #{end:comment}
-
+#{start:addpost}
+<div>
+	<form action="blog.php">
+		<input type="hidden" name="addPost">
+		Title<br><input type="text" name="title"><br>
+		Body<br>
+		<textarea rows="7" cols="15" name="body"></textarea>
+	</form>
+</div>
+#{end:addpost}
 #{start:showpost}
 	<div>
 		<div>My Blog</div>
 		<br>
-		<div>#{posts}</div>
+		#{post}
 		<div>#{comments}</div>
 		<div>
 			<form action="blog.php=submitComment">
