@@ -44,5 +44,6 @@ $page->add("Lfp");
 $page->add("Box");
 //o.O a bug!! NOTE: look at output title?!?!
 $page->addF("someContent","Create function method");
+$page->addS("This is just a module added by a string ;)","With string method");
 $page->create();
 ?>

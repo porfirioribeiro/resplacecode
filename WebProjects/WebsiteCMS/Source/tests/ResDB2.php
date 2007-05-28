@@ -1,6 +1,6 @@
 <?php
 
-include dirname(__FILE__)."/../data/functions/ResDB.php";
+//include dirname(__FILE__)."/../data/functions/ResDB.php";
 
 class ResDB2 extends ResDB {
 	function ResDB2($name="",$tabled=false){
@@ -21,6 +21,12 @@ class ResDB2 extends ResDB {
 	function tableExists($tname){
 		return isset($this["tables"][$tname]);
 	}
+	/**
+	 * Check if a table exists and returns it, or else create it
+	 * @param String $tname
+	 * @param Array $columns
+	 * @return ResDB_Table
+	 */
 	function addTable($tname,$columns){
 		$this->checkTabled();
 		if (!$this->tableExists($tname)){
@@ -28,6 +34,11 @@ class ResDB2 extends ResDB {
 		}
 		return $this->getTable($tname);
 	}
+	/**
+	 * Get a table if it exists
+	 * @param String $tname
+	 * @return ResDB_Table
+	 */
 	function getTable($tname){
 		$this->checkTabled();
 		if ($this->tableExists($tname)){
@@ -74,6 +85,10 @@ class ResDB_Table extends ArrayMap {
 		$result->__construct($this["rows"]);
 		return $result->getBy($q);
 	}
+	/**
+	 * Get all rows 
+	 * @return ResDB_Row
+	 */	
 	function getAll(){
 		$result=new ResDB_Row();
 		$result->__construct($this["rows"]);
@@ -163,6 +178,24 @@ class ResDB_Row extends ArrayMap {
 	 */
 	function _($q){
 		return $this->getBy($q);
+	}
+	function limitFrom($start){
+		$arr=(Array)$this;
+		$arr=array_splice($arr,$start,count($arr));
+		unset($this);
+		return new ResDB_Row($arr);
+	}
+	function limitTo($end){
+		$arr=(Array)$this;
+		$arr=array_splice($arr,0,$end);
+		unset($this);
+		return new ResDB_Row($arr);		
+	}
+	function limit($start,$end){
+		$arr=(Array)$this;
+		$arr=array_splice($arr,$start,$end);
+		unset($this);
+		return new ResDB_Row($arr);				
 	}
 }
 
