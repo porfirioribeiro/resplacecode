@@ -1,2 +1,5 @@
-# The following disables directory browsing : use + to enable again 
-Options All -Indexes IndexIgnore *
+# Stops ability to read DB files in the browser.
+<limit GET POST PUT>
+order deny,allow
+Deny from all
+</limit>

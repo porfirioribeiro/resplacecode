@@ -13,7 +13,7 @@ class Menu extends Module {
 		$this->page=$page;
 		$this->side=Module::LEFT;
 		$this->title="Menu";
-		$this->db=new ResDB(dirname(__FILE__)."/../db/Menu.db");
+		$this->db=new ResDB("Menu");
 	}
 	function expandMenu($mnu){
 		for ($i=1;$i<=count($mnu);$i++){

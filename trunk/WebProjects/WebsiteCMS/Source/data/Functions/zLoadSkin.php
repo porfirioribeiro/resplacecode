@@ -31,6 +31,7 @@ if (!$skindone==1){
 	if (file_exists($this->themespath.$this->defaultskin."/style.css")){
 		$patt=apply_skin($this->themespath,$this->defaultskin);
 		$this->selectedskin=$this->defaultskin;
+		$_SESSION['currentskin']=$this->defaultskin;
 		include($this->themespath.$patt."theme.php");
 	}else{
 		//load a skin we can find :)
@@ -51,7 +52,8 @@ if (!$skindone==1){
 							//$this->addCSS($this->themespath.$item."/theme.php");
 							$this->selectedskin=$item."/".$item2."/";
 							$patt=apply_skin($this->themespath,$this->selectedskin);
-							$this->selectedskin=$this->selectedskin;
+							//$this->selectedskin=$this->selectedskin;
+							$_SESSION['currentskin']=$this->selectedskin;
 							include($this->themespath.$patt."theme.php");
 							$skindone=1;
 							break;

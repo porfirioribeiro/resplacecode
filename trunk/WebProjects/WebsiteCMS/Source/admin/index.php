@@ -30,13 +30,16 @@ if ($('use_php')){
 }");
 $page->addDefaults();
 
-$psswd="letmein";
+$db=new ResDB("WebMSoptions");
+		//read it
+		//$val=$db[1];
+		$psswd=$db->get("adminpassword");
 			
-			if ($_POST['psswd']==$psswd){
-				$_SESSION['admin_session']=md5("logged in");
+			if (md5($_POST['psswd'])==$psswd){
+				$_SESSION['admin_session']=$psswd;
 				}
 
-if ($_SESSION['admin_session']!=md5("logged in")){
+if ($_SESSION['admin_session']!=$psswd){
 	class internalHtml extends Module {
 		function internalHtml($page){
 			$this->title="Admin Panel";

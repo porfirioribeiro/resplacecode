@@ -10,20 +10,17 @@ class WebMS_Options extends Module {
 		$this->side=Module::CENTER;
 	}
 	function content(){
-		global $path;
+		global $path, $adminpassword, $themespath, $modulespath, $functionspath, $defaultskin;
 		
 		//open the db
-		$db=new ResDB($this->path."db/WebMSoptions.db");
-		//read it
-		print_r($db);
-		//$val=$db[1];
-		$adminpassword=$db->get("adminpassword");
+		$db=new ResDB("WebMSoptions");
 		//submits
 		//administration
 		if ($_POST['submit']) {
+			//change admin password...
 			if ($_POST['password_new']) {
 				if ($_POST['password_new']==$_POST['password_new_2']) {
-					if ($_POST['password_old']==$adminpassword) {
+					if (md5($_POST['password_old'])==$adminpassword) {
 						//$m1=$db->addMap("1");
 						$db->put("adminpassword",md5($_POST['password_new']));
 						echo 'test';
@@ -34,10 +31,32 @@ class WebMS_Options extends Module {
 					echo'Error: New admin passwords do not match!<br><br>';
 				}
 			}
+			
+			//change main options such as paths etc...
+			if ($_POST['themespath']) {
+				$db->put("themespath",($_POST['themespath']));
+				$db->put("modulespath",($_POST['modulespath']));
+				$db->put("functionspath",($_POST['functionspath']));
+				
+				$db->put("defaultskin",($_POST['defaultskin']));
+			}
+			
+			
 		}
 		
+		//read it
+		//$val=$db[1];
+		$adminpassword=$db->get("adminpassword");
+		$themespath=$db->get("themespath");
+		$modulespath=$db->get("modulespath");
+		$functionspath=$db->get("functionspath");
+		$defaultskin=$db->get("defaultskin");
+		
+		if ($_POST['submit']) { $db->close(); }
+		
 		?>
-		Below you can change various options in WebMS, it would be a good idea to make a backup of your 'WebMSoptions.db' database file before you proceed.
+		Below you can change various options in WebMS, it would be a good idea to make a backup of your 'WebMSoptions.db' database file before you proceed.<br /><br />
+		<a href="WebMSoptions.php?sesid=<?=$adminpassword; ?>" target="_blank">Download WebMSoptions.db</a> (right click save target)
 		<?php
 		}
 		
@@ -54,10 +73,31 @@ class WebMS_Options_main extends Module {
 		$this->side=Module::CENTER;
 	}
 	function content(){
-		global $path;
+		global $path, $themespath, $modulespath, $functionspath, $defaultskin;
 		?>
 		Below you can edit some system options, be careful not to make a mistake with these options, it could land you with lots and lots of system errors ;).<br /><br />
-		<form name="form1" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
+		<form name="form2" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
+			<input name="managep" value="WebMS_Options" type="hidden" />
+			<fieldset>
+				<legend>Directory paths:</legend><br />
+				<b>Theme's folder path:</b><br />
+				<i>Used for locating the theme's directory, changing this is for advanced users only.</i><br />
+				<input name="themespath" type="text" value="<?=$themespath; ?>" /><br /><br />
+				<b>Module's folder path:</b><br />
+				<i>Used for locating the module's directory, changing this is for advanced users only.</i><br />
+				<input name="modulespath" type="text" value="<?=$modulespath; ?>" /><br /><br />
+				<b>Function's folder path:</b><br />
+				<i>Used for locating the function's directory, changing this is for advanced users only.</i><br />
+				<input name="functionspath" type="text" value="<?=$functionspath; ?>" />
+			</fieldset><br />
+			<fieldset>
+				<legend>Skin Preferences:</legend><br />
+				<b>Default Skin</b><br />
+				<i>Path for the skin to use as default, for your convienience below this input box you will see the path to the current skin you have set.</i><br />
+				<input name="defaultskin" type="text" value="<?=$defaultskin; ?>" /><br />
+				Current: <?=$_SESSION['currentskin']; ?>
+			</fieldset><br />
+			<input name="submit" type="submit" value="Save Changes" />
 		</form>
 		<?php
 		}
@@ -113,29 +153,23 @@ class WebMS_Options_admin extends Module {
 		$this->side=Module::CENTER;
 	}
 	function content(){
-		global $path;
+		global $path, $adminpassword;
 		
 		?>
 		Below you can change various administration options.
 		
 		<form name="form2" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input name="managep" value="WebMS_Options" type="hidden" />
-			<b>Administration login password</b><br />
-			<i>You can change the login password below.</i>
-			<table width="400" border="0" cellspacing="0" cellpadding="0">
-			  <tr>
-				<td>Old Password:</td>
-				<td><input name="password_old" type="text"></td>
-			  </tr>
-			  <tr>
-				<td>New Password:</td>
-				<td><input name="password_new" type="text"></td>
-			  </tr>
-			  <tr>
-				<td>New Password (retype):</td>
-				<td><input name="password_new_2" type="text"></td>
-			  </tr>
-			</table><br />
+			<fieldset>
+				<legend>Change admin password:</legend><br />
+				<b>Old Password:</b><br />
+					<input name="password_old" type="password"><br /><br />
+				<b>New Password:</b><br />
+					<input name="password_new" type="password"><br /><br />
+				<b>New Password (retype):</b><br />
+					<input name="password_new_2" type="password">
+			</fieldset>
+			<br /><br />
 			<input name="submit" type="submit" value="Save Changes" />
 		</form>
 		<?php
