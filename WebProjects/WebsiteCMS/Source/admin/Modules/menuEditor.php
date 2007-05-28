@@ -9,7 +9,7 @@ class menuEditor extends Module {
 		parent::Module($page);
 		$this->title="Menu editor";
 		$this->side=Module::CENTER;
-		$this->db=new ResDB($this->page->path."db/Menu.db");
+		$this->db=new ResDB("Menu");
 	}
 	function finish(){
 		$this->db->close();

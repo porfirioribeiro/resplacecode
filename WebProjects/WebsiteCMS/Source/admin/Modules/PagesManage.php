@@ -17,7 +17,7 @@ class PagesManage extends Module {
 			$pageid=str_replace(array(" ","/"),array("_","_"),$_POST['pageid']);
 			
 			WriteFile($path."Pages/".$pageid.".php",stripslashes($_POST['data']));
-			$db= new ResDB($path."db/files.db");
+			$db= new ResDB("files");
 			$somemap=$db->getMap($pageid);//you only need maps for organize the db
 			$somemap->put("name",$_POST['name']);
 			$somemap->put("smalldesc",$_POST['smalldesc']);
@@ -32,7 +32,7 @@ class PagesManage extends Module {
 			<legend>Delete...</legend>
 			Request should have succeeded.
 			<?php
-			$db= new ResDB($path."db/files.db");
+			$db= new ResDB("files");
 			//$somemap=$db->getMap($_GET['pageiddel']);//you only need maps for organize the db
 			$db->del($_GET['pageiddel']);
 			//$somemap->del("largedesc");
@@ -51,7 +51,7 @@ class PagesManage extends Module {
 			
 			WriteFile($path."Pages/".$pageid.".php",stripslashes($_POST['data']));
 			
-			$db= new ResDB($path."db/files.db");
+			$db= new ResDB("files");
 			$somemap=$db->getMap($pageid);//you only need maps for organize the db
 			$somemap->put("name",$_POST['name']);
 			$somemap->put("smalldesc",$_POST['smalldesc']);
@@ -66,7 +66,7 @@ class PagesManage extends Module {
 		Heres a list of pages that exist in the DB:<br /><br />
 		<table width="400" border="1" bordercolor="#9bcf82" cellspacing="2" cellpadding="2">
 		<?php
-		$db= new ResDB($path."db/files.db");
+		$db= new ResDB("files");
 		if (count($db)) {
 			foreach ($db as $key=>$value) {
 				$name=$db->get($key)->get("name");
