@@ -12,6 +12,30 @@ class WebMS_Options extends Module {
 	function content(){
 		global $path;
 		
+		//open the db
+		$db=new ResDB($this->path."db/WebMSoptions.db");
+		//read it
+		print_r($db);
+		//$val=$db[1];
+		$adminpassword=$db->get("adminpassword");
+		//submits
+		//administration
+		if ($_POST['submit']) {
+			if ($_POST['password_new']) {
+				if ($_POST['password_new']==$_POST['password_new_2']) {
+					if ($_POST['password_old']==$adminpassword) {
+						//$m1=$db->addMap("1");
+						$db->put("adminpassword",md5($_POST['password_new']));
+						echo 'test';
+					} else {
+						echo'Error: Original admin password is incorrect!<br><br>';
+					}
+				} else {
+					echo'Error: New admin passwords do not match!<br><br>';
+				}
+			}
+		}
+		
 		?>
 		Below you can change various options in WebMS, it would be a good idea to make a backup of your 'WebMSoptions.db' database file before you proceed.
 		<?php
@@ -31,7 +55,6 @@ class WebMS_Options_main extends Module {
 	}
 	function content(){
 		global $path;
-		
 		?>
 		Below you can edit some system options, be careful not to make a mistake with these options, it could land you with lots and lots of system errors ;).<br /><br />
 		<form name="form1" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
@@ -96,6 +119,7 @@ class WebMS_Options_admin extends Module {
 		Below you can change various administration options.
 		
 		<form name="form2" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
+			<input name="managep" value="WebMS_Options" type="hidden" />
 			<b>Administration login password</b><br />
 			<i>You can change the login password below.</i>
 			<table width="400" border="0" cellspacing="0" cellpadding="0">
@@ -111,7 +135,8 @@ class WebMS_Options_admin extends Module {
 				<td>New Password (retype):</td>
 				<td><input name="password_new_2" type="text"></td>
 			  </tr>
-			</table>
+			</table><br />
+			<input name="submit" type="submit" value="Save Changes" />
 		</form>
 		<?php
 		}
