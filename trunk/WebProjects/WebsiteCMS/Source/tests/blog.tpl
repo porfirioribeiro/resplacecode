@@ -1,6 +1,6 @@
 #{start:post}
 <div>
-	<a style="display:block;" href="blog.php?showPost=#{id}" title="#{title}">#{title}</a>
+	#{id}  <a href="blog.php?showPost=#{id}" title="#{title}">#{title}</a>
 	<div>#{body}</div>
 	<hr>
 </div>
@@ -15,6 +15,7 @@
 #{start:showpost}
 	<div>
 		<div>My Blog</div>
+		<br>
 		<div>#{posts}</div>
 		<div>#{comments}</div>
 		<div>
@@ -29,6 +30,7 @@
 #{start:main}
 	<div>
 		<div>My Blog</div>
+		<br>
 		<div>#{posts}</div>
 	</div>
 #{end:main}

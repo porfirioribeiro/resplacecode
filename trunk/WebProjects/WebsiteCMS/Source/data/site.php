@@ -287,7 +287,7 @@ class WebMS{
 		$starttime = explode(' ', microtime());
 		echo $this->pageTpl->get("footer")->evaluate(array(
 			"imgpath"=>$this->themespath.$this->selectedskin."Images/",
-			"ResDB_queries"=>ArrayMap::$resdbopen+ArrayMap::$resdbclose,
+			"ResDB_queries"=>ResDB::$resdbopen+ResDB::$resdbclose,
 			"WebMS_load"=>round(($starttime[1] + $starttime[0])-$this->pagebegin,2)));
 		
 		//developer mode
@@ -307,6 +307,12 @@ class WebMS{
 	function addF($fn,$title,$side=Module::CENTER ,$pos="bottom"){		
 		$mod=new Module($this);
 		$mod->addContent($fn);
+		$mod->title=$title;
+		$this->add($mod,$side,$pos);
+	}
+	function addS($s,$title,$side=Module::CENTER ,$pos="bottom"){		
+		$mod=new Module($this);
+		$mod->setContentS($s);
 		$mod->title=$title;
 		$this->add($mod,$side,$pos);
 	}

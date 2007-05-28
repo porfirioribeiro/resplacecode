@@ -25,6 +25,9 @@ class Module{
 	function addContent($fn){
 		$this->content2=$fn;
 	}
+	function setContentS($s){
+		$this->contentS=$s;
+	}
 	function write(){
 		$module="MODULE_".preg_replace("/\W*/","",$this->title);
 		$minTitle=preg_replace("/[^a-z0-9_+& ]*/i","",$this->title);
@@ -73,7 +76,12 @@ class Module{
 	}
 	function content(){		
 		$fn=$this->content2;
-		$fn($this);	
+		if (function_exists($fn)){
+			$fn($this);	
+		}
+		if (isset($this->contentS)){
+			echo $this->contentS;
+		}
 	}	
 	function finish(){
 		//code to be executed on the end
