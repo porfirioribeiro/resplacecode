@@ -161,6 +161,9 @@ class WebMS{
     	echo '<script src="'.$value.'" type="text/javascript" language="JavaScript"></script>'."\n";
     }
     ?>
+	<!--[if lt IE 7]>
+	<script defer type="text/javascript" src="<?=$this->path.'lib/'; ?>pngfix.js"></script>
+	<![endif]-->
     <script type="text/javascript" language="JavaScript">
     	function __onloads(){
     		<?php echo $this->OnLoads?>

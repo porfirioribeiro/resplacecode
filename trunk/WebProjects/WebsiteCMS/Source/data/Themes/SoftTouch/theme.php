@@ -5,6 +5,7 @@
 $tpath=$this->themespath.$this->selectedskin;
 //include("module.php");
 $this->addCSS($tpath."style.css");
+$this->addJS($this->themespath."SoftTouch/theme.js");
 $this->addPreloadImg(array(
 	$tpath."Images/collapse.png",
 	$tpath."Images/collapse_over.png",
@@ -15,88 +16,11 @@ $this->addPreloadImg(array(
 	$tpath."Images/ns_close_over.png"
 ));
 
-//Module Templates
-$this->module_main=new Template("
-		<div id=#{module_id} class=\"Module\">                  
-            <div class=\"TitleMid\">                            
-                <div class=\"TitleLeft\">                            
-                </div>
-				#{module_type}
-				<div class=\"TitleText\">
-                    #{module_title}                            
-                </div>                        
-            </div> 			                      
-            <div class=\"BoxContent\" id=\"#{module_container_id}\" style=\"display:#{module_control}\">
-			#{module_content}
-			</div>");
-			
-$this->module_left=new Template("    
-	                <div class=\"TitleRight\">                            
-	                </div>       	
-	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"#{module_id_right}\" #{module_collapse}></div>  
-");
-
-$this->module_right=new Template("  	
-	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"#{module_id_left}\" #{module_collapse}></div> 
-					<div class=\"TitleRight\">                            
-	                </div> 
-");
-
-$this->module_center=new Template("  	
-	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"<?=$moduleCALeft?>\" #{module_collapse}></div>  
-	                <div class=\"TitleRight\">                            
-	                </div>   
-	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"<?=$moduleCARight?>\" #{module_collapse}></div>
-");
-
-$this->module_top=new Template("  	
-	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"<?=$moduleCALeft?>\" #{module_collapse}></div>  
-	                <div class=\"TitleRight\">                            
-	                </div>   
-	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"<?=$moduleCARight?>\" #{module_collapse}></div>
-");
-
-$this->module_bottom=new Template("  	
-	                <div style=\"float:left;display:#{module_nsdisplay}\" id=\"<?=$moduleCALeft?>\" #{module_collapse}></div>  
-	                <div class=\"TitleRight\">                            
-	                </div>   
-	                <div style=\"float:right;display:#{module_nsdisplay}\" id=\"<?=$moduleCARight?>\" #{module_collapse}></div>
-");
-
-//Now we setup all the template material
-$this->page_title=new Template("
-		<div class=\"MainMid\">                
-            <div class=\"MainLeft\">                
-            </div>                
-            <div class=\"MainRight\">                
-            </div>
-			<div class=\"TitleImage\"></div>
-        </div>");
-		
-$this->page_content=new Template("
-		<table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" >                
-            <tr>
-            	<td colspan=\"3\" style=\"#{display_modulestop}\">
-            	#{write_modulestop}           	
-            	</td>
-            </tr>
-            <tr>           
-            	<td id=\"LeftColumn\" style=\"#{display_modulesleft}\">  
-            	#{write_modulesleft}
-            	</td>        
-            	<td id=\"CenterColumn\" style=\"#{display_modulescenter}\">
-            	#{write_modulescenter}
-            	</td>	
-            	<td id=\"RightColumn\" style=\"#{display_modulesright}\">
-            	#{write_modulesright}
-            	</td>	              
-            </tr>
-			<tr>				
-				<td colspan=\"3\" style=\"#{display_modulesbottom}\">
-            	#{write_modulesbottom} 
-				</td>				
-			</tr>           
-        </table>
-		");
+$tpl=new TplFile(dirname(__FILE__)."/theme.tpl");
+$this->moduleTpl=$tpl->get("module");
+$this->pageTpl=$tpl->get("page");
+if ($tpl->isPart("menu")){
+	$this->menuTpl=$tpl->get("menu");
+}
 		
 ?>
