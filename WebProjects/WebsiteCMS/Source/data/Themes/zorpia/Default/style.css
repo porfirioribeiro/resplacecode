@@ -57,6 +57,10 @@ a:visited {
 	width:334px;
 	height:78px;
 }
+.TitleText{
+	overflow:hidden;
+	height:20px;
+}
 /* This is the frame which goes around the whole site, usually left invisible, design preference. */
 .MainFrame {
 	width:100%;

@@ -1,0 +1,2 @@
+# The following disables directory browsing : use + to enable again 
+Options All -Indexes IndexIgnore *
