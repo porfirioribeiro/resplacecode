@@ -1,4 +1,4 @@
-<?php
+<?php 
 class dbEditor extends Module {
 	var $fd;
 	var $fdO;
@@ -88,7 +88,7 @@ function toggleEl(el,ct){
 			$db->close();		
 			?>
 			<script type="text/javascript" language="javascript">
-				document.location="<?=$_SERVER['PHP_SELF']."?manage=dbEditor&action=editdb&place=".$_GET["place"]."&db=".$_GET["db"]?>";
+				document.location="<?=$_SERVER['PHP_SELF']."?manage=db&action=editdb&place=".$_GET["place"]."&db=".$_GET["db"]?>";
 			</script>
 			<?php
 		}else if ($_GET["action"]=="delDB"){
@@ -103,7 +103,7 @@ function toggleEl(el,ct){
 			unlink($dbFile);
 			?>
 			<script type="text/javascript" language="javascript">
-				document.location="<?=$_SERVER['PHP_SELF']."?manage=dbEditor&action=editdb&place=".$_GET["place"]."&db=".$_GET["newDBname"]?>";
+				document.location="<?=$_SERVER['PHP_SELF']."?manage=db&action=editdb&place=".$_GET["place"]."&db=".$_GET["newDBname"]?>";
 			</script>
 			<?php		
 		}else if ($_GET["action"]=="editKey"){
@@ -112,7 +112,7 @@ function toggleEl(el,ct){
 			$db->close();
 			?>
 			<script type="text/javascript" language="javascript">
-				document.location="<?=$_SERVER['PHP_SELF']."?manage=dbEditor&action=editdb&place=".$_GET["place"]."&db=".$_GET["db"]?>";
+				document.location="<?=$_SERVER['PHP_SELF']."?manage=db&action=editdb&place=".$_GET["place"]."&db=".$_GET["db"]?>";
 			</script>
 			<?php			
 		}else if ($_GET["action"]=="delKey"){
@@ -121,7 +121,7 @@ function toggleEl(el,ct){
 			$db->close();
 			?>
 			<script type="text/javascript" language="javascript">
-				document.location="<?=$_SERVER['PHP_SELF']."?manage=dbEditor&action=editdb&place=".$_GET["place"]."&db=".$_GET["db"]?>";
+				document.location="<?=$_SERVER['PHP_SELF']."?manage=db&action=editdb&place=".$_GET["place"]."&db=".$_GET["db"]?>";
 			</script>
 			<?php			
 		}else if ($_GET["action"]=="editValue"){
@@ -145,7 +145,7 @@ function toggleEl(el,ct){
 			$db->close();
 			?>
 			<script type="text/javascript" language="javascript">
-				document.location="<?=$_SERVER['PHP_SELF']."?manage=dbEditor&action=editdb&place=".$_GET["place"]."&db=".$_GET["db"]?>";
+				document.location="<?=$_SERVER['PHP_SELF']."?manage=db&action=editdb&place=".$_GET["place"]."&db=".$_GET["db"]?>";
 			</script>
 			<?php			
 		}else if ($_GET["action"]=="editdb"){		
@@ -160,7 +160,7 @@ function toggleEl(el,ct){
 				<a href="javascript:void(0)" onclick="var _K_=prompt('Select the name for this database\nDont forget the final .db','<?=$_GET["db"]?>');if (_K_!==null && _K_!==''){if (!_K_.endsWith('.db')){_K_+='.db'} document.location=location.search+'&action=renDB&newDBname='+_K_}">
 					 <img alt="Rename" title="Rename this Database" border="0" style="vertical-align:middle" src="icons/editclear.png">
 				</a>
-				<a href="javascript:void(0)" onclick="if (confirm('Delete this Database?\n<?=$_GET["db"]?>')){document.location='?manage=dbEditor&action=delDB&place=<?=$_GET["place"]?>&db=<?=$_GET["db"]?>'}">
+				<a href="javascript:void(0)" onclick="if (confirm('Delete this Database?\n<?=$_GET["db"]?>')){document.location='?manage=db&action=delDB&place=<?=$_GET["place"]?>&db=<?=$_GET["db"]?>'}">
 					 <img alt="Delete" title="Delete this Database" border="0" style="vertical-align:middle" src="icons/button_cancel.png">
 				</a><?=$dbPath?><br><br>	
 				Data:<br>
@@ -176,7 +176,7 @@ function toggleEl(el,ct){
 					Manual Add
 				</a>
 				<form action="" id="ManualADD" style="display:none;">
-					<input type="hidden" name="manage" value="dbEditor">
+					<input type="hidden" name="manage" value="db">
 					<input type="hidden" name="action" value="setKey">
 					<input type="hidden" name="place" value="<?=$_GET["place"]?>">
 					<input type="hidden" name="db" value="<?=$_GET["db"]?>">
