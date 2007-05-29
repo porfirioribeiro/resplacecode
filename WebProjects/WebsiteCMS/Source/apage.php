@@ -44,6 +44,10 @@ $page->add("Lfp");
 $page->add("Box");
 //o.O a bug!! NOTE: look at output title?!?!
 $page->addF("someContent","Create function method");
-$page->addS("This is just a module added by a string ;)","With string method");
+
+
+$AbsRootPath=preg_replace("/\\\/","/",dirname(__FILE__));
+$RootPath=str_replace($_SERVER["DOCUMENT_ROOT"], "", $AbsRootPath);
+$page->addS($_SERVER['SERVER_ADMIN'].$_SERVER['HTTP_HOST'],"With string method");
 $page->create();
 ?>

@@ -148,12 +148,11 @@ if ($manage=="pages") {
 	$page->add("FunctionsManage");
 }else if ($manage=="files") {
 	$page->add("Files");
-}else if ($manage=="dbEditor") {
+}else if ($manage=="db") {
 	$page->add("dbEditor");
 	$page->add("dbList",Module::RIGHT);
 }else if ($manage=="menu") {
 	$page->add("menuEditor");
-	//$page->add("dbList",Module::RIGHT);
 }else{
 	if (!isset($_REQUEST['managep']))
 		{$page->add("welcome",Module::CENTER);}
