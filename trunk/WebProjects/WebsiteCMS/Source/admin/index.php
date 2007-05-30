@@ -81,7 +81,7 @@ class AdminMenu2 extends Module {
 		<a href="?manage=modules">Add-In Modules</a><br>
 		<a href="?manage=functions">Add-In Functions</a><br>
 		<a href="?manage=files">Other Files</a><br><br />
-		<a href="?manage=dbEditor">Database's</a><br>
+		<a href="?manage=db">Database's</a><br>
 		</fieldset><br />
 		<fieldset>
 		<legend>Options:</legend>

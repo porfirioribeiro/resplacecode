@@ -14,11 +14,20 @@ class Module{
 	const CENTER="center";
 	const RIGHT="right";
 	const BOTTOM="bottom";
+	/**
+	 * @var WebMS
+	 */
 	var $page=null;
 	var $title="Def Title";
 	var $side=Module::CENTER;
 	var $collapseAble=true;
 	var $minimizeAble=true;
+	
+	/**
+	 * Creates a module, this function is mostly called internal
+	 * @param WebMS $page
+	 * @return Module
+	 */
 	function Module($page){
 		$this->page=$page;
 	}
