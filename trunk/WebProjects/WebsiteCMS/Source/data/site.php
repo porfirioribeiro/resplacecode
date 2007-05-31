@@ -128,7 +128,7 @@ class WebMS{
 	function create(){
 	
 	//developer mode alert
-	if ($_SESSION['developer_mode']==true) {
+	if (isset($_SESSION['developer_mode']) && $_SESSION['developer_mode']==true) {
 		$this->addAlert("Developer Mode","You are currently in Developer Mode, any errors that occur will cause an automatic halt of the system. Also you can view some useful variables at the bottom of the page. <br><b>Note:</b><i>developer mode is only active on the machine + browser you activated it on via a session.</i>");
 	}
     ?>
@@ -193,7 +193,7 @@ class WebMS{
 	</script>
     <title><?php echo $this->title; ?></title>        
   </head> 
-  <body onload="__preload_images();__onloads();"> 
+  <body onload="Effect.SlideDown('AlertBox');__preload_images();__onloads();"> 
 	<?php 				
 	if ($this->ShowNSWarn){
 	?>		
@@ -206,18 +206,24 @@ class WebMS{
 	<?php
 	}
 	?>		
-	<?php 				
-	foreach ($this->alerts as $ale => $alert) {
-		?>
-		<div class="AlertBox">
-		<div class="warn"></div>	
-		<?=$alert["text"]?>
+
+		<div class="AlertBox" id="AlertBox" style="display: none;">
+			<div>
+				<div class="warn"></div>
+				<?php 				
+				foreach ($this->alerts as $ale => $alert) {
+					?>	
+					<div class="box"><?=$alert["text"]?></div>
+					<?php
+					if ($ale<count($this->alerts)-1){
+						echo "<hr>";
+					}
+				}
+				?>
+				<a href="javascript:;" class="close">&nbsp;</a>
+			</div>
 		</div>
-		<?php
-	}
-	
-	
-	?>			  
+			  
     <div class="MainFrame">            
         <?php
 		

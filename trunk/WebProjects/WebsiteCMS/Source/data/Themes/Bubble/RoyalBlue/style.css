@@ -7,6 +7,32 @@ body {
 	font-size:12px;
 	background-color:#cfcfff;
 }
+.AlertBox{
+	/*position:absolute;
+	left:5%;
+	width:90%;*/
+	background-color:#FFFFE1;
+	border:1px solid #FAFAD2;
+	vertical-align:middle;
+}
+.AlertBox .box{
+	float:left;
+	width:80%;
+}
+.AlertBox .warn{
+	background-image: url(Images/warn.png);
+	width: 22px;
+	height: 22px;
+	margin: 5px;
+	float: left;
+}
+.AlertBox .close{
+	background-image: url(Images/close.png);
+	width:16px;
+	height:16px;
+	display:block;
+	float:right;
+}
 #AjaxLoader{
 	background-image: url(Images/ajax-loader.gif);
 	width: 220px;
