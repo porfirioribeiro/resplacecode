@@ -84,9 +84,11 @@ class Module{
 		$this->finish();
 	}
 	function content(){		
-		$fn=$this->content2;
-		if (function_exists($fn)){
-			$fn($this);	
+		if (isset($this->content2)){
+			$fn=$this->content2;
+			if (function_exists($fn)){
+				$fn($this);	
+			}			
 		}
 		if (isset($this->contentS)){
 			echo $this->contentS;
