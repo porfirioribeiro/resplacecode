@@ -7,7 +7,7 @@ include_once "setup.php";
 class WebMS{
 	
 	private $cr_clmn="";
-	
+	var $devMode=false;
 	var $title="";
 	var $content_type="text/html; charset=windows-1250";
 	var $favicon="http://tpvgames.co.uk/favicon.ico";
@@ -71,6 +71,15 @@ class WebMS{
 		$this->title=$_title." - resplace.net";
 		$this->modulesSearchPath[]=$this->modulespath;
 		$this->functionsSearchPath[]=$this->functionspath;
+
+		if (isset($_POST['devMODE']) && $_POST['devMODE']) {
+				$_SESSION['developer_mode']=(!(isset($_SESSION['developer_mode'])?$_SESSION['developer_mode']:true));				
+		}
+		$this->devMode=$_SESSION['developer_mode'];
+		//developer mode alert
+		if ($this->devMode) {
+			$this->addAlert("Developer Mode","You are currently in Developer Mode, any errors that occur will cause an automatic halt of the system. Also you can view some useful variables at the bottom of the page. <br><b>Note:</b><i>developer mode is only active on the machine + browser you activated it on via a session.</i>");
+		}
 	}
 	function addCSS($file){
 		$style=$this->findFilesOnPath(array($this->stylepath,""),$file);
@@ -126,11 +135,6 @@ class WebMS{
 		}					
 	}
 	function create(){
-	
-	//developer mode alert
-	if (isset($_SESSION['developer_mode']) && $_SESSION['developer_mode']==true) {
-		$this->addAlert("Developer Mode","You are currently in Developer Mode, any errors that occur will cause an automatic halt of the system. Also you can view some useful variables at the bottom of the page. <br><b>Note:</b><i>developer mode is only active on the machine + browser you activated it on via a session.</i>");
-	}
     ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -166,7 +170,7 @@ class WebMS{
 	<![endif]-->
     <script type="text/javascript" language="JavaScript">
     	function __onloads(){
-    		<?php echo $this->OnLoads?>
+    		<?php echo $this->OnLoads."\n"?>
     	}
     	var Site={
     		path:"<?=$this->path?>"
@@ -193,7 +197,7 @@ class WebMS{
 	</script>
     <title><?php echo $this->title; ?></title>        
   </head> 
-  <body onload="Effect.SlideDown('AlertBox');__preload_images();__onloads();"> 
+  <body onload="<?=count($this->alerts)?"Effect.SlideDown('AlertBox');$('AlertBox').setOpacity(0.8);":""?>__preload_images();__onloads();"> 
 	<?php 				
 	if ($this->ShowNSWarn){
 	?>		
@@ -206,22 +210,22 @@ class WebMS{
 	<?php
 	}
 	if (count($this->alerts)>0){
-		print_r($this->alerts);
+		
 		?>		
-		<div class="AlertBox" id="AlertBox" style="display: none;">
+		<div class="AlertBox" id="AlertBox" style="display: none;" onmouseover="$(this).setOpacity(1);" onmouseout="$(this).setOpacity(0.8);">
 			<div>
 				<div class="warn"></div>
+				<div class="box">
 				<?php 				
 				foreach ($this->alerts as $ale => $alert) {
-					?>	
-					<div class="box"><?=$alert["text"]?></div>
-					<?php
+					echo $alert["text"];
 					if ($ale<count($this->alerts)-1){
 						echo "<hr>";
 					}
 				}
 				?>
-				<a href="javascript:;" class="close">&nbsp;</a>
+				</div>
+				<a href="javascript:;" class="close" onclick="Effect.Fade('AlertBox');Effect.SlideUp('AlertBox')">&nbsp;</a>
 			</div>
 		</div>
 		<?php
@@ -300,7 +304,7 @@ class WebMS{
 			"WebMS_load"=>round(($starttime[1] + $starttime[0])-$this->pagebegin,2)));
 		
 		//developer mode
-		if ($_SESSION['developer_mode']==true) {
+		if ($this->devMode) {
 			echo'<br><br><hr><div align="left"><b>$_REQUEST:</b><br>';
 			foreach($_REQUEST as $key=>$value) 
 				echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$key => $value<br>";

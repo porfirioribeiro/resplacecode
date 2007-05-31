@@ -219,6 +219,16 @@ class ResDB extends ArrayMap {
 			$this->addMap("tables");
 		}	
 	}
+	function delete(){
+		$f=$this->path;
+		if ($this->cat!=""){
+			$f.=$this->cat."/";
+		}
+		$f.=$this->file;
+		if (is_file($f)) {
+			unlink($f);		
+		}
+	}
 	function load($file="",$cat=""){
 		$this->cat=$cat;
 		$this->file=$file.".db";

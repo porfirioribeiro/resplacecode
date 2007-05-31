@@ -29,7 +29,9 @@ if ($('use_php')){
 	});
 }");
 $page->addDefaults();
-
+if (isset($_GET["message"])){
+	$page->addAlert("dbmesage",$_GET["message"]);
+}
 $db=new ResDB("WebMSoptions");
 		//read it
 		//$val=$db[1];
@@ -96,22 +98,11 @@ class AdminMenu2 extends Module {
 					}
 				}
 			}
-		
-		//developer mode
-		$devmode='Developer Mode';
-		if (isset($_POST['dev']) && $_POST['dev']) {
-			if ($_SESSION['developer_mode']==true) {
-				$_SESSION['developer_mode']=false;
-				$devmode='Visitor Mode';
-			}else{
-				$_SESSION['developer_mode']=true;
-			}
-		}
-		
+
 		?>
 		</fieldset><br />
-		<form method="post" action="<?=$_SERVER['PHP_SELF']; ?>">
-			<input name="dev" type="submit" value="<?=$devmode; ?>" />
+		<form method="post" action="<?=$_SERVER['PHP_SELF']?>">
+			<input name="devMODE" type="submit" value="<?=$this->page->devMode?"User Mode":"Developer Mode"?>" />
 		</form>
 		<?php
 		

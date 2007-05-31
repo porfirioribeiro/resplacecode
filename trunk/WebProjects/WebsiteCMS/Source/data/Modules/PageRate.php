@@ -119,7 +119,6 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
                     </div>
                     <?php
 				}
-			$this->db->close();
 		}
 	}
 }
