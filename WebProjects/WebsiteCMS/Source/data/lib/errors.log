@@ -1,0 +1,181 @@
+Date          : May 31, 2007, 12:42:01 pm
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\data\site.php
+On line       : 300
+Error         : Undefined index:  developer_mode
+IP            : 81.193.42.70
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : May 31, 2007, 12:56:21 pm
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\data\site.php
+On line       : 300
+Error         : Undefined index:  developer_mode
+IP            : 81.193.42.70
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : May 31, 2007, 2:10:22 pm
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\data\site.php
+On line       : 303
+Error         : Undefined index:  developer_mode
+IP            : 81.193.42.70
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : May 31, 2007, 2:17:21 pm
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\data\site.php
+On line       : 303
+Error         : Undefined index:  developer_mode
+IP            : 81.193.42.70
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : May 31, 2007, 2:48:33 pm
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\data\site.php
+On line       : 303
+Error         : Undefined index:  developer_mode
+IP            : 81.193.42.70
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : May 31, 2007, 3:00:03 pm
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\admin\index.php
+On line       : 106
+Error         : Undefined variable: page
+IP            : 81.193.42.70
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 05106f9590354cc99eb43c965fcd4864
+ 
+ 
+Date          : May 31, 2007, 3:48:10 pm
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\admin\Modules\dbEditor.php
+On line       : 62
+Error         : Undefined property:  dbEditor::$fdaO
+IP            : 81.193.42.70
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           manage => db
+           action => editDB
+           place => data
+           db => Menu
+           PHPSESSID => f2a6fb2f75d13d06bd35108a3d6d731e
+ 
+ 
+Date          : May 31, 2007, 4:11:58 pm
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\data\site.php
+On line       : 78
+Error         : Undefined index:  developer_mode
+IP            : 81.193.42.70
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : May 31, 2007, 4:15:07 pm
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\data\site.php
+On line       : 78
+Error         : Undefined index:  developer_mode
+IP            : 88.104.132.242
+Host          : 88-104-132-242.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : May 31, 2007, 4:21:01 pm
+Server        : 81.193.42.70
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\data\site.php
+On line       : 78
+Error         : Undefined index:  developer_mode
+IP            : 88.104.132.242
+Host          : 88-104-132-242.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : May 31, 2007, 4:22:50 pm
+Server        : 81.193.42.70
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\admin\AdminPanes\WebMS_Options.php
+On line       : 4
+Error         : Use of undefined constant WebMS_Options - assumed 'WebMS_Options'
+IP            : 88.104.132.242
+Host          : 88-104-132-242.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           managep => WebMS_Options
+           PHPSESSID => a6fd4dfc1ee2fe92812539922066943a
+ 
+ 
+Date          : May 31, 2007, 4:25:11 pm
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\data\site.php
+On line       : 78
+Error         : Undefined index:  developer_mode
+IP            : 88.104.132.242
+Host          : 88-104-132-242.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           message => I Dean, how are you?
+ 
+ 
+Date          : May 31, 2007, 4:28:59 pm
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\admin\Modules\menuEditor.php
+On line       : 19
+Error         : Undefined offset:  2
+IP            : 81.193.42.70
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           manage => menu
+           PHPSESSID => 76f30d35a48d96986222bf154ad8ab0b
+ 
+ 
+Date          : May 31, 2007, 4:29:13 pm
+Server        : porfirio.no-ip.org
+Error No      : 8
+On file       : D:\xampp\htdocs\OpenWebMS\admin\AdminPanes\WebMS_Options.php
+On line       : 4
+Error         : Use of undefined constant WebMS_Options - assumed 'WebMS_Options'
+IP            : 81.193.42.70
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           managep => WebMS_Options
+           PHPSESSID => 76f30d35a48d96986222bf154ad8ab0b
+ 
+ 

@@ -8,7 +8,7 @@ class dbList extends Module {
 	function content(){
 		$tpl=new TplFile("tpl/db.tpl");
 		foreach (GetFolders($this->page->path."db/") as $category) {
-			echo $tpl->get("dbList_addDB")->parse(array("category"=>$category));
+			echo $tpl->get("dbList")->get("addDB")->parse(array("category"=>$category));
 			foreach (GetFiles($this->page->path."db/".$category."/","*.db") as $file) {
 				$file=str_replace(".db","",$file);
 				?>
@@ -16,7 +16,7 @@ class dbList extends Module {
 				<?php
 			}
 		}
-		echo $tpl->get("dbList_addDB")->parse(array("category"=>""));
+		echo $tpl->get("dbList")->get("addDB")->parse(array("category"=>""));
 		foreach (GetFiles($this->page->path."db/","*.db") as $file) {
 			$file=str_replace(".db","",$file);
 			?>

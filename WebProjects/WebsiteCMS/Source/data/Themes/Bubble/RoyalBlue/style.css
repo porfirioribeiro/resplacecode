@@ -8,16 +8,16 @@ body {
 	background-color:#cfcfff;
 }
 .AlertBox{
-	/*position:absolute;
-	left:5%;
-	width:90%;*/
+	position:absolute;
+	top:0px;
 	background-color:#FFFFE1;
 	border:1px solid #FAFAD2;
 	vertical-align:middle;
 }
-.AlertBox .dbox{
+.AlertBox .box{
 	float:left;
-	width:80%;
+	width:92%;
+	padding:5px;
 }
 .AlertBox .warn{
 	background-image: url(Images/warn.png);
@@ -32,6 +32,15 @@ body {
 	height:16px;
 	display:block;
 	float:right;
+	margin: 5px;
+}
+.AlertBox .close:hover{
+	background-image: url(Images/close_over.png);
+	width:16px;
+	height:16px;
+	display:block;
+	float:right;
+	margin: 5px;
 }
 #AjaxLoader{
 	background-image: url(Images/ajax-loader.gif);

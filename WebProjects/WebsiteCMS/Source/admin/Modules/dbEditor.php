@@ -6,7 +6,6 @@ class dbEditor extends Module {
 	var $cat="";
 	var $db="";
 	var $action="";
-	var $message="";
 	function dbEditor($page){
 		parent::Module($page);
 		$this->title="Database editor";
@@ -35,10 +34,6 @@ function toggleEl(el,ct){
 		if (isset($_GET["action"])){
 			$this->action=$_GET["action"];
 		}
-		if (isset($_GET["message"])){
-			$this->page->addAlert("dbmesage",$_GET["message"]);
-			$this->message=$_GET["message"];
-		}
 		$url="index.php?manage=db&action=editDB&category=".$this->cat."&db=".$this->db;
 		$urlNoAct="index.php?manage=db&category=".$this->cat."&db=".$this->db;
 		switch ($this->action) {
@@ -46,14 +41,16 @@ function toggleEl(el,ct){
 				$tabled=(isset($_GET["tabled"]) && $_GET["tabled"]=="on");
 				$db=new ResDB($this->db,$this->cat,$tabled);
 				$db->close();
-				header("Location: ".$url."&message=Database Created!");
+				header("Location: ".$url."&message=Database <b>".$this->db."</b> Created!");
 			break;
 			case "delDB":
-				
+				$db=new ResDB($this->db,$this->cat);
+				$db->delete();
+				header("Location: ".$urlNoAct."&message=Database <b>".$this->db."</b> Deleted!");
 			break;
 		}
 	}
-	function extend($map,$path){
+	function exTree($map,$path){
 		foreach ($map as $key=>$value) {
 			$p=$path.(($path=="")?"":".").$key;		
 			$id =str_replace(".","_",$p);				
@@ -62,7 +59,7 @@ function toggleEl(el,ct){
 			<?php
 			 if (ArrayMap::is($value)){
 				?>
-				<img class="dbEditExpCollHandle" src="<?=$this->fd?>" onclick="var el=$('<?=$id?>');el.toggle();this.src=(el.style.display=='')?'<?=$this->fdaO?>':'<?=$this->fda?>';" style="cursor:pointer;">
+				<img class="dbEditExpCollHandle" src="<?=$this->fd?>" onclick="var el=$('<?=$id?>');el.toggle();this.src=(el.style.display=='')?'<?=$this->fdO?>':'<?=$this->fd?>';" style="cursor:pointer;">
 				<?php
 			 }else{
 			 	echo "<span style='width:16px;text-align:center;display:block;float:left;'>| </span>";
@@ -88,7 +85,7 @@ function toggleEl(el,ct){
 			<?php
 			if (ArrayMap::is($value)){		
 				echo '<div class="dbEditExpCollContainer" style="display:none;padding-left:13px;" id="'.$id.'">		';			
-				$this->extend($value,$p);	
+				$this->exTree($value,$p);	
 				echo "</div>";			
 			}else{
 				?>
@@ -117,9 +114,14 @@ function toggleEl(el,ct){
 				return;
 			}		
 			$db=new ResDB($this->db,$this->cat);
-
+			?>
+			Editing <?=$this->db?> on <?=$this->cat?>
+			<br><br>
+			<?php
 			if ($db->get("isTabled")){
-				echo "This is a tabled db";
+				echo "Tabled database editor unemplemented yet sorry!";
+			}else{
+				$this->exTree($db,"");
 			}
 		}else{
 			echo "Select a database to edit!";
