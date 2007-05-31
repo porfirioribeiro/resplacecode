@@ -35,11 +35,11 @@ $db=new ResDB("WebMSoptions");
 		//$val=$db[1];
 		$psswd=$db->get("adminpassword");
 			
-			if (md5($_POST['psswd'])==$psswd){
+			if (isset($_POST['psswd']) && md5($_POST['psswd'])==$psswd){
 				$_SESSION['admin_session']=$psswd;
 				}
 
-if ($_SESSION['admin_session']!=$psswd){
+if (!isset($_SESSION['admin_session']) || $_SESSION['admin_session']!=$psswd){
 	class internalHtml extends Module {
 		function internalHtml($page){
 			$this->title="Admin Panel";
@@ -99,7 +99,7 @@ class AdminMenu2 extends Module {
 		
 		//developer mode
 		$devmode='Developer Mode';
-		if ($_POST['dev']) {
+		if (isset($_POST['dev']) && $_POST['dev']) {
 			if ($_SESSION['developer_mode']==true) {
 				$_SESSION['developer_mode']=false;
 				$devmode='Visitor Mode';
@@ -137,8 +137,13 @@ class welcome extends Module {
 
 //$page->add(AdminMenu,Module::TOP);
 $page->add("AdminMenu2",Module::LEFT);
-if ($_GET['manage']) {$manage=$_GET['manage'];}
-if ($_POST['manage']) {$manage=$_POST['manage'];}
+if (isset($_GET['manage'])) {
+	$manage=$_GET['manage'];
+}elseif (isset($_POST['manage'])) {
+	$manage=$_POST['manage'];
+}else{
+	$manage="";
+}
 
 if ($manage=="pages") {
 	$page->add("PagesManage");
@@ -154,8 +159,9 @@ if ($manage=="pages") {
 }else if ($manage=="menu") {
 	$page->add("menuEditor");
 }else{
-	if (!isset($_REQUEST['managep']))
-		{$page->add("welcome",Module::CENTER);}
+	if (!isset($_REQUEST['managep'])){
+		$page->add("welcome",Module::CENTER);
+	}
 }
 
 $files=GetFiles("AdminPanes");
@@ -164,7 +170,7 @@ if (count($files)) {
 	
 		$name=explode('.',$fil);
 		if ($name[1]=='php') {
-			if ($name[0]==$_REQUEST['managep']) {
+			if (isset($_REQUEST['managep']) && $name[0]==$_REQUEST['managep']) {
 				include("AdminPanes/".$fil);
 				//$page->add($name[0]);
 				}
