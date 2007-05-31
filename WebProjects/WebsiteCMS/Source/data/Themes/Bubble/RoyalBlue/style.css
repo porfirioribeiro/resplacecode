@@ -15,7 +15,7 @@ body {
 	border:1px solid #FAFAD2;
 	vertical-align:middle;
 }
-.AlertBox .box{
+.AlertBox .dbox{
 	float:left;
 	width:80%;
 }
