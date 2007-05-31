@@ -135,7 +135,7 @@ class WebMS{
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
-    <meta http-equiv="content-type" content="<?=$this->content_type; ?>">
+    <meta http-equivcou="content-type" content="<?=$this->content_type; ?>">
     <meta name="generator" content="PSPad+Aptana+ZendStudio">
     <meta name="description" content="<?php echo $this->description; ?>">
     <meta name="keywords" content="<?php echo $this->keywords; ?>">
@@ -205,8 +205,9 @@ class WebMS{
 		</noscript> 
 	<?php
 	}
-	?>		
-
+	if (count($this->alerts)>0){
+		print_r($this->alerts);
+		?>		
 		<div class="AlertBox" id="AlertBox" style="display: none;">
 			<div>
 				<div class="warn"></div>
@@ -223,7 +224,9 @@ class WebMS{
 				<a href="javascript:;" class="close">&nbsp;</a>
 			</div>
 		</div>
-			  
+		<?php
+	}
+	?>			  
     <div class="MainFrame">            
         <?php
 		
