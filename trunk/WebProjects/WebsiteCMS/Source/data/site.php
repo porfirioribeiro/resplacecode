@@ -1,21 +1,30 @@
 <?php
-
+/**
+* System Shell<br>
+* The system shell (the centre of WebMS)
+* Licenced under GPLv2 read GPL.txt for details
+* @version 1
+* @copyright © 2007 ResPlace Team
+* @lastedit 01-06-07
+*/
 session_start();
-define("WebMS_ROOT_PATH",preg_replace("/\\\/","/",preg_replace("/data$/","",dirname(__FILE__))));
-define("WebMS_ROOT_URL",str_replace($_SERVER["DOCUMENT_ROOT"], "", WebMS_ROOT_PATH));
-define("WebMS_DATA_PATH",WebMS_ROOT_PATH."data/");
-define("WebMS_DATA_URL",WebMS_ROOT_URL."data/");
-define("WebMS_INC_PATH",WebMS_DATA_PATH."Inc/");
-define("WebMS_INC_URL",WebMS_DATA_URL."Inc/");
-define("WebMS_FILES_PATH",WebMS_DATA_PATH."Files/");
-define("WebMS_FILES_URL",WebMS_DATA_URL."Files/");
+ob_start("ob_gzhandler");
 
-include_once WebMS_INC_PATH."String.php";
-include_once WebMS_INC_PATH."ResDB.php";
-include_once WebMS_INC_PATH."error_reporter.php";
+	define("WebMS_ROOT_PATH",preg_replace("/\\\/","/",preg_replace("/data$/","",dirname(__FILE__))));
+	define("WebMS_ROOT_URL",str_replace($_SERVER["DOCUMENT_ROOT"], "", WebMS_ROOT_PATH));
+	define("WebMS_DATA_PATH",WebMS_ROOT_PATH."data/");
+	define("WebMS_DATA_URL",WebMS_ROOT_URL."data/");
+	define("WebMS_INC_PATH",WebMS_DATA_PATH."Inc/");
+	define("WebMS_INC_URL",WebMS_DATA_URL."Inc/");
+	define("WebMS_FILES_PATH",WebMS_DATA_PATH."Files/");
+	define("WebMS_FILES_URL",WebMS_DATA_URL."Files/");
+	
+	include_once WebMS_INC_PATH."error_reporter.php";
+	
+	include_once WebMS_INC_PATH."String.php";
+	include_once WebMS_INC_PATH."ResDB.php";
 
 class WebMS{
-	
 	private $cr_clmn="";
 	var $devMode=false;
 	var $title="";
@@ -23,8 +32,8 @@ class WebMS{
 	var $favicon="http://tpvgames.co.uk/favicon.ico";
 	var $description="OpenWebMS Driven Website";
 	var $keywords="OpenWebMS, resplace, resplace.net";
-	var $id=""; //?what is this
-	var $root=""; //?what is this
+	var $id="";
+	var $root="";
 	var $absRoot="";
 	
 	//system vars (some overwritten by DB values later)
@@ -55,7 +64,7 @@ class WebMS{
 	var $ModulesRight=array();
 	var $ModulesBottom=array();
 	var $alerts=array();
-	//var $resdbq=0;
+
 	//templates
 	var $moduleTpl;
 	var $pageTpl;
@@ -86,11 +95,11 @@ class WebMS{
 		$this->devMode=$_SESSION['developer_mode'];
 		
 		$this->self=$this;
-		$AbsRootPath=preg_replace("/data(\/|\\\)site.php/","",__FILE__);
-		$AbsRootPath=preg_replace("/\\\/","/",$AbsRootPath);
-		$RootPath=str_replace($_SERVER["DOCUMENT_ROOT"], "", $AbsRootPath);	
-		$this->absRoot=$AbsRootPath;
-		$this->root=$RootPath;	
+		//$AbsRootPath=preg_replace("/data(\/|\\\)site.php/","",__FILE__);
+		//$AbsRootPath=preg_replace("/\\\/","/",$AbsRootPath);
+		//$RootPath=str_replace($_SERVER["DOCUMENT_ROOT"], "", $AbsRootPath);	
+		//$this->absRoot=$AbsRootPath;
+		//$this->root=$RootPath;	
 		$this->id=$_SERVER['PHP_SELF'];
 		if (isset($_REQUEST['page'])){
 			$this->id.=$_REQUEST['page'];
@@ -108,7 +117,7 @@ class WebMS{
 
 		//developer mode alert
 		if ($this->devMode) {
-			$this->addAlert("Developer Mode","You are currently in Developer Mode, any errors that occur will cause an automatic halt of the system. Also you can view some useful variables at the bottom of the page. <br><b>Note:</b><i>developer mode is only active on the machine + browser you activated it on via a session.</i>");
+			$this->addAlert("Developer Mode","You are currently in Developer Mode, this is useful for debuging the system and making sure its complient and secure. <br><b>Note:</b><i>developer mode is only active on the machine + browser you activated it on via a session.</i>");
 		}
 	}
 	function addCSS($file){

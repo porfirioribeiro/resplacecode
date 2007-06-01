@@ -1,5 +1,5 @@
 <?php
-//allows you to grad a copy of the WebMSoptions.db file (bypass the .htaccess restriction).
+//allows you to grab a copy of the WebMSoptions.db file (bypass the .htaccess restriction).
 include_once "../data/Functions/ResDB.php";
 $db=new ResDB("WebMSoptions");
 $psswd=$db->get("adminpassword");

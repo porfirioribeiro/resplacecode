@@ -1,6 +1,6 @@
 <?php
 /**
-* Module class<br>
+* Module class
 * Contains the code to build the Modules for the site
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
