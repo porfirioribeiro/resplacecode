@@ -1,9 +1,19 @@
 <?php
 
 session_start();
+define("WebMS_ROOT_PATH",preg_replace("/\\\/","/",preg_replace("/data$/","",dirname(__FILE__))));
+define("WebMS_ROOT_URL",str_replace($_SERVER["DOCUMENT_ROOT"], "", WebMS_ROOT_PATH));
+define("WebMS_DATA_PATH",WebMS_ROOT_PATH."data/");
+define("WebMS_DATA_URL",WebMS_ROOT_URL."data/");
+define("WebMS_INC_PATH",WebMS_DATA_PATH."Inc/");
+define("WebMS_INC_URL",WebMS_DATA_URL."Inc/");
+define("WebMS_FILES_PATH",WebMS_DATA_PATH."Files/");
+define("WebMS_FILES_URL",WebMS_DATA_URL."Files/");
 
-include_once "lib/error_reporter.php";
-include_once "setup.php";
+include_once WebMS_INC_PATH."String.php";
+include_once WebMS_INC_PATH."ResDB.php";
+include_once WebMS_INC_PATH."error_reporter.php";
+
 class WebMS{
 	
 	private $cr_clmn="";
@@ -57,7 +67,6 @@ class WebMS{
 		$this->pagebegin=$starttime[1] + $starttime[0];
 		
 		//read WebMS settings DB
-		include_once dirname(__FILE__)."/Functions/ResDB.php";
 		$db=new ResDB("WebMSoptions");
 			$adminpassword=$db->get("adminpassword");
 			$this->themespath=$db->get("themespath");
