@@ -37,8 +37,8 @@ $db=new ResDB("WebMSoptions");
 		//$val=$db[1];
 		$psswd=$db->get("adminpassword");
 			
-			if (isset($_POST['psswd']) && md5($_POST['psswd'])==$psswd){
-				$_SESSION['admin_session']=$psswd;
+			if (isset($_POST['psswd'])){
+				$_SESSION['admin_session']=md5($_POST['psswd']);
 				}
 
 if (!isset($_SESSION['admin_session']) || $_SESSION['admin_session']!=$psswd){
@@ -55,7 +55,7 @@ if (!isset($_SESSION['admin_session']) || $_SESSION['admin_session']!=$psswd){
 			Welcome to the admin panel, please login below.<br /><br />
 			
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-				<input name="psswd" type="text" />
+				<input name="psswd" type="password" />
 				<input name="submit" type="submit" value="Login" />
 			</form>
 			<?php
@@ -103,7 +103,11 @@ class AdminMenu2 extends Module {
 		</fieldset><br />
 		<form method="post" action="<?=$_SERVER['PHP_SELF']?>">
 			<input name="devMODE" type="submit" value="<?=$this->page->devMode?"User Mode":"Developer Mode"?>" />
-		</form>
+		</form><br /><br />
+		<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
+				<input name="psswd" value="task:logout:do" type="hidden" />
+				<input name="submit" type="submit" value="Logout" />
+			</form>
 		<?php
 		
 		

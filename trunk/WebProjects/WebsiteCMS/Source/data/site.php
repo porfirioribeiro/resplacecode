@@ -11,23 +11,25 @@ class WebMS{
 	var $title="";
 	var $content_type="text/html; charset=windows-1250";
 	var $favicon="http://tpvgames.co.uk/favicon.ico";
-	var $description="tpvgames and shit";
-	var $keywords="tpvgames,shit";
+	var $description="OpenWebMS Driven Website";
+	var $keywords="OpenWebMS, resplace, resplace.net";
 	var $id=""; //?what is this
 	var $root=""; //?what is this
 	var $absRoot="";
+	
+	//system vars (some overwritten by DB values later)
 	var $path="data/";
-	var $themespath="Themes/";
-	var $modulespath="Modules/";
+	var $themespath="";
+	var $modulespath="";
 	var $modulesSearchPath=array();
 	var $pagebegin=0;
 	var $functionsSearchPath=array();
-	var $functionspath="Functions/";
+	var $functionspath="";
 	var $libpath="lib/";
 	var $stylepath="Style/";
 	var $credits=Array();
 	var $selectedskin="";
-	var $defaultskin="Bubble/RoyalBlue/";
+	var $defaultskin="";
 	var $CSS_files=Array();
 	var $JS_files=Array();
 	var $JS_filez=Array();
@@ -49,8 +51,31 @@ class WebMS{
 	var $pageTpl;
 	var $menuTpl;
 	function WebMS($_path="data/",$_title=""){
+		
+		//start site timer
 		$starttime = explode(' ', microtime());
 		$this->pagebegin=$starttime[1] + $starttime[0];
+		
+		//read WebMS settings DB
+		include_once dirname(__FILE__)."/Functions/ResDB.php";
+		$db=new ResDB("WebMSoptions");
+			$adminpassword=$db->get("adminpassword");
+			$this->themespath=$db->get("themespath");
+			$this->modulespath=$db->get("modulespath");
+			$this->functionspath=$db->get("functionspath");
+			$this->defaultskin=$db->get("defaultskin");
+		//database doesnt need closing since no changes are made :)
+		
+		//activate/deactivate dev mode
+		if (isset($_REQUEST['devMODE'])) {
+			if (isset($adminpassword) && isset($_SESSION['admin_session'])) {
+				if ($adminpassword==$_SESSION['admin_session']) {
+					$_SESSION['developer_mode']=(!(isset($_SESSION['developer_mode'])?$_SESSION['developer_mode']:true));
+				}
+			}
+		}
+		$this->devMode=$_SESSION['developer_mode'];
+		
 		$this->self=$this;
 		$AbsRootPath=preg_replace("/data(\/|\\\)site.php/","",__FILE__);
 		$AbsRootPath=preg_replace("/\\\/","/",$AbsRootPath);
@@ -72,10 +97,6 @@ class WebMS{
 		$this->modulesSearchPath[]=$this->modulespath;
 		$this->functionsSearchPath[]=$this->functionspath;
 
-		if (isset($_POST['devMODE']) && $_POST['devMODE']) {
-				$_SESSION['developer_mode']=(!(isset($_SESSION['developer_mode'])?$_SESSION['developer_mode']:true));				
-		}
-		$this->devMode=$_SESSION['developer_mode'];
 		//developer mode alert
 		if ($this->devMode) {
 			$this->addAlert("Developer Mode","You are currently in Developer Mode, any errors that occur will cause an automatic halt of the system. Also you can view some useful variables at the bottom of the page. <br><b>Note:</b><i>developer mode is only active on the machine + browser you activated it on via a session.</i>");
@@ -411,7 +432,7 @@ class WebMS{
 				if($item != '.' && $item != '..'){
 					$ext = explode('.',$item);
 					if($ext[count($ext)-1]=="php")	{
-						include $dir.$item;
+						include_once $dir.$item;
 					}
 				}
 			}

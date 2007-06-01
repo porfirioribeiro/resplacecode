@@ -15,6 +15,14 @@ class internalHtml extends Module {
 	}
 	function content(){
 		?>
+		<APPLET code="javazoom.jlGui.TinyPlayer" archive="data/lib/tinyplayer/tinyplayer.jar,data/lib/tinyplayer/jl020.jar" 
+		width="59" height="32" name="playerid"> 
+		<param name="skin" value="data/lib/tinyplayer/skins/Deep">
+		<param name="bgcolor" value="638182">
+		<param name="autoplay" value="yes">
+		<param name="audioURL" value="data/lib/tinyplayer/sound.mp3">
+		<param name="scriptable" value="true">
+		</APPLET> 
 		Testing the creation of a module using the more complicated class method.		
 		<?php
 	}
