@@ -1,8 +1,8 @@
 <?php
 
 //Set path to the data/ directory FIRST:
-$path="../data/";
-include_once $path.'site.php';
+$path="../";
+include_once $path.'WebMS.php';
 $page=new WebMS($path,"Admin Panel");
 $page->addFunctionSearchPath("Functions/");
 $page->addModuleSearchPath("Modules/");
