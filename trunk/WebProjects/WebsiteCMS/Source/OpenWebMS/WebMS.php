@@ -38,12 +38,12 @@ class WebMS{
 	
 	//system vars (some overwritten by DB values later)
 	var $path="OpenWebMS/";
-	var $themespath="";
-	var $modulespath="";
+	var $themespath="UserThemes/";
+	var $modulespath="UserModules/";
 	var $modulesSearchPath=array();
 	var $pagebegin=0;
 	var $functionsSearchPath=array();
-	var $functionspath="";
+	var $functionspath="UserFunctions/";
 	var $libpath="lib/";
 	var $stylepath="Style/";
 	var $credits=Array();
@@ -78,9 +78,9 @@ class WebMS{
 		//read WebMS settings DB
 		$db=new ResDB("WebMSoptions");
 			$adminpassword=$db->get("adminpassword");
-			$this->themespath=$db->get("themespath");
-			$this->modulespath=$db->get("modulespath");
-			$this->functionspath=$db->get("functionspath");
+			//$this->themespath=$db->get("themespath");
+			//$this->modulespath=$db->get("modulespath");
+			//$this->functionspath=$db->get("functionspath");
 			$this->defaultskin=$db->get("defaultskin");
 		//database doesnt need closing since no changes are made :)
 		
