@@ -4,28 +4,19 @@
 * The system shell (the centre of WebMS)
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright © 2007 ResPlace Team
+* @copyright ï¿½ 2007 ResPlace Team
 * @lastedit 01-06-07
 */
 session_start();
 ob_start("ob_gzhandler");
 
-	define("WebMS_ROOT_PATH",preg_replace("/\\\/","/",preg_replace("/OpenWebMS$/","",dirname(__FILE__))));
-	define("WebMS_ROOT_URL",str_replace($_SERVER["DOCUMENT_ROOT"], "", WebMS_ROOT_PATH));
-	define("WebMS_DATA_PATH",WebMS_ROOT_PATH."OpenWebMS/");
-	define("WebMS_DATA_URL",WebMS_ROOT_URL."OpenWebMS/");
-	define("WebMS_INC_PATH",WebMS_DATA_PATH."Inc/");
-	define("WebMS_INC_URL",WebMS_DATA_URL."Inc/");
-	define("WebMS_FILES_PATH",WebMS_DATA_PATH."Files/");
-	define("WebMS_FILES_URL",WebMS_DATA_URL."Files/");
-	
-	include_once WebMS_INC_PATH."error_reporter.php";
-	
-	include_once WebMS_INC_PATH."String.php";
-	include_once WebMS_INC_PATH."ResDB.php";
-
+include dirname(__FILE__).'/config.php';
+global $WebMS;
+WebMS::$_config=$WebMS;
 class WebMS{
 	private $cr_clmn="";
+	static $_config;
+	var $config;
 	var $devMode=false;
 	var $title="";
 	var $content_type="text/html; charset=windows-1250";
@@ -38,14 +29,13 @@ class WebMS{
 	
 	//system vars (some overwritten by DB values later)
 	var $path="OpenWebMS/";
-	var $themespath="UserThemes/";
-	var $modulespath="UserModules/";
+	var $themespath="Themes/";
+	var $modulespath="Modules/";
 	var $modulesSearchPath=array();
 	var $pagebegin=0;
 	var $functionsSearchPath=array();
-	var $functionspath="UserFunctions/";
-	var $libpath="lib/";
-	var $stylepath="Style/";
+	var $functionspath="Functions/";
+	var $JSSearchPath=array();
 	var $credits=Array();
 	var $selectedskin="";
 	var $defaultskin="";
@@ -70,7 +60,7 @@ class WebMS{
 	var $pageTpl;
 	var $menuTpl;
 	function WebMS($_path="data/",$_title=""){
-		
+		$this->config=WebMS::$_config;
 		//start site timer
 		$starttime = explode(' ', microtime());
 		$this->pagebegin=$starttime[1] + $starttime[0];
@@ -93,13 +83,7 @@ class WebMS{
 			}
 		}
 		$this->devMode=$_SESSION['developer_mode'];
-		
 		$this->self=$this;
-		//$AbsRootPath=preg_replace("/data(\/|\\\)site.php/","",__FILE__);
-		//$AbsRootPath=preg_replace("/\\\/","/",$AbsRootPath);
-		//$RootPath=str_replace($_SERVER["DOCUMENT_ROOT"], "", $AbsRootPath);	
-		//$this->absRoot=$AbsRootPath;
-		//$this->root=$RootPath;	
 		$this->id=$_SERVER['PHP_SELF'];
 		if (isset($_REQUEST['page'])){
 			$this->id.=$_REQUEST['page'];
@@ -109,25 +93,34 @@ class WebMS{
 	    $this->themespath=$this->path.$this->themespath;
 	    $this->modulespath=$this->path.$this->modulespath;
 	    $this->functionspath=$this->path.$this->functionspath;
-	    $this->libpath=$this->path.$this->libpath;
-	    $this->stylepath=$this->path.$this->stylepath;
+//	    $this->libpath=$this->path.$this->libpath;
+//	    $this->stylepath=$this->path.$this->stylepath;
 		$this->title=$_title." - resplace.net";
-		$this->modulesSearchPath[]=$this->modulespath;
+		$this->JSSearchPath[]="";
+		$this->modulesSearchPath[]=$this->config["UserModulesPath"];
+		$this->modulesSearchPath[]=$this->config["ModulesPath"];
 		$this->functionsSearchPath[]=$this->functionspath;
-
 		//developer mode alert
 		if ($this->devMode) {
 			$this->addAlert("Developer Mode","You are currently in Developer Mode, this is useful for debuging the system and making sure its complient and secure. <br><b>Note:</b><i>developer mode is only active on the machine + browser you activated it on via a session.</i>");
 		}
 	}
 	function addCSS($file){
-		$style=$this->findFilesOnPath(array($this->stylepath,""),$file);
+		$style=$this->findFilesOnPath(array(""),$file);
 		if ($style!=null){
 			$this->CSS_files[]=$style;
 		}		
 	}
+	private function findJS($file){
+		if (is_file($this->config["JSPath"].$file)){
+			return $this->config["JSUrl"].$file;
+		}else if ($this->config["UserJSPath"].$file) {
+			return $this->config["UserJSUrl"].$file;
+		}
+	}
 	function addJS($file){
-		$lib=$this->findFilesOnPath(array($this->libpath,""),$file);
+		
+		$lib=$this->findJS($file);
 		if ($lib!=null){
 			if (array_search($lib,$this->JS_files)===false){
 				$this->JS_files[]=$lib;			
@@ -178,7 +171,7 @@ class WebMS{
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
-    <meta http-equivcou="content-type" content="<?=$this->content_type; ?>">
+    <meta http-equiv="content-type" content="<?=$this->content_type; ?>">
     <meta name="generator" content="PSPad+Aptana+ZendStudio">
     <meta name="description" content="<?php echo $this->description; ?>">
     <meta name="keywords" content="<?php echo $this->keywords; ?>">
