@@ -79,6 +79,20 @@ class ArrayMap extends ArrayObject{
 	function get($key,$default=null){
 		return ($this->contains($key))?$this[$key]:$default;
 	}
+	function __get($key){
+		if (isset($this[$key])){
+			return $this[$key];
+		}
+	}
+	function __set($key,$value){
+		$this[$key]=$value;
+	}
+	function __isset($key){
+		return isset($this[$key]);
+	}
+	function __unset($key){
+		unset($this[$key]);
+	}
 	/**
 	 * Remove the specified key from the Map
 	 * @param String $key
