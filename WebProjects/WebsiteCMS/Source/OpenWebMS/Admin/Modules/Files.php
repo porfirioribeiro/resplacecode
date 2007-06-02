@@ -9,7 +9,7 @@ class Files extends Module {
 		global $path, $page;
 		
 		//Upload the file
-		if ($_FILES['userfile']['name'])
+		if (isset($_FILES['userfile']['name']))
 			{
 			?>
 			<fieldset>
@@ -30,7 +30,7 @@ class Files extends Module {
 			}
 		
 		//delete
-		if ($_GET['del'])
+		if (isset($_GET['del']))
 			{
 			?>
 			<fieldset>
