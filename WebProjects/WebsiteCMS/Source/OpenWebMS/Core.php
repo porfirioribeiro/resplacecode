@@ -10,10 +10,10 @@
 session_start();
 ob_start("ob_gzhandler");
 
-	define("WebMS_ROOT_PATH",preg_replace("/\\\/","/",preg_replace("/data$/","",dirname(__FILE__))));
+	define("WebMS_ROOT_PATH",preg_replace("/\\\/","/",preg_replace("/OpenWebMS$/","",dirname(__FILE__))));
 	define("WebMS_ROOT_URL",str_replace($_SERVER["DOCUMENT_ROOT"], "", WebMS_ROOT_PATH));
-	define("WebMS_DATA_PATH",WebMS_ROOT_PATH."data/");
-	define("WebMS_DATA_URL",WebMS_ROOT_URL."data/");
+	define("WebMS_DATA_PATH",WebMS_ROOT_PATH."OpenWebMS/");
+	define("WebMS_DATA_URL",WebMS_ROOT_URL."OpenWebMS/");
 	define("WebMS_INC_PATH",WebMS_DATA_PATH."Inc/");
 	define("WebMS_INC_URL",WebMS_DATA_URL."Inc/");
 	define("WebMS_FILES_PATH",WebMS_DATA_PATH."Files/");
@@ -37,7 +37,7 @@ class WebMS{
 	var $absRoot="";
 	
 	//system vars (some overwritten by DB values later)
-	var $path="data/";
+	var $path="OpenWebMS/";
 	var $themespath="";
 	var $modulespath="";
 	var $modulesSearchPath=array();
