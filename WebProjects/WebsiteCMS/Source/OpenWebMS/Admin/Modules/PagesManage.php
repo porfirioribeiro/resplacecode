@@ -9,14 +9,14 @@ class PagesManage extends Module {
 		global $path;
 		
 		//add a page - submit
-		if ($_POST['addpage']){
+		if (isset($_POST['addpage'])){
 			?><fieldset>
 			<legend>Add new page</legend>
 			Request should have succeeded.
 			<?php
 			$pageid=str_replace(array(" ","/"),array("_","_"),$_POST['pageid']);
 			
-			WriteFile($path."Pages/".$pageid.".php",stripslashes($_POST['data']));
+			WriteFile($path."UserPages/".$pageid.".php",stripslashes($_POST['data']));
 			$db= new ResDB("files");
 			$somemap=$db->getMap($pageid);//you only need maps for organize the db
 			$somemap->put("name",$_POST['name']);
@@ -26,7 +26,7 @@ class PagesManage extends Module {
 			?></fieldset><br /><?php
 			}
 		
-		if ($_GET['pageiddel'])
+		if (isset($_GET['pageiddel']))
 			{
 			?><fieldset>
 			<legend>Delete...</legend>
@@ -37,19 +37,19 @@ class PagesManage extends Module {
 			$db->del($_GET['pageiddel']);
 			//$somemap->del("largedesc");
 			$db->close();//this is what saves the db
-			unlink($path."Pages/".$_GET['pageiddel'].".php");
+			unlink($path."UserPages/".$_GET['pageiddel'].".php");
 			?></fieldset><br /><?php
 			}
 			
 		//edit a page - submit
-		if ($_POST['editpage']){
+		if (isset($_POST['editpage'])){
 			?><fieldset>
 			<legend>Editing...</legend>
 			Request should have succeeded.
 			<?php
 			$pageid=str_replace(array(" ","/"),array("_","_"),$_POST['pageid']);
 			
-			WriteFile($path."Pages/".$pageid.".php",stripslashes($_POST['data']));
+			WriteFile($path."UserPages/".$pageid.".php",stripslashes($_POST['data']));
 			
 			$db= new ResDB("files");
 			$somemap=$db->getMap($pageid);//you only need maps for organize the db
@@ -73,7 +73,7 @@ class PagesManage extends Module {
 				echo'<tr>
 							<td><a href="?manage=pages&amp;page=page-edit&amp;pageid='.$key.'"><img alt="Edit" title="Edit this page" border="0" style="vertical-align:middle" src="icons/edit.png"></a></td>
 							<td><a href="javascript:void(0)" onclick="if (confirm(\'You sure you want to delete this page?\n'.$key.'\')){document.location=\'?manage=pages&pageiddel='.$key.'\'}"><img alt="Delete" title="Delete this page" border="0" style="vertical-align:middle" src="icons/button_cancel.png"></a></td>
-							<td width="100%"><a href="'.str_replace("data/","",$path).'getfile.php?page='.$key.'" target="_blank">'.$name.'</a></td>
+							<td width="100%"><a href="'.str_replace("OpenWebMS/","",$path).'getfile.php?page='.$key.'" target="_blank">'.$name.'</a></td>
 						  </tr>';
 				}
 			} else {
@@ -86,7 +86,7 @@ class PagesManage extends Module {
 		?></fieldset><br />
 			
 			<?php
-		if ($_GET['page']=="page-add")
+		if (isset($_GET['page']) && $_GET['page']=="page-add")
 			{
 			?>
 			<fieldset>
@@ -112,7 +112,7 @@ class PagesManage extends Module {
 			}
 			
 		//edit a page
-		if ($_GET['page']=="page-edit")
+		if (isset($_GET['page']) && $_GET['page']=="page-edit")
 			{
 			
 			if ($_GET['pageid'])
@@ -126,7 +126,7 @@ class PagesManage extends Module {
 				$largedesc=$db->get($_GET['pageid'])->get("largedesc");
 				$name=$db->get($_GET['pageid'])->get("name");
 				
-				$file=$path."Pages/".$_GET['pageid'].".php";
+				$file=$path."UserPages/".$_GET['pageid'].".php";
 				$fh=fopen($file,'r');
 				$filedata=fread($fh,filesize($file));
 				fclose($fh);
