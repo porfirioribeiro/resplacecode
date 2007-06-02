@@ -61,6 +61,7 @@ class WebMS{
 	var $menuTpl;
 	function WebMS($_path="data/",$_title=""){
 		$this->config=WebMS::$_config;
+		
 		//start site timer
 		$starttime = explode(' ', microtime());
 		$this->pagebegin=$starttime[1] + $starttime[0];
