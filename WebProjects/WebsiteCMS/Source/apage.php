@@ -49,7 +49,7 @@ function someContent($mod){
 $page->add("internalHtml");
 $page->add("SkinChanger",Module::RIGHT);
 $page->add("Lfp");
-$page->add("Box");
+//$page->add("Box");
 $page->addF("someContent","Create function method");
 
 
