@@ -9,7 +9,7 @@ class ModulesManage extends Module {
 		global $path, $page;
 		
 		//edit submit
-		if ($_POST['editpage'])
+		if (isset($_POST['editpage']))
 			{
 			?>
 			<fieldset>
@@ -21,7 +21,7 @@ class ModulesManage extends Module {
 			}
 			
 		//delete
-		if ($_GET['del'])
+		if (isset($_GET['del']))
 			{
 			?>
 			<fieldset>
@@ -64,7 +64,7 @@ class ModulesManage extends Module {
 		<?php
 		
 		//begin edit
-		if ($_GET['edit'])
+		if (isset($_GET['edit']))
 			{
 			
 			$file=$page->modulespath.$_GET['edit'].".php";
@@ -86,7 +86,7 @@ class ModulesManage extends Module {
 			<?php
 			}
 		//begin add
-		if ($_GET['add'])
+		if (isset($_GET['add']))
 			{
 			
 			?>

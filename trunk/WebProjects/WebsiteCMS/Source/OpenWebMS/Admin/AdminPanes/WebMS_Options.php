@@ -1,8 +1,6 @@
 <?php
-	//multiple panes need to be called onto the page
-	//shit it adds them before the main one xd
-	$page->add(WebMS_Options);
-	
+
+//Create the class
 class WebMS_Options extends Module {
 	function WebMS_Options($page){
 		parent::Module($page);
@@ -16,9 +14,9 @@ class WebMS_Options extends Module {
 		$db=new ResDB("WebMSoptions");
 		//submits
 		//administration
-		if ($_POST['submit']) {
+		if (isset($_POST['submit'])) {
 			//change admin password...
-			if ($_POST['password_new']) {
+			if (isset($_POST['password_new']) && isset($_POST['password_new_2'])) {
 				if ($_POST['password_new']==$_POST['password_new_2']) {
 					if (md5($_POST['password_old'])==$adminpassword) {
 						//$m1=$db->addMap("1");
@@ -33,7 +31,7 @@ class WebMS_Options extends Module {
 			}
 			
 			//change main options such as paths etc...
-			if ($_POST['themespath']) {
+			if (isset($_POST['themespath'])) {
 				$db->put("themespath",($_POST['themespath']));
 				$db->put("modulespath",($_POST['modulespath']));
 				$db->put("functionspath",($_POST['functionspath']));
@@ -52,7 +50,7 @@ class WebMS_Options extends Module {
 		$functionspath=$db->get("functionspath");
 		$defaultskin=$db->get("defaultskin");
 		
-		if ($_POST['submit']) { $db->close(); }
+		if (isset($_POST['submit'])) { $db->close(); }
 		
 		?>
 		Below you can change various options in WebMS, it would be a good idea to make a backup of your 'WebMSoptions.db' database file before you proceed.<br /><br />
@@ -61,11 +59,11 @@ class WebMS_Options extends Module {
 		}
 		
 	}
+
+//call it into page
+$page->add('WebMS_Options');
 	
-	//multiple panes need to be called onto the page
-	//shit it adds them before the main one xd
-	$page->add(WebMS_Options_main);
-	
+//create the class
 class WebMS_Options_main extends Module {
 	function WebMS_Options_main($page){
 		parent::Module($page);
@@ -104,10 +102,11 @@ class WebMS_Options_main extends Module {
 		
 	}
 	
-	//multiple panes need to be called onto the page
-	//shit it adds them before the main one xd
-	$page->add(WebMS_Options_module);
+//call it into page
+$page->add('WebMS_Options_main');
 	
+
+//create the class	
 class WebMS_Options_module extends Module {
 	function WebMS_Options_module($page){
 		parent::Module($page);
@@ -142,10 +141,10 @@ class WebMS_Options_module extends Module {
 		
 	}
 	
-	//multiple panes need to be called onto the page
-	//shit it adds them before the main one xd
-	$page->add(WebMS_Options_admin);
+//call it into page
+$page->add('WebMS_Options_module');
 	
+//create the class
 class WebMS_Options_admin extends Module {
 	function WebMS_Options_admin($page){
 		parent::Module($page);
@@ -176,5 +175,8 @@ class WebMS_Options_admin extends Module {
 		}
 		
 	}
+	
+//call it into page
+$page->add('WebMS_Options_admin');
 	
 ?>

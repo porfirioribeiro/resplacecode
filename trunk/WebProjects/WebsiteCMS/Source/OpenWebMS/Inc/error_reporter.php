@@ -51,7 +51,7 @@
     $ret[] = "Date          : " . date("F j, Y, g:i:s a"); 
     $ret[] = "Server        : " . $_SERVER['SERVER_NAME']; 
     $ret[] = "Error No      : $errno"; 
-    $ret[] = "On file       : $errfile"; 
+    $ret[] = "On file       : ".wordwrap(str_replace("\\","\ ",$errfile),50,"&hellip;\n              : ",false); 
     $ret[] = "On line       : $errline"; 
     $ret[] = "Error         : $errstr"; 
     $ret[] = "IP            : " . $_SERVER['REMOTE_ADDR']; 
@@ -99,7 +99,7 @@
 		echo'<div align="center"><b>Developer Mode: CODE ERROR!</b><br>
 		<i>Fix the error or report it and disable developer mode to view this page.</i></div><br><br>
 		
-		<div style="border: 1px solid black; padding:2px">';
+		<div align="left" style="border: 1px solid black; padding:2px; font-family:\'Lucida Console\', Times, serif; font-size:14px;">';
 		die(str_replace(array("\n"," "),array("<br>","&nbsp;"),$error).'</div><br><br><i>This error has been logged.</i>');
 		}
   } 
