@@ -1,7 +1,7 @@
 <?php
 //Set path to the data/ directory FIRST:
-$path="data/";
-include_once $path.'site.php';
+$path="OpenWebMS/";
+include_once $path.'WebMS.php';
 $page=new WebMS($path,"Main Site");
 $page->addMeta(array('name' => 'keywords','content' => 'resplace,cms,website'));
 $page->addDefaults();
