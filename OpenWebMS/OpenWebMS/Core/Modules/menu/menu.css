@@ -1,0 +1,40 @@
+.Menu{
+
+}
+.Menu div.section{
+	padding-left:15px;
+	margin-bottom:10px;
+}
+.Menu a.section{
+	display:block;
+	background-image:URL(menu/folder.gif);
+	background-repeat:no-repeat;
+	background-position: left;
+	padding-left:10px;
+}
+.Menu a.sectionOpen{
+	display:block;
+	background-image:url(menu/folderOpen.gif);
+	background-repeat:no-repeat;
+	background-position: left;
+	padding-left:10px;
+}
+.Menu a.sublink{
+	display:block;
+	padding-left:10px;
+}
+
+/*
+.Menu a.section{
+	text-decoration:none;
+}
+.Menu a.section:visited{
+	text-decoration:none;
+}
+.Menu a.sectionOpen{
+	text-decoration:none;
+}
+.Menu a.sectionOpen:visited{
+	text-decoration:none;
+}
+*/
