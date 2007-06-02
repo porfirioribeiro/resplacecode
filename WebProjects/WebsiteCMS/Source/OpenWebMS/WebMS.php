@@ -113,14 +113,16 @@ class WebMS{
 		}		
 	}
 	private function findJS($file){
-		if (is_file($this->config["JSPath"].$file)){
+		$lib=$this->findFilesOnPath($this->JSSearchPath,$file);
+		if ($lib){
+			return $lib;
+		}else if (is_file($this->config["JSPath"].$file)){
 			return $this->config["JSUrl"].$file;
 		}else if ($this->config["UserJSPath"].$file) {
 			return $this->config["UserJSUrl"].$file;
 		}
 	}
 	function addJS($file){
-		
 		$lib=$this->findJS($file);
 		if ($lib!=null){
 			if (array_search($lib,$this->JS_files)===false){
