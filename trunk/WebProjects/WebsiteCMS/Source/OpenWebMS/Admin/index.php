@@ -27,6 +27,20 @@ if ($('use_php')){
 		,toolbar:\" save, |,syntax_selection, charmap, |, search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight,fullscreen, |, help\",
 		syntax_selection_allow:\"php,js,css,html\"
 	});
+}
+if ($('use_none')){
+	editAreaLoader.init({
+		id: \"use_php\"	// id of the textarea to transform		
+		,start_highlight: true	// if start with highlight
+		,allow_resize: \"both\"
+		,allow_toggle: true
+		,language: \"en\"
+		,syntax: \"none\"	
+		,save_callback:\"editAreaSaveHandler\"
+		,plugins:\"charmap,syntax_selection\"
+		,toolbar:\" save, |,syntax_selection, charmap, |, search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight,fullscreen, |, help\",
+		syntax_selection_allow:\"php,js,css,html\"
+	});
 }");
 $page->addDefaults();
 if (isset($_GET["message"])){
@@ -153,6 +167,8 @@ if ($manage=="pages") {
 	$page->add("dbList",Module::RIGHT);
 }else if ($manage=="menu") {
 	$page->add("menuEditor");
+}else if ($manage=="ErrorLog") {
+	$page->add("ErrorLog");
 }else{
 	if (!isset($_REQUEST['managep'])){
 		$page->add("welcome",Module::CENTER);
