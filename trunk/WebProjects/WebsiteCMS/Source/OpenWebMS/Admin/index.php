@@ -90,53 +90,82 @@ class AdminMenu2 extends Module {
 	function content(){
 		global $path;
 		?>
-		<fieldset>
-		<legend>Main:</legend>
-		<a href="index.php">Admin Home</a><br />
-		<a href="index.php">Version History</a><br />
-		<a href="index.php">Updates</a><br />
-		</fieldset><br>
-		<fieldset>
-		<legend>Website:</legend>
-		<? //<a href="?manage=menu">Menu</a><br>
-		?>
-		<a href="?manage=pages">Webpages</a> <a href="?manage=pages&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
-		<a href="?manage=files">Webpage Files</a> <a href="?manage=files&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
-		<a href="?manage=db">Database's</a> <a href="?manage=db&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
-		</fieldset><br>
-		<fieldset>
-		<legend>System:</legend>
-		<a href="?manage=modules">Add-In Modules</a> <a href="?manage=modules&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
-		<a href="?manage=functions">Add-In Functions</a> <a href="?manage=functions&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
-		</fieldset><br />
-		
-		<fieldset>
-		<legend>Option Panes:</legend>
-		<?php
-		$files=GetFiles("AdminPanes");
-		if (count($files)) {
-			foreach ($files as $fil) {
+		<b>Main:</b>
+		<div style="padding-left:8px;">
+			<a href="index.php">Summary</a><br />
+			<a href="index.php">Version History</a><br />
+			<a href="index.php">Updates</a><br />
+		</div>
+		<br />
+		<b>Management:</b>
+		<div style="padding-left:8px;">
+			<? //<a href="?manage=menu">Menu</a><br>
+			?>
+			<a href="?nav=pages">Web pages</a> <a href="?manage=pages&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<div style="padding-left:8px;">
+				<a href="?nav=files">Files</a> <a href="?manage=files&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a>
+			</div>
+			<a href="?nav=db">Database's</a> <a href="?manage=db&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<a href="?nav=modules">Modules</a> <a href="?manage=modules&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<a href="?nav=functions">Functions</a> <a href="?manage=functions&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+		</div>
+		<br />
+		<b>Settings:</b>
+		<div style="padding-left:8px;">
+			<a href="index.php">System Settings</a><br />
+			<a href="index.php">Integration</a><br />
+			<?php
+			/*
+			integration will be tough to get right... first we must make sure its totally adaptable for integrating whatever system is required, such as IPB SMF or etc.
+			We must then allow some way for unique settings to be set within the integration options, this would include ie. SMF SSI path.
+			Ofcourse the "self integrated" code will be far different from the integrate methods, so my idea is that this is BUILT INTO this system and does not use an integration template like others do, this will make the task much easyer...
+			And allow our "self integration" to be more powerful and easyer to code, understand and modify :)
 			
-				$name=explode('.',$fil);
-				if ($name[1]=='php') {
-					echo'<a href="?managep='.$name[0].'">'.$name[0].'</a> <a href="?managep='.$name[0].'&amp;menu=hide" target="_blank"><img src="'.$this->page->corepath.'Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>';
+			Hope you understand and agree :)
+			
+			So recap:
+			1) Some way to add settings to integrate settings page.
+			2) Common classes for certain tasks such as fetch a user, check if someones signed in, link to sign in/register page (since we assume what we integrate too controls user registration etc), fetch user avatar, check if user is admin, fetch user id.
+			
+			Problems:
+			Some integrations might not support some things, such as user avatars (may implement a function or may not, discuss??)
+			and i forsee other problems, I hope we can allow integration for atleast a few systems :p
+			
+			thankfully integrating SMF will be easyer than asking a girl on a date ;) Hope others are similar (have no idea)
+			*/
+			?>
+		</div>
+		<br />
+		<b>Panes:</b>
+		<div style="padding-left:8px;">
+			<?php
+			$files=GetFiles("AdminPanes");
+			if (count($files)) {
+				foreach ($files as $fil) {
+				
+					$name=explode('.',$fil);
+					if ($name[1]=='php') {
+						echo'<a href="?pane='.$name[0].'">'.$name[0].'</a> <a href="?managep='.$name[0].'&amp;menu=hide" target="_blank"><img src="'.$this->page->corepath.'Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>';
+						}
 					}
 				}
-			}
-
-		?>
-		</fieldset><br />
-		<fieldset>
-		<legend>Debug:</legend>
-		<a href="?devMODE<?=$this->page->devMode?"&amp;message=You just disabled Debug Mode.":""?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br />
-		<a href="?manage=ErrorLog">View Error Log</a> <a href="?manage=ErrorLog&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
-		</fieldset><br />
+	
+			?>
+		</div>
+		<br />
+		<b>Misc:</b>
+		<div style="padding-left:8px;">
+			<a href="?devMODE<?=$this->page->devMode?"&amp;message=You just disabled Debug Mode.":""?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br />
+			<a href="?nav=ErrorLog">View Error Log</a> <a href="?manage=ErrorLog&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<br />
+		</div>
 		<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-				<input name="psswd" value="task:logout:do" type="hidden" />
-				<div align="center">
-				<input name="submit" type="submit" value="Logout" />
-				</div>
-			</form>
+			<input name="psswd" value="task:logout:do" type="hidden" />
+			<div align="center">
+			<input name="submit" type="submit" value="Logout" />
+			</div>
+		</form>
+		
 		<?php
 		
 		
@@ -153,7 +182,7 @@ class welcome extends Module {
 	function content(){
 		?>
 		Welcome <b>admin</b>, to the WebMS administration panel, this panel should enable you to do what you need to do to the WebMS system. If there is some functionality you believe should be included on this panel or you have some suggestions for improvements then please post at our forums.<br /><br />
-		Thanks for chosing WebMS to manage your website content, if you like this system then please consider donating some change so we can keep the project going strong, alternatively if you ar good with PHP then why not help develop the project further?
+		Thanks for choosing WebMS to manage your web site content, if you like this system then please consider donating some change so we can keep the project going strong, alternatively if you ar good with PHP then why not help develop the project further?
 		<?php
 	}
 }
@@ -163,32 +192,29 @@ class welcome extends Module {
 if (isset($_GET['menu']) && $_GET['menu']=='hide') {}else{
 	$page->add("AdminMenu2",Module::LEFT);
 }
-if (isset($_GET['manage'])) {
-	$manage=$_GET['manage'];
-}elseif (isset($_POST['manage'])) {
-	$manage=$_POST['manage'];
-}else{
-	$manage="";
-}
 
-if ($manage=="pages") {
-	$page->add("PagesManage");
-}else if ($manage=="modules") {
-	$page->add("ModulesManage");
-}else if ($manage=="functions") {
-	$page->add("FunctionsManage");
-}else if ($manage=="files") {
-	$page->add("Files");
-}else if ($manage=="db") {
-	$page->add("dbEditor");
-	$page->add("dbList",Module::RIGHT);
-}else if ($manage=="menu") {
-	$page->add("menuEditor");
-}else if ($manage=="ErrorLog") {
-	$page->add("ErrorLog");
-}else{
-	if (!isset($_REQUEST['managep'])){
-		$page->add("welcome",Module::CENTER);
+if (isset($_REQUEST['nav'])) {
+	$nav=$_REQUEST['nav'];
+	
+	if ($nav=="pages") {
+		$page->add("PagesManage");
+	}else if ($nav=="modules") {
+		$page->add("ModulesManage");
+	}else if ($nav=="functions") {
+		$page->add("FunctionsManage");
+	}else if ($nav=="files") {
+		$page->add("Files");
+	}else if ($nav=="db") {
+		$page->add("dbEditor");
+		$page->add("dbList",Module::RIGHT);
+	}else if ($nav=="menu") {
+		$page->add("menuEditor");
+	}else if ($nav=="ErrorLog") {
+		$page->add("ErrorLog");
+	}else{
+		if (!isset($_REQUEST['managep'])) {
+			$page->add("welcome",Module::CENTER);
+		}
 	}
 }
 
@@ -198,7 +224,7 @@ if (count($files)) {
 	
 		$name=explode('.',$fil);
 		if ($name[1]=='php') {
-			if (isset($_REQUEST['managep']) && $name[0]==$_REQUEST['managep']) {
+			if (isset($_REQUEST['pane']) && $name[0]==$_REQUEST['pane']) {
 				include("AdminPanes/".$fil);
 				//$page->add($name[0]);
 				}
