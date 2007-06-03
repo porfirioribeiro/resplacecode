@@ -30,6 +30,7 @@ class WebMS{
 	//system vars (some overwritten by DB values later)
 	var $path="OpenWebMS/";
 	var $themespath="Themes/";
+	var $corepath="Core/";
 	var $modulespath="Modules/";
 	var $modulesSearchPath=array();
 	var $pagebegin=0;
@@ -94,6 +95,7 @@ class WebMS{
 	    $this->themespath=$this->path.$this->themespath;
 	    $this->modulespath=$this->path.$this->modulespath;
 	    $this->functionspath=$this->path.$this->functionspath;
+		$this->corepath=$this->path.$this->corepath;
 //	    $this->libpath=$this->path.$this->libpath;
 //	    $this->stylepath=$this->path.$this->stylepath;
 		$this->title=$_title." - resplace.net";
