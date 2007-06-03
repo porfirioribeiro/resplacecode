@@ -88,6 +88,7 @@ class AdminMenu2 extends Module {
 		parent::Module($page);
 	}
 	function content(){
+		global $path;
 		?>
 		<fieldset>
 		<legend>Main:</legend>
@@ -99,14 +100,14 @@ class AdminMenu2 extends Module {
 		<legend>Website:</legend>
 		<? //<a href="?manage=menu">Menu</a><br>
 		?>
-		<a href="?manage=pages">Webpages</a><br>
-		<a href="?manage=files">Webpage Files</a><br>
-		<a href="?manage=db">Database's</a><br>
+		<a href="?manage=pages">Webpages</a> <a href="?manage=pages&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+		<a href="?manage=files">Webpage Files</a> <a href="?manage=files&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+		<a href="?manage=db">Database's</a> <a href="?manage=db&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
 		</fieldset><br>
 		<fieldset>
 		<legend>System:</legend>
-		<a href="?manage=modules">Add-In Modules</a><br>
-		<a href="?manage=functions">Add-In Functions</a><br>
+		<a href="?manage=modules">Add-In Modules</a> <a href="?manage=modules&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+		<a href="?manage=functions">Add-In Functions</a> <a href="?manage=functions&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
 		</fieldset><br />
 		
 		<fieldset>
@@ -118,7 +119,7 @@ class AdminMenu2 extends Module {
 			
 				$name=explode('.',$fil);
 				if ($name[1]=='php') {
-					echo'<a href="?managep='.$name[0].'">'.$name[0].'</a><br>';
+					echo'<a href="?managep='.$name[0].'">'.$name[0].'</a> <a href="?managep='.$name[0].'&amp;menu=hide" target="_blank"><img src="'.$this->page->corepath.'Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>';
 					}
 				}
 			}
@@ -128,7 +129,7 @@ class AdminMenu2 extends Module {
 		<fieldset>
 		<legend>Debug:</legend>
 		<a href="?devMODE<?=$this->page->devMode?"&amp;message=You just disabled Debug Mode.":""?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br />
-		<a href="?manage=ErrorLog">View Error Log</a><br>
+		<a href="?manage=ErrorLog">View Error Log</a> <a href="?manage=ErrorLog&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
 		</fieldset><br />
 		<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 				<input name="psswd" value="task:logout:do" type="hidden" />
@@ -159,7 +160,9 @@ class welcome extends Module {
 
 
 //$page->add(AdminMenu,Module::TOP);
-$page->add("AdminMenu2",Module::LEFT);
+if (isset($_GET['menu']) && $_GET['menu']=='hide') {}else{
+	$page->add("AdminMenu2",Module::LEFT);
+}
 if (isset($_GET['manage'])) {
 	$manage=$_GET['manage'];
 }elseif (isset($_POST['manage'])) {
