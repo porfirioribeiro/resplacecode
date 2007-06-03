@@ -89,18 +89,28 @@ class AdminMenu2 extends Module {
 	}
 	function content(){
 		?>
-		<a href="index.php">Admin Home</a><br /><br />
 		<fieldset>
-		<legend>Manage:</legend>
-		<a href="?manage=menu">Menu</a><br>
-		<a href="?manage=pages">Web Pages</a><br>
+		<legend>Main:</legend>
+		<a href="index.php">Admin Home</a><br />
+		<a href="index.php">Version History</a><br />
+		<a href="index.php">Updates</a><br />
+		</fieldset><br>
+		<fieldset>
+		<legend>Website:</legend>
+		<? //<a href="?manage=menu">Menu</a><br>
+		?>
+		<a href="?manage=pages">Webpages</a><br>
+		<a href="?manage=files">Webpage Files</a><br>
+		<a href="?manage=db">Database's</a><br>
+		</fieldset><br>
+		<fieldset>
+		<legend>System:</legend>
 		<a href="?manage=modules">Add-In Modules</a><br>
 		<a href="?manage=functions">Add-In Functions</a><br>
-		<a href="?manage=files">Other Files</a><br><br />
-		<a href="?manage=db">Database's</a><br>
 		</fieldset><br />
+		
 		<fieldset>
-		<legend>Options:</legend>
+		<legend>Option Panes:</legend>
 		<?php
 		$files=GetFiles("AdminPanes");
 		if (count($files)) {
@@ -115,12 +125,16 @@ class AdminMenu2 extends Module {
 
 		?>
 		</fieldset><br />
-		<form method="post" action="<?=$_SERVER['PHP_SELF']?>">
-			<input name="devMODE" type="submit" value="<?=$this->page->devMode?"User Mode":"Developer Mode"?>" />
-		</form><br /><br />
+		<fieldset>
+		<legend>Debug:</legend>
+		<a href="?devMODE<?=$this->page->devMode?"&amp;message=You just disabled Debug Mode.":""?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br />
+		<a href="?manage=ErrorLog">View Error Log</a><br>
+		</fieldset><br />
 		<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 				<input name="psswd" value="task:logout:do" type="hidden" />
+				<div align="center">
 				<input name="submit" type="submit" value="Logout" />
+				</div>
 			</form>
 		<?php
 		
