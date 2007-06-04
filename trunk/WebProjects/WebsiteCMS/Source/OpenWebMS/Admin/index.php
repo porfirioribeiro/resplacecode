@@ -101,13 +101,13 @@ class AdminMenu2 extends Module {
 		<div style="padding-left:8px;">
 			<? //<a href="?manage=menu">Menu</a><br>
 			?>
-			<a href="?nav=pages">Web pages</a> <a href="?manage=pages&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<a href="?nav=pages">Web pages</a> <a href="?nav=pages&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
 			<div style="padding-left:8px;">
-				<a href="?nav=files">Files</a> <a href="?manage=files&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a>
+				<a href="?nav=files">Files</a> <a href="?nav=files&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a>
 			</div>
-			<a href="?nav=db">Database's</a> <a href="?manage=db&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
-			<a href="?nav=modules">Modules</a> <a href="?manage=modules&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
-			<a href="?nav=functions">Functions</a> <a href="?manage=functions&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<a href="?nav=db">Database's</a> <a href="?nav=db&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<a href="?nav=modules">Modules</a> <a href="?nav=modules&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<a href="?nav=functions">Functions</a> <a href="?nav=functions&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
 		</div>
 		<br />
 		<b>Settings:</b>
@@ -145,7 +145,7 @@ class AdminMenu2 extends Module {
 				
 					$name=explode('.',$fil);
 					if ($name[1]=='php') {
-						echo'<a href="?pane='.$name[0].'">'.$name[0].'</a> <a href="?managep='.$name[0].'&amp;menu=hide" target="_blank"><img src="'.$this->page->corepath.'Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>';
+						echo'<a href="?pane='.$name[0].'">'.$name[0].'</a> <a href="?pane='.$name[0].'&amp;menu=hide" target="_blank"><img src="'.$this->page->corepath.'Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>';
 						}
 					}
 				}
@@ -156,7 +156,7 @@ class AdminMenu2 extends Module {
 		<b>Misc:</b>
 		<div style="padding-left:8px;">
 			<a href="?devMODE<?=$this->page->devMode?"&amp;message=You just disabled Debug Mode.":""?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br />
-			<a href="?nav=ErrorLog">View Error Log</a> <a href="?manage=ErrorLog&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<a href="?nav=ErrorLog">View Error Log</a> <a href="?nav=ErrorLog&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
 			<br />
 		</div>
 		<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
