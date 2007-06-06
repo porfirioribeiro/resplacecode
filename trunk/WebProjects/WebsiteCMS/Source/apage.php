@@ -24,6 +24,9 @@ class internalHtml extends Module {
 		<param name="scriptable" value="true">
 		</APPLET--> 
 		Testing the creation of a module using the more complicated class method.		
+		<div style="border: 1px solid black;">
+		<?=$this->page->title?>
+		</div>
 		<?php
 	}
 }
