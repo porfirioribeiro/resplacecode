@@ -44,10 +44,10 @@ body {
 }
 #AjaxLoader{
 	background-image: url(Images/ajax-loader.gif);
-	width: 220px;
-	height: 19px;
+	width: 16px;
+	height: 16px;
 	float: right;
-	margin-top: 5px;
+	margin: 5px 5px;
 	background-repeat: no-repeat;
 }
 /* Stuff in tables */
