@@ -192,9 +192,10 @@ class welcome extends Module {
 if (isset($_GET['menu']) && $_GET['menu']=='hide') {}else{
 	$page->add("AdminMenu2",Module::LEFT);
 }
-
+$nav='';
 if (isset($_REQUEST['nav'])) {
 	$nav=$_REQUEST['nav'];
+}
 	
 	if ($nav=="pages") {
 		$page->add("PagesManage");
@@ -212,11 +213,10 @@ if (isset($_REQUEST['nav'])) {
 	}else if ($nav=="ErrorLog") {
 		$page->add("ErrorLog");
 	}else{
-		if (!isset($_REQUEST['managep'])) {
+		if (!isset($_REQUEST['pane'])) {
 			$page->add("welcome",Module::CENTER);
 		}
 	}
-}
 
 $files=GetFiles("AdminPanes");
 if (count($files)) {

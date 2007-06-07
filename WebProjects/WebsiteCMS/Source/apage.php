@@ -49,7 +49,13 @@ function someContent($mod){
 	</table>
 	<?php
 }
+function top($mod){
+	?>
+	Some content on top ;)
+	<?php
+}
 $page->add("internalHtml");
+$page->addF("top","on da top",Module::TOP);
 $page->add("SkinChanger",Module::RIGHT);
 $page->add("Lfp");
 //$page->add("Box");

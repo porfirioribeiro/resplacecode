@@ -77,18 +77,6 @@ class WebMS_Options_main extends Module {
 		<form name="form2" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input name="managep" value="WebMS_Options" type="hidden" />
 			<fieldset>
-				<legend>Directory paths:</legend><br />
-				<b>Theme's folder path:</b><br />
-				<i>Used for locating the theme's directory, changing this is for advanced users only.</i><br />
-				<input name="themespath" type="text" value="<?=$themespath; ?>" /><br /><br />
-				<b>Module's folder path:</b><br />
-				<i>Used for locating the module's directory, changing this is for advanced users only.</i><br />
-				<input name="modulespath" type="text" value="<?=$modulespath; ?>" /><br /><br />
-				<b>Function's folder path:</b><br />
-				<i>Used for locating the function's directory, changing this is for advanced users only.</i><br />
-				<input name="functionspath" type="text" value="<?=$functionspath; ?>" />
-			</fieldset><br />
-			<fieldset>
 				<legend>Skin Preferences:</legend><br />
 				<b>Default Skin</b><br />
 				<i>Path for the skin to use as default, for your convienience below this input box you will see the path to the current skin you have set.</i><br />
