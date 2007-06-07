@@ -75,9 +75,13 @@ a:visited {
 	margin-bottom:0px;
 }
 .Footer {
-	background-color:#bfdd97;
+	text-align:center;
 	margin:4px;
 	padding:2px;
+	border:1px solid #bfdd97;
+	border-left:0px;
+	border-right:0px;
+	width:200px;
 }
 
 .SmallIcon{

@@ -34,8 +34,8 @@ function toggleEl(el,ct){
 		if (isset($_GET["action"])){
 			$this->action=$_GET["action"];
 		}
-		$url="index.php?manage=db&action=editDB&category=".$this->cat."&db=".$this->db;
-		$urlNoAct="index.php?manage=db&category=".$this->cat."&db=".$this->db;
+		$url="index.php?nav=db&action=editDB&category=".$this->cat."&db=".$this->db;
+		$urlNoAct="index.php?nav=db&category=".$this->cat."&db=".$this->db;
 		switch ($this->action) {
 			case "addDB":
 				$tabled=(isset($_GET["tabled"]) && $_GET["tabled"]=="on");

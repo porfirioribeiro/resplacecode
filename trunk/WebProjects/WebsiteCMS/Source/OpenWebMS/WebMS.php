@@ -1,11 +1,11 @@
 <?php
 /**
-* System Shell<br>
+* System Shell
 * The system shell (the centre of WebMS)
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright � 2007 ResPlace Team
-* @lastedit 01-06-07
+* @lastedit 06-06-07
 */
 session_start();
 ob_start("ob_gzhandler");

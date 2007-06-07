@@ -17,7 +17,7 @@ class ErrorLog extends Module {
 			<legend>Delete...</legend>
 			Request should have succeeded.
 			<?php
-			unlink($path."Files/".$_GET['del']);
+			unlink($path."Core/Includes/errors.log");
 			?></fieldset><br /><?php
 			}
 		
@@ -25,10 +25,16 @@ class ErrorLog extends Module {
 		<fieldset>
 			<legend>View &amp; Modify</legend>
 			Below you can View &amp; Modify the error log.
+			<br><br>
+			[<a href="?nav=ErrorLog&amp;del=1">Delete log</a>]<br><br>
 			<?php
-			$file=$path."Inc/errors.log";
-				$fh=fopen($file,'r');
-				$filedata=fread($fh,filesize($file));
+			$file=$path."Core/Includes/errors.log";
+				$fh=fopen($file,'a+');
+				if (!filesize($file)==0) {
+					$filedata=fread($fh,filesize($file));
+				} else {
+					$filedata="No Errors Logged.";
+				}
 				fclose($fh);
 			?>
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
