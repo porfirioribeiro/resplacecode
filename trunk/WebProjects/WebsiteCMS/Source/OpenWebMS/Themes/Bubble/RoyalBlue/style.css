@@ -51,10 +51,10 @@ body {
 	background-repeat: no-repeat;
 }
 /* Stuff in tables */
-table {
+.tbl {
 	border:1px solid #cfcfff;
 }
-td {
+table.tbl td {
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:12px;
 	border:1px solid #cfcfff;
@@ -136,26 +136,8 @@ a:visited {
 .CollapseIcon{
 	background-image:URL(Images/collapse.png);
 }
-.CollapseIconOver{
-	background-image:URL(Images/collapse_over.png);
-}
 .UnCollapseIcon{
 	background-image:URL(Images/uncollapse.png);
-}
-.UnCollapseIconOver{
-	background-image:URL(Images/uncollapse_over.png);
-}
-.MinimizeLeftIcon{
-	background-image:URL(Images/minimize_left.png);
-}
-.MinimizeLeftIconOver{
-	background-image:URL(Images/minimize_left_over.png);
-}
-.MinimizeRightIcon{
-	background-image:URL(Images/minimize_right.png);
-}
-.MinimizeRightIconOver{
-	background-image:URL(Images/minimize_right_over.png);
 }
 .Box {
 	border-top:0px;

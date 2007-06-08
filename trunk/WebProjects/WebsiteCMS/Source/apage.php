@@ -34,7 +34,7 @@ class internalHtml extends Module {
 function someContent($mod){
 	?>
 	this is a module, with a <a href='#'>link</a>.<br /><br />
-	<table border='1' cellpadding="3" cellspacing="0">
+	<table border='1' cellpadding="3" cellspacing="0" class="tbl">
 		<tr>
 			<td colspan="2" class="main">Main Table Title</td>
 		</tr>
