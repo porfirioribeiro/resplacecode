@@ -7,16 +7,35 @@ body {
 	font-size:12px;
 	background-color:#FFFFFF;
 }
-#AjaxLoader{
-	background-image: url(Images/ajax-loader.gif);
-	width: 220px;
-	height: 19px;
-	float: right;
-	margin-top: 5px;
-	background-repeat: no-repeat;
+
+/*<a></a> Styles*/
+a {
+	color:#454545;
+}
+a:visited {
+	color:#454545;
 }
 
-/* modules on the left top bottom and right */
+/* Stuff in tables */
+.tbl {
+	border:1px solid #bfdd97;
+}
+table.tbl td {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border:1px solid #bfdd97;
+}
+td.main {
+	color:#acacf0;
+	background-color:#4e4eab;
+	text-align:center;
+}
+td.sub {
+	background-color:#6b6bcd;
+	text-align:center;
+}
+
+/* module title on the left top bottom and right */
 .modules_lrtb_title {
 	background-color:#91c846;
 	font-size:14px;
@@ -24,6 +43,8 @@ body {
 	padding:3px;
 	margin:2px;
 }
+
+/* module content on the left top bottom and right */
 .modules_lrtb_content {
 	background-color:#bfdd97;
 	padding:4px;
@@ -31,7 +52,7 @@ body {
 	text-align:left;
 }
 
-/* modules on center */
+/* module title on center */
 .modules_c_title {
 	font-size:18px;
 	color:#2c8ea3;
@@ -39,18 +60,20 @@ body {
 	text-align:left;
 	border-bottom:1px solid #000000;
 }
+
+/* module content on center */
 .modules_c_content {
 	padding:4px;
 	margin-bottom:5px;
 	text-align:left;
 }
 
-a {
-	color:#454545;
+/*box within each module */
+.Module{
+	margin-top:2px;
+	margin-bottom:20px;
 }
-a:visited {
-	color:#454545;
-}
+
 /* The main title image */
 .TitleImage {
 	background-image:URL(Images/title.png);
@@ -61,6 +84,7 @@ a:visited {
 	overflow:hidden;
 	height:20px;
 }
+
 /* This is the frame which goes around the whole site, usually left invisible, design preference. */
 .MainFrame {
 	width:100%;
@@ -69,11 +93,12 @@ a:visited {
 
 /* Middle section for the main box at the top, where the title goes... */
 .MainMid {
-	
 	text-align:center;
 	margin:4px;
 	margin-bottom:0px;
 }
+
+/*Footer Style*/
 .Footer {
 	text-align:center;
 	margin:4px;
@@ -84,6 +109,7 @@ a:visited {
 	width:200px;
 }
 
+/*??*/
 .SmallIcon{
 	margin-top:2px;
 	width:12px;
@@ -96,39 +122,31 @@ a:visited {
 	height:12px;	
 	cursor:pointer;
 }
+
+/*Module minimize/maximize icons*/
 .CollapseIcon{
 	background-image:URL(Images/collapse.png);
-}
-.CollapseIconOver{
-	background-image:URL(Images/collapse_over.png);
 }
 .UnCollapseIcon{
 	background-image:URL(Images/uncollapse.png);
 }
-.UnCollapseIconOver{
-	background-image:URL(Images/uncollapse_over.png);
+
+/*Ajax loader style*/
+#AjaxLoader{
+	background-image: url(Images/ajax-loader.gif);
+	width: 220px;
+	height: 19px;
+	float: right;
+	margin-top: 5px;
+	background-repeat: no-repeat;
 }
-.MinimizeLeftIcon{
-	background-image:URL(Images/minimize_left.png);
-}
-.MinimizeLeftIconOver{
-	background-image:URL(Images/minimize_left_over.png);
-}
-.MinimizeRightIcon{
-	background-image:URL(Images/minimize_right.png);
-}
-.MinimizeRightIconOver{
-	background-image:URL(Images/minimize_right_over.png);
-}
-.Module{
-	margin-top:2px;
-	margin-bottom:20px;
-}
+
 #NoScript{
 	border:1px solid #A7A6AA;
 	background-color:#FFFFE1;
 	padding:5px;
 }
+
 #NoScript .warn{
 	background-image:URL(Images/warn.png);
 	width:22px;
@@ -146,6 +164,8 @@ a:visited {
 #NoScript a.close:hover{
 	background-image: url(Images/ns_close_over.png);
 }
+
+/*Table Styles*/
 #LeftColumn {
 	width:200px;
 	padding:2px;
@@ -169,4 +189,41 @@ a:visited {
 	width:200px;
 	padding:2px;
 	vertical-align:top;
+}
+
+/*Alert Box Styles*/
+.AlertBox{
+	position:absolute;
+	top:0px;
+	background-color:#FFFFE1;
+	border:1px solid #FAFAD2;
+	vertical-align:middle;
+}
+.AlertBox .box{
+	float:left;
+	width:92%;
+	padding:5px;
+}
+.AlertBox .warn{
+	background-image: url(Images/warn.png);
+	width: 22px;
+	height: 22px;
+	margin: 5px;
+	float: left;
+}
+.AlertBox .close{
+	background-image: url(Images/close.png);
+	width:16px;
+	height:16px;
+	display:block;
+	float:right;
+	margin: 5px;
+}
+.AlertBox .close:hover{
+	background-image: url(Images/close_over.png);
+	width:16px;
+	height:16px;
+	display:block;
+	float:right;
+	margin: 5px;
 }
