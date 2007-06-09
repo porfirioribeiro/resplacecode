@@ -1,10 +1,24 @@
 <?php
-//Set path to the data/ directory FIRST:
+/**
+* Standalone page test
+* Standalone page test
+* Licenced under GPLv2 read GPL.txt for details
+* @version 1
+* @copyright ? 2007 ResPlace Team
+* @lastedit 06-06-07
+*/
+//Set path then include the system into the page.
 $path="OpenWebMS/";
 include_once $path.'WebMS.php';
+
+//Setup the WebMS class
 $page=new WebMS($path,"Main Site");
+//add some meta keywords
 $page->addMeta(array('name' => 'keywords','content' => 'resplace,cms,website'));
+//add defaults
 $page->addDefaults();
+
+//begin adding modules...
 $page->add("Menu");
 $page->add("PageRate");
 
@@ -24,9 +38,9 @@ class internalHtml extends Module {
 		<param name="scriptable" value="true">
 		</APPLET--> 
 		Testing the creation of a module using the more complicated class method.		
-		<div style="border: 1px solid black;">
-		<?=$this->page->title?>
-		</div>
+		<!--<div style="border: 1px solid black;">
+		<=$this->page->title?>
+		</div>-->
 		<?php
 	}
 }

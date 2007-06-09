@@ -16,7 +16,7 @@ class SkinChanger extends Module {
 	}
 	function content(){
 	?>
-	This will test the change skin (external) module. Lets see :D	
+	You can change the site skin below.	
     <?php
 	if (isset($_REQUEST['page'])) {?>
 	<form name="ChangeSkin" method="POST" action="<?=$_SERVER['PHP_SELF'].'?page='.$_REQUEST['page']; ?>">
@@ -34,10 +34,7 @@ class SkinChanger extends Module {
 					$itemi=$item;
 					$item=str_replace(array("-","_"),array(" "," "),$item);
 					
-					//pick out default skin
-					if ($item==$this->page->defaultskin){
-						$item=$item." (Default)";
-					}
+					
 					
 					//start group
 					if($item != '.' && $item != '..'){
@@ -50,6 +47,10 @@ class SkinChanger extends Module {
 							foreach($contents2 as $item2){
 								$itemi2=$item2;
 								$item2=str_replace(array("-","_"),array(" "," "),$item2);
+								//pick out default skin
+								if ($itemi.'/'.$itemi2.'/'==$this->page->defaultskin){
+									$item2=$item2." (Default)";
+								}
 								
 								if ($itemi.'/'.$itemi2.'/'==$this->page->selectedskin){
 									echo "<option selected value='{$itemi}/{$itemi2}/'>{$item2}</option>";

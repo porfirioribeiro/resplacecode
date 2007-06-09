@@ -31,11 +31,8 @@ class WebMS_Options extends Module {
 			}
 			
 			//change main options such as paths etc...
-			if (isset($_POST['themespath'])) {
-				$db->put("themespath",($_POST['themespath']));
-				$db->put("modulespath",($_POST['modulespath']));
-				$db->put("functionspath",($_POST['functionspath']));
-				
+			if (isset($_POST['defaultskin'])) {
+				echo'adding to database...';
 				$db->put("defaultskin",($_POST['defaultskin']));
 			}
 			
@@ -75,12 +72,50 @@ class WebMS_Options_main extends Module {
 		?>
 		Below you can edit some system options, be careful not to make a mistake with these options, it could land you with lots and lots of system errors ;).<br /><br />
 		<form name="form2" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-			<input name="managep" value="WebMS_Options" type="hidden" />
+			<input name="pane" value="WebMS_Options" type="hidden" />
 			<fieldset>
 				<legend>Skin Preferences:</legend><br />
 				<b>Default Skin</b><br />
 				<i>Path for the skin to use as default, for your convienience below this input box you will see the path to the current skin you have set.</i><br />
-				<input name="defaultskin" type="text" value="<?=$defaultskin; ?>" /><br />
+				<select name="defaultskin">
+				<?php
+				//get themes		
+			$contents=GetFolders($this->page->themespath);
+			if(is_array($contents)){
+				foreach($contents as $item){
+					$itemi=$item;
+					$item=str_replace(array("-","_"),array(" "," "),$item);
+					
+					//start group
+					if($item != '.' && $item != '..'){
+						echo "<optgroup label='{$item}'>";
+						
+						//get styles for the theme...
+						$contents2=GetFolders($this->page->themespath.$itemi."/");
+						
+						if(is_array($contents2)){
+							foreach($contents2 as $item2){
+								$itemi2=$item2;
+								$item2=str_replace(array("-","_"),array(" "," "),$item2);
+								
+								if ($itemi.'/'.$itemi2.'/'==$this->page->defaultskin){
+									echo "<option selected value='{$itemi}/{$itemi2}/'>{$item2}</option>";
+								}else{
+									if($item2 != '.' && $item2 != '..'){	
+										echo "<option value='{$itemi}/{$itemi2}/'>{$item2}</option>";
+									}
+								}
+							}
+						}
+						
+						//end group
+						echo"</optgroup>";
+					}
+				}
+			}
+			?>
+		</select><br />
+				
 				Current: <?=$_SESSION['currentskin']; ?>
 			</fieldset><br />
 			<input name="submit" type="submit" value="Save Changes" />
@@ -146,7 +181,7 @@ class WebMS_Options_admin extends Module {
 		Below you can change various administration options.
 		
 		<form name="form2" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-			<input name="managep" value="WebMS_Options" type="hidden" />
+			<input name="pane" value="WebMS_Options" type="hidden" />
 			<fieldset>
 				<legend>Change admin password:</legend><br />
 				<b>Old Password:</b><br />

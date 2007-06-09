@@ -70,9 +70,6 @@ class WebMS{
 		//read WebMS settings DB
 		$db=new ResDB("WebMSoptions");
 			$adminpassword=$db->get("adminpassword");
-			//$this->themespath=$db->get("themespath");
-			//$this->modulespath=$db->get("modulespath");
-			//$this->functionspath=$db->get("functionspath");
 			$this->defaultskin=$db->get("defaultskin");
 		//database doesnt need closing since no changes are made :)
 		
