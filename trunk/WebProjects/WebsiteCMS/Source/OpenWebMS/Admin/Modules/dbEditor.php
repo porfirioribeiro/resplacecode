@@ -48,6 +48,12 @@ function toggleEl(el,ct){
 				$db->delete();
 				header("Location: ".$urlNoAct."&message=Database <b>".$this->db."</b> Deleted!");
 			break;
+			case "delKey":
+				$db=new ResDB($this->db,$this->cat);
+				$db->del($_GET['path']);
+				$db->close();
+				header("Location: ".$urlNoAct."&message=Key <b>".$_GET['path']."</b> Deleted!");
+			break;
 		}
 	}
 	function exTree($map,$path){
