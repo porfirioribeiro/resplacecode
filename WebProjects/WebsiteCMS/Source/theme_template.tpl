@@ -63,5 +63,14 @@
     #{write_modulesright}|
     #{write_modulesbottom}> the actualy content of the collums
     --> 
-	#{end:content}	
+	#{end:content}
+	#{start:footer}
+		<!--
+		This is the footer content
+		You can use the following vars when building the footer
+		#{imgpath} - Gets the path to your themes Images/ path
+		#{WebMS_load} - How many seconds it took page to load
+		#{ResDB_queries} - How many queries were made to the ResDB
+		-->
+	#{end:footer}
 #{end:page}			
