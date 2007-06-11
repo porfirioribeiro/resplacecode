@@ -11,58 +11,58 @@
       -->		
 	#{end:default}		
 	#{start:left}	
-    <!--
-    It uses the same vars as :default
-    only use this if you want to overide the default template on left collumn modules
-    -->
+		<!--
+		It uses the same vars as :default
+		only use this if you want to overide the default template on left collumn modules
+		-->
 	#{end:left}	
 	#{start:right}	
-    <!--
-    It uses the same vars as :default
-    only use this if you want to overide the default template on right collumn modules
-    -->  		
+		<!--
+		It uses the same vars as :default
+		only use this if you want to overide the default template on right collumn modules
+		-->  		
 	#{end:right}	
 	#{start:center}		
-    <!--
-    It uses the same vars as :default
-    only use this if you want to overide the default template on center collumn modules
-    -->
+		<!--
+		It uses the same vars as :default
+		only use this if you want to overide the default template on center collumn modules
+		-->
 	#{end:center}
 	#{start:top}	
-    <!--
-    It uses the same vars as :default
-    only use this if you want to overide the default template on top modules
-    -->
+		<!--
+		It uses the same vars as :default
+		only use this if you want to overide the default template on top modules
+		-->
 	#{end:top}	
 	#{start:bottom}	
-    <!--
-    It uses the same vars as :default
-    only use this if you want to overide the default template on bottom modules
-    -->			
+		<!--
+		It uses the same vars as :default
+		only use this if you want to overide the default template on bottom modules
+		-->			
 	#{end:bottom}	
 #{end:module}
 
 #{start:page}	
 	#{start:title}	
-    <!--
-    The header of the page, no var's yet
-    -->
+		<!--
+		The header of the page, no var's yet
+		-->
 	#{end:title}	
 	#{start:content}	
-	  <!--
-    The content of the page
-    You can use the following vars
-    #{display_modulestop}|
-    #{display_modulesleft}|
-    #{display_modulescenter}|
-    #{display_modulesright}|
-    #{display_modulesbottom}> Css shortcut 'none' or '' if that collumns are visible or not
-    #{write_modulestop}|  
-    #{write_modulesleft}|
-    #{write_modulescenter}|
-    #{write_modulesright}|
-    #{write_modulesbottom}> the actualy content of the collums
-    --> 
+		<!--
+		The content of the page
+		You can use the following vars
+		#{display_modulestop}|
+		#{display_modulesleft}|
+		#{display_modulescenter}|
+		#{display_modulesright}|
+		#{display_modulesbottom}> Css shortcut 'none' or '' if that collumns are visible or not
+		#{write_modulestop}|  
+		#{write_modulesleft}|
+		#{write_modulescenter}|
+		#{write_modulesright}|
+		#{write_modulesbottom}> the actualy content of the collums
+		--> 
 	#{end:content}
 	#{start:footer}
 		<!--
