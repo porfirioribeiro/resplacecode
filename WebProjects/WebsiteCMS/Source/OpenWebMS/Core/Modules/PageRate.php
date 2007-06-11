@@ -15,13 +15,14 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 	$db=new ResDB("PageRater");
 	$page=$db->getMap($_GET["page"]);
 	$ips=explode(",",$page->get("ip",""));
+	$nope=0;
 	foreach ($ips as $ipc){
 		if ($ipc==$_SERVER['REMOTE_ADDR']){
 		$nope=1;
 		break;
 		}
 	}
-	if (!$nope==1){
+	if ($nope=0){
 		$votes=$page->get("votes","0")+1;
 		$rank=$page->get("rank","0")+$_GET["RatePage"];
 		$ip=$page->get("ip","").','.$_SERVER['REMOTE_ADDR'];

@@ -73,7 +73,7 @@ class PagesManage extends Module {
 				echo'<tr>
 							<td><a href="?nav=pages&amp;page=page-edit&amp;pageid='.$key.'"><img alt="Edit" title="Edit this page" border="0" style="vertical-align:middle" src="icons/edit.png"></a></td>
 							<td><a href="javascript:void(0)" onclick="if (confirm(\'You sure you want to delete this page?\n'.$key.'\')){document.location=\'?nav=pages&pageiddel='.$key.'\'}"><img alt="Delete" title="Delete this page" border="0" style="vertical-align:middle" src="icons/button_cancel.png"></a></td>
-							<td width="100%"><a href="'.str_replace("OpenWebMS/","",$path).'getfile.php?page='.$key.'" target="_blank">'.$name.'</a></td>
+							<td width="100%"><a href="'.str_replace("OpenWebMS/","",$path).'../getfile.php?page='.$key.'" target="_blank">'.$name.'</a></td>
 						  </tr>';
 				}
 			} else {
