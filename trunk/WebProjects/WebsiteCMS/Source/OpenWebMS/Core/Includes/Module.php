@@ -42,9 +42,7 @@ class Module{
 		$minTitle=preg_replace("/[^a-z0-9_+& ]*/i","",$this->title);
 		$p=$this->page;
 		ob_start();
-		echo'<div>';
 		$this->content();
-		echo'</div>';
 		$content=ob_get_contents();
 		ob_end_clean();
 		$data=array(
