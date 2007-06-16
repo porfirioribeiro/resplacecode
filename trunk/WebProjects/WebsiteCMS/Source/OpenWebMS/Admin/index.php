@@ -212,6 +212,8 @@ if (isset($_REQUEST['nav'])) {
 		$page->add("menuEditor");
 	}else if ($nav=="ErrorLog") {
 		$page->add("ErrorLog");
+	}else if ($nav=="LManager") {
+		$page->add("LayoutManager");
 	}else{
 		if (!isset($_REQUEST['pane'])) {
 			$page->add("welcome",Module::CENTER);
