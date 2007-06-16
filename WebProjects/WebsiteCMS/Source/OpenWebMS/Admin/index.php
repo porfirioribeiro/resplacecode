@@ -108,6 +108,7 @@ class AdminMenu2 extends Module {
 			<a href="?nav=db">Database's</a> <a href="?nav=db&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
 			<a href="?nav=modules">Modules</a> <a href="?nav=modules&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
 			<a href="?nav=functions">Functions</a> <a href="?nav=functions&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<a href="?nav=LManager">Layouts</a> <a href="?nav=LManager&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
 		</div>
 		<br />
 		<b>Settings:</b>
