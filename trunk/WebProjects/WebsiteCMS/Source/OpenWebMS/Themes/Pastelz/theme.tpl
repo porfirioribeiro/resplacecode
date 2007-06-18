@@ -74,7 +74,7 @@
 				<div class="TopLeft"><div class="TopRight"></div></div>                
 				<div style="float:right;" id="AjaxLoader"></div>
 				<div align="left" style="padding-left:10px">
-				<div class="TitleImage" title="My Website Name"></div>
+				<div class="TitleImage alpha" title="My Website Name"></div>
 				</div>
 				<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
 			</div>

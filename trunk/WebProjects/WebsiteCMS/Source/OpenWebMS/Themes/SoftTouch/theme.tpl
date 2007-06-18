@@ -3,9 +3,9 @@
 		<div id="#{id}" class="Module">                  
 	        <div class="TitleMid">                            
 	            <div class="TitleLeft"></div>
-			    <div style="float:left;" id="#{id}_left_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
+			    <div style="float:left;" id="#{id}_left_icon" class="SmallIcon alpha #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
 			    <div class="TitleRight"></div>   
-			    <div style="float:right;" id="#{id}_right_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>
+			    <div style="float:right;" id="#{id}_right_icon" class="SmallIcon alpha #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>
 				<div class="TitleText">#{title}</div>                        
 	        </div>	        
 			<div class="Box" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
@@ -21,7 +21,7 @@
 	        <div class="TitleMid">                            
 		        <div class="TitleLeft"></div>
 			    <div class="TitleRight"></div>       	
-			    <div style="float:right" id="#{id}_right_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
+			    <div style="float:right" id="#{id}_right_icon" class="SmallIcon alpha #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
 				<div class="TitleText">#{title}</div>                        
 	        </div>	       
 			<div class="Box" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
@@ -36,7 +36,7 @@
 		<div id="#{id}" class="Module">                  
 	        <div class="TitleMid">                            
 	            <div class="TitleLeft"></div>	
-			    <div style="float:left;" id="#{id}_left_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div> 
+			    <div style="float:left;" id="#{id}_left_icon" class="SmallIcon alpha #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div> 
 				<div class="TitleRight"></div> 
 				<div class="TitleText">#{title}</div>                        
 	        </div>	       
@@ -57,7 +57,7 @@
 				<div class="TopLeft"><div class="TopRight"></div></div>                
 				<div style="float:right;" id="AjaxLoader"></div>
 				<div align="center">
-				<div class="TitleImage"></div>
+				<div class="TitleImage alpha"></div>
 				</div>
 				<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
 			</div>
@@ -89,15 +89,11 @@
 		</table>
 	#{end:content}
 	#{start:footer}
-		<div class="MainMid"> 
-			<div class="Box">                
-				<div class="TopLeft"><div class="TopRight"></div></div>                
-				<div align="center">
-					<div style="padding-bottom:2px">powered by <a href="resplace.net" title="Module based PHP website management system">OpenWebMS</a> | Copyright &copy; resplace.net</div>
+		<div align="center">
+		<div class="Footer"> 
+					<div style="padding-bottom:5px"><b>powered by <a href="resplace.net" title="Module based PHP website management system">OpenWebMS</a></b><br />Copyright &copy; resplace.net</div>
 					<img src="#{imgpath}gen_php.png" alt="[DB]" title="Generated in #{WebMS_load} sec/s" /> <img src="#{imgpath}gen_resdb.png" alt="[DB]" title="#{ResDB_queries} ResDB Queries" /> <img src="#{imgpath}html401.png" alt="[HTML 4.01]" title="HTML 4.01 Complient" />
-				</div>
-				<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
-			</div>
 		</div>
+	</div>
 	#{end:footer}
 #{end:page}			
