@@ -90,7 +90,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 			?>
 				Rank: <span id="PageRate_rank"><?=$rv?></span> / 5  Votes: <span id="PageRate_votes"><?=$votes?></span>
 				<div style="width:100px;background-color:white;border:1px solid black;height: 10px;">			
-					<div id="PageRate_progress" style="position: static;left:0px;top:0px;background-image:URL(<?=$this->base."PageRate/PR.png"?>) ;height: 100%;width: <?=(100*$rv)/5?>px;"></div>
+					<div id="PageRate_progress" style="position: static;left:0px;top:0px;background-image:URL(<?=$this->base."PageRate/PR.png"?>) ;height: 100%;width: <?=(100*$rv)/5?>px;font-size:0px"></div>
 				</div>
                 <?php
 

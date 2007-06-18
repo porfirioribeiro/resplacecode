@@ -39,7 +39,7 @@
 		</div> 	
 	#{end:right}
 	#{start:top}	
-		<div id="#{id}" class="Module">                  
+		<div id="#{id}" class="Module" style="width:100%">                  
 	        <div class="modules_title">      	
 			    <div style="float:right" id="#{id}_top_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
 				<div class="TitleText">#{title}</div> 
