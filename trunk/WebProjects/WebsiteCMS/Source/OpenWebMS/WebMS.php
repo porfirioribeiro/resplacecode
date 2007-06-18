@@ -169,6 +169,7 @@ class WebMS{
 		}					
 	}
 	function create(){
+	global $browser;
     ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -194,14 +195,23 @@ class WebMS{
     	echo '<link rel="stylesheet" href="'.$value.'" type="text/css">'."\n";
     }
     ?>
+	<script type="text/javascript" language="javascript">
+		var htcpath="<?=$this->path.'Core/JS/'; ?>";
+	</script>
     <?php
     foreach ($this->JS_files as $key=>$value) {
     	echo '<script src="'.$value.'" type="text/javascript" language="JavaScript"></script>'."\n";
     }
-    ?>
-	<!--[if lt IE 7]>
-	<script defer type="text/javascript" src="<?=$this->path.'lib/'; ?>pngfix.js"></script>
-	<![endif]-->
+    //$br = new Browser;
+	if (($browser->Name=="MSIE") && ((int)$browser->Version>=5) && ((int)$browser->Version<=6)) {
+		?>
+		<style>
+			img, div { behavior: url(<?=$this->path.'Core/JS/'; ?>iepngfix.htc) }
+		</style>
+		<?php
+		echo'Debug: '.(int)$browser->Version;
+		}
+	?>
     <script type="text/javascript" language="JavaScript">
     	function __onloads(){
     		<?php echo $this->OnLoads."\n"?>

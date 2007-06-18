@@ -207,6 +207,7 @@ class Browser{
 		// finally assign our properties
 		$this->Name = $bd['browser'];
 		$this->Version = $bd['version'];
+		$this->VersionInt= (int)str_replace(".","",$bd['version']);
 		$this->Platform = $bd['platform'];
 		$this->AOL = $bd['aol'];
 	}

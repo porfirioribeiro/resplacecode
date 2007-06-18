@@ -68,14 +68,8 @@ function top($mod){
 	Some content on top ;)
 	<?php
 }
-function bop($mod){
-	?>
-	Some content on bottom ;)
-	<?php
-}
 $page->add("internalHtml");
 $page->addF("top","on da top",Module::TOP);
-$page->addF("bop","on da bott",Module::BOTTOM);
 $page->add("SkinChanger",Module::RIGHT);
 $page->add("Lfp");
 //$page->add("Box");
