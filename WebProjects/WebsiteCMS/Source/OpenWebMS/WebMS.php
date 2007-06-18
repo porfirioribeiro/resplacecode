@@ -206,10 +206,9 @@ class WebMS{
 	if (($browser->Name=="MSIE") && ((int)$browser->Version>=5) && ((int)$browser->Version<=6)) {
 		?>
 		<style>
-			img, div { behavior: url(<?=$this->path.'Core/JS/'; ?>iepngfix.htc) }
+			.alpha { behavior: url(<?=$this->path.'Core/JS/'; ?>iepngfix.htc); }
 		</style>
 		<?php
-		echo'Debug: '.(int)$browser->Version;
 		}
 	?>
     <script type="text/javascript" language="JavaScript">

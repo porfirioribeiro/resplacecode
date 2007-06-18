@@ -3,7 +3,7 @@ body {
 	margin:0px;
 	text-align:center;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:16px;
+	font-size:12px;
 	background-color:#e1e1e1;
 }
 td {
@@ -170,4 +170,11 @@ a:visited {
 	background-image:URL(Images/title.png);
 	width:334px;
 	height:78px;
+}
+.Footer {
+	text-align:center;
+	margin:10px;
+	padding:2px;
+	background-color:#DDDDDD;
+	border-right:0px;
 }
