@@ -1,0 +1,14 @@
+Welcome to OpenWebMS, soon we will put many things in here but for now...
+
+Thanks: Third Party Materials:
+------------------------------
+
+We are using a few code snippets and scripts from around the internet within OpenWebMS, these are all added to our system to add functionality, accessibility and above all usability to OpenWebMS, although we are trying to reference all sources of anything we "use" or "borrow" we hope that if you spot anything we should reference you would tell us straight away. Everything we use is either GPL or is offered freely for distribution, if you feel we are using one of your resources unlawfully then please contact us via our website and we can resolve the issue.
+
+Ok not in any specific order here is our references, and thanks to all those other resource sites that have offered guidence and help that we have forgotten to mention :)
+
+ TwinHelix - IE6 PNG FIX v1.0 RC4 (GNU LGPL)
+ -------------------------------------------
+ Thanks to TwinHelix png's are displayed properly in IE5.5 and IE6 when using the CSS class "alpha".
+ 
+ http://www.twinhelix.com/css/iepngfix/
