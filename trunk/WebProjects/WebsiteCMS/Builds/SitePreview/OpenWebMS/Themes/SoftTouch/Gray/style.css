@@ -1,0 +1,180 @@
+body {
+	padding:0px;
+	margin:0px;
+	text-align:center;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background-color:#e1e1e1;
+}
+td {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+}
+a {
+	color:#454545;
+}
+a:visited {
+	color:#454545;
+}
+.MainFrame {
+	/*background-color:#C7C7C7;*/
+	/*border: 1px solid #666666;*/
+	width:100%;
+}
+#NoScript{
+	border:1px solid #A7A6AA;
+	background-color:#FFFFE1;
+	padding:5px;
+}
+#NoScript .warn{
+	background-image:URL(Images/warn.png);
+	width:22px;
+	height:22px;
+	display: block;
+	float: left;
+	background-repeat: no-repeat;
+}
+#NoScript a.close{
+	background-image: url(Images/ns_close.png);
+	width: 16px;
+	height: 16px;
+	display: block;
+	float: right;
+	background-repeat: no-repeat;
+}
+#NoScript a.close:hover{
+	background-image: url(Images/ns_close_over.png);
+}
+#LeftColumn {
+	width:200px;
+	padding:2px;
+	vertical-align:top;
+}
+#CenterColumn {
+	padding:2px;
+	vertical-align:top;
+}
+#RightColumn {
+	width:200px;
+	padding:2px;
+	vertical-align:top;
+}
+.MainMid {
+	background-image:url(Images/middle_main.png);
+	height:78px;
+	text-align:center;
+	margin:4px;
+	margin-bottom:0px;
+}
+.MainLeft {
+	background-image:url(Images/left_main.png);
+	height:78px;
+	width:6px;
+	float:left;
+}
+.MainRight {
+	background-image:url(Images/right_main.png);
+	height:78px;
+	width:6px;
+	float:right;
+}
+.TitleMid {
+	background-image:url(Images/middle_title.png);
+	height:20px;
+	text-align:center;
+}
+.TitleLeft {
+	background-image:url(Images/left_title.png);
+	
+	height:20px;
+	width:4px;
+	float:left;
+}
+.TitleText {
+	padding-top:0px;
+	overflow:hidden;
+	height:20px;
+}
+.TitleRight {
+	background-image:url(Images/right_title.png);
+	height:20px;
+	width:4px;
+	float:right;
+}
+.SmallIcon{
+	margin-top:2px;
+	width:16px;
+	height:16px;	
+	cursor:pointer;
+}
+.CollapseIcon{
+	background-image:URL(Images/collapse.png);
+}
+.CollapseIconOver{
+	background-image:URL(Images/collapse_over.png);
+}
+.UnCollapseIcon{
+	background-image:URL(Images/uncollapse.png);
+}
+.UnCollapseIconOver{
+	background-image:URL(Images/uncollapse_over.png);
+}
+.MinimizeLeftIcon{
+	background-image:URL(Images/minimize_left.png);
+}
+.MinimizeLeftIconOver{
+	background-image:URL(Images/minimize_left_over.png);
+}
+.MinimizeRightIcon{
+	background-image:URL(Images/minimize_right.png);
+}
+.MinimizeRightIconOver{
+	background-image:URL(Images/minimize_right_over.png);
+}
+.BoxContent {
+	/*border: 1px solid #666666;*/
+	border-top:0px;
+	background-color:#b7b7b7;
+	margin:2px;
+	margin-top:0px;
+	padding:5px;
+	font-size:12px;
+	text-align:left;
+}
+.Module{
+	margin-top:2px;
+}
+#MinimizeLeftColumn{
+	height:100%;
+	width:20px;
+	padding:2px;
+	padding-left:0px;
+	vertical-align:top;
+}
+#MinimizeLeftArea{
+	border:1px solid gray;
+	background-color:#999999;
+	height:100%;
+}
+#MinimizeRightColumn{
+	height:100%;
+	width:20px;
+	padding:2px;
+	padding-right:0px;
+	vertical-align:top;
+}
+#MinimizeRightArea{
+	padding-top:10px;
+}
+.TitleImage {
+	background-image:URL(Images/title.png);
+	width:334px;
+	height:78px;
+}
+.Footer {
+	text-align:center;
+	margin:10px;
+	padding:2px;
+	background-color:#DDDDDD;
+	border-right:0px;
+}
