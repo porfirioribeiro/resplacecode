@@ -1,22 +1,28 @@
 <?php
 /**
- * Abstract class that all other class's extend
- */
-abstract class SqlModel{
-	abstract function insert($table,$data);
-	//update
-	//insert
-	//etc...
-	abstract function close();
-}
-/**
  * MySql Model
  */
-class MySqlModel extends SqlModel {
+class MySqlModel {
 	var $conDb;
 	function MySqlModel($db,$host,$user,$pass){
 		$this->conDb=mysql_connect($host,$user,$pass) or die("Fuck, mysql is down again!");
 		mysql_select_db($db,$this->conDb) or die("Cant open the db sorry...");//or die stuff
+	}
+	function query($sql){
+		return mysql_query($sql,$this->conDb);
+	}
+	function close(){
+		mysql_close($this->conDb);
+	}
+}
+/**
+ * This is our main class, is the class we use
+ */
+class Sql{
+	static $ModelClass=MySqlModel;
+	var $model;
+	function Sql($db,$host,$user,$pass){
+		$this->model=new Sql::$ModelClass($db,$host,$user,$pass);
 	}
 	function insert($table,$data){
 		$sql="INSERT INTO $table (";
@@ -37,25 +43,7 @@ class MySqlModel extends SqlModel {
 		}
 		$sql.=");";
 		echo $sql;
-		mysql_query($sql,$this->conDb);
-	}
-	function close(){
-		mysql_close($this->conDb);
-	}
-}
-/**
- * This is our main class, is the class we use
- */
-class Sql{
-	static $ModelClass=MySqlModel;
-	var $model;
-	function Sql($db,$host,$user,$pass){
-		$this->model=new Sql::$ModelClass($db,$host,$user,$pass);
-	}
-	//here we have functions like this
-	//that just wrap arround the SqlModel
-	function insert($table,$data){
-		$this->model->insert($table,$data);
+		$this->model->query($sql);
 	}
 	//update
 	//insert

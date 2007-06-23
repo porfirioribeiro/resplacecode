@@ -9,7 +9,7 @@ $arr=explode("/",$this->selectedskin);
 $this->addJS($this->themespath.$arr[0]."/theme.js");
 $this->addPreloadImg(array(
 	$tpath."Images/collapse.png",
-	$tpath."Images/collapse_over.png",
+	$tpath."Images/uncollapse.png",
 	$tpath."Images/close.png",
 	$tpath."Images/close_over.png"
 ));
