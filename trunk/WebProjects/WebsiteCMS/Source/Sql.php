@@ -1,11 +1,16 @@
 <?php
 /**
- * MySql Model
- */
+* SQL Model for MySQL - Postresql...
+* A model for translation betweeen various database management systems (DBMS)
+* Licenced under GPLv2 read GPL.txt for details
+* @version 1
+* @copyright ? 2007 ResPlace Team
+* @lastedit 24-06-07
+*/
 class MySqlModel {
 	var $conDb;
 	function MySqlModel($db,$host,$user,$pass){
-		$this->conDb=mysql_connect($host,$user,$pass) or die("Fuck, mysql is down again!");
+		$this->conDb=mysql_connect($host,$user,$pass) or die("Maybe we should provoke the error handler to handle this ;)!");
 		mysql_select_db($db,$this->conDb) or die("Cant open the db sorry...");//or die stuff
 	}
 	function query($sql){
@@ -16,7 +21,7 @@ class MySqlModel {
 	}
 }
 /**
- * This is our main class, is the class we use
+ * This is our main class, is the class we use (why we have two classes? we dont need :P)
  */
 class Sql{
 	static $ModelClass=MySqlModel;
