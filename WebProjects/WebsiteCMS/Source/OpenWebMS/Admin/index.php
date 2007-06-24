@@ -1,9 +1,18 @@
 <?php
-
+/**
+* Admin Panel
+* A means for manipulating OpenWebMS
+* Licenced under GPLv2 read GPL.txt for details
+* @version 1
+* @copyright ? 2007 ResPlace Team
+* @lastedit 24-06-07
+*/
 //Set path to the data/ directory FIRST:
 $path="../";
 include_once $path.'WebMS.php';
 $page=new WebMS($path,"Admin Panel");
+
+//read all the admin modules/functions and panes
 $page->addFunctionSearchPath("Functions/");
 $page->addModuleSearchPath("Modules/");
 $page->addModuleSearchPath("AdminPanes/");
