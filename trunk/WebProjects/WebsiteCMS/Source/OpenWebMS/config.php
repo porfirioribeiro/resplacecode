@@ -35,7 +35,8 @@ include_once $WebMS["IncPath"]."GetFolders.php";
 include_once $WebMS["IncPath"]."Module.php";
 include_once $WebMS["IncPath"]."Template.php";
 include_once $WebMS["IncPath"]."Theme.php";	
-include_once $WebMS["IncPath"]."Browser.php";	
+include_once $WebMS["IncPath"]."Browser.php";
+include_once $WebMS["IncPath"]."GDCanvas.php";	
 
 
 ?>
