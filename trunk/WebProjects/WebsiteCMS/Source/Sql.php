@@ -57,6 +57,13 @@ class Sql{
 		$this->model->close();
 	}
 }
+class Sql_Query{
+	var $query="";
+	function Sql_Query(){
+		//SELECT * FROM `users` WHERE name ='Porfirio'
+	}
+}
+
 
 $db=new Sql("test","localhost","root","porfirio");
 $db->insert("users",array("name"=>"Porfirio","age"=>26));
