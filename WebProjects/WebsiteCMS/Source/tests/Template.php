@@ -30,32 +30,14 @@ class Template{
 	 * @param mixed $object The object to fill the template, either Array or ArrayMap
 	 * @return String The result of the combination with patern and $object
 	 */
-	function evaluate($object){
-		$result=$this->template;
-		$st=preg_quote($this->patern[0], '/');
-		$ed=preg_quote($this->patern[1], '/');
-		if (class_exists("ArrayMap") && ArrayMap::is($object)){
-			foreach ($object->listPaths() as $value) {
-				$key=$value;
-				$value=$object->getPath($value);
 
-				if (is_bool($value)){
-					$result=preg_replace("/".$st."iif:".$key.",(.*),(.*)".$ed."/",($value)?'${1}':'${2}',$result);
-				}else{
-					$result=preg_replace("/".$st.$key.$ed."/",$value,$result);
-				}
-			}
-		}else if (is_array($object)){
-			foreach ($object as $key => $value) {
-				if (is_bool($value)){
-					$result=preg_replace("/".$st."iif:".$key.",(.*),(.*)".$ed."/",($value)?'${1}':'${2}',$result);
-					$result=preg_replace("/".$st."if:".$key.$ed."\s*(.*)\s*".$st."else:".$key.$ed."\s*(.*)\s*".$st."endif:".$key.$ed."/",($value)?'${1}':'${2}',$result);
-					$result=preg_replace("/".$st."if:".$key.$ed."\s*(.*)\s*".$st."endif:".$key.$ed."/",($value)?'${1}':'',$result);
-				}else{
-					$result=preg_replace("/".$this->patern[0].$key.$this->patern[1]."/",$value,$result);
-				}		
-			}
-		}
+	function evaluate($object){
+		$result=$this->template; 
+		$result=preg_replace("/\$\{(.*)\}/",eval("$r=".$m[1]),$result);
+		/*function a($m){
+			return $m[1];
+		}*/
+		//$result=preg_replace_callback("/\#\{(.*)\}/",$this->get,$result);
 		return $result;
 	}
 	function parse($object){
