@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
 * System Shell
 * The system shell (the centre of WebMS)
@@ -7,8 +8,8 @@
 * @copyright � 2007 ResPlace Team
 * @lastedit 06-06-07
 */
-session_start();
-ob_start("ob_gzhandler");
+
+//ob_start("ob_gzhandler");
 
 include dirname(__FILE__).'/config.php';
 global $WebMS;
@@ -19,7 +20,7 @@ class WebMS{
 	var $config;
 	var $devMode=false;
 	var $title="";
-	var $content_type="text/html; charset=windows-1250";
+	var $content_type="text/html; charset=utf-8";
 	var $favicon="http://tpvgames.co.uk/favicon.ico";
 	var $description="OpenWebMS Driven Website";
 	var $keywords="OpenWebMS, resplace, resplace.net";

@@ -22,7 +22,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 		break;
 		}
 	}
-	if ($nope=0){
+	if ($nope==0){
 		$votes=$page->get("votes","0")+1;
 		$rank=$page->get("rank","0")+$_GET["RatePage"];
 		$ip=$page->get("ip","").','.$_SERVER['REMOTE_ADDR'];
