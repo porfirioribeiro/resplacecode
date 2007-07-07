@@ -26,6 +26,7 @@ class MySqlModel {
 class Sql{
 	static $ModelClass=MySqlModel;
 	var $model;
+	var $query="";
 	function Sql($db,$host,$user,$pass){
 		$this->model=new Sql::$ModelClass($db,$host,$user,$pass);
 	}
@@ -50,22 +51,33 @@ class Sql{
 		echo $sql;
 		$this->model->query($sql);
 	}
-	//update
-	//insert
-	//etc...
+	private function clearQuery(){
+		$this->query="";
+	}
+	function where($clause){
+		$this->query.=" WHERE ";
+		$this->query.=$clause;
+		return $this;
+	}
+	function get($table){
+		$this->query="SELECT * FROM `$table` ".$this->query;
+		$q=$this->query;
+		$this->query="";
+		return $this->model->query($q);
+	}
 	function close(){
 		$this->model->close();
 	}
 }
-class Sql_Query{
-	var $query="";
-	function Sql_Query(){
-		//SELECT * FROM `users` WHERE name ='Porfirio'
-	}
-}
+
 
 
 $db=new Sql("test","localhost","root","porfirio");
-$db->insert("users",array("name"=>"Porfirio","age"=>26));
+//$db->where("id=7 or name~'Porf%' and id<20");
+print_r($db->get("users"));
+//echo $db->query;
+
+
+//$db->insert("users",array("name"=>"Porfirio","age"=>26));
 $db->close();
 ?>
