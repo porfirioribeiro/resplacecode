@@ -1,27 +1,73 @@
 <?php
-
 class GDLib {
-	var $imagehash=null;
 	var $image;
-	var $colors=array();
-	var $drawColor=null;
-    var $fillColor=null;
-	var $FontSize=14;
-	var $Font=null;
+	var $colors		=array();
+	var $drawColor	=null;
+    var $fillColor	=null;
+	var $fontSize	=14;
+	var $font		=null;
+	var $cache		=false;
 	
-	function GDLib($width=1,$height=1) {
+	function GDLib($width=1,$height=1,$cache=null) {
 	global $WebMS;
-		$this->MakeCanvas($width,$height);
-		$this->Font=$WebMS["CorePath"]."Fonts/Halo.ttf";
+		if ($cache==true) {
+			$this->cache=true;
+			$hash=hash('md5',dirname(__FILE__));
+			$tempPath=$WebMS["WebMSPath"].'Temp/';
+			$WebMS["imgNumb"]+=1;
+			$imgNumb=$WebMS["imgNumb"];
+			$fileName=$tempPath.$hash.$imgNumb.'.png';
+			if (file_exists($fileName)) {
+				$date =date('y-m-d', filemtime($fileName));
+				$today=date('y-m-d');
+				$diff =abs(strtotime($today)-strtotime($date)) / 86400;
+				echo $diff;
+				if ($diff>=7) {
+					//remake the cache :)
+					$this->MakeCanvas($width,$height);
+				}
+			} else {
+				//remake the cache :)
+				$this->MakeCanvas($width,$height);
+			}
+		} else {
+			//no cache
+			$this->MakeCanvas($width,$height);
+		}
+	}
+	
+	function CheckCache() {
+	global $WebMS;
+	
+		if ($this->cache==true) {
+			
+			$hash=hash('md5',dirname(__FILE__));
+			$tempPath=$WebMS["WebMSPath"].'Temp/';
+			$WebMS["imgNumb"]+=1;
+			$imgNumb=$WebMS["imgNumb"];
+			$fileName=$tempPath.$hash.$imgNumb.'.png';
+			echo '{'.$fileName.'}';
+			if (file_exists($fileName)) {
+				echo' CACHED ';
+				$date =date('y-m-d', filemtime($fileName));
+				$today=date('y-m-d');
+				$diff =abs(strtotime($today)-strtotime($date)) / 86400;
+				echo $diff;
+				if ($diff>=7) {
+					echo' RE-CACHED ';
+				} else {
+					echo' SEND-CACHED ';
+					//do not procede with GD rendering, pass link to cached image
+					return array($WebMS["WebMSUrl"].'Temp/'.$hash.$imgNumb.'.png',$diff);
+					exit;
+				}
+			}
+		}
 	}
 	
 	function MakeCanvas($width=1,$height=1){
-		//append for unique code
-		$this->imagehash=$this->imagehash.$width.$height;
-		
         $this->image=imagecreatetruecolor($width,$height);
-        $this->SetColor("0,0,0,127","fill");
-        $this->SetColor("0,0,0,0","draw");
+		$this->CreateStyle('Default','Eunjin',14,"0,0,0,0","0,0,0,127");
         imagefill($this->image, 0, 0, $this->colors[$this->fillColor]);       
         imagesavealpha($this->image, true);
         imageantialias($this->image,true);
@@ -67,7 +113,7 @@ class GDLib {
 			$c[0] = (isset($c[0]) ? hexdec($c[0]) : 0);
 			$c[1] = (isset($c[1]) ? hexdec($c[1]) : 0);
 			$c[2] = (isset($c[2]) ? hexdec($c[2]) : 0);
-			if (!$c[3]) {
+			if (!isset($c[3]) || $c[3]==0) {
 				$mode='RGB';
 			} else {
 				$c[3] = (isset($c[3]) ? hexdec($c[3]) : 0);
@@ -114,31 +160,27 @@ class GDLib {
 		$this->FontSize=(int)$size;
 	}
 	
-	function CreateStyle($stylename,$font,$fontsize,$drawcolor,$fillcolor) {
+	function CreateStyle($stylename,$font,$fontSize,$drawColor,$fillColor) {
 		global $WebMS;
 		//Make a style that can be recalled as needed.
-		eval('$this'."->style_$stylename=array('$font',$fontsize,'$drawcolor','$fillcolor');");
+		eval('$this'."->style_$stylename=array('$font',$fontSize,'$drawColor','$fillColor');");
 		
 		//apply the style
-		$this->SetFont($font,$fontsize);
-		$this->SetColor($drawcolor,"draw");
-		$this->SetColor($fillcolor,"fill");
+		$this->SetFont($font,$fontSize);
+		$this->SetColor($drawColor,"draw");
+		$this->SetColor($fillColor,"fill");
 	}
 	
 	function SetStyle($stylename) {
 		//Recall a style.
 		$style=eval('$this'."->style_$stylename;");
-		$this->Font=$Font=$WebMS["CorePath"]."Fonts/".$style[0].'.ttf';
+		$this->Font=$font=$WebMS["CorePath"]."Fonts/".$style[0].'.ttf';
 		$this->FontSize=(int)$style[1];
 		$this->SetColor($style[2],"draw");
 		$this->SetColor($style[3],"fill");
 	}
 	
 	function CreateText($angle,$xpos,$ypos,$text){
-		//append for unique code
-		$txt= preg_replace('/[^a-zA-Z0-9]/i','',$text);
-		$this->imagehash=$this->imagehash.$angle.$xpos.$ypos.strlen($txt).substr($txt,0,1).substr($txt,-1,1).substr($txt,(strlen($txt)/2),1);
-		
 		// check font availability
 		$font_file=$this->Font;
 		//echo $font_file;
@@ -149,7 +191,7 @@ class GDLib {
 		}
 		else
 		{
-			ImageTTFText($this->image,$this->FontSize,$angle,$xpos,$ypos,$this->colors[$this->DrawColor],$font_file,$text);
+			ImageTTFText($this->image,$this->FontSize,$angle,$xpos,$ypos,$this->colors[$this->drawColor],$font_file,$text);
 		}
 	}
 	
@@ -171,70 +213,52 @@ class GDLib {
 		$ret[1]=abs($ret[7])+$ret[3];
 		return $ret;
 	}
-    //Draw functions
-    function drawArc($cx, $cy, $width, $height, $start, $end,$color=null){
-        $color=($color!=null)?$color:$this->drawColor;    
-        return imagearc ( $this->image, $cx, $cy, $width, $height, $start, $end, $color ); 
-    }
-    function drawEllipse ( $cx, $cy, $width, $height,$color=null){
-        $color=($color!=null)?$color:$this->drawColor;  
-        return imageellipse($this->image, $cx, $cy, $width, $height, $color);  
-    }
-    function drawRect ( $x1, $y1, $x2, $y2,$color=null){
-        $color=($color!=null)?$color:$this->drawColor;  
-        return imagerectangle ( $this->image, $x1, $y1, $x2, $y2, $color );
-    }
-    //Fill functions
-    function fillArc($cx, $cy, $width, $height, $start, $end,$color=null){
-        $color=($color!=null)?$color:$this->fillColor;    
-        return imagefilledarc ( $this->image, $cx, $cy, $width, $height, $start, $end, $color ,IMG_ARC_PIE); 
-    }
-    function fillEllipse ( $cx, $cy, $width, $height,$color=null){
-        $color=($color!=null)?$color:$this->fillColor;
-        //die($color."");
-        return imagefilledellipse ( $this->image, $cx, $cy, $width, $height, $color);  
-    }
-    function fillRect ( $x1, $y1, $x2, $y2,$color=null){
-        $color=($color!=null)?$color:$this->fillColor;  
-        return imagefilledrectangle ( $this->image, $x1, $y1, $x2, $y2, $color );
-    }
-    //Multy functions draw+fill
-    function Arc($cx, $cy, $width, $height, $start, $end,$drawColor=null,$fillColor=null){
-        return $this->fillArc($cx, $cy, $width, $height, $start, $end, $fillColor) && $this->drawArc($cx, $cy, $width, $height, $start, $end, $drawColor);
-    }    
-    function Ellipse ( $cx, $cy, $width, $height,$drawColor=null,$fillColor=null){
-        return $this->fillEllipse($cx,$cy,$width,$height,$fillColor) &&  $this->drawEllipse($cx,$cy,$width,$height,$drawColor);
-    }
-    function Rect ( $x1, $y1, $x2, $y2,$drawColor=null,$fillColor=null){
-        return $this->fillRect($x1,$y1,$x2,$y2,$fillColor) && $this->drawRect($x1,$y1,$x2,$y2,$drawColor);
-    }
-	//we may have diferent outputs for png gif bmp etc.... but out will do png by default
-	//Dont destroy the image here
-    function outPng($file=null){
-        if ($file==null){
-            header('Content-type: image/png');
-            imagepng($this->image);
-        }else if ($file===true){
-            $pt="Image__".rand(0,1000).".png";
-            imagepng($this->image,Conf::get("TempPath").$pt);
-            return Conf::get("TempUrl").$pt;
-        }else{
-            imagepng($this->image,$file);
-        }
-    }
-    function out($file=null){
-        return $this->outPng($file);
-    }
+	
+	function Out($file=null) {
+	global $WebMS;
+	
+		$imgNumb=$WebMS["imgNumb"];
+	
+		if ($this->cache==true || $file==true) {
+			$hash=hash('md5',dirname(__FILE__));
+			$tempPath=$WebMS["WebMSPath"].'Temp/';
+			$tempPathUrl=$WebMS["WebMSUrl"].'Temp/';
+		}
+	
+		if ($this->cache==true) {
+			$fileName=$tempPath.$hash.$imgNumb.'.png';
+			$fileNameUrl=$tempPathUrl.$hash.$imgNumb.'.png';
+			
+			imagepng($this->image,$fileName);
+			return $fileNameUrl;
+		} else {
+			if ($file==null) {
+				header('Content-type: image/png');
+				imagepng($this->image);
+			} else if ($file==true) {
+				$fileName=$tempPath.$hash.'_temp_'.$imgNumb.'.png';
+				$fileNameUrl=$tempPathUrl.$hash.'_temp_'.$imgNumb.'.png';
+				
+				imagepng($this->image,$fileName);
+				return $fileNameUrl;
+			} else {
+				imagepng($this->image,$file);
+			}
+		}
+	
+	
+	
+		
+		//imagedestroy($this->image);
+	}
+	
+	function __destruct() {
+		imagedestroy($this->image);
+	}
 	
 	function Destroy() {
 		imagedestroy($this->image);
 	}
-    //you know what is a destructor?????? This function is called when the object is destroyed for example if you have 
-    //it inside a function it will be automatic destroyed on the end of the function
-    //Its automatic
-    function __destruct(){
-        imagedestroy($this->image);
-    }
 	
 }
 ?>
