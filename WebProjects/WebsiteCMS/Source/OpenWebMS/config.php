@@ -7,6 +7,8 @@ $WebMS["WebMSPath"]         =$WebMS["RootPath"] ."OpenWebMS/";
 $WebMS["WebMSUrl"]          =$WebMS["RootUrl"]  ."OpenWebMS/";
 $WebMS["FilesPath"]         =$WebMS["WebMSPath"]."Files/";
 $WebMS["FilesUrl"]          =$WebMS["WebMSUrl"] ."Files/";
+$WebMS["TempPath"]          =$WebMS["WebMSPath"]."Temp/";
+$WebMS["TempUrl"]           =$WebMS["WebMSUrl"] ."Temp/";
 $WebMS["AdminPath"]         =$WebMS["WebMSPath"]."Admin/";
 $WebMS["AdminUrl"]          =$WebMS["WebMSUrl"] ."Admin/";
 $WebMS["ThemesPath"]        =$WebMS["WebMSPath"]."Themes/";
@@ -26,6 +28,24 @@ $WebMS["ModulesPath"]       =$WebMS["CorePath"] ."Modules/";
 $WebMS["ModulesUrl"]        =$WebMS["CoreUrl"]  ."Modules/";
 $WebMS["JSPath"]            =$WebMS["CorePath"] ."JS/";
 $WebMS["JSUrl"]             =$WebMS["CoreUrl"]  ."JS/";
+
+class Conf{
+  static $conf;
+  function get($key){
+  	return Conf::$conf[$key];
+  }
+  function set($key,$value){
+  	Conf::$conf[$key]=$value;
+  }
+  function __get($key){
+  	return Conf::$conf[$w];
+  }
+  function __set($key,$value){
+  	Conf::$conf[$key]=$value;
+  }
+}
+
+Conf::$conf;
 
 include_once $WebMS["IncPath"]."String.php";
 include_once $WebMS["IncPath"]."error_reporter.php";

@@ -1,10 +1,11 @@
 <?php
+
 class GDLib {
 	var $imagehash=null;
 	var $image;
 	var $colors=array();
-	var $DrawColor=null;
-    var $FillColor=null;
+	var $drawColor=null;
+    var $fillColor=null;
 	var $FontSize=14;
 	var $Font=null;
 	
@@ -21,7 +22,7 @@ class GDLib {
         $this->image=imagecreatetruecolor($width,$height);
         $this->SetColor("0,0,0,127","fill");
         $this->SetColor("0,0,0,0","draw");
-        imagefill($this->image, 0, 0, $this->colors[$this->FillColor]);       
+        imagefill($this->image, 0, 0, $this->colors[$this->fillColor]);       
         imagesavealpha($this->image, true);
         imageantialias($this->image,true);
         imagealphablending($this->image,true);
@@ -88,14 +89,14 @@ class GDLib {
 		}
 		
 		if ($set=='draw') {
-			$this->DrawColor=$col;
+			$this->drawColor=$col;
 		} else if ($set=='fill') {
-			$this->FillColor=$col;
+			$this->fillColor=$col;
 		} else if ($set=='none') {
 		
 		} else {
-			$this->DrawColor=$col;
-			$this->FillColor=$col;
+			$this->drawColor=$col;
+			$this->fillColor=$col;
 		}
 		
 		return $col;
@@ -170,20 +171,70 @@ class GDLib {
 		$ret[1]=abs($ret[7])+$ret[3];
 		return $ret;
 	}
-	
-	function Out($file=null) {
-		if ($file==null){
+    //Draw functions
+    function drawArc($cx, $cy, $width, $height, $start, $end,$color=null){
+        $color=($color!=null)?$color:$this->drawColor;    
+        return imagearc ( $this->image, $cx, $cy, $width, $height, $start, $end, $color ); 
+    }
+    function drawEllipse ( $cx, $cy, $width, $height,$color=null){
+        $color=($color!=null)?$color:$this->drawColor;  
+        return imageellipse($this->image, $cx, $cy, $width, $height, $color);  
+    }
+    function drawRect ( $x1, $y1, $x2, $y2,$color=null){
+        $color=($color!=null)?$color:$this->drawColor;  
+        return imagerectangle ( $this->image, $x1, $y1, $x2, $y2, $color );
+    }
+    //Fill functions
+    function fillArc($cx, $cy, $width, $height, $start, $end,$color=null){
+        $color=($color!=null)?$color:$this->fillColor;    
+        return imagefilledarc ( $this->image, $cx, $cy, $width, $height, $start, $end, $color ,IMG_ARC_PIE); 
+    }
+    function fillEllipse ( $cx, $cy, $width, $height,$color=null){
+        $color=($color!=null)?$color:$this->fillColor;
+        //die($color."");
+        return imagefilledellipse ( $this->image, $cx, $cy, $width, $height, $color);  
+    }
+    function fillRect ( $x1, $y1, $x2, $y2,$color=null){
+        $color=($color!=null)?$color:$this->fillColor;  
+        return imagefilledrectangle ( $this->image, $x1, $y1, $x2, $y2, $color );
+    }
+    //Multy functions draw+fill
+    function Arc($cx, $cy, $width, $height, $start, $end,$drawColor=null,$fillColor=null){
+        return $this->fillArc($cx, $cy, $width, $height, $start, $end, $fillColor) && $this->drawArc($cx, $cy, $width, $height, $start, $end, $drawColor);
+    }    
+    function Ellipse ( $cx, $cy, $width, $height,$drawColor=null,$fillColor=null){
+        return $this->fillEllipse($cx,$cy,$width,$height,$fillColor) &&  $this->drawEllipse($cx,$cy,$width,$height,$drawColor);
+    }
+    function Rect ( $x1, $y1, $x2, $y2,$drawColor=null,$fillColor=null){
+        return $this->fillRect($x1,$y1,$x2,$y2,$fillColor) && $this->drawRect($x1,$y1,$x2,$y2,$drawColor);
+    }
+	//we may have diferent outputs for png gif bmp etc.... but out will do png by default
+	//Dont destroy the image here
+    function outPng($file=null){
+        if ($file==null){
             header('Content-type: image/png');
             imagepng($this->image);
+        }else if ($file===true){
+            $pt="Image__".rand(0,1000).".png";
+            imagepng($this->image,Conf::get("TempPath").$pt);
+            return Conf::get("TempUrl").$pt;
         }else{
             imagepng($this->image,$file);
         }
-		imagedestroy($this->image);
-	}
+    }
+    function out($file=null){
+        return $this->outPng($file);
+    }
 	
 	function Destroy() {
 		imagedestroy($this->image);
 	}
+    //you know what is a destructor?????? This function is called when the object is destroyed for example if you have 
+    //it inside a function it will be automatic destroyed on the end of the function
+    //Its automatic
+    function __destruct(){
+        imagedestroy($this->image);
+    }
 	
 }
 ?>
