@@ -12,3 +12,7 @@ Ok not in any specific order here is our references, and thanks to all those oth
  Thanks to TwinHelix png's are displayed properly in IE5.5 and IE6 when using the CSS class "alpha".
  
  http://www.twinhelix.com/css/iepngfix/
+ 
+ mikeleigh dot com - GD TTF Text width fix
+ ------------------------------------------
+ Thanks to mike we can correctly judge the width of text drawn using GD and a TTF font, this enables us to develop smart script to create a canvas for what we need.
