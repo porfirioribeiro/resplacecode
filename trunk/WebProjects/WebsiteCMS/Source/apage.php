@@ -63,14 +63,38 @@ function someContent($mod){
 	</table>
 	<?php
 	//get text size for creating the image size later
-
-	$g=new GDLib(100,100);
-	$g->CreateText(0,0,0,"A");
-	$g->Rect(10,10,90,90);
-	//$g->out(true);
+	/*
+	$br=new GDCanvas(6,6);
+	$br->SetFontTTF("Halo.ttf");
+	$br->SetFontSize(100);
+	$siz=$br->TextTTFBox(0, "GD TEST :)");
+	print_r($siz);
+	$g=new GDCanvas($siz[0],$siz[1]);
+	
+	$g->SetFontTTF("Halo.ttf");
+	$g->SetFontSize(100);
+	$g->AddTextTTF(0,0-$siz[2],$siz[1]-$siz[3],'#EF0000',"GD TEST :)");
+	$g->out("test.png");
 	?>
-	<img src='<?=$g->out(true)?>' border='0' alt='test' title='test' />
+	<img src='test.png' border='0' alt='test' title='test' />
 	<?php
+	*/
+	$b=new GDLib(6,6);
+		$b->CreateStyle('Default','Eunjin',70,'#0000BB','#F0F0F0');
+		$textdim=$b->GetTextSize(0,"resplace.net");
+		$b->Destroy();
+		//print_r($textdim);
+	
+	$br=new GDLib($textdim[0],$textdim[1]);
+		$br->CreateStyle('Default','Eunjin',50,'#0000BB','#F0F0F0');
+		$br->CreateText(0,0-$textdim[2],$textdim[1]-$textdim[3]-10,'resplace.net');
+		$br->FontSize=10;
+		$br->CreateText(0,0-$textdim[2]+120,$textdim[1]-$textdim[3]+2,'All your resource are belong to us!');
+		$br->out("test.png");
+		echo preg_replace('/[^a-zA-Z0-9]/i','z',$br->imagehash);
+		?>
+		<img src='test.png' border='0' alt='test' title='test' />
+		<?php
 }
 function top($mod){
 	?>
