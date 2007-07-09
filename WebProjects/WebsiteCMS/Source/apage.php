@@ -80,20 +80,39 @@ function someContent($mod){
 	<?php
 	*/
 	$b=new GDLib(6,6);
-		$b->CreateStyle('Default','Eunjin',70,'#0000BB','#F0F0F0');
+		$b->CreateStyle('Big','Eunjin',70,'#0000BB','#F0F0F0');
 		$textdim=$b->GetTextSize(0,"resplace.net");
 		$b->Destroy();
 		//print_r($textdim);
 	
-	$br=new GDLib($textdim[0],$textdim[1]);
-		$br->CreateStyle('Default','Eunjin',50,'#0000BB','#F0F0F0');
+	$br=new GDLib($textdim[0],$textdim[1],true);
+	$check=$br->CheckCache();
+	if (!is_array($check)) {
+		echo' TEST ';
+		$br->CreateStyle('Big','Eunjin',50,'#0000BB','#F0F0F0');
 		$br->CreateText(0,0-$textdim[2],$textdim[1]-$textdim[3]-10,'resplace.net');
 		$br->FontSize=10;
 		$br->CreateText(0,0-$textdim[2]+120,$textdim[1]-$textdim[3]+2,'All your resource are belong to us!');
-		$br->out("test.png");
-		echo preg_replace('/[^a-zA-Z0-9]/i','z',$br->imagehash);
+		$file=$br->out(true);
+	} else {
+		$file=$check[0];
+	}
+		echo $file;
+		//echo preg_replace('/[^a-zA-Z0-9]/i','z',$br->imagehash);
 		?>
-		<img src='test.png' border='0' alt='test' title='test' />
+		<img src='<?=$file; ?>' border='0' alt='test' title='test' />
+		<?php
+		
+	$br2=new GDLib($textdim[0],$textdim[1]);
+		$br2->CreateStyle('Big','Eunjin',50,'#BB','#F0F0F0');
+		$br2->CreateText(0,0-$textdim[2],$textdim[1]-$textdim[3]-10,'resplace.net');
+		$br2->FontSize=10;
+		$br2->CreateText(0,0-$textdim[2]+120,$textdim[1]-$textdim[3]+2,'All your resource are belong to us!');
+		$file=$br2->out(true);
+		echo $file;
+		//echo preg_replace('/[^a-zA-Z0-9]/i','z',$br->imagehash);
+		?>
+		<img src='<?=$file; ?>' border='0' alt='test' title='test' />
 		<?php
 }
 function top($mod){

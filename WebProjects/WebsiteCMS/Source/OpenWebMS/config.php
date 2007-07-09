@@ -29,6 +29,9 @@ $WebMS["ModulesUrl"]        =$WebMS["CoreUrl"]  ."Modules/";
 $WebMS["JSPath"]            =$WebMS["CorePath"] ."JS/";
 $WebMS["JSUrl"]             =$WebMS["CoreUrl"]  ."JS/";
 
+//used for LibGD
+$WebMS["imgNumb"]			=0;
+
 class Conf{
   static $conf;
   function get($key){
