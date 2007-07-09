@@ -63,19 +63,13 @@ function someContent($mod){
 	</table>
 	<?php
 	//get text size for creating the image size later
-	$br=new GDCanvas(6,6);
-	$br->SetFontTTF("chiller.ttf");
-	$br->SetFontSize(100);
-	$siz=$br->TextTTFBox(0, "Porfírio Ribeiro");
-	print_r($siz);
-	$g=new GDCanvas($siz[0],$siz[1]);
-	
-	$g->SetFontTTF("chiller.ttf");
-	$g->SetFontSize(100);
-	$g->AddTextTTF(0,0-$siz[2],$siz[1]-$siz[3],'#EF0000',"Porfírio Ribeiro");
-	$g->out("test.png");
+
+	$g=new GDLib(100,100);
+	$g->CreateText(0,0,0,"A");
+	$g->Rect(10,10,90,90);
+	//$g->out(true);
 	?>
-	<img src='test.png' border='0' alt='test' title='test' />
+	<img src='<?=$g->out(true)?>' border='0' alt='test' title='test' />
 	<?php
 }
 function top($mod){

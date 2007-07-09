@@ -10,7 +10,6 @@ if (isset($_POST['submit'])) {
 			if (md5($_POST['password_old'])==$adminpassword) {
 				//$m1=$db->addMap("1");
 				$db->put("adminpassword",md5($_POST['password_new']));
-				echo 'test';
 			} else {
 				echo'Error: Original admin password is incorrect!<br><br>';
 			}
