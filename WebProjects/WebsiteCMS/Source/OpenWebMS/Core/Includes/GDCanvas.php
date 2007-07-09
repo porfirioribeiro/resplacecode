@@ -5,7 +5,7 @@ class GDCanvas{
     var $fillColor=null;
     var $colors=array();
     //Create the canvas
-    function GDCanvas($width,$height){
+    function GDCanvas($width=1,$height=1){
         $this->image=imagecreatetruecolor($width,$height);
         $this->fillColor=$this->RGBA(0,0,0,127);
         $this->drawColor=$this->RGBA();
@@ -85,6 +85,7 @@ class GDCanvas{
         }else{
             imagepng($this->image,$file);
         }
+		imagedestroy($this->image);
     }
     function out($file=null){
         $this->outPng($file);
@@ -96,10 +97,12 @@ class GDCanvas{
 	
 	//Set the TTF font
 	function SetFontTTF($font){
-	$font=dirname(__FILE__)."\..\Fonts\\".$font;
+	global $WebMS;
+	$font=$WebMS["CorePath"]."Fonts/".$font;
+	
 		if(!is_readable($font))
 		{
-			$font=dirname(__FILE__)."\..\Fonts\default.ttf";
+			$font=$WebMS["CorePath"]."Fonts/FreeSerif.ttf";
 		}
 		$this->FontTTF=$font;
 	}
