@@ -37,12 +37,11 @@ td.sub {
 
 /* module title on the left top bottom and right */
 .modules_title {
-	border:1px solid #DDDDDD;
 	text-align:left;
-	background-color:#FCFCFC;
+	background-color:#6581DA;
 	background-image:url(Images/module_title_bg.png);
 	font-size:14px;
-	color:#333333;
+	color:#000033;
 	padding-top:2px;
 	padding-left:12px;
 	padding-right:4px;
@@ -50,9 +49,10 @@ td.sub {
 
 /* module content on the left top bottom and right */
 .modules_content {
-	background-color:#FFFFFF;
-	border:1px solid #DDDDDD;
+	background-color:#C0CAEB;
+	border:1px solid #264CC6;
 	border-top:0px;
+	margin-top:0px;
 	text-align:left;
 }
 
@@ -80,20 +80,21 @@ td.sub {
 
 /* This is the frame which goes around the whole site, usually left invisible, design preference. */
 .MainFrame {
-	width:100%;
 	border:0px;
 }
 
 /* Middle section for the main box at the top, where the title goes... */
 .MainMid {
 	text-align:center;
-	background-color:#DDDDDD;
+	background-image:url(Images/heading_background.png);
 	height:75px;
+	
 }
 
 /*Footer Style*/
 .Footer {
 	text-align:center;
+	margin:4px;
 	padding:2px;
 	border-top:5px solid #FF0000;
 	background-color:#DDDDDD;
@@ -115,7 +116,6 @@ td.sub {
 .CollapseIcon{
 	background-image:URL(Images/uncollapsed.png);
 }
-
 .UnCollapseIcon{
 	background-image:URL(Images/collapsed.png);
 }

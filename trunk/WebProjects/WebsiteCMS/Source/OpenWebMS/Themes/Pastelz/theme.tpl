@@ -5,7 +5,7 @@
 			    <div style="float:right" id="#{id}_right_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
 				<div class="TitleText">#{title}</div>                        
 	        </div>	       
-			<div class="modules_c_content" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
+			<div class="modules_content" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
 				<div class="BoxContent">
 					#{content}
 				</div>
@@ -38,33 +38,6 @@
 			</div>	
 		</div> 	
 	#{end:right}
-	#{start:top}	
-		<div id="#{id}" class="Module" style="width:100%">                  
-	        <div class="modules_title">      	
-			    <div style="float:right" id="#{id}_top_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
-				<div class="TitleText">#{title}</div> 
-				                      
-	        </div>	     
-			<div class="modules_content" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
-				<div class="BoxContent">
-					#{content}
-				</div>
-			</div>	
-		</div> 	
-	#{end:top}
-	#{start:bottom}	
-		<div id="#{id}" class="Module">                  
-	        <div class="modules_title">      	
-			    <div style="float:right" id="#{id}_bottom_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
-				<div class="TitleText">#{title}</div>                        
-	        </div>	       
-			<div class="modules_content" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
-				<div class="BoxContent">
-					#{content}
-				</div>
-			</div>	
-		</div> 	
-	#{end:bottom}	
 #{end:module}
 
 #{start:page}	
@@ -81,13 +54,11 @@
 		</div>
 		
 	#{end:title}	
-	#{start:content}	
-		<table cellpadding="0" cellspacing="0" width="100%" >                
-		    <tr>
-		    	<td id="TopColumn" colspan="3" style="#{display_modulestop}">
-		    	#{write_modulestop}           	
-		    	</td>
-		    </tr>
+	#{start:content}
+		<div style="#{display_modulestop}">
+			#{write_modulestop}
+		</div>	
+		<table cellpadding="0" cellspacing="0" width="100%">                
 		    <tr>           
 		    	<td id="LeftColumn" style="#{display_modulesleft}">  
 		    	#{write_modulesleft}
@@ -98,13 +69,11 @@
 		    	<td id="RightColumn" style="#{display_modulesright}">
 		    	#{write_modulesright}
 		    	</td>	              
-		    </tr>
-			<tr>				
-				<td id="BottomColumn" colspan="3" style="#{display_modulesbottom}">
-		    	#{write_modulesbottom} 
-				</td>				
-			</tr>           
+		    </tr>           
 		</table>
+		<div style="#{display_modulesbottom}">
+			#{write_modulesbottom}
+		</div>	
 	#{end:content}
 	#{start:footer}
 	<div align="center">

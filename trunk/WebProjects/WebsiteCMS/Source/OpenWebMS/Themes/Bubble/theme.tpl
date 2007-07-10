@@ -64,12 +64,10 @@
 		</div>
 	#{end:title}	
 	#{start:content}	
-		<table cellpadding="0" cellspacing="0" width="100%" >                
-		    <tr>
-		    	<td colspan="3" style="#{display_modulestop}">
-		    	#{write_modulestop}           	
-		    	</td>
-		    </tr>
+		<div style="#{display_modulestop}">
+			#{write_modulestop}
+		</div>	
+		<table cellpadding="0" cellspacing="0" width="100%">                
 		    <tr>           
 		    	<td id="LeftColumn" style="#{display_modulesleft}">  
 		    	#{write_modulesleft}
@@ -80,13 +78,11 @@
 		    	<td id="RightColumn" style="#{display_modulesright}">
 		    	#{write_modulesright}
 		    	</td>	              
-		    </tr>
-			<tr>				
-				<td colspan="3" style="#{display_modulesbottom}">
-		    	#{write_modulesbottom} 
-				</td>				
-			</tr>           
+		    </tr>           
 		</table>
+		<div style="#{display_modulesbottom}">
+			#{write_modulesbottom}
+		</div>	
 	#{end:content}
 	#{start:footer}
 	<div align="center">
