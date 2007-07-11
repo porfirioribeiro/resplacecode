@@ -214,6 +214,56 @@ class GDLib {
 		return $ret;
 	}
 	
+	//SET A BRUSH
+	function setBrush($br){
+        if ($br instanceof GDLib){
+            $br=$br->image;
+        }
+        return imagesetbrush($this->image,$br);
+    }
+	
+	
+	//Draw functions
+    function drawArc($cx, $cy, $width, $height, $start, $end,$color=null){
+        $color=($color!=null)?$color:$this->drawColor;    
+        return imagearc ( $this->image, $cx, $cy, $width, $height, $start, $end, $color); 
+    }
+    function drawEllipse ( $cx, $cy, $width, $height,$color=null){
+        $color=($color!=null)?$color:$this->drawColor;  
+        return imageellipse($this->image, $cx, $cy, $width, $height, $color);  
+    }
+    function drawRect ( $x1, $y1, $x2, $y2,$color=null){
+        $color=($color!=null)?$color:$this->drawColor;  
+        return imagerectangle ( $this->image, $x1, $y1, $x2, $y2, $color );
+    }
+    //Fill functions
+    function fillArc($cx, $cy, $width, $height, $start, $end,$color=null){
+        $color=($color!=null)?$color:$this->fillColor;    
+        return imagefilledarc ( $this->image, $cx, $cy, $width, $height, $start, $end, $color ,IMG_ARC_PIE); 
+    }
+    function fillEllipse ( $cx, $cy, $width, $height,$color=null){
+        $color=($color!=null)?$color:$this->fillColor;
+        //die($color."");
+        return imagefilledellipse ( $this->image, $cx, $cy, $width, $height, $color);  
+    }
+    function fillRect ( $x1, $y1, $x2, $y2,$color=null){
+        $color=($color!=null)?$color:$this->fillColor;  
+		echo $color;
+        return imagefilledrectangle ( $this->image, $x1, $y1, $x2, $y2, $color );
+    }
+    //Multy functions draw+fill
+    function Arc($cx, $cy, $width, $height, $start, $end,$drawColor=null,$fillColor=null){
+        return $this->fillArc($cx, $cy, $width, $height, $start, $end, $fillColor) && $this->drawArc($cx, $cy, $width, $height, $start, $end, $drawColor);
+    }    
+    function Ellipse ( $cx, $cy, $width, $height,$drawColor=null,$fillColor=null){
+        return $this->fillEllipse($cx,$cy,$width,$height,$fillColor) &&  $this->drawEllipse($cx,$cy,$width,$height,$drawColor);
+    }
+    function Rect ($x1, $y1, $x2, $y2,$drawColor=null,$fillColor=null){
+        return $this->fillRect($x1,$y1,$x2,$y2,$fillColor) && $this->drawRect($x1,$y1,$x2,$y2,$drawColor);
+    }
+	
+	
+	//OUTPUT THE GD
 	function Out($file=null) {
 	global $WebMS;
 	
@@ -245,13 +295,9 @@ class GDLib {
 				imagepng($this->image,$file);
 			}
 		}
-	
-	
-	
-		
-		//imagedestroy($this->image);
 	}
 	
+	//DESTRUCTION
 	function __destruct() {
 		imagedestroy($this->image);
 	}
