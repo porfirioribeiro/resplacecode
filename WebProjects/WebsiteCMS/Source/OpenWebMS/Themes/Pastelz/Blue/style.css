@@ -5,33 +5,33 @@ body {
 	text-align:center;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:12px;
-	color:#444444;
+	color:#05174F;
 	background-color:#FFFFFF;
 }
 
 /*<a></a> Styles*/
 a {
-	color:#454545;
+	color:#07257F;
 }
 a:visited {
-	color:#454545;
+	color:#05174F;
 }
 
 /* Stuff in tables */
 .tbl {
-	border:1px solid #CFCFCF;
+	border:1px solid #6581DA;
 }
 table.tbl td {
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:12px;
-	border:1px solid #CFCFCF;
+	border:1px solid #A7B6E5;
 }
 td.main {
-	background-color:#CFCFCF;
+	background-color:#6581DA;
 	text-align:center;
 }
 td.sub {
-	background-color:#DFDFDF;
+	background-color:#A7B6E5;
 	text-align:center;
 }
 
@@ -94,10 +94,9 @@ td.sub {
 /*Footer Style*/
 .Footer {
 	text-align:center;
-	margin:4px;
 	padding:2px;
-	border-top:5px solid #FF0000;
-	background-color:#DDDDDD;
+	border-top:5px solid #2A50C7;
+	background-color:#C0CAEB;
 	border-right:0px;
 }
 

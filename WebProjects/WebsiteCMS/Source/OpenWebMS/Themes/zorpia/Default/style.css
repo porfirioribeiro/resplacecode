@@ -40,15 +40,13 @@ td.sub {
 	background-color:#91c846;
 	font-size:14px;
 	color:#FFFFFF;
-	padding:3px;
-	margin:2px;
+	padding:2px;
+	margin-bottom:2px;
 }
 
 /* module content on the left top bottom and right */
 .modules_lrtb_content {
 	background-color:#bfdd97;
-	padding:4px;
-	margin:2px;
 	text-align:left;
 }
 
@@ -63,14 +61,12 @@ td.sub {
 
 /* module content on center */
 .modules_c_content {
-	padding:4px;
-	margin-bottom:5px;
 	text-align:left;
 }
 
 /*box within each module */
 .Module{
-	margin-top:2px;
+	margin:2px;
 	margin-bottom:20px;
 }
 
@@ -89,6 +85,10 @@ td.sub {
 .MainFrame {
 	width:100%;
 	border:0px;
+}
+
+.BoxContent {
+	padding:6px;
 }
 
 /* Middle section for the main box at the top, where the title goes... */
@@ -111,7 +111,7 @@ td.sub {
 
 /*??*/
 .SmallIcon{
-	margin-top:2px;
+	margin-top:4px;
 	width:12px;
 	height:12px;	
 	cursor:pointer;

@@ -63,8 +63,7 @@ a:visited {
 	background-image:url(Images/middle_main.png);
 	height:78px;
 	text-align:center;
-	margin:4px;
-	margin-bottom:0px;
+	margin-bottom:5px;
 }
 .MainLeft {
 	background-image:url(Images/left_main.png);
@@ -142,7 +141,8 @@ a:visited {
 	text-align:left;
 }
 .Module{
-	margin-top:2px;
+	margin:3px;
+	margin-bottom:10px;
 }
 #MinimizeLeftColumn{
 	height:100%;
