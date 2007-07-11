@@ -79,6 +79,14 @@ function someContent($mod){
 	<img src='test.png' border='0' alt='test' title='test' />
 	<?php
 	*/
+	//this is the brush
+	$bru=new GDLib(6,6);
+	$bru->CreateStyle('Big','Eunjin',70,'#0000BB','#91C846');
+	$bru->Ellipse(3,3,5,5);
+	//$br->out();
+	
+	
+	
 	$b=new GDLib(6,6);
 		$b->CreateStyle('Big','Eunjin',70,'#0000BB','#F0F0F0');
 		$textdim=$b->GetTextSize(0,"resplace.net");
@@ -93,6 +101,11 @@ function someContent($mod){
 		$br->CreateText(0,0-$textdim[2],$textdim[1]-$textdim[3]-10,'resplace.net');
 		$br->FontSize=10;
 		$br->CreateText(0,0-$textdim[2]+120,$textdim[1]-$textdim[3]+2,'All your resource are belong to us!');
+		
+		imagesetbrush($br->image,$bru->image);
+		imagesettile($br->image,$bru->image);
+		$br->CreateStyle('Big','Eunjin',70,'#0000BB','#91C846');
+		$br->Rect(10,10,80,80,IMG_COLOR_TILED);
 		$file=$br->out(true);
 	} else {
 		$file=$check[0];
