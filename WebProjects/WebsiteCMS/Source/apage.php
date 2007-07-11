@@ -105,7 +105,7 @@ function someContent($mod){
 		
 	$br2=new GDLib($textdim[0],$textdim[1]);
 		$br2->CreateStyle('Big','Eunjin',50,'#BB','#F0F0F0');
-		$br2->CreateText(0,0-$textdim[2],$textdim[1]-$textdim[3]-10,'resplace.net');
+		$br2->CreateText(0,0-$textdim[2],$textdim[1]-$textdim[3]-10,'Porfírio!');
 		$br2->FontSize=10;
 		$br2->CreateText(0,0-$textdim[2]+120,$textdim[1]-$textdim[3]+2,'All your resource are belong to us!');
 		$file=$br2->out(true);

@@ -37,14 +37,14 @@ td.sub {
 
 /* module title on the left top bottom and right */
 .modules_title {
-	text-align:left;
-	background-color:#6581DA;
-	background-image:url(Images/module_title_bg.png);
-	font-size:14px;
-	color:#000033;
-	padding-top:2px;
-	padding-left:12px;
-	padding-right:4px;
+	text-align: left;
+	background-color: #6581DA;
+	background-image: url(Images/module_title_bg.png);
+	font-size: 14px;
+	color: #E1E3FF;
+	padding-top: 2px;
+	padding-left: 12px;
+	padding-right: 4px;
 }
 
 /* module content on the left top bottom and right */
