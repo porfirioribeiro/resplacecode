@@ -225,29 +225,29 @@ class GDLib {
 	
 	//Draw functions
     function drawArc($cx, $cy, $width, $height, $start, $end,$color=null){
-        $color=($color!=null)?$color:$this->drawColor;    
+        $color=($color!=null)?$color:$this->colors[$this->drawColor];    
         return imagearc ( $this->image, $cx, $cy, $width, $height, $start, $end, $color); 
     }
     function drawEllipse ( $cx, $cy, $width, $height,$color=null){
-        $color=($color!=null)?$color:$this->drawColor;  
+        $color=($color!=null)?$color:$this->colors[$this->drawColor];  
         return imageellipse($this->image, $cx, $cy, $width, $height, $color);  
     }
     function drawRect ( $x1, $y1, $x2, $y2,$color=null){
-        $color=($color!=null)?$color:$this->drawColor;  
+        $color=($color!=null)?$color:$this->colors[$this->drawColor];  
         return imagerectangle ( $this->image, $x1, $y1, $x2, $y2, $color );
     }
     //Fill functions
     function fillArc($cx, $cy, $width, $height, $start, $end,$color=null){
-        $color=($color!=null)?$color:$this->fillColor;    
+        $color=($color!=null)?$color:$this->colors[$this->fillColor];    
         return imagefilledarc ( $this->image, $cx, $cy, $width, $height, $start, $end, $color ,IMG_ARC_PIE); 
     }
     function fillEllipse ( $cx, $cy, $width, $height,$color=null){
-        $color=($color!=null)?$color:$this->fillColor;
+        $color=($color!=null)?$color:$this->colors[$this->fillColor];
         //die($color."");
         return imagefilledellipse ( $this->image, $cx, $cy, $width, $height, $color);  
     }
     function fillRect ( $x1, $y1, $x2, $y2,$color=null){
-        $color=($color!=null)?$color:$this->fillColor;  
+        $color=($color!=null)?$color:$this->colors[$this->fillColor];  
 		echo $color;
         return imagefilledrectangle ( $this->image, $x1, $y1, $x2, $y2, $color );
     }
