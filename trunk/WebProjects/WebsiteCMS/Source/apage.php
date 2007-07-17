@@ -80,9 +80,11 @@ function someContent($mod){
 	<?php
 	*/
 	//this is the brush
-	$bru=new GDLib(6,6);
-	$bru->CreateStyle('Big','Eunjin',70,'#0000BB','#91C846');
-	$bru->Ellipse(3,3,5,5);
+	$bru=new GDLib(5,5);
+	$bru->SetColor('#FFFFFF','draw'); $bru->SetColor('#91C846','fill');
+	$bru->Ellipse(2,2,5,5);
+	$file=$bru->out(true);
+		echo $file;
 	//$br->out();
 	
 	
@@ -104,7 +106,7 @@ function someContent($mod){
 		
 		imagesetbrush($br->image,$bru->image);
 		imagesettile($br->image,$bru->image);
-		$br->CreateStyle('Big','Eunjin',70,'#0000BB','#91C846');
+		$br->CreateStyle('Big','Eunjin',70,'#0000BB','#7BB1E1');
 		$br->Rect(10,10,80,80,IMG_COLOR_TILED);
 		$file=$br->out(true);
 	} else {
