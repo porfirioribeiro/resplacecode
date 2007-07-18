@@ -154,10 +154,10 @@ class GDLib {
 	
 		if(!is_readable($font))
 		{
-			$font=$WebMS["CorePath"]."Fonts/FreeSerif.ttf";
+			$font=$WebMS["CorePath"]."Fonts/FreeSans.ttf";
 		}
-		$this->Font=$font;
-		$this->FontSize=(int)$size;
+		$this->font=$font;
+		$this->fontSize=(int)$size;
 	}
 	
 	function CreateStyle($stylename,$font,$fontSize,$drawColor,$fillColor) {
@@ -174,15 +174,15 @@ class GDLib {
 	function SetStyle($stylename) {
 		//Recall a style.
 		$style=eval('$this'."->style_$stylename;");
-		$this->Font=$font=$WebMS["CorePath"]."Fonts/".$style[0].'.ttf';
-		$this->FontSize=(int)$style[1];
-		$this->SetColor($style[2],"draw");
-		$this->SetColor($style[3],"fill");
+		$this->font=$WebMS["CorePath"]."Fonts/".$style[0].'.ttf';
+		$this->fontSize=(int)$style[1];
+		$this->setColor($style[2],"draw");
+		$this->setColor($style[3],"fill");
 	}
 	
 	function CreateText($angle,$xpos,$ypos,$text){
 		// check font availability
-		$font_file=$this->Font;
+		$font_file=$this->font;
 		//echo $font_file;
 		if(!is_readable($font_file))
 		{
@@ -191,13 +191,13 @@ class GDLib {
 		}
 		else
 		{
-			ImageTTFText($this->image,$this->FontSize,$angle,$xpos,$ypos,$this->colors[$this->drawColor],$font_file,$text);
+			ImageTTFText($this->image,$this->fontSize,$angle,$xpos,$ypos,$this->colors[$this->drawColor],$font_file,$text);
 		}
 	}
 	
 	function GetTextSize($angle, $text){
 		// compute size with a zero angle
-		$coords = imagettfbbox($this->FontSize, $angle, $this->Font, $text);
+		$coords = imagettfbbox($this->fontSize, $angle, $this->font, $text);
 		// convert angle to radians
 		$a = deg2rad($angle);
 		// compute some usefull values
