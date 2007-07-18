@@ -14,6 +14,8 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 	include_once '../../config.php';
 	$db=new ResDB("PageRater");
 	$page=$db->getMap($_GET["page"]);
+	$bar=$db->get("pageratebarbac");
+	$bac=$db->get("pageratebar");
 	$ips=explode(",",$page->get("ip",""));
 	$nope=0;
 	foreach ($ips as $ipc){
@@ -48,6 +50,9 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 			$this->side=Module::LEFT;
 			$this->title="Rate this Page";	
 			$this->db=new ResDB("PageRater");
+			$this->bar=$this->db->get("pageratebarbac");
+			$this->bac=$this->db->get("pageratebar");
+			$this->bac2=explode("/",$this->bac);
 			$this->pg=$this->db->getMap($this->page->id);
 			$this->url=str_replace($_SERVER["DOCUMENT_ROOT"],"", preg_replace("/\\\/","/",__FILE__));
 			$this->base=str_replace("PageRate.php","",$this->url);
@@ -89,8 +94,12 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 			
 			?>
 				Rank: <span id="PageRate_rank"><?=$rv?></span> / 5  Votes: <span id="PageRate_votes"><?=$votes?></span>
-				<div style="width:100px;background-color:white;border:1px solid black;height: 10px;">			
-					<div id="PageRate_progress" style="position: static;left:0px;top:0px;background-image:URL(<?=$this->base."PageRate/PR.png"?>) ;height: 100%;width: <?=(100*$rv)/5?>px;font-size:0px"></div>
+				<div style="width:110px; <?php
+					if (!strcmp($this->bac2[1],"none")==0) {
+						echo "background-image:URL(".$this->base."PageRate/Bars/".$this->bac.");";
+					}
+				?> height: 20px;">			
+					<div id="PageRate_progress" style="position: static;left:0px;top:0px;background-image:URL(<?=$this->base."PageRate/Bars/".$this->bar; ?>); height: 100%;width: <?=(100*$rv)/5?>px;font-size:0px"></div>
 				</div>
                 <?php
 
