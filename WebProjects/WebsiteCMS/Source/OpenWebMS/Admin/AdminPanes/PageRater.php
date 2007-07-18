@@ -17,7 +17,7 @@ if (isset($_POST['Submitit'])) {
 
 //read it
 $pageratebara=explode("/",$db->get("pageratebar"));
-$pageratebg=$db->get("pageratebg");
+$pageratebarb=explode("/",$db->get("pageratebarbac"));
 
 if (isset($_POST['Submitit'])) { $db->close(); }
 
@@ -32,7 +32,7 @@ class PageRater extends Module {
 		$this->side=Module::CENTER;
 	}
 	function content(){
-		global $WebMS, $path, $adminpassword, $pageratebara;
+		global $WebMS, $path, $adminpassword, $pageratebara, $pageratebarb;
 		
 		?>
 		Below you can change various options for the PageRate Module. Please make sure you have the latest version of this module BEFORE making any module changes.<br /><br />
@@ -121,12 +121,11 @@ class PageRater extends Module {
 							<option selected value="Select Style First.">Select Style First.</option>
 						</select><br />
 					  Current: <?=$pageratebara[1]; ?><br /><br />
-				<br /><br />
 				<b>Bar (Background):</b><br />
 						<select name="select3" onChange="goToPage()" size="1">
 							<option selected value="Select Style First.">Select Style First.</option>
 						</select><br />
-					  Current: <?=$pageratebara[1]; ?><br /><br />
+					  Current: <?=$pageratebarb[1]; ?><br /><br />
 						<input name="Submitit" value="Save Changes" type="submit" disabled="disabled" />
 				<br /><br />
 			</fieldset>
