@@ -66,8 +66,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 							parameters: '?RatePage='+rate+'&page='+'".$this->page->id."'+'&path='+'".$this->page->absRoot."', 
 							onComplete: function(req){
 								var opts=req.responseText.split('-');
-								$('PageRate_votes').innerHTML=opts[0];
-								$('PageRate_rank').innerHTML=opts[2];
+								$('PageRate_votes').title='Voted '+opts[2]+' / 5 with '+opts[0]+' votes.';
 								$('PageRate_progress').style.width=(parseFloat(opts[2])*100)/5+'px';
 								$('PageRate_rate').innerHTML=opts[3];
 							}
@@ -89,12 +88,14 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 				$rv=round($rank/$votes,2);
 			}else{
 				$rv=0;	
+				$votes=0;
 			}		
 			$p=$_SERVER['PHP_SELF'];
 			
 			?>
-				Rank: <span id="PageRate_rank"><?=$rv?></span> / 5  Votes: <span id="PageRate_votes"><?=$votes?></span>
-				<div style="width:110px; <?php
+				<b>Current rating:</b><br />
+				
+				<div id="PageRate_votes" title="Voted <?=$rv; ?> / 5 with <?=$votes; ?> votes." style="width:100px; <?php
 					if (!strcmp($this->bac2[1],"none")==0) {
 						echo "background-image:URL(".$this->base."PageRate/Bars/".$this->bac.");";
 					}
@@ -116,18 +117,28 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 				
 				if (!$nope==1){
 					?>
-					<div id="PageRate_rate">
-						<a href="javascript:;" onclick="PageRate(1)">1</a>
-						<a href="javascript:;" onclick="PageRate(2)">2</a>
-						<a href="javascript:;" onclick="PageRate(3)">3</a>
-						<a href="javascript:;" onclick="PageRate(4)">4</a>
-						<a href="javascript:;" onclick="PageRate(5)">5</a>
-					</div>
+<div id="PageRate_rate"><br />
+						<b>Rate page:</b><br />
+						<script language="javascript">
+							selsource=0;
+							function switchstar(val,inout) {
+								if (inout==1) {
+									for(var x=1;x<=val;x++) {
+											document['i'+x].src="<?=$this->base."PageRate/Bars/".$this->bar; ?>";
+									}
+								} else {
+									for(var x=1;x<=val;x++) {
+											document['i'+x].src="<?=$this->base."PageRate/Bars/".$this->bac; ?>";
+									}
+								}
+							}
+						</script>
+	<img name="i1" onmouseover="switchstar(1,1)" onmouseout="switchstar(1,0)" onclick="PageRate(1)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="1" title="Rate this page 1/5"><img name="i2" onmouseover="switchstar(2,1)" onmouseout="switchstar(2,0)" onclick="PageRate(2)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="2" title="Rate this page 2/5"><img name="i3" onmouseover="switchstar(3,1)" onmouseout="switchstar(3,0)" onclick="PageRate(3)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="3" title="Rate this page 3/5"><img name="i4" onmouseover="switchstar(4,1)" onmouseout="switchstar(4,0)" onclick="PageRate(4)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="4" title="Rate this page 4/5"><img name="i5" onmouseover="switchstar(5,1)" onmouseout="switchstar(5,0)" onclick="PageRate(5)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="5" title="Rate this page 5/5">  </div>
 					<?php
 				}else{
 					?>
                     <div id="PageRate_rate">
-                    	<b>Thanks!</b>
+                    	<b>Thanks for rating!</b>
                     </div>
                     <?php
 				}
