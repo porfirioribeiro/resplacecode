@@ -93,7 +93,7 @@ function someContent($mod){
 		$b->CreateStyle('Big','Eunjin',70,'#0000BB','#F0F0F0');
 		$textdim=$b->GetTextSize(0,"resplace.net");
 		$b->Destroy();
-		//print_r($textdim);
+		print_r($textdim);
 	
 	$br=new GDLib($textdim[0],$textdim[1],true);
 	$check=$br->CheckCache();
@@ -101,7 +101,7 @@ function someContent($mod){
 		echo' TEST ';
 		$br->CreateStyle('Big','Eunjin',50,'#0000BB','#F0F0F0');
 		$br->CreateText(0,0-$textdim[2],$textdim[1]-$textdim[3]-10,'resplace.net');
-		$br->FontSize=10;
+		$br->fontSize=10;
 		$br->CreateText(0,0-$textdim[2]+120,$textdim[1]-$textdim[3]+2,'All your resource are belong to us!');
 		
 		imagesetbrush($br->image,$bru->image);
@@ -121,7 +121,7 @@ function someContent($mod){
 	$br2=new GDLib($textdim[0],$textdim[1]);
 		$br2->CreateStyle('Big','Eunjin',50,'#BB','#F0F0F0');
 		$br2->CreateText(0,0-$textdim[2],$textdim[1]-$textdim[3]-10,'Porfírio!');
-		$br2->FontSize=10;
+		$br2->fontSize=10;
 		$br2->CreateText(0,0-$textdim[2]+120,$textdim[1]-$textdim[3]+2,'All your resource are belong to us!');
 		$file=$br2->out(true);
 		echo $file;

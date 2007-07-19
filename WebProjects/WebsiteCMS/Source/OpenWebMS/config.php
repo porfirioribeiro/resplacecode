@@ -29,8 +29,14 @@ $WebMS["ModulesUrl"]        =$WebMS["CoreUrl"]  ."Modules/";
 $WebMS["JSPath"]            =$WebMS["CorePath"] ."JS/";
 $WebMS["JSUrl"]             =$WebMS["CoreUrl"]  ."JS/";
 
-//used for LibGD
+//used for GDLib
 $WebMS["imgNumb"]			=0;
+
+//MySQL Configuration
+$WebMS["MySQL_Host"]		="localhost";
+$WebMS["MySQL_UserName"]	="username";
+$WebMS["MySQL_Password"]	="password";
+$WebMS["MySQL_Database"]	="database";
 
 class Conf{
   static $conf;
