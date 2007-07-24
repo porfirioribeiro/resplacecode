@@ -1,4 +1,13 @@
 <?php
+/**
+* PHP GD Library
+* A library for constructiong images with the GD library.
+* Licenced under GPLv2 read GPL.txt for details
+* @version 1
+* @copyright ? 2007 ResPlace Team
+* @lastedit 23-07-07
+*/
+
 class GDLib {
 	var $image;
 	var $colors		=array();
@@ -7,9 +16,13 @@ class GDLib {
 	var $fontSize	=14;
 	var $font		=null;
 	var $cache		=false;
+	var $width		=0;
+	var $height		=0;
 	
 	function GDLib($width=1,$height=1,$cache=null) {
 	global $WebMS;
+		$this->width=$width;
+		$this->height=$height;
 		if ($cache==true) {
 			$this->cache=true;
 			$hash=hash('md5',dirname(__FILE__));
@@ -68,10 +81,11 @@ class GDLib {
 	function MakeCanvas($width=1,$height=1){
         $this->image=imagecreatetruecolor($width,$height);
 		$this->CreateStyle('Default','Eunjin',14,"0,0,0,0","0,0,0,127");
-        imagefill($this->image, 0, 0, $this->colors[$this->fillColor]);       
+        imagefill($this->image, 0, 0, $this->colors[$this->fillColor]); 
+		imagealphablending($this->image,true);      
         imagesavealpha($this->image, true);
-        imageantialias($this->image,true);
-        imagealphablending($this->image,true);
+        
+        
     }
 	
 	function SetColor($c,$set=null) {
@@ -148,16 +162,20 @@ class GDLib {
 		return $col;
 	}
 	
-	function SetFont($font,$size){
+	function SetFont($font=null,$size=null){
 	global $WebMS;
 	$font=$WebMS["CorePath"]."Fonts/".$font.'.ttf';
 	
-		if(!is_readable($font))
-		{
+		if (!$size=null)
+			$this->fontSize=(int)$size;
+	
+		if(!is_readable($font)) {
 			$font=$WebMS["CorePath"]."Fonts/FreeSans.ttf";
+			return false;
+		} else {
+			$this->font=$font;
+			return true;
 		}
-		$this->font=$font;
-		$this->fontSize=(int)$size;
 	}
 	
 	function CreateStyle($stylename,$font,$fontSize,$drawColor,$fillColor) {
@@ -262,6 +280,174 @@ class GDLib {
         return $this->fillRect($x1,$y1,$x2,$y2,$fillColor) && $this->drawRect($x1,$y1,$x2,$y2,$drawColor);
     }
 	
+	//Create captcha text
+	function Captcha($fnts=null,$fntcols=null) {
+		$rnd2=0;
+		$step=0;
+		
+		//set img background to white
+		imagefilledrectangle($this->image,0,0,$this->width,$this->height,$this->colors[$this->setColor("255,255,255","none")]);
+		
+		//Select a font to use
+		if (is_array($fnts)) {
+			$rnd=rand(0,count($fnts));
+			$this->SetFont($fnts[$rnd]);
+		}
+		
+		// generate a random string of 3 to 6 characters
+		// some easy-to-confuse letters taken out C/G I/l Q/O h/b l/1 o/0 
+		$string = "";
+		$letters = "ABDEFHKLMNPRSTWXZ23456789";
+		for ($i = 0; $i < rand(3,6); ++$i) {
+			$string .= substr($letters, rand(0,strlen($letters)-1), 1);
+		}
+		
+		// create the hash for the random number and put it in the session
+		$_SESSION['captcha_string'] = $string;
+		
+		// internal variablesinternal scale factor for antialias
+		$scale = 1.1;
+		$perturbation = 0.5; // bigger numbers give more distortion; 1 is standard
+		$width=floor($this->width*$scale);
+		$height=floor($this->height*$scale);
+		
+		// initialize temporary image
+		$width2 = $width;
+		$height2 = $height;
+		$this->tmpimg = imagecreatetruecolor($width2, $height2);
+		imagefill($this->tmpimg, 0, 0, $this->colors[$this->SetColor("0,0,0,127","fill")]);
+		imagealphablending($this->tmpimg,true);      
+		imagesavealpha($this->tmpimg, true);
+		
+		// initialize temporary image 2
+		$this->tmpimg2 = imagecreatetruecolor($width2, $height2);
+		imagefill($this->tmpimg2, 0, 0, $this->colors[$this->SetColor("0,0,0,127","fill")]);
+		imagealphablending($this->tmpimg2,true);      
+		imagesavealpha($this->tmpimg2, true);
+
+		// put straight text into $tmpimage
+		$fsize = $height2*0.50;
+		$bb = imageftbbox($fsize, 0, $this->font, $string);
+		$tx = $bb[4]-$bb[0];
+		$ty = $bb[5]-$bb[1];
+		$x = floor($width2/2 - $tx/2 - $bb[0]);
+		$y = round($height2/2 - $ty/2 - $bb[1]);
+		imagettftext($this->tmpimg, $fsize, 0, $x, $y, $this->colors[$this->drawColor], $this->font, $string);
+		//imagefill($this->tmpimg, 0, 0, $this->colors[$this->SetColor("255,255,255","fill")]);
+		//FILTER
+		//$sharpen = array(array(1, 1, 1), array(1, -7, 1), array(1, 1, 1));
+		//imageconvolution($this->tmpimg, $sharpen, 1, 0);
+		//$gaussian = array(array(1.0, 2.0, 1.0), array(2.0, 4.0, 2.0), array(1.0, 2.0, 1.0));
+		//imageconvolution($this->tmpimg, $gaussian, 16, 0);
+		//imagefilter($this->image, IMG_FILTER_NEGATE);
+		//imagefilter($this->image, IMG_FILTER_GRAYSCALE);
+		//imagefilter($this->image, IMG_FILTER_COLORIZE, 0, -255, -255);
+		//imagefilter($this->tmpimg, IMG_FILTER_EDGEDETECT);
+		
+		// addgrid($this->tmpimg, $width2, $height2, $iscale, $this->colors[$this->drawColor]); // debug
+		
+		// warp text from $this->tmpimg into $img
+		$numpoles = 2.5;
+		
+		// make an array of poles AKA attractor points
+		for ($i = 0; $i < $numpoles; ++$i) {
+			do {
+				$px[$i] = rand(0, $width);
+			} while ($px[$i] >= $width*0.3 && $px[$i] <= $width*0.7);
+			do {
+				$py[$i] = rand(0, $height);
+			} while ($py[$i] >= $height*0.3 && $py[$i] <= $height*0.7);
+			
+			$rad[$i] = rand($width*0.4, $width*0.8);
+			$tmp = -(0.0001*rand(0,9999))*0.15-0.15;
+			$amp[$i] = $perturbation * $tmp;
+		}
+		
+		// get img properties bgcolor
+		$bgcol = imagecolorat($this->tmpimg, 1, 1);
+		$width2 = $width;
+		$height2 = $height;
+		
+		$numcirc=20;
+		
+		for ($i = 0; $i < $numcirc; ++$i) {
+			$x = $width * (1+$i) / ($numcirc+1);
+			$x += (0.5-(0.0001*rand(0,9999)))*$width/$numcirc;
+			$y = rand($height*0.1, $height*0.9);
+			$r = (0.0001*rand(0,9999));
+			$r = ($r*$r+0.2)*$height*0.2;
+			$lwid = rand(0,2);
+			$wobnum = rand(1,4);
+			$wobamp = (0.0001*rand(0,9999))*$height*0.01/($wobnum+1);
+			
+			$cols=array("#E7C750","#A1A15F","#24C42F","#24C42F","#A1A15F","#FF0000");
+			$dphi = 12;
+			$xc=$x;
+			$yc=$y;
+			if ($r > 0)
+				$dphi = 1/(6.28*$r);
+			$woffs = rand(0,200)*0.06283;
+			$rnd=floor(rand(0,5));
+			for ($phi = 0; $phi < 6.3; $phi += $dphi) {
+				$r1 = $r * (2-$wobamp*(0.5+0.5*sin($phi*$wobnum+$woffs)));
+				$x = $xc + $r1*cos($phi);
+				$y = $yc + $r1*sin($phi);
+				imagefilledrectangle($this->tmpimg2, $x, $y, $x+$lwid, $y+$lwid, $this->colors[$this->setColor($cols[$rnd],"none")]);
+			}
+		}
+		$c=0;
+		// loop over $img pixels, take pixels from $tmpimg with distortion field
+		for ($ix = 0; $ix < $width; ++$ix)
+			for ($iy = 0; $iy < $height; ++$iy) {
+				$step+=1;
+				$x = $ix;
+				$y = $iy;
+				for ($i = 0; $i < $numpoles; ++$i) {
+					$dx = $ix - $px[$i];
+					$dy = $iy - $py[$i];
+					if ($dx == 0 && $dy == 0)
+						continue;
+					$r = sqrt($dx*$dx + $dy*$dy);
+					if ($r > $rad[$i])
+						continue;
+					$rscale = $amp[$i] * sin(3.14*$r/$rad[$i]);
+					$x += $dx*$rscale;
+					$y += $dy*$rscale;
+				}
+	
+				if ($x >= 0 && $x < $width2 && $y >= 0 && $y < $height2)
+					
+					if (is_array($fntcols)) {
+						if ($step==180) {
+							$rnd2=floor(rand(0,count($fntcols)-1));
+							$step=1;
+						}
+						$c=$this->colors[$this->setColor($fntcols[$rnd2],"none")];
+					} else {
+						$c = imagecolorat($this->tmpimg, $x, $y);
+					}
+					
+				//if (!strcmp($c,$this->colors[$this->setColor('255,255,255',"none")])==0) {
+				//	
+				//}
+				if (strcmp(imagecolorat($this->tmpimg, $x, $y),$this->colors[$this->setColor("0,0,0,127","none")])==0) {
+					$c = imagecolorat($this->tmpimg, $x, $y);
+				}
+				
+				imagesetpixel($this->tmpimg2, $ix, $iy, $c);
+				//if (!strcmp($c,$this->colors[$this->setColor('255,255,255',"none")])==0)	
+			}
+		
+			imagecopyresampled($this->image,$this->tmpimg2,0,0,0,0,$this->width,$this->height,$width,$height);
+			//imagecopyresized($this->image,$this->tmpimg2,0,0,0,0,$this->width,$this->height,$width,$height);
+			
+		//$gaussian = array(array(1.0, 2.0, 1.0), array(2.0, 4.0, 2.0), array(1.0, 2.0, 1.0));
+		//imageconvolution($this->image, $gaussian, 16, 0);
+		//imagefilter($this->image, IMG_FILTER_NEGATE);
+		//imagefilter($this->image, IMG_FILTER_GRAYSCALE);
+		//imagefilter($this->image, IMG_FILTER_COLORIZE, 0, -255, -255);
+		//imagefilter($this->image, IMG_FILTER_EDGEDETECT);
+	}
 	
 	//OUTPUT THE GD
 	function Out($file=null) {
@@ -298,9 +484,9 @@ class GDLib {
 	}
 	
 	//DESTRUCTION
-	function __destruct() {
-		imagedestroy($this->image);
-	}
+	//function __destruct() {
+	//	imagedestroy($this->image);
+	//}
 	
 	function Destroy() {
 		imagedestroy($this->image);
