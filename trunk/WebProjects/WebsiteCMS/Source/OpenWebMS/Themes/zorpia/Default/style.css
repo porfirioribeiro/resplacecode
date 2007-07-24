@@ -125,13 +125,16 @@ td.sub {
 }
 
 /*Module minimize/maximize icons*/
-.CollapseIcon{
+.CollapseIcon {
 	background-image:URL(Images/collapse.png);
 }
-.UnCollapseIcon{
+.UnCollapseIcon {
 	background-image:URL(Images/uncollapse.png);
 }
 
+.smalltext {
+	font-size:9px;
+}
 /*Ajax loader style*/
 #AjaxLoader{
 	background-image: url(Images/ajax-loader.gif);
