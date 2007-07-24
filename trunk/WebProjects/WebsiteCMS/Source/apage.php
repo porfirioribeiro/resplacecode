@@ -89,17 +89,19 @@ function someContent($mod){
 	
 	
 	
-	$b=new GDLib(6,6);
-		$b->CreateStyle('Big','Eunjin',70,'#0000BB','#F0F0F0');
-		$textdim=$b->GetTextSize(0,"resplace.net");
-		$b->Destroy();
-		print_r($textdim);
+	$b=new GDLib(100,60);
+		$b->CreateStyle('Big','Eunjin',70,'#0000BB','#85BF7D');
+		$b->Captcha();
+		$file=$b->out(true);
+		?>
+		<img src='<?=$file; ?>' border='0' alt='test' title='test' />
+		<?php
 	
 	$br=new GDLib($textdim[0],$textdim[1],true);
 	$check=$br->CheckCache();
 	if (!is_array($check)) {
 		echo' TEST ';
-		$br->CreateStyle('Big','Eunjin',50,'#0000BB','#F0F0F0');
+		$br->CreateStyle('Big','Eunjin',50,'#85BF7D','#F0F0F0');
 		$br->CreateText(0,0-$textdim[2],$textdim[1]-$textdim[3]-10,'resplace.net');
 		$br->fontSize=10;
 		$br->CreateText(0,0-$textdim[2]+120,$textdim[1]-$textdim[3]+2,'All your resource are belong to us!');
