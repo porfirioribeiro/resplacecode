@@ -120,10 +120,10 @@ class AdminMenu2 extends Module {
 			<a href="?nav=LManager">Layouts</a> <a href="?nav=LManager&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
 		</div>
 		<br />
-		<b>Settings:</b>
+		<b>Configuration:</b>
 		<div style="padding-left:8px;">
-			<a href="index.php">System Settings</a><br />
-			<a href="index.php">Integration</a><br />
+			<a href="index.php">Features &amp; Options</a><br />
+			<a href="index.php">Themes &amp; Layout</a><br />
 			<?php
 			/*
 			integration will be tough to get right... first we must make sure its totally adaptable for integrating whatever system is required, such as IPB SMF or etc.

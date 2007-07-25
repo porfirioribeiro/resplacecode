@@ -2,10 +2,11 @@
 /**
 * SQL Model for MySQL - Postresql...
 * A model for translation betweeen various database management systems (DBMS)
+* Thanks to David for most of this code: veloFrame.bountysource.com
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright ? 2007 ResPlace Team
-* @lastedit 24-06-07
+* @lastedit 20-07-07
 */
 
 class SQL{
@@ -15,7 +16,7 @@ class SQL{
 	function connect() {
 		global $WebMS, $db;
 		
-		if ( isset($WebMS["MySQL_Host"]) && isset($WebMS["MySQL_UserName"]) && isset($WebMS["MySQL_Host"]) && isset($WebMS["MySQL_Password"])  isset($WebMS["MySQL_Database"]) ) {
+		if ( isset($WebMS["MySQL_Host"]) && isset($WebMS["MySQL_UserName"]) && isset($WebMS["MySQL_Host"]) && isset($WebMS["MySQL_Password"]) &&  isset($WebMS["MySQL_Database"]) ) {
 			$dbconnect=mysql_connect($WebMS["MySQL_Host"],$WebMS["MySQL_UserName"],$WebMS["MySQL_Password"]);
 			$db=mysql_select_db($WebMS["MySQL_Database"],$dbconnect);
 			return $db;

@@ -5,7 +5,7 @@
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright © 2007 ResPlace Team
-* @lastedit 14-05-07
+* @lastedit 25-07-07
 */
 $skindone=0;
 
@@ -31,7 +31,7 @@ if (!$skindone==1){
 	if (file_exists($this->themespath.$this->defaultskin."/style.css")){
 		$patt=apply_skin($this->themespath,$this->defaultskin);
 		$this->selectedskin=$this->defaultskin;
-		$_SESSION['currentskin']=$this->defaultskin;
+		//$_SESSION['currentskin']=$this->defaultskin;
 		include($this->themespath.$patt."theme.php");
 	}else{
 		//load a skin we can find :)
@@ -64,8 +64,8 @@ if (!$skindone==1){
 		}
 
 		if (!$done==1){
-			//Well we tryed our best, time to DIE!!
-			die("The default skin is missing and no other skins could be found in the themes/ directory. Without a skin this system does not work...");
+			//Well we tryed our best, time to report an error!
+			trigger_error("The default skin is missing and no other skins could be found in the themes/ directory. Without a skin this system does not work...", E_USER_ERROR);
 		}
 	}
 }
@@ -80,7 +80,7 @@ function apply_skin($themespath,$skinpath) {
 		return $skinpath;
 		
 	}else{
-		die("Fatal error, theme.php was not found when loading skin: ".$themespath.$skinpath);
+		trigger_error("Fatal error, theme.php was not found when loading skin: ".$themespath.$skinpath, E_USER_ERROR);
 	}
 	
 }
