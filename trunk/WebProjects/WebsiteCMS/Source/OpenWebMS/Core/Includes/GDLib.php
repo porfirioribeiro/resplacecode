@@ -166,7 +166,7 @@ class GDLib {
 	global $WebMS;
 	$font=$WebMS["CorePath"]."Fonts/".$font.'.ttf';
 	
-		if (!$size=null)
+		if (!$size==null)
 			$this->fontSize=(int)$size;
 	
 		if(!is_readable($font)) {
@@ -471,7 +471,7 @@ class GDLib {
 			if ($file==null) {
 				header('Content-type: image/png');
 				imagepng($this->image);
-			} else if ($file==true) {
+			} else if ($file===true) {
 				$fileName=$tempPath.$hash.'_temp_'.$imgNumb.'.png';
 				$fileNameUrl=$tempPathUrl.$hash.'_temp_'.$imgNumb.'.png';
 				
