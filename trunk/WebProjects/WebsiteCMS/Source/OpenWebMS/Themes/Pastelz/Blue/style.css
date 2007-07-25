@@ -1,4 +1,8 @@
 /* Main body style */
+html {
+	padding:0px;
+	margin:0px;
+}
 body {
 	padding:0px;
 	margin:0px;
@@ -33,6 +37,19 @@ td.main {
 td.sub {
 	background-color:#A7B6E5;
 	text-align:center;
+}
+
+.fieldset {
+	border: 1px dashed #5674D5;
+	padding:5px;
+}
+.ftitle {
+	position:relative;
+	padding:2px;
+	top: -1.00em; left: 1em;
+	background-color:#5674D5;
+	display:inline;
+	width:auto;
 }
 
 /* module title on the left top bottom and right */
