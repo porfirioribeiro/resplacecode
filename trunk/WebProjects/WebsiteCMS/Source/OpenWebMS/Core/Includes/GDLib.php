@@ -8,6 +8,13 @@
 * @lastedit 23-07-07
 */
 
+//Independant script use variables.
+//For using outside WebMS:
+//$WebMS["WebMSPath"]	=	preg_replace("/\\\/","/",dirname(__FILE__));
+//$WebMS["WebMSUrl"]	=	str_replace($_SERVER["DOCUMENT_ROOT"], "", $WebMS["RootPath"])."OpenWebMS/";
+//$WebMS["CorePath"]	=	$WebMS["WebMSPath"]."Core/";
+//$WebMS["imgNumb"]	=	0;
+
 class GDLib {
 	var $image;
 	var $colors		=array();
