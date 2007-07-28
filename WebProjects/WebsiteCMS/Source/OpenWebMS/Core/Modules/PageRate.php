@@ -32,7 +32,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 		$page->put("rank" ,$rank);
 		$page->put("ip" ,$ip);
 		$rv=round($rank/$votes,2);
-		echo $votes."-".$rank."-".$rv."- You rated this page ".$_GET["RatePage"];
+		echo $votes."-".$rank."-".$rv."- You rated this page ".$_GET["RatePage"]."<br>";
 	}else{
 		$votes=$page->get("votes","0");
 		$rank=$page->get("rank","0");
@@ -91,21 +91,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 				$votes=0;
 			}		
 			$p=$_SERVER['PHP_SELF'];
-			
-			?>
-				<b>Current rating:</b><br />
-				
-				<div id="PageRate_votes" title="Voted <?=$rv; ?> / 5 with <?=$votes; ?> votes." style="width:100px; <?php
-					if (!strcmp($this->bac2[1],"none")==0) {
-						echo "background-image:URL(".$this->base."PageRate/Bars/".$this->bac.");";
-					}
-				?> height: 20px;">			
-					<div id="PageRate_progress" style="position: static;left:0px;top:0px;background-image:URL(<?=$this->base."PageRate/Bars/".$this->bar; ?>); height: 100%;width: <?=(100*$rv)/5?>px;font-size:0px"></div>
-				</div>
-                <?php
-
-				;
-				$ips=explode(",",$this->pg->get("ip",""));
+						$ips=explode(",",$this->pg->get("ip",""));
 				$nope=0;
 				foreach ($ips as $ipc){
 					if ($ipc==$_SERVER['REMOTE_ADDR'])
@@ -113,35 +99,54 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 					$nope=1;
 					break;
 					}
-				}
-				
-				if (!$nope==1){
-					?>
-<div id="PageRate_rate"><br />
-						<b>Rate page:</b><br />
-						<script language="javascript">
-							selsource=0;
-							function switchstar(val,inout) {
-								if (inout==1) {
-									for(var x=1;x<=val;x++) {
-											document['i'+x].src="<?=$this->base."PageRate/Bars/".$this->bar; ?>";
-									}
-								} else {
-									for(var x=1;x<=val;x++) {
-											document['i'+x].src="<?=$this->base."PageRate/Bars/".$this->bac; ?>";
+				}			
+			?>
+			<div id="PageRate_Arround" style="height: 50px;cursor:default;" onmouseover="$('PageRate_Display').hide();$('PageRate_Vote').show();" onmouseout="$('PageRate_Display').show();$('PageRate_Vote').hide();">
+				<div id="PageRate_Display">
+					<b>Current rating:</b><br />
+					
+					<div id="PageRate_votes" title="Voted <?=$rv; ?> / 5 with <?=$votes; ?> votes." style="width:100px; <?php
+						if (!strcmp($this->bac2[1],"none")==0) {
+							echo "background-image:URL(".$this->base."PageRate/Bars/".$this->bac.");";
+						}
+					?> height: 20px;">			
+						<div id="PageRate_progress" style="position: static;left:0px;top:0px;background-image:URL(<?=$this->base."PageRate/Bars/".$this->bar; ?>); height: 100%;width: <?=(100*$rv)/5?>px;font-size:0px"></div>
+						<div style="font-size: xx-small;">Mouse over for rate</div>
+					</div>
+				</div>
+				<div id="PageRate_Vote" style="display: none;">
+	                <?php
+					if (!$nope==1){
+						?>
+						<div id="PageRate_rate">
+							<b>Rate page:</b><br />
+							<script language="javascript">
+								selsource=0;
+								function switchstar(val,inout) {
+									if (inout==1) {
+										for(var x=1;x<=val;x++) {
+												document['i'+x].src="<?=$this->base."PageRate/Bars/".$this->bar; ?>";
+										}
+									} else {
+										for(var x=1;x<=val;x++) {
+												document['i'+x].src="<?=$this->base."PageRate/Bars/".$this->bac; ?>";
+										}
 									}
 								}
-							}
-						</script>
-	<img name="i1" onmouseover="switchstar(1,1)" onmouseout="switchstar(1,0)" onclick="PageRate(1)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="1" title="Rate this page 1/5"><img name="i2" onmouseover="switchstar(2,1)" onmouseout="switchstar(2,0)" onclick="PageRate(2)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="2" title="Rate this page 2/5"><img name="i3" onmouseover="switchstar(3,1)" onmouseout="switchstar(3,0)" onclick="PageRate(3)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="3" title="Rate this page 3/5"><img name="i4" onmouseover="switchstar(4,1)" onmouseout="switchstar(4,0)" onclick="PageRate(4)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="4" title="Rate this page 4/5"><img name="i5" onmouseover="switchstar(5,1)" onmouseout="switchstar(5,0)" onclick="PageRate(5)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="5" title="Rate this page 5/5">  </div>
-					<?php
-				}else{
-					?>
-                    <div id="PageRate_rate">
-                    	<b>Thanks for rating!</b>
-                    </div>
-                    <?php
-				}
+							</script>
+							<img name="i1" onmouseover="switchstar(1,1)" onmouseout="switchstar(1,0)" onclick="PageRate(1)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="1" title="Rate this page 1/5"><img name="i2" onmouseover="switchstar(2,1)" onmouseout="switchstar(2,0)" onclick="PageRate(2)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="2" title="Rate this page 2/5"><img name="i3" onmouseover="switchstar(3,1)" onmouseout="switchstar(3,0)" onclick="PageRate(3)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="3" title="Rate this page 3/5"><img name="i4" onmouseover="switchstar(4,1)" onmouseout="switchstar(4,0)" onclick="PageRate(4)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="4" title="Rate this page 4/5"><img name="i5" onmouseover="switchstar(5,1)" onmouseout="switchstar(5,0)" onclick="PageRate(5)" src="<?=$this->base."PageRate/Bars/".$this->bac; ?>" alt="5" title="Rate this page 5/5">  </div>
+						<?php
+					}else{
+						?>
+	                    <div id="PageRate_rate">
+	                    	<b>Thanks for rating!</b><br>
+	                    </div>
+	                    <?php
+					}
+				?>
+				</div>
+			</div>
+			<?php
 		}
 	}
 }

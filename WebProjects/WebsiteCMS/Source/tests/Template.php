@@ -12,6 +12,7 @@ class Template{
 	var $patern=array("#{","}");
 	/** @var String The Template */
 	var $template="";
+	var $globalContext=array();
 	/**
 	 * Create a new Template object
 	 * @param string $template The template to parse
@@ -30,14 +31,37 @@ class Template{
 	 * @param mixed $object The object to fill the template, either Array or ArrayMap
 	 * @return String The result of the combination with patern and $object
 	 */
-
-	function evaluate($object){
+	function evaluate($object_){
+		global $object;
+		$object=array_merge($this->globalContext,$object_);
 		$result=$this->template; 
-		$result=preg_replace("/\$\{(.*)\}/",eval("$r=".$m[1]),$result);
-		/*function a($m){
-			return $m[1];
-		}*/
-		//$result=preg_replace_callback("/\#\{(.*)\}/",$this->get,$result);
+		function evalPHP($m){
+			eval('$r='.$m[1].";");
+			return $r;
+		}
+		$result=preg_replace_callback('/\?\{([^\{\{\}]*)\}/',evalPHP,$result);
+		/*function parse($m){
+			die(print_r($m,true));
+		}
+		$result=preg_replace_callback('/\#\{([^\{\{\}]*)\}/',parse,$result);
+		function ifCallback($m){
+			die(print_r($m,true));
+		}
+		$result=preg_replace_callback('/\#\{(IF|if)([^\{\{\}]*)\}/',ifCallback,$result);*/
+		function iifCallback($m){
+			global $object;
+			if ($object[$m[1]]){
+				return $m[2];
+			}else{
+				return $m[3];
+			}
+		}		
+		function ifElseCallback($m){
+			print_r($m);
+		}
+		$result=preg_replace_callback("/#\{iif:(.*),(.*),(.*)\}/i",iifCallback,$result);
+		$result=preg_replace_callback("/#\{if:(.*)\}\s*(.*)\s*#\{else\}\s*(.*)\s*#\{endif\}/i",iifCallback,$result);
+		//$result=preg_replace("/".$st."if:".$key.$ed."\s*(.*)\s*".$st."endif:".$key.$ed."/",($value)?'${1}':'',$result);
 		return $result;
 	}
 	function parse($object){
