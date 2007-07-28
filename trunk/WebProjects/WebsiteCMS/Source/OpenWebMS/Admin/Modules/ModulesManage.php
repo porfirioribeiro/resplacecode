@@ -47,8 +47,8 @@ class ModulesManage extends Module {
 				
 					
 					echo'<tr>
-								<td><a href="?nav=modules&amp;edit='.$name[0].'"><img alt="Edit" title="Edit this module" border="0" style="vertical-align:middle" src="icons/edit.png"></a></td>
-								<td><a href="javascript:void(0)" onclick="if (confirm(\'You sure you want to delete this module?\n'.$name[0].'\')){document.location=\'?nav=modules&del='.$name[0].'\'}"><img alt="Delete" title="Delete this module" border="0" style="vertical-align:middle" src="icons/button_cancel.png"></a></td>
+								<td><a href="?nav=ModulesManage&amp;edit='.$name[0].'"><img alt="Edit" title="Edit this module" border="0" style="vertical-align:middle" src="icons/edit.png"></a></td>
+								<td><a href="javascript:void(0)" onclick="if (confirm(\'You sure you want to delete this module?\n'.$name[0].'\')){document.location=\'?nav=ModulesManage&del='.$name[0].'\'}"><img alt="Delete" title="Delete this module" border="0" style="vertical-align:middle" src="icons/button_cancel.png"></a></td>
 								<td width="100%">'.$name[0].'</td>
 							  </tr>';
 					}
@@ -57,7 +57,7 @@ class ModulesManage extends Module {
 				echo'<tr><td colspan="3">There are no existing modules.</td></tr>';
 			}
 		?>
-		<tr><td colspan="3"><a href="?nav=modules&amp;add=add">Add new module</a></td></tr>
+		<tr><td colspan="3"><a href="?nav=ModulesManage&amp;add=add">Add new module</a></td></tr>
 		</table>
 		<br>
 		</fieldset><br>
@@ -76,7 +76,7 @@ class ModulesManage extends Module {
 			<fieldset>
 		<legend>Edit module '<?=$_GET['edit']; ?>'</legend>
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-			<input type="hidden" name="nav" value="modules" />
+			<input type="hidden" name="nav" value="ModulesManage" />
 			<input type="hidden" name="edit" value="<?=$_GET['edit']; ?>" />
 			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"><?=$filedata; ?></textarea>
 			<textarea name="data" style="display:none;"></textarea><br />
@@ -93,7 +93,7 @@ class ModulesManage extends Module {
 			<fieldset>
 		<legend>Create a module</legend>
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-			<input type="hidden" name="nav" value="modules" />
+			<input type="hidden" name="nav" value="ModulesManage" />
 			<b>Module Name:</b><br>
 			The name of your module (remember the class you would normally use, uses this name):<br>
 			<input type="text" name="edit" value="" /><br><br>
@@ -126,4 +126,5 @@ class MyModule extends Module {
 			}
 		}
 	}
+	$page->add("ModulesManage");
 ?>

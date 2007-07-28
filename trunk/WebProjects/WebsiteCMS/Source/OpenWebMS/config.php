@@ -1,6 +1,7 @@
 <?php
 global $WebMS;
 $WebMS=array();
+$WebMS["Version"]			="0.1|BETA";
 $WebMS["RootPath"]          =preg_replace("/\\\/","/",preg_replace("/OpenWebMS$/","",dirname(__FILE__)));
 $WebMS["RootUrl"]           =str_replace($_SERVER["DOCUMENT_ROOT"], "", $WebMS["RootPath"]);
 $WebMS["WebMSPath"]         =$WebMS["RootPath"] ."OpenWebMS/";

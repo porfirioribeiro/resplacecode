@@ -102,28 +102,28 @@ class AdminMenu2 extends Module {
 		<b>Main:</b>
 		<div style="padding-left:8px;">
 			<a href="index.php">Summary</a><br />
-			<a href="index.php">Version History</a><br />
-			<a href="index.php">Updates</a><br />
+			<a href="index.php?nav=VersionHistory">Version History</a><br />
+			<a href="index.php?nav=Updates">Updates</a><br />
 		</div>
 		<br />
 		<b>Management:</b>
 		<div style="padding-left:8px;">
 			<? //<a href="?manage=menu">Menu</a><br>
 			?>
-			<a href="?nav=pages">Web pages</a> <a href="?nav=pages&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<a href="?nav=PagesManage">Web pages</a> <br>
 			<div style="padding-left:8px;">
-				<a href="?nav=files">Files</a> <a href="?nav=files&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a>
+				<a href="?nav=Files">Files</a>
 			</div>
-			<a href="?nav=db">Database's</a> <a href="?nav=db&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
-			<a href="?nav=modules">Modules</a> <a href="?nav=modules&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
-			<a href="?nav=functions">Functions</a> <a href="?nav=functions&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
-			<a href="?nav=LManager">Layouts</a> <a href="?nav=LManager&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<a href="?nav=db">Database's</a> <br>
+			<a href="?nav=ModulesManage">Modules</a> <br>
+			<a href="?nav=FunctionsManage">Functions</a> <br>
+			<a href="?nav=LManager">Layouts</a> <br>
 		</div>
 		<br />
 		<b>Configuration:</b>
 		<div style="padding-left:8px;">
-			<a href="index.php">Features &amp; Options</a><br />
-			<a href="index.php">Themes &amp; Layout</a><br />
+			<a href="index.php?nav=FeaturesAndOptions">Features &amp; Options</a><br />
+			<a href="index.php?nav=ThemesAndLayout">Themes &amp; Layout</a><br />
 			<?php
 			/*
 			integration will be tough to get right... first we must make sure its totally adaptable for integrating whatever system is required, such as IPB SMF or etc.
@@ -155,7 +155,7 @@ class AdminMenu2 extends Module {
 				
 					$name=explode('.',$fil);
 					if ($name[1]=='php') {
-						echo'<a href="?pane='.$name[0].'">'.$name[0].'</a> <a href="?pane='.$name[0].'&amp;menu=hide" target="_blank"><img src="'.$this->page->corepath.'Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>';
+						echo'<a href="?pane='.$name[0].'">'.$name[0].'</a> <br>';
 						}
 					}
 				}
@@ -166,7 +166,7 @@ class AdminMenu2 extends Module {
 		<b>Misc:</b>
 		<div style="padding-left:8px;">
 			<a href="?devMODE<?=$this->page->devMode?"&amp;message=You just disabled Debug Mode.":""?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br />
-			<a href="?nav=ErrorLog">View Error Log</a> <a href="?nav=ErrorLog&amp;menu=hide" target="_blank"><img src="<?=$this->page->corepath;?>Images/NewWindow.gif" border="0" alt="^" title="Open independant in new window." /></a><br>
+			<a href="?nav=ErrorLog">View Error Log</a><br>
 			<br />
 		</div>
 		<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
@@ -197,6 +197,150 @@ class welcome extends Module {
 	}
 }
 
+//version history!
+class VersionHistory extends Module {
+	function VersionHistory($page){
+		$this->side=Module::CENTER;
+		$this->title="Version History";
+		parent::Module($page);
+	}
+	function content(){
+		global $WebMS;
+		?>
+		Version History is obtained from resplace.net servers, if it does not appear below then please try again later.<br /><br />
+		<div style="padding:10px;">
+		<?php
+		
+		// get the host name and url path
+		$parsedUrl = parse_url("http://resplace.net/WebMS/VersionHistory.php?verid=".$WebMS['Version']);
+		$host = $parsedUrl['host'];
+		if (isset($parsedUrl['path'])) {
+			$path = $parsedUrl['path'];
+		} else {
+			// the url is pointing to the host like http://www.mysite.com
+			$path = '/';
+		}
+		
+		if (isset($parsedUrl['query'])) {
+			$path .= '?' . $parsedUrl['query'];
+		}
+		
+		if (isset($parsedUrl['port'])) {
+			$port = $parsedUrl['port'];
+		} else {
+			// most sites use port 80
+			$port = '80';
+			}
+			
+			$timeout = 10;
+			$response = '';
+			
+			// connect to the remote server
+			$fp = @fsockopen($host, '80', $errno, $errstr, $timeout );
+			
+			if( !$fp ) {
+				echo "Cannot retrieve $url";
+			} else {
+				// send the necessary headers to get the file
+				fputs($fp, "GET $path HTTP/1.0\r\n" .
+				"Host: $host\r\n" .
+				"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.3) Gecko/20060426 Firefox/1.5.0.3\r\n" .
+				"Accept: */*\r\n" .
+				"Accept-Language: en-us,en;q=0.5\r\n" .
+				"Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\n" .
+				"Keep-Alive: 300\r\n" .
+				"Connection: keep-alive\r\n" .
+				"Referer: http://$host\r\n\r\n");
+				
+				// retrieve the response from the remote server
+				while ( $line = fread( $fp, 4096 ) ) {
+				$response .= $line;
+			}
+			
+			fclose( $fp );
+			
+			// strip the headers
+			$pos      = strpos($response, "\r\n\r\n");
+			$response = substr($response, $pos + 4);
+			
+			echo $response;
+		}
+		echo'</div>';
+	}
+}
+//version history!
+class Updates extends Module {
+	function Updates($page){
+		$this->side=Module::CENTER;
+		$this->title="OpenWebMS Updates";
+		parent::Module($page);
+	}
+	function content(){
+		global $WebMS;
+		?>
+		Your copy of OpenWebMS will now contact resplace.net and check if there are any updates, if it does not appear below then please try again later.<br /><br />
+		<div style="padding:10px;">
+		<?php
+		
+		// get the host name and url path
+		$parsedUrl = parse_url("http://resplace.net/WebMS/Updates.php?verid=".$WebMS['Version']);
+		$host = $parsedUrl['host'];
+		if (isset($parsedUrl['path'])) {
+			$path = $parsedUrl['path'];
+		} else {
+			// the url is pointing to the host like http://www.mysite.com
+			$path = '/';
+		}
+		
+		if (isset($parsedUrl['query'])) {
+			$path .= '?' . $parsedUrl['query'];
+		}
+		
+		if (isset($parsedUrl['port'])) {
+			$port = $parsedUrl['port'];
+		} else {
+			// most sites use port 80
+			$port = '80';
+			}
+			
+			$timeout = 10;
+			$response = '';
+			
+			// connect to the remote server
+			$fp = @fsockopen($host, '80', $errno, $errstr, $timeout );
+			
+			if( !$fp ) {
+				echo "Cannot retrieve $url";
+			} else {
+				// send the necessary headers to get the file
+				fputs($fp, "GET $path HTTP/1.0\r\n" .
+				"Host: $host\r\n" .
+				"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.3) Gecko/20060426 Firefox/1.5.0.3\r\n" .
+				"Accept: */*\r\n" .
+				"Accept-Language: en-us,en;q=0.5\r\n" .
+				"Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\n" .
+				"Keep-Alive: 300\r\n" .
+				"Connection: keep-alive\r\n" .
+				"Referer: http://$host\r\n\r\n");
+				
+				// retrieve the response from the remote server
+				while ( $line = fread( $fp, 4096 ) ) {
+				$response .= $line;
+			}
+			
+			fclose( $fp );
+			
+			// strip the headers
+			$pos      = strpos($response, "\r\n\r\n");
+			$response = substr($response, $pos + 4);
+			
+			echo $response;
+		}
+		echo'</div>';
+	}
+}
+
+
 
 //$page->add(AdminMenu,Module::TOP);
 if (isset($_GET['menu']) && $_GET['menu']=='hide') {}else{
@@ -206,7 +350,7 @@ $nav='';
 if (isset($_REQUEST['nav'])) {
 	$nav=$_REQUEST['nav'];
 }
-	
+	/*
 	if ($nav=="pages") {
 		$page->add("PagesManage");
 	}else if ($nav=="modules") {
@@ -224,9 +368,36 @@ if (isset($_REQUEST['nav'])) {
 		$page->add("ErrorLog");
 	}else if ($nav=="LManager") {
 		$page->add("LayoutManager");
+	}else if ($nav=="ThemesAndLayout") {
+		$page->add('ThemesAndLayout');
+		$page->add('ThemesAndLayout_main');
 	}else{
-		if (!isset($_REQUEST['pane'])) {
-			$page->add("welcome",Module::CENTER);
+		
+	}
+	*/
+	
+//built in pages
+if (!isset($_REQUEST['nav']) && !isset($_REQUEST['pane'])) {
+	$page->add("welcome",Module::CENTER);
+}
+if ($_REQUEST['nav']=="VersionHistory") {
+	$page->add("VersionHistory");
+}
+if ($_REQUEST['nav']=="Updates") {
+	$page->add("Updates");
+}
+	
+$files=GetFiles("Modules");
+if (count($files)) {
+	foreach ($files as $fil) {
+	
+		$name=explode('.',$fil);
+		if ($name[1]=='php') {
+			if (isset($_REQUEST['nav']) && $name[0]==$_REQUEST['nav']) {
+				include("Modules/".$fil);
+				//$page->add($name[0]);
+				}
+			}
 		}
 	}
 

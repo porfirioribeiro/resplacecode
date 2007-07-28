@@ -51,7 +51,7 @@ class Files extends Module {
 		if (count($files)) {
 			foreach ($files as $fil) {
 					echo'<tr>
-								<td><a href="javascript:void(0)" onclick="if (confirm(\'You sure you want to delete this file?\n'.$fil.'\')){document.location=\'?manage=files&del='.$fil.'\'}"><img alt="Delete" title="Delete this file" border="0" style="vertical-align:middle" src="icons/button_cancel.png"></a></td>
+								<td><a href="javascript:void(0)" onclick="if (confirm(\'You sure you want to delete this file?\n'.$fil.'\')){document.location=\'?manage=Files&del='.$fil.'\'}"><img alt="Delete" title="Delete this file" border="0" style="vertical-align:middle" src="icons/button_cancel.png"></a></td>
 								<td width="100%">'.$fil.'</td>
 							  </tr>';
 				}
@@ -62,7 +62,7 @@ class Files extends Module {
 		<tr><td colspan="3">
 			<form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-			<input type="hidden" name="manage" value="files"  />
+			<input type="hidden" name="manage" value="Files"  />
 			Upload a file:<br /> 
 			<input name="userfile" type="file" />
 			<br />
@@ -76,4 +76,6 @@ class Files extends Module {
 			
 		}
 	}
+	
+	$page->add("Files");
 ?>
