@@ -49,4 +49,6 @@ class menuEditor extends Module {
 	}
 }
 
+$page->add("menuEditor");
+
 ?>

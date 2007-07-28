@@ -71,15 +71,15 @@ class PagesManage extends Module {
 			foreach ($db as $key=>$value) {
 				$name=$db->get($key)->get("name");
 				echo'<tr>
-							<td><a href="?nav=pages&amp;page=page-edit&amp;pageid='.$key.'"><img alt="Edit" title="Edit this page" border="0" style="vertical-align:middle" src="icons/edit.png"></a></td>
-							<td><a href="javascript:void(0)" onclick="if (confirm(\'You sure you want to delete this page?\n'.$key.'\')){document.location=\'?nav=pages&pageiddel='.$key.'\'}"><img alt="Delete" title="Delete this page" border="0" style="vertical-align:middle" src="icons/button_cancel.png"></a></td>
+							<td><a href="?nav=PagesManage&amp;page=page-edit&amp;pageid='.$key.'"><img alt="Edit" title="Edit this page" border="0" style="vertical-align:middle" src="icons/edit.png"></a></td>
+							<td><a href="javascript:void(0)" onclick="if (confirm(\'You sure you want to delete this page?\n'.$key.'\')){document.location=\'?nav=PagesManage&pageiddel='.$key.'\'}"><img alt="Delete" title="Delete this page" border="0" style="vertical-align:middle" src="icons/button_cancel.png"></a></td>
 							<td width="100%"><a href="'.str_replace("OpenWebMS/","",$path).'../getfile.php?page='.$key.'" target="_blank">'.$name.'</a></td>
 						  </tr>';
 				}
 			} else {
 				echo'<tr><td colspan="3">There are no existing pages.</td></tr>';
 			}
-		echo'<tr><td colspan="3"><a href="?nav=pages&amp;page=page-add">Add new page</a></td></tr></table><br>
+		echo'<tr><td colspan="3"><a href="?nav=PagesManage&amp;page=page-add">Add new page</a></td></tr></table><br>
 		';
 		
 		//Add a page
@@ -92,7 +92,7 @@ class PagesManage extends Module {
 			<fieldset>
 			<legend>Add new page</legend>
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-			<input type="hidden" name="nav" value="pages" />
+			<input type="hidden" name="nav" value="PagesManage" />
 			<b>Page ID:</b><br /><i>Set a some text or a number which uniqly identifies the page, used as filename and when navigating to a page via ?page=</i><br />
 			<input name="pageid" type="text" /><br /><br />
 			<b>Page Name:</b><br /><i>The name of the page (used in page explorer and as name in generated menu):</i><br />
@@ -134,7 +134,7 @@ class PagesManage extends Module {
 				
 				
 				<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-				<input type="hidden" name="nav" value="pages" />
+				<input type="hidden" name="nav" value="PagesManage" />
 				<b>Page ID:</b><br /><i>Set a some text or a number which will be used to load your page using index.php?page=Page ID.</i><br />
 				<input name="pageid" type="text" value="<?=$_GET['pageid']; ?>" /><br /><br />
 				<b>Page Name:</b><br /><i>The name of the page (used in page explorer and as name in generated menu):</i><br />
@@ -154,4 +154,5 @@ class PagesManage extends Module {
 			}	
 		}
 	}
+	$page->add("PagesManage");
 ?>

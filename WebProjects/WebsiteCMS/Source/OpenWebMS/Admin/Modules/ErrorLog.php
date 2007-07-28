@@ -48,4 +48,6 @@ class ErrorLog extends Module {
 			
 		}
 	}
+	
+	$page->add("ErrorLog");
 ?>
