@@ -31,8 +31,8 @@ function someContent($mod){
 	}
 
 	//manage a submit
-	if ($_REQUEST["activate"]) {
-		if ($_REQUEST["username"]) {
+	if (isset($_REQUEST["activate"])) {
+		if (isset($_REQUEST["username"])) {
 			$usrname=stripslashes($_REQUEST["username"]);
 			$db= new sql();
 			$result=$db->query("SELECT activatestring FROM ".$WebMS["MySQL_Prefix"]."users WHERE usrname='".$usrname."'",true);
@@ -45,7 +45,7 @@ function someContent($mod){
 			}
 		}
 	} else {
-		if ((!$_POST["submit"]) || (submit())) {
+		if ((!isset($_POST["submit"])) || (submit())) {
 			?>
 			Registering to our website enables you to access more content, get the latest information and interact with other website users. So register today!<br><br>
 			<form method="POST" action="<?=$_SERVER['PHP_SELF']; ?>">
@@ -57,7 +57,7 @@ function someContent($mod){
 					</div>
 				    </td>
 					<td><label>
-					  <input type="text" name="username" value="<?=$_POST["username"]; ?>" maxlength="48">
+					  <input type="text" name="username" value="<?=isset($_POST["username"]) ? $_POST["username"]:"" ?>" maxlength="48">
 					</label></td>
 				  </tr>
 				  <tr valign="top">
@@ -66,7 +66,7 @@ function someContent($mod){
 				      <br>
 				    </div>
 					</td>
-					<td><input type="text" name="mail" value="<?=$_POST["mail"]; ?>" maxlength="60"></td>
+					<td><input type="text" name="mail" value="<?=isset($_POST["mail"]) ? $_POST["mail"]:"" ?>" maxlength="60"></td>
 				  </tr>
 				  <tr valign="top">
 					<td><b>Choose password:</b><br>
