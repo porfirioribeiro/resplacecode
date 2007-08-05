@@ -11,41 +11,45 @@
 
 class SQL{
 	var $model;
-	var $query="";
-	
+	var $db		=null;
+	var $query	="";
+
+	function sql() {
+		$this->connect();
+	}
+
 	function connect() {
 		global $WebMS, $db;
-		
-		if ( isset($WebMS["MySQL_Host"]) && isset($WebMS["MySQL_UserName"]) && isset($WebMS["MySQL_Host"]) && isset($WebMS["MySQL_Password"]) &&  isset($WebMS["MySQL_Database"]) ) {
-			$dbconnect=mysql_connect($WebMS["MySQL_Host"],$WebMS["MySQL_UserName"],$WebMS["MySQL_Password"]);
-			$db=mysql_select_db($WebMS["MySQL_Database"],$dbconnect);
-			return $db;
+
+		if ( isset($WebMS["MySQL_Host"]) && isset($WebMS["MySQL_UserName"]) && isset($WebMS["MySQL_Password"]) &&  isset($WebMS["MySQL_Database"]) ) {
+			$this->db=mysql_connect($WebMS["MySQL_Host"],$WebMS["MySQL_UserName"],$WebMS["MySQL_Password"]);
+			mysql_select_db($WebMS["MySQL_Database"],$this->db);
 		} else {
 			//error
 		}
 	}
-	
+
 	function disconnect() {
-		global $WebMS, $db;
-		
-		mysql_close($db);
+		global $WebMS;
+
+		mysql_close($this->db);
 	}
-	
-	function sql($query) {
-		$query = mysql_query($query);
-	
+
+	function query($querys,$fetch) {
+		$query = mysql_query($querys,$this->db) or die('Query failed: ' . mysql_error());;
+
 		if(empty($GLOBALS['queries'])) $GLOBALS['queries'] = 0;
 		$GLOBALS['queries']++;
-		
+
 		//Fetch the query if needed
 		if($fetch) while($row = mysql_fetch_assoc($query)) {
-			if(empty($key)) $data[] = $row; 
-			
-			else $data[$row[$key]] = $row; 
+			if(empty($key)) $data[] = $row;
+
+			else $data[$row[$key]] = $row;
 		}
-		
+
 		else $data = $query;
-	
+
 		//Return the result
 		return $data;
 	}

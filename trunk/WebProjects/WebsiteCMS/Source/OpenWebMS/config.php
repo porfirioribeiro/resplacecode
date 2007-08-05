@@ -33,11 +33,17 @@ $WebMS["JSUrl"]             =$WebMS["CoreUrl"]  ."JS/";
 //used for GDLib
 $WebMS["imgNumb"]			=0;
 
+//Integrations - true or false.
+$WebMS["Integrate"]			=true;
+//filename of integration script, ie. smf.php
+$WebMS["IntegrateScript"]	="";
+
 //MySQL Configuration
 $WebMS["MySQL_Host"]		="localhost";
-$WebMS["MySQL_UserName"]	="username";
-$WebMS["MySQL_Password"]	="password";
-$WebMS["MySQL_Database"]	="database";
+$WebMS["MySQL_UserName"]	="root";
+$WebMS["MySQL_Password"]	="playing";
+$WebMS["MySQL_Database"]	="WebMS";
+$WebMS["MySQL_Prefix"]	="webms_";
 
 class Conf{
   static $conf;
@@ -64,10 +70,10 @@ include_once $WebMS["IncPath"]."GetFolders.php";
 //include_once $WebMS["IncPath"]."LoadSkin.php";
 include_once $WebMS["IncPath"]."Module.php";
 include_once $WebMS["IncPath"]."Template.php";
-include_once $WebMS["IncPath"]."Theme.php";	
+include_once $WebMS["IncPath"]."Theme.php";
 include_once $WebMS["IncPath"]."Browser.php";
-include_once $WebMS["IncPath"]."GDLib.php";	
-include_once $WebMS["IncPath"]."DBMS.php";	
+include_once $WebMS["IncPath"]."GDLib.php";
+include_once $WebMS["IncPath"]."DBMS.php";
 
 
 ?>

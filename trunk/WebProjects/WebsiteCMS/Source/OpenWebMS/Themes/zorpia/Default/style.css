@@ -113,14 +113,14 @@ td.sub {
 .SmallIcon{
 	margin-top:4px;
 	width:12px;
-	height:12px;	
+	height:12px;
 	cursor:pointer;
 	font-size:1px;
 }
 .SmallIcon2 {
 	margin-top:5px;
 	width:12px;
-	height:12px;	
+	height:12px;
 	cursor:pointer;
 }
 
@@ -193,6 +193,14 @@ td.sub {
 	width:200px;
 	padding:2px;
 	vertical-align:top;
+}
+
+/*Error Box*/
+.ErrorBox {
+	background-color:#FFDFDF;
+	padding:4px;
+	border:1px dashed #9F0909;
+	color:2F0606;
 }
 
 /*Alert Box Styles*/
