@@ -1,3 +1,5 @@
+/* TO CLEAN */
+
 body {
 	padding:0px;
 	margin:0px;
@@ -84,7 +86,7 @@ a:visited {
 }
 .TitleLeft {
 	background-image:url(Images/left_title.png);
-	
+
 	height:20px;
 	width:4px;
 	float:left;
@@ -103,7 +105,7 @@ a:visited {
 .SmallIcon{
 	margin-top:2px;
 	width:16px;
-	height:16px;	
+	height:16px;
 	cursor:pointer;
 }
 .CollapseIcon{

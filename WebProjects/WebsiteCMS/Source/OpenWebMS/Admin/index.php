@@ -25,12 +25,12 @@ function editAreaSaveHandler(){
 $page->addOnLoad("
 if ($('use_php')){
 	editAreaLoader.init({
-		id: \"use_php\"	// id of the textarea to transform		
+		id: \"use_php\"	// id of the textarea to transform
 		,start_highlight: true	// if start with highlight
 		,allow_resize: \"both\"
 		,allow_toggle: true
 		,language: \"en\"
-		,syntax: \"php\"	
+		,syntax: \"php\"
 		,save_callback:\"editAreaSaveHandler\"
 		,plugins:\"charmap,syntax_selection\"
 		,toolbar:\" save, |,syntax_selection, charmap, |, search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight,fullscreen, |, help\",
@@ -39,12 +39,12 @@ if ($('use_php')){
 }
 if ($('use_none')){
 	editAreaLoader.init({
-		id: \"use_php\"	// id of the textarea to transform		
+		id: \"use_php\"	// id of the textarea to transform
 		,start_highlight: true	// if start with highlight
 		,allow_resize: \"both\"
 		,allow_toggle: true
 		,language: \"en\"
-		,syntax: \"none\"	
+		,syntax: \"none\"
 		,save_callback:\"editAreaSaveHandler\"
 		,plugins:\"charmap,syntax_selection\"
 		,toolbar:\" save, |,syntax_selection, charmap, |, search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight,fullscreen, |, help\",
@@ -59,7 +59,7 @@ $db=new ResDB("WebMSoptions");
 		//read it
 		//$val=$db[1];
 		$psswd=$db->get("adminpassword");
-			
+
 			if (isset($_POST['psswd'])){
 				$_SESSION['admin_session']=md5($_POST['psswd']);
 				}
@@ -73,10 +73,10 @@ if (!isset($_SESSION['admin_session']) || $_SESSION['admin_session']!=$psswd){
 		function content(){
 			global $path, $devmode;
 			//set the admin password
-			
+
 			?>
 			Welcome to the admin panel, please login below.<br /><br />
-			
+
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 				<input name="psswd" type="password" />
 				<input name="submit" type="submit" value="Login" />
@@ -130,17 +130,17 @@ class AdminMenu2 extends Module {
 			We must then allow some way for unique settings to be set within the integration options, this would include ie. SMF SSI path.
 			Ofcourse the "self integrated" code will be far different from the integrate methods, so my idea is that this is BUILT INTO this system and does not use an integration template like others do, this will make the task much easyer...
 			And allow our "self integration" to be more powerful and easyer to code, understand and modify :)
-			
+
 			Hope you understand and agree :)
-			
+
 			So recap:
 			1) Some way to add settings to integrate settings page.
 			2) Common classes for certain tasks such as fetch a user, check if someones signed in, link to sign in/register page (since we assume what we integrate too controls user registration etc), fetch user avatar, check if user is admin, fetch user id.
-			
+
 			Problems:
 			Some integrations might not support some things, such as user avatars (may implement a function or may not, discuss??)
 			and i forsee other problems, I hope we can allow integration for atleast a few systems :p
-			
+
 			thankfully integrating SMF will be easyer than asking a girl on a date ;) Hope others are similar (have no idea)
 			*/
 			?>
@@ -152,14 +152,14 @@ class AdminMenu2 extends Module {
 			$files=GetFiles("AdminPanes");
 			if (count($files)) {
 				foreach ($files as $fil) {
-				
+
 					$name=explode('.',$fil);
 					if ($name[1]=='php') {
 						echo'<a href="?pane='.$name[0].'">'.$name[0].'</a> <br>';
 						}
 					}
 				}
-	
+
 			?>
 		</div>
 		<br />
@@ -175,10 +175,10 @@ class AdminMenu2 extends Module {
 			<input name="submit" type="submit" value="Logout" />
 			</div>
 		</form>
-		
+
 		<?php
-		
-		
+
+
 	}
 }
 
@@ -210,7 +210,7 @@ class VersionHistory extends Module {
 		Version History is obtained from resplace.net servers, if it does not appear below then please try again later.<br /><br />
 		<div style="padding:10px;">
 		<?php
-		
+
 		// get the host name and url path
 		$parsedUrl = parse_url("http://resplace.net/WebMS/VersionHistory.php?verid=".$WebMS['Version']);
 		$host = $parsedUrl['host'];
@@ -220,24 +220,24 @@ class VersionHistory extends Module {
 			// the url is pointing to the host like http://www.mysite.com
 			$path = '/';
 		}
-		
+
 		if (isset($parsedUrl['query'])) {
 			$path .= '?' . $parsedUrl['query'];
 		}
-		
+
 		if (isset($parsedUrl['port'])) {
 			$port = $parsedUrl['port'];
 		} else {
 			// most sites use port 80
 			$port = '80';
 			}
-			
+
 			$timeout = 10;
 			$response = '';
-			
+
 			// connect to the remote server
 			$fp = @fsockopen($host, '80', $errno, $errstr, $timeout );
-			
+
 			if( !$fp ) {
 				echo "Cannot retrieve $url";
 			} else {
@@ -251,18 +251,18 @@ class VersionHistory extends Module {
 				"Keep-Alive: 300\r\n" .
 				"Connection: keep-alive\r\n" .
 				"Referer: http://$host\r\n\r\n");
-				
+
 				// retrieve the response from the remote server
 				while ( $line = fread( $fp, 4096 ) ) {
 				$response .= $line;
 			}
-			
+
 			fclose( $fp );
-			
+
 			// strip the headers
 			$pos      = strpos($response, "\r\n\r\n");
 			$response = substr($response, $pos + 4);
-			
+
 			echo $response;
 		}
 		echo'</div>';
@@ -281,7 +281,7 @@ class Updates extends Module {
 		Your copy of OpenWebMS will now contact resplace.net and check if there are any updates, if it does not appear below then please try again later.<br /><br />
 		<div style="padding:10px;">
 		<?php
-		
+
 		// get the host name and url path
 		$parsedUrl = parse_url("http://resplace.net/WebMS/Updates.php?verid=".$WebMS['Version']);
 		$host = $parsedUrl['host'];
@@ -291,24 +291,24 @@ class Updates extends Module {
 			// the url is pointing to the host like http://www.mysite.com
 			$path = '/';
 		}
-		
+
 		if (isset($parsedUrl['query'])) {
 			$path .= '?' . $parsedUrl['query'];
 		}
-		
+
 		if (isset($parsedUrl['port'])) {
 			$port = $parsedUrl['port'];
 		} else {
 			// most sites use port 80
 			$port = '80';
 			}
-			
+
 			$timeout = 10;
 			$response = '';
-			
+
 			// connect to the remote server
 			$fp = @fsockopen($host, '80', $errno, $errstr, $timeout );
-			
+
 			if( !$fp ) {
 				echo "Cannot retrieve $url";
 			} else {
@@ -322,18 +322,18 @@ class Updates extends Module {
 				"Keep-Alive: 300\r\n" .
 				"Connection: keep-alive\r\n" .
 				"Referer: http://$host\r\n\r\n");
-				
+
 				// retrieve the response from the remote server
 				while ( $line = fread( $fp, 4096 ) ) {
 				$response .= $line;
 			}
-			
+
 			fclose( $fp );
-			
+
 			// strip the headers
 			$pos      = strpos($response, "\r\n\r\n");
 			$response = substr($response, $pos + 4);
-			
+
 			echo $response;
 		}
 		echo'</div>';
@@ -372,25 +372,25 @@ if (isset($_REQUEST['nav'])) {
 		$page->add('ThemesAndLayout');
 		$page->add('ThemesAndLayout_main');
 	}else{
-		
+
 	}
 	*/
-	
+
 //built in pages
 if (!isset($_REQUEST['nav']) && !isset($_REQUEST['pane'])) {
 	$page->add("welcome",Module::CENTER);
 }
-if ($_REQUEST['nav']=="VersionHistory") {
+if (isset($_REQUEST['nav']) && $_REQUEST['nav']=="VersionHistory") {
 	$page->add("VersionHistory");
 }
-if ($_REQUEST['nav']=="Updates") {
+if (isset($_REQUEST['nav']) && $_REQUEST['nav']=="Updates") {
 	$page->add("Updates");
 }
-	
+
 $files=GetFiles("Modules");
 if (count($files)) {
 	foreach ($files as $fil) {
-	
+
 		$name=explode('.',$fil);
 		if ($name[1]=='php') {
 			if (isset($_REQUEST['nav']) && $name[0]==$_REQUEST['nav']) {
@@ -404,7 +404,7 @@ if (count($files)) {
 $files=GetFiles("AdminPanes");
 if (count($files)) {
 	foreach ($files as $fil) {
-	
+
 		$name=explode('.',$fil);
 		if ($name[1]=='php') {
 			if (isset($_REQUEST['pane']) && $name[0]==$_REQUEST['pane']) {
