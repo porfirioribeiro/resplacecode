@@ -34,7 +34,7 @@ $WebMS["JSUrl"]             =$WebMS["CoreUrl"]  ."JS/";
 $WebMS["imgNumb"]			=0;
 
 //Integrations - true or false.
-$WebMS["Integrate"]			=true;
+$WebMS["Integrate"]			=false;
 //filename of integration script, ie. smf.php
 $WebMS["IntegrateScript"]	="";
 

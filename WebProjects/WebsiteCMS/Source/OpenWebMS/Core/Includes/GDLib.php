@@ -5,7 +5,7 @@
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright ? 2007 ResPlace Team
-* @lastedit 23-07-07
+* @lastedit 09-08-07
 */
 
 //Independant script use variables.
@@ -19,7 +19,7 @@ class GDLib {
 	var $image;
 	var $colors		=array();
 	var $drawColor	=null;
-    var $fillColor	=null;
+	var $fillColor	=null;
 	var $fontSize	=14;
 	var $font		=null;
 	var $cache		=false;
@@ -27,7 +27,7 @@ class GDLib {
 	var $height		=0;
 
 	function GDLib($width=1,$height=1,$cache=null) {
-	global $WebMS;
+		global $WebMS;
 		$this->width=$width;
 		$this->height=$height;
 		if ($cache==true) {
@@ -57,7 +57,7 @@ class GDLib {
 	}
 
 	function CheckCache() {
-	global $WebMS;
+		global $WebMS;
 
 		if ($this->cache==true) {
 
@@ -85,22 +85,22 @@ class GDLib {
 		}
 	}
 
-	function MakeCanvas($width=1,$height=1){
-        $this->image=imagecreatetruecolor($width,$height);
+	function MakeCanvas($width=1,$height=1) {
+		$this->image=imagecreatetruecolor($width,$height);
 		$this->CreateStyle('Default','Eunjin',14,"0,0,0,0","0,0,0,127");
-        imagefill($this->image, 0, 0, $this->colors[$this->fillColor]);
+		imagefill($this->image, 0, 0, $this->colors[$this->fillColor]);
 		imagealphablending($this->image,true);
-        imagesavealpha($this->image, true);
+		imagesavealpha($this->image, true);
 
 
-    }
+	}
 
 	function SetColor($c,$set=null) {
 		//Attempt to understand the input
 		//Accepts: RGB + RGBA + HEX (multi)
 		if (0 === strpos($c, 'C_')) {
-				$c = substr($c, 2);
-			}
+			$c = substr($c, 2);
+		}
 
 		$c=explode(',',$c);
 		if (count($c)==3) {
@@ -145,12 +145,12 @@ class GDLib {
 		//Create a color 'code':
 		if ($mode=="RGBA") {
 			$col="C_".$c[0].','.$c[1].','.$c[2].','.$c[3];
-			if (!isset($this->colors[$col])){
+			if (!isset($this->colors[$col])) {
 				$this->colors[$col]=imagecolorallocatealpha($this->image,$c[0],$c[1],$c[2],$c[3]);
 			}
 		} else if ($mode=="RGB") {
 			$col="C_".$c[0].','.$c[1].','.$c[2];
-			if (!isset($this->colors[$col])){
+			if (!isset($this->colors[$col])) {
 				$this->colors[$col]=imagecolorallocate($this->image,$c[0],$c[1],$c[2]);
 			}
 		}
@@ -169,12 +169,12 @@ class GDLib {
 		return $col;
 	}
 
-	function SetFont($font=null,$size=null){
-	global $WebMS;
-	$font=$WebMS["CorePath"]."Fonts/".$font.'.ttf';
+	function SetFont($font=null,$size=null) {
+		global $WebMS;
+		$font=$WebMS["CorePath"]."Fonts/".$font.'.ttf';
 
 		if (!$size==null)
-			$this->fontSize=(int)$size;
+		$this->fontSize=(int)$size;
 
 		if(!is_readable($font)) {
 			$font=$WebMS["CorePath"]."Fonts/FreeSans.ttf";
@@ -205,7 +205,7 @@ class GDLib {
 		$this->setColor($style[3],"fill");
 	}
 
-	function CreateText($angle,$xpos,$ypos,$text){
+	function CreateText($angle,$xpos,$ypos,$text) {
 		// check font availability
 		$font_file=$this->font;
 		//echo $font_file;
@@ -220,7 +220,7 @@ class GDLib {
 		}
 	}
 
-	function GetTextSize($angle, $text){
+	function GetTextSize($angle, $text) {
 		// compute size with a zero angle
 		$coords = imagettfbbox($this->fontSize, $angle, $this->font, $text);
 		// convert angle to radians
@@ -230,7 +230,7 @@ class GDLib {
 		$sa = sin($a);
 		$ret = array();
 		// perform transformations
-		for($i = 2; $i < 9; $i += 2){
+		for($i = 2; $i < 9; $i += 2) {
 			$ret[$i] = round($coords[$i-2] * $ca + $coords[$i-2+1] * $sa);
 			$ret[$i+1] = round($coords[$i-2+1] * $ca - $coords[$i-2] * $sa);
 		}
@@ -240,52 +240,52 @@ class GDLib {
 	}
 
 	//SET A BRUSH
-	function setBrush($br){
-        if ($br instanceof GDLib){
-            $br=$br->image;
-        }
-        return imagesetbrush($this->image,$br);
-    }
+	function setBrush($br) {
+		if ($br instanceof GDLib) {
+			$br=$br->image;
+		}
+		return imagesetbrush($this->image,$br);
+	}
 
 
 	//Draw functions
-    function drawArc($cx, $cy, $width, $height, $start, $end,$color=null){
-        $color=($color!=null)?$color:$this->colors[$this->drawColor];
-        return imagearc ( $this->image, $cx, $cy, $width, $height, $start, $end, $color);
-    }
-    function drawEllipse ( $cx, $cy, $width, $height,$color=null){
-        $color=($color!=null)?$color:$this->colors[$this->drawColor];
-        return imageellipse($this->image, $cx, $cy, $width, $height, $color);
-    }
-    function drawRect ( $x1, $y1, $x2, $y2,$color=null){
-        $color=($color!=null)?$color:$this->colors[$this->drawColor];
-        return imagerectangle ( $this->image, $x1, $y1, $x2, $y2, $color );
-    }
-    //Fill functions
-    function fillArc($cx, $cy, $width, $height, $start, $end,$color=null){
-        $color=($color!=null)?$color:$this->colors[$this->fillColor];
-        return imagefilledarc ( $this->image, $cx, $cy, $width, $height, $start, $end, $color ,IMG_ARC_PIE);
-    }
-    function fillEllipse ( $cx, $cy, $width, $height,$color=null){
-        $color=($color!=null)?$color:$this->colors[$this->fillColor];
-        //die($color."");
-        return imagefilledellipse ( $this->image, $cx, $cy, $width, $height, $color);
-    }
-    function fillRect ( $x1, $y1, $x2, $y2,$color=null){
-        $color=($color!=null)?$color:$this->colors[$this->fillColor];
+	function drawArc($cx, $cy, $width, $height, $start, $end,$color=null) {
+		$color=($color!=null)?$color:$this->colors[$this->drawColor];
+		return imagearc ( $this->image, $cx, $cy, $width, $height, $start, $end, $color);
+	}
+	function drawEllipse ( $cx, $cy, $width, $height,$color=null) {
+		$color=($color!=null)?$color:$this->colors[$this->drawColor];
+		return imageellipse($this->image, $cx, $cy, $width, $height, $color);
+	}
+	function drawRect ( $x1, $y1, $x2, $y2,$color=null) {
+		$color=($color!=null)?$color:$this->colors[$this->drawColor];
+		return imagerectangle ( $this->image, $x1, $y1, $x2, $y2, $color );
+	}
+	//Fill functions
+	function fillArc($cx, $cy, $width, $height, $start, $end,$color=null) {
+		$color=($color!=null)?$color:$this->colors[$this->fillColor];
+		return imagefilledarc ( $this->image, $cx, $cy, $width, $height, $start, $end, $color ,IMG_ARC_PIE);
+	}
+	function fillEllipse ( $cx, $cy, $width, $height,$color=null) {
+		$color=($color!=null)?$color:$this->colors[$this->fillColor];
+		//die($color."");
+		return imagefilledellipse ( $this->image, $cx, $cy, $width, $height, $color);
+	}
+	function fillRect ( $x1, $y1, $x2, $y2,$color=null) {
+		$color=($color!=null)?$color:$this->colors[$this->fillColor];
 		echo $color;
-        return imagefilledrectangle ( $this->image, $x1, $y1, $x2, $y2, $color );
-    }
-    //Multy functions draw+fill
-    function Arc($cx, $cy, $width, $height, $start, $end,$drawColor=null,$fillColor=null){
-        return $this->fillArc($cx, $cy, $width, $height, $start, $end, $fillColor) && $this->drawArc($cx, $cy, $width, $height, $start, $end, $drawColor);
-    }
-    function Ellipse ( $cx, $cy, $width, $height,$drawColor=null,$fillColor=null){
-        return $this->fillEllipse($cx,$cy,$width,$height,$fillColor) &&  $this->drawEllipse($cx,$cy,$width,$height,$drawColor);
-    }
-    function Rect ($x1, $y1, $x2, $y2,$drawColor=null,$fillColor=null){
-        return $this->fillRect($x1,$y1,$x2,$y2,$fillColor) && $this->drawRect($x1,$y1,$x2,$y2,$drawColor);
-    }
+		return imagefilledrectangle ( $this->image, $x1, $y1, $x2, $y2, $color );
+	}
+	//Multy functions draw+fill
+	function Arc($cx, $cy, $width, $height, $start, $end,$drawColor=null,$fillColor=null) {
+		return $this->fillArc($cx, $cy, $width, $height, $start, $end, $fillColor) && $this->drawArc($cx, $cy, $width, $height, $start, $end, $drawColor);
+	}
+	function Ellipse ( $cx, $cy, $width, $height,$drawColor=null,$fillColor=null) {
+		return $this->fillEllipse($cx,$cy,$width,$height,$fillColor) &&  $this->drawEllipse($cx,$cy,$width,$height,$drawColor);
+	}
+	function Rect ($x1, $y1, $x2, $y2,$drawColor=null,$fillColor=null) {
+		return $this->fillRect($x1,$y1,$x2,$y2,$fillColor) && $this->drawRect($x1,$y1,$x2,$y2,$drawColor);
+	}
 
 	//Create captcha text
 	function Captcha($fnts=null,$fntcols=null) {
@@ -386,48 +386,48 @@ class GDLib {
 		$c=0;
 		// loop over $img pixels, take pixels from $tmpimg with distortion field
 		for ($ix = 0; $ix < $width; ++$ix)
-			for ($iy = 0; $iy < $height; ++$iy) {
-				$step+=1;
-				$x = $ix;
-				$y = $iy;
-				for ($i = 0; $i < $numpoles; ++$i) {
-					$dx = $ix - $px[$i];
-					$dy = $iy - $py[$i];
-					if ($dx == 0 && $dy == 0)
-						continue;
-					$r = sqrt($dx*$dx + $dy*$dy);
-					if ($r > $rad[$i])
-						continue;
-					$rscale = $amp[$i] * sin(3.14*$r/$rad[$i]);
-					$x += $dx*$rscale;
-					$y += $dy*$rscale;
-				}
-
-				if ($x >= 0 && $x < $width2 && $y >= 0 && $y < $height2)
-
-					if (is_array($fntcols)) {
-						if ($step==180) {
-							$rnd2=floor(rand(0,count($fntcols)-1));
-							$step=1;
-						}
-						$c=$this->colors[$this->setColor($fntcols[$rnd2],"none")];
-					} else {
-						$c = imagecolorat($this->tmpimg, $x, $y);
-					}
-
-				//if (!strcmp($c,$this->colors[$this->setColor('255,255,255',"none")])==0) {
-				//
-				//}
-				if (strcmp(imagecolorat($this->tmpimg, $x, $y),$this->colors[$this->setColor("0,0,0,127","none")])==0) {
-					$c = imagecolorat($this->tmpimg, $x, $y);
-				}
-
-				imagesetpixel($this->tmpimg2, $ix, $iy, $c);
-				//if (!strcmp($c,$this->colors[$this->setColor('255,255,255',"none")])==0)
+		for ($iy = 0; $iy < $height; ++$iy) {
+			$step+=1;
+			$x = $ix;
+			$y = $iy;
+			for ($i = 0; $i < $numpoles; ++$i) {
+				$dx = $ix - $px[$i];
+				$dy = $iy - $py[$i];
+				if ($dx == 0 && $dy == 0)
+				continue;
+				$r = sqrt($dx*$dx + $dy*$dy);
+				if ($r > $rad[$i])
+				continue;
+				$rscale = $amp[$i] * sin(3.14*$r/$rad[$i]);
+				$x += $dx*$rscale;
+				$y += $dy*$rscale;
 			}
 
-			imagecopyresampled($this->image,$this->tmpimg2,0,0,0,0,$this->width,$this->height,$width,$height);
-			//imagecopyresized($this->image,$this->tmpimg2,0,0,0,0,$this->width,$this->height,$width,$height);
+			if ($x >= 0 && $x < $width2 && $y >= 0 && $y < $height2)
+
+			if (is_array($fntcols)) {
+				if ($step==180) {
+					$rnd2=floor(rand(0,count($fntcols)-1));
+					$step=1;
+				}
+				$c=$this->colors[$this->setColor($fntcols[$rnd2],"none")];
+			} else {
+				$c = imagecolorat($this->tmpimg, $x, $y);
+			}
+
+			//if (!strcmp($c,$this->colors[$this->setColor('255,255,255',"none")])==0) {
+			//
+			//}
+			if (strcmp(imagecolorat($this->tmpimg, $x, $y),$this->colors[$this->setColor("0,0,0,127","none")])==0) {
+				$c = imagecolorat($this->tmpimg, $x, $y);
+			}
+
+			imagesetpixel($this->tmpimg2, $ix, $iy, $c);
+			//if (!strcmp($c,$this->colors[$this->setColor('255,255,255',"none")])==0)
+		}
+
+		imagecopyresampled($this->image,$this->tmpimg2,0,0,0,0,$this->width,$this->height,$width,$height);
+		//imagecopyresized($this->image,$this->tmpimg2,0,0,0,0,$this->width,$this->height,$width,$height);
 
 		//$gaussian = array(array(1.0, 2.0, 1.0), array(2.0, 4.0, 2.0), array(1.0, 2.0, 1.0));
 		//imageconvolution($this->image, $gaussian, 16, 0);
@@ -439,7 +439,7 @@ class GDLib {
 
 	//OUTPUT THE GD
 	function Out($file=null) {
-	global $WebMS;
+		global $WebMS;
 
 		$imgNumb=$WebMS["imgNumb"];
 
