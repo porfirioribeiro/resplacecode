@@ -92,8 +92,9 @@ function someContent($mod){
 					$b->CreateStyle('Big','Eunjin',70,'#0000BB','#85BF7D');
 					$no="";
 					$fnts=array("Eunjin","Bangwool","Tuffy","UnPen","Bandal","FreeMonoBold","punk kid");
-					$fntcols=array('#001144','#660066','#551100','#002200','#222200');
-					$b->Captcha($no,$fntcols);
+					$fntcols=array("#8F0000","#8F5E08","#3A5F00","#00348F","#51099F","#85008F");
+
+					$b->Captcha(null,$fntcols);
 					$file=$b->out(true);
 					//echo $_SESSION['captcha_string'];
 					?>
