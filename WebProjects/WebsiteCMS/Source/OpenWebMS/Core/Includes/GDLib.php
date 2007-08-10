@@ -301,18 +301,17 @@ class GDLib {
 			$this->SetFont($fnts[$rnd]);
 		}
 
-		// generate a random string of 3 to 6 characters
-		// some easy-to-confuse letters taken out C/G I/l Q/O h/b l/1 o/0
+		// generate a random string of 3 to 6 characters.
 		$string = "";
-		$letters = "ABDEFHKLMNPRSTWX3456789";
+		$letters = "ABDEFGHKLMNPRSTWX3456789";
 		for ($i = 0; $i < rand(3,6); ++$i) {
 			$string .= substr($letters, rand(0,strlen($letters)-1), 1);
 		}
 
-		// create the hash for the random number and put it in the session
+		// put the random string into the session
 		$_SESSION['captcha_string'] = $string;
 
-		// internal variablesinternal scale factor for antialias
+		// internal scale factor for antialias
 		$scale = 1.1;
 		$perturbation = 0.5; // bigger numbers give more distortion; 1 is standard
 		$width=floor($this->width*$scale);
@@ -331,6 +330,46 @@ class GDLib {
 		imagefill($this->tmpimg2, 0, 0, $this->colors[$this->SetColor("0,0,0,127","fill")]);
 		imagealphablending($this->tmpimg2,true);
 		imagesavealpha($this->tmpimg2, true);
+
+
+		$cols=array("#FF8F8F","#FFB68F","#FFEB8F","#DEFF8F","#77EFCB","#868FEF","#E086EF","#0EEF17","#FFC62F","#2FC9FF");
+
+		//background color
+
+		//$this->fillrect(0,0,$this->width,$this->height);
+
+		//fill part of the image
+		$f=$width;
+		while ($f>0) {
+			//generate a number
+			$gen=ceil(rand(3,5));
+			$f=$f-$gen;
+
+			//draw
+			$this->SetColor($cols[floor(rand(0,5))],'fill');
+			imagefilledrectangle($this->image,$f,0,$f+$gen,$this->height,$this->colors[$this->fillColor]);
+
+		}
+
+		$imagex = imagesx($this->image);
+		$imagey = imagesy($this->image);
+
+		for ($x = 0; $x < $imagex; ++$x) {
+			for ($y = 0; $y < $imagey; ++$y) {
+				$distx = rand(-4, 4);
+				$disty = rand(-4, 4);
+
+				if ($x + $distx >= $imagex) continue;
+				if ($x + $distx < 0) continue;
+				if ($y + $disty >= $imagey) continue;
+				if ($y + $disty < 0) continue;
+
+				$oldcol = imagecolorat($this->image, $x, $y);
+				$newcol = imagecolorat($this->image, $x + $distx, $y + $disty);
+				imagesetpixel($this->image, $x, $y, $newcol);
+				imagesetpixel($this->image, $x + $distx, $y + $disty, $oldcol);
+			}
+		}
 
 		// put straight text into $tmpimage
 		$fsize = $height2*0.50;
@@ -374,14 +413,6 @@ class GDLib {
 		$bgcol = imagecolorat($this->tmpimg, 1, 1);
 		$width2 = $width;
 		$height2 = $height;
-
-		$cols=array("#E7C750","#A1A15F","#24C42F","#24C42F","#A1A15F","#FF0000");
-
-		//background color
-		$this->SetColor($cols[floor(rand(0,5))],'fill');
-		$this->fillrect(0,0,$this->width,$this->height);
-
-
 
 		$c=0;
 		// loop over $img pixels, take pixels from $tmpimg with distortion field
@@ -427,6 +458,14 @@ class GDLib {
 		}
 
 		imagecopyresampled($this->image,$this->tmpimg2,0,0,0,0,$this->width,$this->height,$width,$height);
+
+		//randomly select whether to apply an edge detect effect or not.
+		if (rand(0,1)) {
+			imagefilter($this->image, IMG_FILTER_EDGEDETECT);
+		} else {
+			imagefilter($this->image, IMG_FILTER_SMOOTH, 11);
+		}
+
 		//imagecopyresized($this->image,$this->tmpimg2,0,0,0,0,$this->width,$this->height,$width,$height);
 
 		//$gaussian = array(array(1.0, 2.0, 1.0), array(2.0, 4.0, 2.0), array(1.0, 2.0, 1.0));
@@ -460,8 +499,9 @@ class GDLib {
 				header('Content-type: image/png');
 				imagepng($this->image);
 			} else if ($file===true) {
-				$fileName=$tempPath.$hash.'_temp_'.$imgNumb.'.png';
-				$fileNameUrl=$tempPathUrl.$hash.'_temp_'.$imgNumb.'.png';
+				$rand=floor(rand(21,33489));
+				$fileName=$tempPath.'temp_'.$rand.$hash.$imgNumb.'.png';
+				$fileNameUrl=$tempPathUrl.'temp_'.$rand.$hash.$imgNumb.'.png';
 
 				imagepng($this->image,$fileName);
 				return $fileNameUrl;
