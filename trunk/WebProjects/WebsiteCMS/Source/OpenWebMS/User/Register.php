@@ -94,7 +94,7 @@ function someContent($mod){
 					$fnts=array("Eunjin","Bangwool","Tuffy","UnPen","Bandal","FreeMonoBold","punk kid");
 					$fntcols=array("#8F0000","#8F5E08","#3A5F00","#00348F","#51099F","#85008F");
 
-					$b->Captcha(null,$fntcols);
+					$b->Captcha(null);
 					$file=$b->out(true);
 					//echo $_SESSION['captcha_string'];
 					?>

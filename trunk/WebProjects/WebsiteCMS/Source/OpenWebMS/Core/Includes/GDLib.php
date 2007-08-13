@@ -288,7 +288,7 @@ class GDLib {
 	}
 
 	//Create captcha text
-	function Captcha($fnts=null,$fntcols=null) {
+	function Captcha($fnts=null,$fntcols=null,$cols=null) {
 		$rnd2=0;
 		$step=0;
 
@@ -299,6 +299,18 @@ class GDLib {
 		if (is_array($fnts)) {
 			$rnd=rand(0,count($fnts));
 			$this->SetFont($fnts[$rnd]);
+		}
+
+		//background colors
+		if (!is_array($cols)) {
+			//default set of colors
+			$cols=array("#FF8F8F","#FFB68F","#FFEB8F","#DEFF8F","#77EFCB","#868FEF","#E086EF","#0EEF17","#FFC62F","#2FC9FF");
+		}
+
+		//Font colors
+		if (!is_array($fntcols)) {
+			//default set of colors
+			$fntcols=array("#8F0000","#8F5E08","#3A5F00","#00348F","#51099F","#85008F");
 		}
 
 		// generate a random string of 3 to 6 characters.
@@ -335,8 +347,6 @@ class GDLib {
 		$cols=array("#FF8F8F","#FFB68F","#FFEB8F","#DEFF8F","#77EFCB","#868FEF","#E086EF","#0EEF17","#FFC62F","#2FC9FF");
 
 		//background color
-
-		//$this->fillrect(0,0,$this->width,$this->height);
 
 		//fill part of the image
 		$f=$width;
@@ -379,18 +389,6 @@ class GDLib {
 		$x = floor($width2/2 - $tx/2 - $bb[0]);
 		$y = round($height2/2 - $ty/2 - $bb[1]);
 		imagettftext($this->tmpimg, $fsize, 0, $x, $y, $this->colors[$this->drawColor], $this->font, $string);
-		//imagefill($this->tmpimg, 0, 0, $this->colors[$this->SetColor("255,255,255","fill")]);
-		//FILTER
-		//$sharpen = array(array(1, 1, 1), array(1, -7, 1), array(1, 1, 1));
-		//imageconvolution($this->tmpimg, $sharpen, 1, 0);
-		//$gaussian = array(array(1.0, 2.0, 1.0), array(2.0, 4.0, 2.0), array(1.0, 2.0, 1.0));
-		//imageconvolution($this->tmpimg, $gaussian, 16, 0);
-		//imagefilter($this->image, IMG_FILTER_NEGATE);
-		//imagefilter($this->image, IMG_FILTER_GRAYSCALE);
-		//imagefilter($this->image, IMG_FILTER_COLORIZE, 0, -255, -255);
-		//imagefilter($this->tmpimg, IMG_FILTER_EDGEDETECT);
-
-		// addgrid($this->tmpimg, $width2, $height2, $iscale, $this->colors[$this->drawColor]); // debug
 
 		// warp text from $this->tmpimg into $img
 		$numpoles = 2.5;
@@ -434,46 +432,30 @@ class GDLib {
 				$y += $dy*$rscale;
 			}
 
-			if ($x >= 0 && $x < $width2 && $y >= 0 && $y < $height2)
-
-			if (is_array($fntcols)) {
-				if ($step==180) {
-					$rnd2=floor(rand(0,count($fntcols)-1));
-					$step=1;
+			if ($x >= 0 && $x < $width2 && $y >= 0 && $y < $height2) {
+				if (is_array($fntcols)) {
+					if ($step==180) {
+						$rnd2=floor(rand(0,count($fntcols)-1));
+						$step=1;
+					}
+					$c=$this->colors[$this->setColor($fntcols[$rnd2],"none")];
+				} else {
+					$c = imagecolorat($this->tmpimg, $x, $y);
 				}
-				$c=$this->colors[$this->setColor($fntcols[$rnd2],"none")];
-			} else {
-				$c = imagecolorat($this->tmpimg, $x, $y);
 			}
 
-			//if (!strcmp($c,$this->colors[$this->setColor('255,255,255',"none")])==0) {
-			//
-			//}
 			if (strcmp(imagecolorat($this->tmpimg, $x, $y),$this->colors[$this->setColor("0,0,0,127","none")])==0) {
 				$c = imagecolorat($this->tmpimg, $x, $y);
 			}
 
 			imagesetpixel($this->tmpimg2, $ix, $iy, $c);
-			//if (!strcmp($c,$this->colors[$this->setColor('255,255,255',"none")])==0)
 		}
 
 		imagecopyresampled($this->image,$this->tmpimg2,0,0,0,0,$this->width,$this->height,$width,$height);
 
-		//randomly select whether to apply an edge detect effect or not.
-		if (rand(0,1)) {
-			imagefilter($this->image, IMG_FILTER_EDGEDETECT);
-		} else {
-			imagefilter($this->image, IMG_FILTER_SMOOTH, 11);
-		}
-
-		//imagecopyresized($this->image,$this->tmpimg2,0,0,0,0,$this->width,$this->height,$width,$height);
-
-		//$gaussian = array(array(1.0, 2.0, 1.0), array(2.0, 4.0, 2.0), array(1.0, 2.0, 1.0));
-		//imageconvolution($this->image, $gaussian, 16, 0);
-		//imagefilter($this->image, IMG_FILTER_NEGATE);
-		//imagefilter($this->image, IMG_FILTER_GRAYSCALE);
-		//imagefilter($this->image, IMG_FILTER_COLORIZE, 0, -255, -255);
-		//imagefilter($this->image, IMG_FILTER_EDGEDETECT);
+		//Apply some smoothness to the image
+		//DEP: imagefilter($this->image, IMG_FILTER_EDGEDETECT);
+		imagefilter($this->image, IMG_FILTER_SMOOTH, 15);
 	}
 
 	//OUTPUT THE GD

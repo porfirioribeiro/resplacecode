@@ -1,5 +1,5 @@
 <?php
-include 'data/lib/error_reporter.php';
+include 'OpenWebMS/data/lib/error_reporter.php';
 
 class staticTest{
     static $count=0;
