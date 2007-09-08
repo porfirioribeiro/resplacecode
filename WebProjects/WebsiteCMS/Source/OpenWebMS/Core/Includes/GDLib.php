@@ -41,7 +41,7 @@ class GDLib {
 				$date =date('y-m-d', filemtime($fileName));
 				$today=date('y-m-d');
 				$diff =abs(strtotime($today)-strtotime($date)) / 86400;
-				echo $diff;
+				//echo $diff;
 				if ($diff>=7) {
 					//remake the cache :)
 					$this->MakeCanvas($width,$height);
@@ -66,17 +66,17 @@ class GDLib {
 			$WebMS["imgNumb"]+=1;
 			$imgNumb=$WebMS["imgNumb"];
 			$fileName=$tempPath.$hash.$imgNumb.'.png';
-			echo '{'.$fileName.'}';
+			//echo '{'.$fileName.'}';
 			if (file_exists($fileName)) {
-				echo' CACHED ';
+				//echo' CACHED ';
 				$date =date('y-m-d', filemtime($fileName));
 				$today=date('y-m-d');
 				$diff =abs(strtotime($today)-strtotime($date)) / 86400;
 				echo $diff;
 				if ($diff>=7) {
-					echo' RE-CACHED ';
+					//echo' RE-CACHED ';
 				} else {
-					echo' SEND-CACHED ';
+					//echo' SEND-CACHED ';
 					//do not procede with GD rendering, pass link to cached image
 					return array($WebMS["WebMSUrl"].'Temp/'.$hash.$imgNumb.'.png',$diff);
 					exit;
@@ -297,7 +297,7 @@ class GDLib {
 
 		//Select a font to use
 		if (is_array($fnts)) {
-			$rnd=rand(0,count($fnts));
+			$rnd=rand(0,count($fnts)-1);
 			$this->SetFont($fnts[$rnd]);
 		}
 
@@ -315,7 +315,7 @@ class GDLib {
 
 		// generate a random string of 3 to 6 characters.
 		$string = "";
-		$letters = "ABDEFGHKLMNPRSTWX3456789";
+		$letters = "ACDEFGHKLMNPRSTWXYZ3456789";
 		for ($i = 0; $i < rand(3,6); ++$i) {
 			$string .= substr($letters, rand(0,strlen($letters)-1), 1);
 		}
@@ -356,7 +356,7 @@ class GDLib {
 			$f=$f-$gen;
 
 			//draw
-			$this->SetColor($cols[floor(rand(0,5))],'fill');
+			$this->SetColor($cols[floor(rand(0,count($cols)-1))],'fill');
 			imagefilledrectangle($this->image,$f,0,$f+$gen,$this->height,$this->colors[$this->fillColor]);
 
 		}

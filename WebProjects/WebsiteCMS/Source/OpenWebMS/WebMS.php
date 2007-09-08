@@ -163,7 +163,8 @@ class WebMS{
 		$this->addJS("prototype.js");	
 		$this->addJS("protoExt.js");
 		$this->addJS("cookie.js");	
-		$this->addJS("site.js");	
+		$this->addJS("site.js");
+		$this->addJS("menu.js");	
 		$this->addOnLoad("el=$('AjaxLoader');if (el){el.hide();Ajax.Responders.register({onCreate: function(){el.show();},onComplete: function(){if(Ajax.activeRequestCount==0){el.hide();}}})}");
 		foreach ($this->functionsSearchPath as $fpath) {
 			$this->loadFunctions($fpath);

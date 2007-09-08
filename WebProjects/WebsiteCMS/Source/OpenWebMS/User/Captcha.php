@@ -41,7 +41,7 @@ function someContent($mod){
 	$b=new GDLib(145,40);
 	$b->CreateStyle('Big','Eunjin',70,'#0000BB','#85BF7D');
 	$no="";
-	$fnts=array("Eunjin","Bangwool","Tuffy","UnPen","Bandal","FreeMonoBold","punk kid");
+	$fnts=array("Eunjin","Bangwool","Tuffy","UnPen","Bandal","FreeMonoBold");
 
 	$b->Captcha($fnts);
 	$file=$b->out(true);
