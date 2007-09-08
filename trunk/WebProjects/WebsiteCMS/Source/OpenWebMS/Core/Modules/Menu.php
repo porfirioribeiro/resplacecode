@@ -24,9 +24,17 @@ class Menu extends Module {
 			if (ArrayMap::is($val)){
 				if ($val->isMap("1")){
 					$id=preg_replace(array("/-/","/ /"),"_",$val->get("name"));
+					
+					//read cookie
+					if ($_COOKIE['MENU_'.$id.'_COOKIE']=="none") {
+						$b="none";
+					} else {
+						$b="block";
+					}
+					
 					?>
-					<a style="display:block; text-decoration:none;" href="javascript:;" onclick="$('<?=$id?>').toggle();"><?=$val->get("name")?></a>
-					<div id="<?=$id?>" style="display:none;padding-left:10px">
+					<a style="display:block; text-decoration:none;" href="javascript:;" onclick="$('<?=$id?>').toggle(); togglemenu($('<?=$id?>'),'MENU_<?=$id?>_COOKIE')"><?=$val->get("name")?></a>
+					<div id="<?=$id?>" style="display:<?=$b?>;padding-left:10px">
 					<?php
 						$this->expandMenu($val);
 					?>
