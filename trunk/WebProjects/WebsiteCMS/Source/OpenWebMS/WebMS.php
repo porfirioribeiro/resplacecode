@@ -56,12 +56,14 @@ class WebMS{
 	var $ModulesRight=array();
 	var $ModulesBottom=array();
 	var $alerts=array();
+	var $globallogo="no";
 
 	//templates
 	var $moduleTpl;
 	var $pageTpl;
 	var $menuTpl;
 	function WebMS($_path="data/",$_title=""){
+		global $WebMS;
 		$this->config=WebMS::$_config;
 		
 		//start site timer
@@ -72,6 +74,7 @@ class WebMS{
 		$db=new ResDB("WebMSoptions");
 			$adminpassword=$db->get("adminpassword");
 			$this->defaultskin=$db->get("defaultskin");
+			$this->globallogo=$db->get("logo_use");
 		//database doesnt need closing since no changes are made :)
 		
 		//activate/deactivate dev mode
@@ -159,7 +162,9 @@ class WebMS{
 	function addFunctionSearchPath($p){
 		$this->functionsSearchPath[]=$p;
 	}
-	function addDefaults(){		
+	function addDefaults(){
+		global $WebMS;
+
 		$this->addJS("prototype.js");	
 		$this->addJS("protoExt.js");
 		$this->addJS("cookie.js");	
@@ -171,7 +176,7 @@ class WebMS{
 		}					
 	}
 	function create(){
-	global $browser;
+	global $browser, $WebMS;
     ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -281,7 +286,16 @@ class WebMS{
 		
 		//place title code
 		//echo $this->theme_title;
-		echo $this->pageTpl->get("title")->evaluate(array());
+		if ($this->globallogo=="yes"){
+			$globallogo=true;
+		} else {
+			$globallogo=false;
+		}
+        $huh=$WebMS["ThemesUrl"].'sitelogo.png';
+		$datx=array("GlobalLogo"=>$globallogo,
+			"GlobalLogoPath"=>$huh);
+        
+		echo $this->pageTpl->get("title")->evaluate($datx);
 		
 		//place the page content as desired
 		//theme_shell($this->ModulesTop,$this->ModulesLeft,$this->ModulesCenter,$this->ModulesTop,$this->ModulesRight,$this->ModulesBottom);
@@ -343,6 +357,9 @@ class WebMS{
 		
 		//send out the footer
 		$starttime = explode(' ', microtime());
+		
+		
+		
 		echo $this->pageTpl->get("footer")->evaluate(array(
 			"imgpath"=>$this->themespath.$this->selectedskin."Images/",
 			"ResDB_queries"=>ResDB::$resdbopen+ResDB::$resdbclose,
@@ -441,6 +458,8 @@ class WebMS{
 		return $toreturn;
 	}
 	function loadFunctions($dir){
+		global $WebMS;
+		
 		if(is_dir($dir)){
 			$dirlist = opendir($dir);
             while( ($file = readdir($dirlist)) !== false){

@@ -66,6 +66,12 @@ $db->close();
 			} else { $logosize=array(0,0,0,0); }
 		}
 		
+		if ($logosize[1]>=65){
+			$imgheight=$logosize[1];
+		} else {
+			$imgheight=65;
+		}
+		
 		
 		if (isset($_POST['logo_define']) && ($_POST['logo_define']=="LogoAndText" || $_POST['logo_define']=="Text")) {
 			//get dimensions
@@ -77,18 +83,18 @@ $db->close();
 		} else { $textdim=array(0,0,0,0); }
 		
 		//make final image
-		$gl=new GDLib(10+$logosize[0]+10+$textdim[0]+10,65);
+		$gl=new GDLib(10+$logosize[0]+10+$textdim[0]+10,$imgheight);
 			if ($logosize[0]>>0) {
 				
 				$logoimg=imagecreatefrompng($WebMS["ThemesPath"].'logo.png');
-				imagecopy($gl->image,$logoimg,10,(65-$logosize[1])/2,0,0,$logosize[0],$logosize[1]);
+				imagecopy($gl->image,$logoimg,10,($imgheight-$logosize[1])/2,0,0,$logosize[0],$logosize[1]);
 				$offset=10+$logosize[0];
 			} else { $offset=0; }
 			
 			if ($textdim[0]>>0) {
 				$gl->CreateStyle('Big','Eunjin',30,'#BB','#F0F0F0');
 				//$gl->fontSize=80;
-				$gl->CreateText(0,0-$textdim[2]+$offset+10,$textdim[1]-$textdim[3]+((65-$textdim[1])/2),$txt);
+				$gl->CreateText(0,0-$textdim[2]+$offset+10,$textdim[1]-$textdim[3]+(($imgheight-$textdim[1])/2),$txt);
 			}
 		$gl->out($WebMS["ThemesPath"].'sitelogo.png');
 
