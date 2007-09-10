@@ -38,7 +38,23 @@ $WebMS["Integrate"]			=false;
 //filename of integration script, ie. smf.php
 $WebMS["IntegrateScript"]	="";
 
+//user variables when using the built in user management
+if (!$WebMS["Integrate"]){
+	$WebMS["User_ID"]="";
+	$WebMS["User_Username"]="";
+	$WebMS["User_Password"]="";
+	$WebMS["User_Email"]="";
+	$WebMS["User_Name"]="";
+	$WebMS["User_Userlvl"]=0;
+	$WebMS["User_Datereg"]="";
+	$WebMS["User_Datelog"]="";
+	$WebMS["User_Sig"]="";
+	$WebMS["User_Avatar"]="";
+}
+
 //MySQL Configuration
+//Use MySQL? false or true
+$WebMS["MySQL_Use"]			=true;
 $WebMS["MySQL_Host"]		="localhost";
 $WebMS["MySQL_UserName"]	="root";
 $WebMS["MySQL_Password"]	="playing";

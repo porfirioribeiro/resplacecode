@@ -1,6 +1,6 @@
 <?php
 /**
-* Register a new user account
+* Login to a user account
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright ? 2007 ResPlace Team
@@ -24,7 +24,7 @@ $page->add("PageRate");
 function someContent($mod){
 	global $WebMS;
 
-	if ($WebMS["Integrate"]){
+	if ($WebMS["Integrate"]) {
 		err("Integration is enabled, this system is diactivated.");
 		return false;
 		exit;
@@ -36,56 +36,25 @@ function someContent($mod){
 		exit;
 	}
 
-	//manage a submit
-	if (isset($_REQUEST["activate"])) {
-		if (isset($_REQUEST["username"])) {
-			$usrname=stripslashes($_REQUEST["username"]);
-			$db= new sql();
-			$result=$db->query("SELECT email FROM ".$WebMS["MySQL_Prefix"]."users WHERE usrname='".$usrname."'",true);
-			$mail=$result["0"]["email"];
-			if ($_REQUEST["activate"]==md5($mail)) {
-				$result=$db->query("UPDATE ".$WebMS["MySQL_Prefix"]."users SET activate='1' WHERE usrname='".$usrname."'",false);
-				echo'You have successfully registered to this website!';
-			} else {
-				echo'Unfortunately an error occured when activating your account, please try again.';
-			}
-		}
-	} else {
 		if ((!isset($_POST["submit"])) || (submit())) {
 			?>
-			Registering to our website enables you to access more content, get the latest information and interact with other website users. So register today!<br><br>
+			Please login to your account below:<br>
+			Are you <a href="Register.php" target="_blank">registered</a>?<br><br>
 			<form method="POST" action="<?=$_SERVER['PHP_SELF']; ?>">
 				<table width="100%" border="0" cellspacing="0" cellpadding="2">
 				  <tr valign="top">
-					<td><b>Choose username:</b><br>
-					<div class="smalltext">Used for identification.<br>
-					  <br>
-					</div>
+					<td><b>Username:</b><br>
 				    </td>
 					<td><label>
 					  <input type="text" name="username" value="<?=isset($_POST["username"]) ? $_POST["username"]:"" ?>" maxlength="48">
 					</label></td>
 				  </tr>
 				  <tr valign="top">
-					<td><b>Email:</b><br>
-				    <div class="smalltext">Required for activation.<br>
-				      <br>
-				    </div>
-					</td>
-					<td><input type="text" name="mail" value="<?=isset($_POST["mail"]) ? $_POST["mail"]:"" ?>" maxlength="60"></td>
-				  </tr>
-				  <tr valign="top">
-					<td><b>Choose password:</b><br>
+					<td><b>Password:</b><br>
 				      <br>
 			        <br></td>
 					<td><input type="password" name="password" maxlength="48"></td>
 				  </tr>
-				  <tr valign="top">
-				    <td><b>Confirm password:</b><br>
-			          <br>
-			        <br></td>
-				    <td><input type="password" name="password2" maxlength="48"></td>
-			      </tr>
 				  <tr valign="top">
 				    <td><b>Varification:</b><br>
 			        <div class="smalltext">Type whats shown in the picture. <br>
@@ -115,7 +84,6 @@ function someContent($mod){
 
 		}
 	}
-}
 
 function submit() {
 	global $WebMS, $page;
@@ -125,40 +93,25 @@ function submit() {
 
 		//check username
 		$db= new sql();
-		$result=$db->query("SELECT usrname FROM ".$WebMS["MySQL_Prefix"]."users WHERE usrname='".$_POST["username"]."'",true);
+		$result=$db->query("SELECT * FROM ".$WebMS["MySQL_Prefix"]."users WHERE usrname='".$_POST["username"]."' ",true);
 
-		if (count($result)) {
-			err('Another user is using this username, please choose another username!');
+		if (!count($result)) {
+			err('There is no user registered with this username!');
+			return true;
+		} else if (!$result[0]['activate']=="1") {
+			err('You need to activate your account by clicking the activate link in the email we sent you before you can login!<br>Missed your activation email?');
 			return true;
 		} else {
 			//check passwords
 
-			if ((strcmp($_POST["password"],$_POST["password2"])==0)) {
+			if ((strcmp(md5($_POST["password"]),$result['0']['psswrd'])==0)) {
 				//check password chrs
-
-				if (strlen($_POST["password"])>=5) {
-					//check email
-
-					if (check_email($_POST['mail'])) {
-						//Register the user...
-
-						if ($db->query("INSERT INTO ".$WebMS["MySQL_Prefix"]."users (usrname,psswrd,email,name,activate) VALUES('".$_POST['username']."','".md5($_POST['password'])."','".$_POST['mail']."','".$_POST['username']."','0')",false)) {
-							echo'<b>Thanks for registering!</b><br><br>
-								You have successfully registered an account with this website, you now need to activate your account by following the link we just sent to your E-Mail address.';
-						} else {
-							err('Unfortunately the request to register has failed because of an unknown error. re-submit the form or contact an administrator.');
-							return true;
-						}
-					} else {
-						err('The email address you entered is invalid!');
-						return true;
-					}
-				} else {
-					err('Your password must be more than four characters in length.');
-					return true;
-				}
+				echo'You have successfully logged into your account, please enjoy your visit!';
+				$_SESSION['username']=$result['0']["usrname"];
+				$_SESSION['psswrd']=$result['0']["psswrd"];
+				
 			} else {
-				err('password does not match.');
+				err('The password you provided is not correct.'.md5($_POST["password"]).' '.$result['0']['psswrd']);
 				return true;
 			}
 		}

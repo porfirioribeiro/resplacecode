@@ -87,12 +87,13 @@ class GDLib {
 
 	function MakeCanvas($width=1,$height=1) {
 		$this->image=imagecreatetruecolor($width,$height);
-		$this->CreateStyle('Default','Eunjin',14,"0,0,0,0","0,0,0,127");
-		imagefill($this->image, 0, 0, $this->colors[$this->fillColor]);
-		imagealphablending($this->image,true);
+		
+		//setup alpha blending, thanks to php.net for this!!
+		imagealphablending( $this->image, false );
 		imagesavealpha($this->image, true);
-
-
+		imagefilledrectangle($this->image,0,0,$width,$height, 0x40FF0000);
+		$col = imagecolorallocatealpha( $this->image, 0, 0, 0,127 );
+		imagefilledrectangle( $this->image, 0, 0, $width, $height, $col );
 	}
 
 	function SetColor($c,$set=null) {
@@ -473,18 +474,19 @@ class GDLib {
 		if ($this->cache==true) {
 			$fileName=$tempPath.$hash.$imgNumb.'.png';
 			$fileNameUrl=$tempPathUrl.$hash.$imgNumb.'.png';
-
+			
 			imagepng($this->image,$fileName);
 			return $fileNameUrl;
 		} else {
 			if ($file==null) {
 				header('Content-type: image/png');
+				
 				imagepng($this->image);
 			} else if ($file===true) {
 				$rand=floor(rand(21,33489));
 				$fileName=$tempPath.'temp_'.$rand.$hash.$imgNumb.'.png';
 				$fileNameUrl=$tempPathUrl.'temp_'.$rand.$hash.$imgNumb.'.png';
-
+				
 				imagepng($this->image,$fileName);
 				return $fileNameUrl;
 			} else {
