@@ -30,7 +30,7 @@ function someContent($mod){
 		exit;
 	}
 	
-	if ($WebMS["MySQL_Use"]){
+	if (!$WebMS["MySQL_Use"]){
 		err("MySQL is disabled, this system requires MySQL.");
 		return false;
 		exit;
@@ -43,6 +43,7 @@ function someContent($mod){
 			$db= new sql();
 			$result=$db->query("SELECT email FROM ".$WebMS["MySQL_Prefix"]."users WHERE usrname='".$usrname."'",true);
 			$mail=$result["0"]["email"];
+			echo md5($mail);
 			if ($_REQUEST["activate"]==md5($mail)) {
 				$result=$db->query("UPDATE ".$WebMS["MySQL_Prefix"]."users SET activate='1' WHERE usrname='".$usrname."'",false);
 				echo'You have successfully registered to this website!';
@@ -94,7 +95,7 @@ function someContent($mod){
 					</td>
 				    <td>
 					<?php
-					$b=new GDLib(145,40);
+					$b=new GDLib(145,40,null,false);
 					$b->CreateStyle('Big','Eunjin',70,'#0000BB','#85BF7D');
 					$no="";
 					$fnts=array("Eunjin","Bangwool","Tuffy","UnPen","Bandal","FreeMonoBold","punk kid");

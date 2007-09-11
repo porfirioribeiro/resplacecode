@@ -27,6 +27,8 @@ $WebMS["IncPath"]           =$WebMS["CorePath"] ."Includes/";
 $WebMS["IncUrl"]            =$WebMS["CoreUrl"]  ."Includes/";
 $WebMS["ModulesPath"]       =$WebMS["CorePath"] ."Modules/";
 $WebMS["ModulesUrl"]        =$WebMS["CoreUrl"]  ."Modules/";
+$WebMS["PagesPath"]         =$WebMS["WebMSPath"] ."Pages/";
+$WebMS["PagesUrl"]          =$WebMS["WebMSUrl"]  ."Pages/";
 $WebMS["JSPath"]            =$WebMS["CorePath"] ."JS/";
 $WebMS["JSUrl"]             =$WebMS["CoreUrl"]  ."JS/";
 
