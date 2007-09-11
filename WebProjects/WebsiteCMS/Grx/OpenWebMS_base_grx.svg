@@ -13,15 +13,38 @@
    height="98"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.46dev+devel"
+   inkscape:version="0.45.1"
    sodipodi:docname="OpenWebMS_base_grx.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0"
    inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace-dp.png"
    inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-ydpi="90"
+   sodipodi:docbase="C:\xampp\htdocs\Resplace\WebProjects\WebsiteCMS\Grx">
   <defs
      id="defs4">
+    <linearGradient
+       id="linearGradient7637">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop7639" />
+      <stop
+         style="stop-color:#585858;stop-opacity:1;"
+         offset="1"
+         id="stop7641" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3739">
+      <stop
+         style="stop-color:#2365a2;stop-opacity:1;"
+         offset="0"
+         id="stop3741" />
+      <stop
+         style="stop-color:#85b6e3;stop-opacity:1;"
+         offset="1"
+         id="stop3743" />
+    </linearGradient>
     <linearGradient
        id="linearGradient4649">
       <stop
@@ -2086,6 +2109,210 @@
          stdDeviation="4.9338981"
          id="feGaussianBlur9228" />
     </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4801"
+       id="linearGradient2765"
+       gradientUnits="userSpaceOnUse"
+       x1="194.28571"
+       y1="325.21933"
+       x2="354.28571"
+       y2="325.21933" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4801"
+       id="linearGradient2767"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.2920722,0,0,0.2928609,345.30808,21.401394)"
+       x1="54.692879"
+       y1="659.99298"
+       x2="160.30711"
+       y2="659.99298" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3145"
+       id="linearGradient2769"
+       gradientUnits="userSpaceOnUse"
+       x1="288.84906"
+       y1="303.79077"
+       x2="288.76984"
+       y2="346.64789" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5962"
+       id="linearGradient2771"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.2920722,0,0,0.2928609,345.30808,21.401394)"
+       x1="57.980701"
+       y1="687.6839"
+       x2="157.0193"
+       y2="687.6839" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4340"
+       id="linearGradient2773"
+       gradientUnits="userSpaceOnUse"
+       x1="287.68878"
+       y1="346.64789"
+       x2="288.16891"
+       y2="303.79077" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4649"
+       id="linearGradient2775"
+       gradientUnits="userSpaceOnUse"
+       x1="299.04892"
+       y1="348.24426"
+       x2="299.04892"
+       y2="302.19693" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4340"
+       id="linearGradient2777"
+       gradientUnits="userSpaceOnUse"
+       x1="287.68878"
+       y1="346.64789"
+       x2="288.16891"
+       y2="303.79077" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4801"
+       id="linearGradient2779"
+       gradientUnits="userSpaceOnUse"
+       x1="194.28571"
+       y1="325.21933"
+       x2="354.28571"
+       y2="325.21933" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4801"
+       id="linearGradient2781"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.2920722,0,0,0.2928609,345.30808,21.401394)"
+       x1="54.692879"
+       y1="659.99298"
+       x2="160.30711"
+       y2="659.99298" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3145"
+       id="linearGradient2783"
+       gradientUnits="userSpaceOnUse"
+       x1="288.84906"
+       y1="303.79077"
+       x2="288.76984"
+       y2="346.64789" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5962"
+       id="linearGradient2785"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.2920722,0,0,0.2928609,345.30808,21.401394)"
+       x1="57.980701"
+       y1="687.6839"
+       x2="157.0193"
+       y2="687.6839" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4340"
+       id="linearGradient2787"
+       gradientUnits="userSpaceOnUse"
+       x1="287.68878"
+       y1="346.64789"
+       x2="288.16891"
+       y2="303.79077" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4649"
+       id="linearGradient2789"
+       gradientUnits="userSpaceOnUse"
+       x1="299.04892"
+       y1="348.24426"
+       x2="299.04892"
+       y2="302.19693" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4340"
+       id="linearGradient2791"
+       gradientUnits="userSpaceOnUse"
+       x1="287.68878"
+       y1="346.64789"
+       x2="288.16891"
+       y2="303.79077" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4801"
+       id="linearGradient2793"
+       gradientUnits="userSpaceOnUse"
+       x1="194.28571"
+       y1="325.21933"
+       x2="354.28571"
+       y2="325.21933" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4801"
+       id="linearGradient2795"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.2920722,0,0,0.2928609,582.85505,390.31952)"
+       x1="54.692879"
+       y1="659.99298"
+       x2="160.30711"
+       y2="659.99298" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3145"
+       id="linearGradient2797"
+       gradientUnits="userSpaceOnUse"
+       x1="288.84906"
+       y1="303.79077"
+       x2="288.76984"
+       y2="346.64789" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5962"
+       id="linearGradient2799"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.2920722,0,0,0.2928609,582.85505,390.31952)"
+       x1="57.980701"
+       y1="687.6839"
+       x2="157.0193"
+       y2="687.6839" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4340"
+       id="linearGradient2801"
+       gradientUnits="userSpaceOnUse"
+       x1="287.68878"
+       y1="346.64789"
+       x2="288.16891"
+       y2="303.79077" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4649"
+       id="linearGradient2803"
+       gradientUnits="userSpaceOnUse"
+       x1="299.04892"
+       y1="348.24426"
+       x2="299.04892"
+       y2="302.19693" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4340"
+       id="linearGradient2805"
+       gradientUnits="userSpaceOnUse"
+       x1="287.68878"
+       y1="346.64789"
+       x2="288.16891"
+       y2="303.79077" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7637"
+       id="linearGradient7643"
+       x1="408.83594"
+       y1="739.67188"
+       x2="408.83594"
+       y2="777.79749"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -2098,14 +2325,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="418.61178"
-     inkscape:cy="-148.10458"
+     inkscape:cx="476.5"
+     inkscape:cy="-613"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:window-width="1280"
-     inkscape:window-height="934"
-     inkscape:window-x="-4"
-     inkscape:window-y="24"
+     inkscape:window-height="749"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
      showguides="true"
      inkscape:guide-bbox="true"
      width="98px"
@@ -5274,5 +5501,337 @@
          x="-33.720276"
          y="202.00427"
          style="font-size:14px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-linejoin:round;stroke-opacity:1;font-family:Bradley Hand ITC">all your resource are belong to us!</tspan></text>
+    <g
+       id="g2711"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="translate(1.730193,120.63782)">
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+         transform="matrix(0.5321741,0,0,0.5321741,259.35766,499.74811)"
+         id="g2713">
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#linearGradient2765);fill-opacity:1;stroke:none"
+           id="path2715"
+           sodipodi:cx="274.28571"
+           sodipodi:cy="325.21933"
+           sodipodi:rx="80"
+           sodipodi:ry="21.428572"
+           d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+           transform="matrix(0.1926959,0,0,0.2928609,61.07667,150.51446)"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           style="fill:url(#linearGradient2767);fill-opacity:1;stroke:none"
+           d="M 98.50127,245.70959 C 101.21736,253.69713 126.63217,253.69713 129.34826,245.70959 L 129.34826,297.18475 C 127.99021,305.46811 99.47131,305.76395 98.50127,297.18475 L 98.50127,245.70959 z "
+           id="path2717"
+           sodipodi:nodetypes="ccccc"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#linearGradient2769);fill-opacity:1;stroke:#3975aa;stroke-width:8.06413269;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.36184208"
+           id="path2719"
+           sodipodi:cx="274.28571"
+           sodipodi:cy="325.21933"
+           sodipodi:rx="80"
+           sodipodi:ry="20.895338"
+           d="M 354.28571 325.21933 A 80 20.895338 0 1 1  194.28571,325.21933 A 80 20.895338 0 1 1  354.28571 325.21933 z"
+           transform="matrix(0.1881192,0,0,0.2886318,62.35367,152.04185)"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           style="fill:url(#linearGradient2771);fill-opacity:1;stroke:none"
+           d="M 99.46156,268.26934 C 100.75312,261.13521 127.75186,261.62679 128.38797,268.26934 L 128.38797,297.00735 C 128.07476,302.8033 102.29177,305.31134 99.46156,297.00735 L 99.46156,268.26934 z "
+           id="path2721"
+           sodipodi:nodetypes="ccccc"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#linearGradient2773);fill-opacity:1;stroke:none"
+           id="path2723"
+           sodipodi:cx="274.28571"
+           sodipodi:cy="325.21933"
+           sodipodi:rx="80"
+           sodipodi:ry="21.428572"
+           d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+           transform="matrix(0.1830027,0,0,0.2790554,63.63274,205.85079)"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:type="arc"
+           style="fill:none;fill-opacity:1;stroke:url(#linearGradient2775);stroke-width:8.79552364;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.54605264"
+           id="path2725"
+           sodipodi:cx="274.28571"
+           sodipodi:cy="325.21933"
+           sodipodi:rx="80"
+           sodipodi:ry="21.428572"
+           d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+           transform="matrix(0.1772465,0,0,0.2575083,65.21384,212.8953)"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#linearGradient2777);fill-opacity:1;stroke:none"
+           id="path2727"
+           sodipodi:cx="274.28571"
+           sodipodi:cy="325.21933"
+           sodipodi:rx="80"
+           sodipodi:ry="21.428572"
+           d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+           transform="matrix(0.1830027,0,0,-0.2790554,63.76323,359.49333)"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:type="arc"
+           style="fill:none;fill-opacity:1;stroke:#32a632;stroke-width:8.79552364;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.54605264"
+           id="path2729"
+           sodipodi:cx="274.28571"
+           sodipodi:cy="325.21933"
+           sodipodi:rx="80"
+           sodipodi:ry="21.428572"
+           d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+           transform="matrix(0.1772465,0,0,0.2575083,65.34563,184.94676)"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+      </g>
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+         transform="matrix(0.7871997,0,0,0.7871997,243.96586,428.96579)"
+         id="g2731">
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#linearGradient2779);fill-opacity:1;stroke:none"
+           id="path2733"
+           sodipodi:cx="274.28571"
+           sodipodi:cy="325.21933"
+           sodipodi:rx="80"
+           sodipodi:ry="21.428572"
+           d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+           transform="matrix(0.1926959,0,0,0.2928609,61.07667,150.51446)"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           style="fill:url(#linearGradient2781);fill-opacity:1;stroke:none"
+           d="M 98.50127,245.70959 C 101.21736,253.69713 126.63217,253.69713 129.34826,245.70959 L 129.34826,297.18475 C 127.99021,305.46811 99.47131,305.76395 98.50127,297.18475 L 98.50127,245.70959 z "
+           id="path2735"
+           sodipodi:nodetypes="ccccc"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#linearGradient2783);fill-opacity:1;stroke:#3975aa;stroke-width:5.45163107;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.36184208"
+           id="path2737"
+           sodipodi:cx="274.28571"
+           sodipodi:cy="325.21933"
+           sodipodi:rx="80"
+           sodipodi:ry="20.895338"
+           d="M 354.28571 325.21933 A 80 20.895338 0 1 1  194.28571,325.21933 A 80 20.895338 0 1 1  354.28571 325.21933 z"
+           transform="matrix(0.1881192,0,0,0.2886318,62.35367,152.04185)"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           style="fill:url(#linearGradient2785);fill-opacity:1;stroke:none"
+           d="M 99.46156,268.26934 C 100.75312,261.13521 127.75186,261.62679 128.38797,268.26934 L 128.38797,297.00735 C 128.07476,302.8033 102.29177,305.31134 99.46156,297.00735 L 99.46156,268.26934 z "
+           id="path2739"
+           sodipodi:nodetypes="ccccc"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#linearGradient2787);fill-opacity:1;stroke:none"
+           id="path2741"
+           sodipodi:cx="274.28571"
+           sodipodi:cy="325.21933"
+           sodipodi:rx="80"
+           sodipodi:ry="21.428572"
+           d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+           transform="matrix(0.1830027,0,0,0.2790554,63.63274,205.85079)"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:type="arc"
+           style="fill:none;fill-opacity:1;stroke:url(#linearGradient2789);stroke-width:5.94607639;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.54605264"
+           id="path2743"
+           sodipodi:cx="274.28571"
+           sodipodi:cy="325.21933"
+           sodipodi:rx="80"
+           sodipodi:ry="21.428572"
+           d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+           transform="matrix(0.1772465,0,0,0.2575083,65.21384,212.8953)"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#linearGradient2791);fill-opacity:1;stroke:none"
+           id="path2745"
+           sodipodi:cx="274.28571"
+           sodipodi:cy="325.21933"
+           sodipodi:rx="80"
+           sodipodi:ry="21.428572"
+           d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+           transform="matrix(0.1830027,0,0,-0.2790554,63.76323,359.49333)"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:type="arc"
+           style="fill:none;fill-opacity:1;stroke:#32a632;stroke-width:5.94607639;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.54605264"
+           id="path2747"
+           sodipodi:cx="274.28571"
+           sodipodi:cy="325.21933"
+           sodipodi:rx="80"
+           sodipodi:ry="21.428572"
+           d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+           transform="matrix(0.1772465,0,0,0.2575083,65.34563,184.94676)"
+           inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+      </g>
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+         transform="matrix(0.1926959,0,0,0.2928609,298.62364,519.43258)"
+         d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+         sodipodi:ry="21.428572"
+         sodipodi:rx="80"
+         sodipodi:cy="325.21933"
+         sodipodi:cx="274.28571"
+         id="path2749"
+         style="fill:url(#linearGradient2793);fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+         sodipodi:nodetypes="ccccc"
+         id="path2751"
+         d="M 336.04824,614.62771 C 338.76433,622.61525 364.17914,622.61525 366.89523,614.62771 L 366.89523,666.10287 C 365.53718,674.38623 337.01828,674.68207 336.04824,666.10287 L 336.04824,614.62771 z "
+         style="fill:url(#linearGradient2795);fill-opacity:1;stroke:none" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+         transform="matrix(0.1881192,0,0,0.2886318,299.90064,520.95997)"
+         d="M 354.28571 325.21933 A 80 20.895338 0 1 1  194.28571,325.21933 A 80 20.895338 0 1 1  354.28571 325.21933 z"
+         sodipodi:ry="20.895338"
+         sodipodi:rx="80"
+         sodipodi:cy="325.21933"
+         sodipodi:cx="274.28571"
+         id="path2753"
+         style="fill:url(#linearGradient2797);fill-opacity:1;stroke:#3975aa;stroke-width:4.29152203;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.36184208"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+         sodipodi:nodetypes="ccccc"
+         id="path2755"
+         d="M 337.00853,637.18746 C 338.30009,630.05333 365.29883,630.54491 365.93494,637.18746 L 365.93494,665.92547 C 365.62173,671.72142 339.83874,674.22946 337.00853,665.92547 L 337.00853,637.18746 z "
+         style="fill:url(#linearGradient2799);fill-opacity:1;stroke:none" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+         transform="matrix(0.1830027,0,0,0.2790554,301.17971,574.76891)"
+         d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+         sodipodi:ry="21.428572"
+         sodipodi:rx="80"
+         sodipodi:cy="325.21933"
+         sodipodi:cx="274.28571"
+         id="path2757"
+         style="fill:url(#linearGradient2801);fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+         transform="matrix(0.1772465,0,0,0.2575083,302.76081,581.81342)"
+         d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+         sodipodi:ry="21.428572"
+         sodipodi:rx="80"
+         sodipodi:cy="325.21933"
+         sodipodi:cx="274.28571"
+         id="path2759"
+         style="fill:none;fill-opacity:1;stroke:url(#linearGradient2803);stroke-width:4.68074942;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.54605264"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+         transform="matrix(0.1830027,0,0,-0.2790554,301.3102,728.41145)"
+         d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+         sodipodi:ry="21.428572"
+         sodipodi:rx="80"
+         sodipodi:cy="325.21933"
+         sodipodi:cx="274.28571"
+         id="path2761"
+         style="fill:url(#linearGradient2805);fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+         transform="matrix(0.1772465,0,0,0.2575083,302.8926,553.86488)"
+         d="M 354.28571 325.21933 A 80 21.428572 0 1 1  194.28571,325.21933 A 80 21.428572 0 1 1  354.28571 325.21933 z"
+         sodipodi:ry="21.428572"
+         sodipodi:rx="80"
+         sodipodi:cy="325.21933"
+         sodipodi:cx="274.28571"
+         id="path2763"
+         style="fill:none;fill-opacity:1;stroke:#32a632;stroke-width:4.68074942;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.54605264"
+         sodipodi:type="arc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:13.68876076px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-opacity:1;font-family:Bradley Hand ITC"
+       x="356.81866"
+       y="822.3205"
+       id="text2759"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(1.0529817,0.9496842)"><tspan
+         sodipodi:role="line"
+         id="tspan2761"
+         x="356.81866"
+         y="822.3205"
+         style="font-size:14.74174213px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-opacity:1;font-family:Bradley Hand ITC">all your resource are belong to us!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:url(#linearGradient7643);fill-opacity:1.0;stroke:none;stroke-width:1.10000002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;font-family:Brady Bunch"
+       x="374.64844"
+       y="769.67188"
+       id="text2763"
+       inkscape:export-filename="C:\Documents and Settings\Administrator\Desktop\resplace.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan2765"
+         x="374.64844"
+         y="769.67188"
+         style="font-size:48px;fill:url(#linearGradient7643);fill-opacity:1.0;stroke:none;stroke-width:1.10000002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;font-family:Brady Bunch">resplace.net</tspan></text>
   </g>
 </svg>

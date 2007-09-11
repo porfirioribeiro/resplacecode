@@ -30,7 +30,7 @@ function someContent($mod){
 		exit;
 	}
 	
-	if ($WebMS["MySQL_Use"]){
+	if (!$WebMS["MySQL_Use"]){
 		err("MySQL is disabled, this system requires MySQL.");
 		return false;
 		exit;
@@ -63,7 +63,7 @@ function someContent($mod){
 					</td>
 				    <td>
 					<?php
-					$b=new GDLib(145,40);
+					$b=new GDLib(145,40,null,false);
 					$b->CreateStyle('Big','Eunjin',70,'#0000BB','#85BF7D');
 					$no="";
 					$fnts=array("Eunjin","Bangwool","Tuffy","UnPen","Bandal","FreeMonoBold","punk kid");

@@ -74,7 +74,7 @@
 				<div class="TopLeft"><div class="TopRight"></div></div>                
 				<div style="float:right;" id="AjaxLoader"></div>
 				<div align="center">
-				<div class="TitleImage alpha" title="My Website Name"></div>
+				#{iif:GlobalLogo,<img src="#{GlobalLogoPath}" border="0" />,<div class="TitleImage alpha" title="My Website Name"></div>}
 				</div>
 				<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
 			</div>

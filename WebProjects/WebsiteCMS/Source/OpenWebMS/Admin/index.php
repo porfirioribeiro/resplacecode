@@ -10,6 +10,7 @@
 
 //Set path to the data/ directory FIRST:
 $path="../";
+$stopadmin=false;
 include_once $path.'WebMS.php';
 $page=new WebMS($path,"Admin Panel");
 
@@ -121,20 +122,37 @@ if ($WebMS["Integrate"]==false){
 	} else {
 		//non-integrated method, admin exists...
 		if (!$WebMS["User_Userlvl"]==2) {
-			echo'Please Login as an administrator to access this admin panel.';
-			$page->add("internalHtml");
-			$page->create();
-			exit();
+			$stopadmin=true;
+			$reason='Please <a href="'.$WebMS["WebMSUrl"].'User/Login.php">login as an administrator</a> to access this admin panel.';
 		}
 	}
 } else {
 	//integrated method, assume an admin exists (cant check)
 	if (!$WebMS["User_Userlvl"]==2) {
-			echo'Please Login as an administrator on the integrated software to access this admin panel.';
-			$page->add("internalHtml");
-			$page->create();
-			exit();
+			$stopadmin=true;
+			$reason='Please login as an administrator on the integrated software to access this admin panel.';
 		}
+}
+
+//stop admin entry...
+if ($stopadmin){
+	class internalHtml extends Module {
+		function internalHtml($page){
+			$this->title="Admin Panel";
+			parent::Module($page);
+		}
+		function content(){
+			global $path, $devmode,$reason;
+			?>
+			I'm sorry but the administration panel is off limits to you because of the following reason:<br><br>
+			<?php
+			echo '<b>- '.$reason.'</b>';
+		}
+	}
+	
+	$page->add("internalHtml");
+	$page->create();
+	exit();
 }
 
 //admin menu :)

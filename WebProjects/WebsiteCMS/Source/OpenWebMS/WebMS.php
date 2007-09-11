@@ -78,6 +78,7 @@ class WebMS{
 		//database doesnt need closing since no changes are made :)
 		
 		//activate/deactivate dev mode
+		//FIXME
 		if (isset($_REQUEST['devMODE'])) {
 			if (isset($adminpassword) && isset($_SESSION['admin_session'])) {
 				if ($adminpassword==$_SESSION['admin_session']) {

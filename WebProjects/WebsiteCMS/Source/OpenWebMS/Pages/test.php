@@ -1,3 +1,1 @@
-<?php
-echo 'nice ;)';
-?>
+this is a test page.

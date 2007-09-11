@@ -26,7 +26,7 @@ class GDLib {
 	var $width		=0;
 	var $height		=0;
 
-	function GDLib($width=1,$height=1,$cache=null) {
+	function GDLib($width=1,$height=1,$cache=null,$settrans=true) {
 		global $WebMS;
 		$this->width=$width;
 		$this->height=$height;
@@ -44,15 +44,15 @@ class GDLib {
 				//echo $diff;
 				if ($diff>=7) {
 					//remake the cache :)
-					$this->MakeCanvas($width,$height);
+					$this->MakeCanvas($width,$height,$settrans);
 				}
 			} else {
 				//remake the cache :)
-				$this->MakeCanvas($width,$height);
+				$this->MakeCanvas($width,$height,$settrans);
 			}
 		} else {
 			//no cache
-			$this->MakeCanvas($width,$height);
+			$this->MakeCanvas($width,$height,$settrans);
 		}
 	}
 
@@ -85,15 +85,18 @@ class GDLib {
 		}
 	}
 
-	function MakeCanvas($width=1,$height=1) {
+	function MakeCanvas($width=1,$height=1,$settrans=true) {
 		$this->image=imagecreatetruecolor($width,$height);
 		
 		//setup alpha blending, thanks to php.net for this!!
-		imagealphablending( $this->image, false );
-		imagesavealpha($this->image, true);
-		imagefilledrectangle($this->image,0,0,$width,$height, 0x40FF0000);
-		$col = imagecolorallocatealpha( $this->image, 0, 0, 0,127 );
-		imagefilledrectangle( $this->image, 0, 0, $width, $height, $col );
+		if ($settrans){
+			imagealphablending( $this->image, false );
+			imagesavealpha($this->image, true);
+			imagefilledrectangle($this->image,0,0,$width,$height, 0x40FF0000);
+			$col = imagecolorallocatealpha( $this->image, 0, 0, 0,127 );
+			imagefilledrectangle( $this->image, 0, 0, $width, $height, $col );
+		}
+		
 	}
 
 	function SetColor($c,$set=null) {
