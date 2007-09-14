@@ -5,8 +5,8 @@ session_start();
 * The system shell (the centre of WebMS)
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright � 2007 ResPlace Team
-* @lastedit 06-06-07
+* @copyright (c) 2007 ResPlace Team
+* @lastedit 11-09-07
 */
 
 //ob_start("ob_gzhandler");
@@ -292,11 +292,9 @@ class WebMS{
 		} else {
 			$globallogo=false;
 		}
-        $huh=$WebMS["ThemesUrl"].'sitelogo.png';
-		$datx=array("GlobalLogo"=>$globallogo,
-			"GlobalLogoPath"=>$huh);
         
-		echo $this->pageTpl->get("title")->evaluate($datx);
+		echo $this->pageTpl->get("title")->evaluate(array("GlobalLogo"=>$globallogo,
+			"GlobalLogoPath"=>$WebMS["ThemesUrl"].'sitelogo.png'));
 		
 		//place the page content as desired
 		//theme_shell($this->ModulesTop,$this->ModulesLeft,$this->ModulesCenter,$this->ModulesTop,$this->ModulesRight,$this->ModulesBottom);
