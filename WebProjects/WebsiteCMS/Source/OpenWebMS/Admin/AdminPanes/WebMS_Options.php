@@ -180,7 +180,7 @@ $page->add('WebMS_Options_module');
 class WebMS_Options_admin extends Module {
 	function WebMS_Options_admin($page){
 		parent::Module($page);
-		$this->title="Administration";		
+		$this->title="Super Admin Password";		
 		$this->side=Module::CENTER;
 	}
 	function content(){

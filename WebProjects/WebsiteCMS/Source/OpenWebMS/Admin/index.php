@@ -135,7 +135,7 @@ if ($WebMS["Integrate"]==false){
 }
 
 //stop admin entry...
-if ($stopadmin){
+if ($stopadmin==true){
 	class internalHtml extends Module {
 		function internalHtml($page){
 			$this->title="Admin Panel";
@@ -155,7 +155,43 @@ if ($stopadmin){
 	exit();
 }
 
-//admin menu :)
+/**
+ * FIRST TIME CONFIGURATION
+ */
+$db=new ResDB("WebMSoptions");
+	$firstrun=$db->get("firstrunconfig");
+	
+if ($firstrun){
+	//load first config panel
+	class internalHtml extends Module {
+		function internalHtml($page){
+			$this->title="First time setup wizards";
+			parent::Module($page);
+		}
+		function content(){
+			global $path, $devmode,$reason;
+			?>
+			<br>
+			<b>Congratulations on downloading OpenWebMS to your server!</b><br><br>
+			The system has recognised this is your first visit to the administration panel, there are some settings you should urgently define so your OpenWebMS runs how you want it to! (and so its secure).
+			<br><br>
+			<b>Super admin password:</b><br>
+			Lets start by changing the Super admin password, this is the password you used to first login to the admin panel, and is required if you do not use the built in (or integrated) User Management System (UMS).<br>
+			
+			 <?php
+		}
+	}
+	
+	$page->add("internalHtml");
+	$page->create();
+	exit();
+}
+
+
+/**
+ * MAIN ADMINISTRATION PANEL
+ * Load the menu medule:
+ */
 class AdminMenu2 extends Module {
 	function AdminMenu2($page){
 		$this->side=Module::LEFT;
@@ -242,7 +278,12 @@ class AdminMenu2 extends Module {
 	}
 }
 
-//welcome admin!
+//Hide admin menu function, no implementation yet.
+if (isset($_GET['menu']) && $_GET['menu']=='hide') {}else{
+	$page->add("AdminMenu2",Module::LEFT);
+}
+
+//Welcome to the admin panel module!
 class welcome extends Module {
 	function welcome($page){
 		$this->side=Module::CENTER;
@@ -257,7 +298,7 @@ class welcome extends Module {
 	}
 }
 
-//version history!
+//version history module!
 class VersionHistory extends Module {
 	function VersionHistory($page){
 		$this->side=Module::CENTER;
@@ -328,7 +369,7 @@ class VersionHistory extends Module {
 		echo'</div>';
 	}
 }
-//version history!
+//version update module!
 class Updates extends Module {
 	function Updates($page){
 		$this->side=Module::CENTER;
@@ -402,39 +443,12 @@ class Updates extends Module {
 
 
 
-//$page->add(AdminMenu,Module::TOP);
-if (isset($_GET['menu']) && $_GET['menu']=='hide') {}else{
-	$page->add("AdminMenu2",Module::LEFT);
-}
+
+
 $nav='';
 if (isset($_REQUEST['nav'])) {
 	$nav=$_REQUEST['nav'];
 }
-	/*
-	if ($nav=="pages") {
-		$page->add("PagesManage");
-	}else if ($nav=="modules") {
-		$page->add("ModulesManage");
-	}else if ($nav=="functions") {
-		$page->add("FunctionsManage");
-	}else if ($nav=="files") {
-		$page->add("Files");
-	}else if ($nav=="db") {
-		$page->add("dbEditor");
-		$page->add("dbList",Module::RIGHT);
-	}else if ($nav=="menu") {
-		$page->add("menuEditor");
-	}else if ($nav=="ErrorLog") {
-		$page->add("ErrorLog");
-	}else if ($nav=="LManager") {
-		$page->add("LayoutManager");
-	}else if ($nav=="ThemesAndLayout") {
-		$page->add('ThemesAndLayout');
-		$page->add('ThemesAndLayout_main');
-	}else{
-
-	}
-	*/
 
 //built in pages
 if (!isset($_REQUEST['nav']) && !isset($_REQUEST['pane'])) {
@@ -447,36 +461,37 @@ if (isset($_REQUEST['nav']) && $_REQUEST['nav']=="Updates") {
 	$page->add("Updates");
 }
 
+
+//External Modular admin pages
 $files=GetFiles("Modules");
 if (count($files)) {
 	foreach ($files as $fil) {
-
 		$name=explode('.',$fil);
 		if ($name[1]=='php') {
 			if (isset($_REQUEST['nav']) && $name[0]==$_REQUEST['nav']) {
 				include("Modules/".$fil);
-				//$page->add($name[0]);
-				}
 			}
 		}
 	}
+}
 
+//Load requested administration panes
 $files=GetFiles("AdminPanes");
 if (count($files)) {
 	foreach ($files as $fil) {
-
 		$name=explode('.',$fil);
 		if ($name[1]=='php') {
 			if (isset($_REQUEST['pane']) && $name[0]==$_REQUEST['pane']) {
 				include("AdminPanes/".$fil);
-				//$page->add($name[0]);
-				}
 			}
 		}
 	}
+}
 
-/**/
-//
+/**
+ * Create the page :)
+ * 
+ */
 
 $page->create();
 ?>
