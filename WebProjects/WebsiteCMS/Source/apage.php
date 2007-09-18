@@ -29,25 +29,14 @@ class internalHtml extends Module {
 	}
 	function content(){
 		?>
-		<!--APPLET code="javazoom.jlGui.TinyPlayer" archive="data/lib/tinyplayer/tinyplayer.jar,data/lib/tinyplayer/jl020.jar" 
-		width="59" height="32" name="playerid"> 
-		<param name="skin" value="data/lib/tinyplayer/skins/Deep">
-		<param name="bgcolor" value="638182">
-		<param name="autoplay" value="yes">
-		<param name="audioURL" value="data/lib/tinyplayer/sound.mp3">
-		<param name="scriptable" value="true">
-		</APPLET--> 
 		Testing the creation of a module using the more complicated class method.		
-		<!--<div style="border: 1px solid black;">
-		<=$this->page->title?>
-		</div>-->
 		<?php
 	}
 }
 
 function someContent($mod){
 	?>
-	this is a module, with a <a href='#'>link</a>.<br /><br />
+	this is a module, with a <a href='#'>link</a>.<br><br>
 	<table border='1' cellpadding="3" cellspacing="0" class="tbl">
 		<tr>
 			<td colspan="2" class="main">Main Table Title</td>
@@ -62,72 +51,11 @@ function someContent($mod){
 		</tr>
 	</table>
 	<?php
-	//get text size for creating the image size later
-	/*
-	$br=new GDCanvas(6,6);
-	$br->SetFontTTF("Halo.ttf");
-	$br->SetFontSize(100);
-	$siz=$br->TextTTFBox(0, "GD TEST :)");
-	print_r($siz);
-	$g=new GDCanvas($siz[0],$siz[1]);
-	
-	$g->SetFontTTF("Halo.ttf");
-	$g->SetFontSize(100);
-	$g->AddTextTTF(0,0-$siz[2],$siz[1]-$siz[3],'#EF0000',"GD TEST :)");
-	$g->out("test.png");
-	?>
-	<img src='test.png' border='0' alt='test' title='test' />
-	<?php
-	*/
-	//this is the brush
-	$bru=new GDLib(5,5);
-	$bru->SetColor('#FFFFFF','draw'); $bru->SetColor('#91C846','fill');
-	$bru->Ellipse(2,2,5,5);
-	$file=$bru->out(true);
-		echo $file;
-	//$br->out();
-	
-	
-	
+
 	$b=new GDLib(100,60);
 		$b->CreateStyle('Big','Eunjin',70,'#0000BB','#85BF7D');
 		$b->Captcha();
 		$file=$b->out(true);
-		?>
-		<img src='<?=$file; ?>' border='0' alt='test' title='test' />
-		<?php
-	
-	$br=new GDLib($textdim[0],$textdim[1],true);
-	$check=$br->CheckCache();
-	if (!is_array($check)) {
-		echo' TEST ';
-		$br->CreateStyle('Big','Eunjin',50,'#85BF7D','#F0F0F0');
-		$br->CreateText(0,0-$textdim[2],$textdim[1]-$textdim[3]-10,'resplace.net');
-		$br->fontSize=10;
-		$br->CreateText(0,0-$textdim[2]+120,$textdim[1]-$textdim[3]+2,'All your resource are belong to us!');
-		
-		imagesetbrush($br->image,$bru->image);
-		imagesettile($br->image,$bru->image);
-		$br->CreateStyle('Big','Eunjin',70,'#0000BB','#7BB1E1');
-		$br->Rect(10,10,80,80,IMG_COLOR_TILED);
-		$file=$br->out(true);
-	} else {
-		$file=$check[0];
-	}
-		echo $file;
-		//echo preg_replace('/[^a-zA-Z0-9]/i','z',$br->imagehash);
-		?>
-		<img src='<?=$file; ?>' border='0' alt='test' title='test' />
-		<?php
-		
-	$br2=new GDLib($textdim[0],$textdim[1]);
-		$br2->CreateStyle('Big','Eunjin',50,'#BB','#F0F0F0');
-		$br2->CreateText(0,0-$textdim[2],$textdim[1]-$textdim[3]-10,'Porfírio!');
-		$br2->fontSize=10;
-		$br2->CreateText(0,0-$textdim[2]+120,$textdim[1]-$textdim[3]+2,'All your resource are belong to us!');
-		$file=$br2->out(true);
-		echo $file;
-		//echo preg_replace('/[^a-zA-Z0-9]/i','z',$br->imagehash);
 		?>
 		<img src='<?=$file; ?>' border='0' alt='test' title='test' />
 		<?php

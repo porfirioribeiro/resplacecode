@@ -48,7 +48,7 @@ function someContent($mod){
 	//echo $_SESSION['captcha_string'];
 	?>
 	<img src='<?=$file; ?>' border='0' alt='test' title='test' />
-	<br />
+	<br>
 	<input type="text" name="string" maxlength="10">
 					<input type="submit" value="submit" name="submit">
 	</form>

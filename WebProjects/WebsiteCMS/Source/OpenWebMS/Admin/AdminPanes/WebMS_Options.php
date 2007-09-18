@@ -57,7 +57,7 @@ class WebMS_Options extends Module {
 		global $path, $adminpassword;
 		
 		?>
-		Below you can change various options in WebMS, it would be a good idea to make a backup of your 'WebMSoptions.db' database file before you proceed.<br /><br />
+		Below you can change various options in WebMS, it would be a good idea to make a backup of your 'WebMSoptions.db' database file before you proceed.<br><br>
 		<a href="WebMSoptions.php?sesid=<?=$adminpassword; ?>" target="_blank">Download WebMSoptions.db</a> (right click save target)
 		<?php
 		}
@@ -77,13 +77,13 @@ class WebMS_Options_main extends Module {
 	function content(){
 		global $path, $defaultskin;
 		?>
-		Below you can edit some system options, be careful not to make a mistake with these options, it could land you with lots and lots of system errors ;).<br /><br />
+		Below you can edit some system options, be careful not to make a mistake with these options, it could land you with lots and lots of system errors ;).<br><br>
 		<form name="form2" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input name="pane" value="WebMS_Options" type="hidden" />
 			<fieldset>
-				<legend>Skin Preferences:</legend><br />
-				<b>Default Skin:</b><br />
-				<i>Path for the skin to use as default, for your convienience below this input box you will see the path to the current skin you have set.</i><br />
+				<legend>Skin Preferences:</legend><br>
+				<b>Default Skin:</b><br>
+				<i>Path for the skin to use as default, for your convienience below this input box you will see the path to the current skin you have set.</i><br>
 				<select name="defaultskin">
 				<?php
 				//get themes		
@@ -121,10 +121,10 @@ class WebMS_Options_main extends Module {
 				}
 			}
 			?>
-		</select><br />
+		</select><br>
 				
 				Current: <?=$_SESSION['currentskin']; ?>
-			</fieldset><br />
+			</fieldset><br>
 			<input name="submit" type="submit" value="Save Changes" />
 		</form>
 		<?php
@@ -147,25 +147,25 @@ class WebMS_Options_module extends Module {
 		global $path, $collapse_javascript, $javascript_effects, $remember_state;
 		
 		?>
-		Below are some options regarding how WebMS handles modules such as how they collapse and how they behave. Please note that some skins may not listen to these settings or may not offer them, this is the skins fault not ours.<br /><br />
+		Below are some options regarding how WebMS handles modules such as how they collapse and how they behave. Please note that some skins may not listen to these settings or may not offer them, this is the skins fault not ours.<br><br>
 		<form name="form1" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input name="pane" value="WebMS_Options" type="hidden" />
-			<b>Use effects when collapsing modules?</b><br />
-			<i>If you would like some kind of effect when a module is collapsed then select "yes".</i><br />
-			<label><input name="collapse_javascript" type="radio" value="yes" onclick="Effect.Appear('js_effects',{duration:0.3})/*$('js_effects').show()*/" <?php if ($collapse_javascript=="yes") echo'checked="checked"'; ?>> Yes</label><br />
-			<label><input name="collapse_javascript" type="radio" value="no" onclick="Effect.Fade('js_effects',{duration:0.3})/*$('js_effects').hide()*/"  <?php if ($collapse_javascript=="no") echo'checked="checked"'; ?>> No</label><br /><br />
+			<b>Use effects when collapsing modules?</b><br>
+			<i>If you would like some kind of effect when a module is collapsed then select "yes".</i><br>
+			<label><input name="collapse_javascript" type="radio" value="yes" onclick="Effect.Appear('js_effects',{duration:0.3})/*$('js_effects').show()*/" <?php if ($collapse_javascript=="yes") echo'checked="checked"'; ?>> Yes</label><br>
+			<label><input name="collapse_javascript" type="radio" value="no" onclick="Effect.Fade('js_effects',{duration:0.3})/*$('js_effects').hide()*/"  <?php if ($collapse_javascript=="no") echo'checked="checked"'; ?>> No</label><br><br>
 			<div id="js_effects" <?php if ($collapse_javascript=="no") echo'style="display:none"'; ?>>
-				<b>What effect would you like to use?</b><br />
-				<label><input name="javascript_effects"  type="radio" value="slide" <?php if ($javascript_effects=="slide") echo'checked="checked"'; ?> /> Slide In/Out</label><br />
-				<label><input name="javascript_effects" type="radio" value="fade" <?php if ($javascript_effects=="fade") echo'checked="checked"'; ?> /> Fade In/Out</label><br />
+				<b>What effect would you like to use?</b><br>
+				<label><input name="javascript_effects"  type="radio" value="slide" <?php if ($javascript_effects=="slide") echo'checked="checked"'; ?> /> Slide In/Out</label><br>
+				<label><input name="javascript_effects" type="radio" value="fade" <?php if ($javascript_effects=="fade") echo'checked="checked"'; ?> /> Fade In/Out</label><br>
 				<!-- 
 				<label onclick="console.log($A(this.form.javascript_effects).filter(function(){return true;}));">See Live</label>
 				 -->
-			</div><br />
-			<b>Remember module state?</b><br />
-			<i>Would you like the system to create cookies on the users machine to remember the modules states?</i><br />
-			<label><input name="remember_state"  type="radio" value="yes" <?php if ($remember_state=="yes") echo'checked="checked"'; ?> /> Yes</label><br />
-				<label><input name="remember_state" type="radio" value="no" <?php if ($remember_state=="no") echo'checked="checked"'; ?> /> No</label><br /><br />
+			</div><br>
+			<b>Remember module state?</b><br>
+			<i>Would you like the system to create cookies on the users machine to remember the modules states?</i><br>
+			<label><input name="remember_state"  type="radio" value="yes" <?php if ($remember_state=="yes") echo'checked="checked"'; ?> /> Yes</label><br>
+				<label><input name="remember_state" type="radio" value="no" <?php if ($remember_state=="no") echo'checked="checked"'; ?> /> No</label><br><br>
 				<input name="submit" type="submit" value="Save Changes" />
 		</form>
 		<?php
@@ -192,15 +192,15 @@ class WebMS_Options_admin extends Module {
 		<form name="form2" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input name="pane" value="WebMS_Options" type="hidden" />
 			<fieldset>
-				<legend>Change admin password:</legend><br />
-				<b>Old Password:</b><br />
-					<input name="password_old" type="password"><br /><br />
-				<b>New Password:</b><br />
-					<input name="password_new" type="password"><br /><br />
-				<b>New Password (retype):</b><br />
+				<legend>Change admin password:</legend><br>
+				<b>Old Password:</b><br>
+					<input name="password_old" type="password"><br><br>
+				<b>New Password:</b><br>
+					<input name="password_new" type="password"><br><br>
+				<b>New Password (retype):</b><br>
 					<input name="password_new_2" type="password">
 			</fieldset>
-			<br /><br />
+			<br><br>
 			<input name="submit" type="submit" value="Save Changes" />
 		</form>
 		<?php

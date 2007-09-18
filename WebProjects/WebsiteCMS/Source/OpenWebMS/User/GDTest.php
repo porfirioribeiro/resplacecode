@@ -31,7 +31,7 @@ function someContent($mod){
         <div class="smalltext">Please look at the picture, then look at the text in the red box, do you see all those letters in the image, are they clear enough to read?. <br>
           <br>
         </div>
-		<br /><br />
+		<br><br>
 		<?php
 		$b=new GDLib(110,40);
 		$b->CreateStyle('Big','Eunjin',70,'#0000BB','#85BF7D');
@@ -41,7 +41,7 @@ function someContent($mod){
 		$file=$b->out(true);
 		?>
 		<img src='<?=$file; ?>' border='0' alt='test' title='test' />
-		<br /><br />
+		<br><br>
 		<div style="width:200px; background-color:#FF0000; color:#000000"><b>
 		<?php
 		echo $_SESSION['captcha_string'];

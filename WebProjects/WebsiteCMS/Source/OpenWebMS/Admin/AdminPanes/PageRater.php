@@ -35,10 +35,10 @@ class PageRater extends Module {
 		global $WebMS, $path, $adminpassword, $pageratebara, $pageratebarb;
 
 		?>
-		Below you can change various options for the PageRate Module. Please make sure you have the latest version of this module BEFORE making any module changes.<br /><br />
+		Below you can change various options for the PageRate Module. Please make sure you have the latest version of this module BEFORE making any module changes.<br><br>
 
 		<div class="fieldset">
-			<div class="ftitle"><b>Bar foreground style:</b></div><br />
+			<div class="ftitle"><b>Bar foreground style:</b></div><br>
 			<div style="overflow:scroll; width:200px; height:120px; border:2px inset #ccc">
 				<div style="padding:10px">
 				<?php
@@ -71,7 +71,7 @@ class PageRater extends Module {
 		<br><br>
 
 		<div class="fieldset">
-			<div class="ftitle"><b>Bar background style:</b></div><br />
+			<div class="ftitle"><b>Bar background style:</b></div><br>
 			<div style="overflow:scroll; width:200px; height:120px; border:2px inset #ccc">
 				<div style="padding:10px">
 					<?php

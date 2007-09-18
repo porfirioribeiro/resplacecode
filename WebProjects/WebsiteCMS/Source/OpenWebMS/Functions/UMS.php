@@ -1,4 +1,5 @@
 <?php
+//needs modifying
 /**
 * User Login Management (NON INTEGRATED)
 * This script validates sessions created when a user logs into the website (when system is not running integration).
@@ -8,7 +9,7 @@
 * @lastedit 09-09-07
 */
 
-if (!$WebMS["Integrate"]) {
+if ((!$WebMS["Integrate"]) && (isset($_SESSION["username"]))) {
 		//Not using integration, run script...
 		
 		//grab user data
@@ -25,7 +26,7 @@ if (!$WebMS["Integrate"]) {
 			if ((strcmp($_SESSION["psswrd"],$result['0']['psswrd'])==0)) {
 				//yes? then log that were logged in :)
 				
-				$WebMS["User_ID"]=$result['0']['ID'];
+				$WebMS["User_ID"]=$result['0']['id'];
 				$WebMS["User_Username"]=$result['0']['usrname'];
 				$WebMS["User_Password"]=$result['0']['psswrd'];
 				$WebMS["User_Email"]=$result['0']['email'];

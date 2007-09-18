@@ -15,7 +15,7 @@ class ModulesManage extends Module {
 			{
 			?>
 			<div class="fieldset">
-			<div class="ftitle"><b>Add/Edit Page:</b></div><br />
+			<div class="ftitle"><b>Add/Edit Page:</b></div><br>
 			Request should have succeeded.
 			<?php
 			WriteFile($page->modulespath.$_POST['edit'].".php",stripslashes($_POST['data']));
@@ -27,7 +27,7 @@ class ModulesManage extends Module {
 			{
 			?>
 			<div class="fieldset">
-			<div class="ftitle"><b>Deleting page:</b></div><br />
+			<div class="ftitle"><b>Deleting page:</b></div><br>
 			Request should have succeeded.
 			<?php
 			unlink($page->modulespath.$_GET['del'].".php");
@@ -36,7 +36,7 @@ class ModulesManage extends Module {
 
 		?>
 		<div class="fieldset">
-			<div class="ftitle"><b>Module explorer:</b></div><br />
+			<div class="ftitle"><b>Module explorer:</b></div><br>
 		Heres a list of the currently installed modules:<br><br>
 		<table width="400" border="1" bordercolor="#9bcf82" cellspacing="2" cellpadding="2" class="tbl">
 		<?php
@@ -76,12 +76,12 @@ class ModulesManage extends Module {
 
 			?>
 			<div class="fieldset">
-			<div class="ftitle"><b>Editing '<?=$_GET['edit']; ?>':</b></div><br />
+			<div class="ftitle"><b>Editing '<?=$_GET['edit']; ?>':</b></div><br>
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input type="hidden" name="nav" value="ModulesManage" />
 			<input type="hidden" name="edit" value="<?=$_GET['edit']; ?>" />
 			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"><?=$filedata; ?></textarea>
-			<textarea name="data" style="display:none;"></textarea><br />
+			<textarea name="data" style="display:none;"></textarea><br>
 			<input name="editpage" value="Save Edit" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 			</div>
@@ -93,7 +93,7 @@ class ModulesManage extends Module {
 
 			?>
 			<div class="fieldset">
-			<div class="ftitle"><b>New module:</b></div><br />
+			<div class="ftitle"><b>New module:</b></div><br>
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input type="hidden" name="nav" value="ModulesManage" />
 			<b>Module Name:</b><br>
@@ -120,7 +120,7 @@ class MyModule extends Module {
 	}
 }
 ?&gt;</textarea>
-			<textarea name="data" style="display:none;"></textarea><br />
+			<textarea name="data" style="display:none;"></textarea><br>
 			<input name="editpage" value="Create Module" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 			</div>

@@ -103,7 +103,7 @@ if ($WebMS["Integrate"]==false){
 					
 					?>
 					Welcome to the admin panel, please login below using the super admin password:<br>
-					<i>Default password is documented in the readme.txt document, this password should be changed immediately after you first login.</i><br /><br />
+					<i>Default password is documented in the readme.txt document, this password should be changed immediately after you first login.</i><br><br>
 		
 					<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 						<input name="psswd" type="password" />
@@ -187,6 +187,10 @@ if ($firstrun){
 	exit();
 }
 
+//load the administration panes before we enter the class
+//so we can access this variable outside the class ;)
+$adminpanes=array();
+$adminpanes=GetFiles("AdminPanes");
 
 /**
  * MAIN ADMINISTRATION PANEL
@@ -199,15 +203,15 @@ class AdminMenu2 extends Module {
 		parent::Module($page);
 	}
 	function content(){
-		global $path;
+		global $path, $adminpanes;
 		?>
 		<b>Main:</b>
 		<div style="padding-left:8px;">
-			<a href="index.php">Summary</a><br />
-			<a href="index.php?nav=VersionHistory">Version History</a><br />
-			<a href="index.php?nav=Updates">Updates</a><br />
+			<a href="index.php">Summary</a><br>
+			<a href="index.php?nav=VersionHistory">Version History</a><br>
+			<a href="index.php?nav=Updates">Updates</a><br>
 		</div>
-		<br />
+		<br>
 		<b>Management:</b>
 		<div style="padding-left:8px;">
 			<? //<a href="?manage=menu">Menu</a><br>
@@ -221,11 +225,11 @@ class AdminMenu2 extends Module {
 			<a href="?nav=FunctionsManage">Functions</a> <br>
 			<a href="?nav=LManager">Layouts</a> <br>
 		</div>
-		<br />
+		<br>
 		<b>Configuration:</b>
 		<div style="padding-left:8px;">
-			<a href="index.php?nav=FeaturesAndOptions">Features &amp; Options</a><br />
-			<a href="index.php?nav=ThemesAndLayout">Themes &amp; Layout</a><br />
+			<a href="index.php?nav=FeaturesAndOptions">Features &amp; Options</a><br>
+			<a href="index.php?nav=ThemesAndLayout">Themes &amp; Layout</a><br>
 			<?php
 			/*
 			integration will be tough to get right... first we must make sure its totally adaptable for integrating whatever system is required, such as IPB SMF or etc.
@@ -247,13 +251,13 @@ class AdminMenu2 extends Module {
 			*/
 			?>
 		</div>
-		<br />
+		<br>
 		<b>Panes:</b>
 		<div style="padding-left:8px;">
 			<?php
-			$files=GetFiles("AdminPanes");
-			if (count($files)) {
-				foreach ($files as $fil) {
+			
+			if (count($adminpanes)) {
+				foreach ($adminpanes as $fil) {
 
 					$name=explode('.',$fil);
 					if ($name[1]=='php') {
@@ -264,12 +268,12 @@ class AdminMenu2 extends Module {
 
 			?>
 		</div>
-		<br />
+		<br>
 		<b>Misc:</b>
 		<div style="padding-left:8px;">
-			<a href="?devMODE<?=$this->page->devMode?"&amp;message=You just disabled Debug Mode.":""?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br />
+			<a href="?devMODE<?=$this->page->devMode?"&amp;message=You just disabled Debug Mode.":""?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br>
 			<a href="?nav=ErrorLog">View Error Log</a><br>
-			<br />
+			<br>
 		</div>
 
 		<?php
@@ -292,7 +296,7 @@ class welcome extends Module {
 	}
 	function content(){
 		?>
-		Welcome <b>admin</b>, to the WebMS administration panel, this panel should enable you to do what you need to do to the WebMS system. If there is some functionality you believe should be included on this panel or you have some suggestions for improvements then please post at our forums.<br /><br />
+		Welcome <b>admin</b>, to the WebMS administration panel, this panel should enable you to do what you need to do to the WebMS system. If there is some functionality you believe should be included on this panel or you have some suggestions for improvements then please post at our forums.<br><br>
 		Thanks for choosing WebMS to manage your web site content, if you like this system then please consider donating some change so we can keep the project going strong, alternatively if you ar good with PHP then why not help develop the project further?
 		<?php
 	}
@@ -308,7 +312,7 @@ class VersionHistory extends Module {
 	function content(){
 		global $WebMS;
 		?>
-		Version History is obtained from resplace.net servers, if it does not appear below then please try again later.<br /><br />
+		Version History is obtained from resplace.net servers, if it does not appear below then please try again later.<br><br>
 		<div style="padding:10px;">
 		<?php
 
@@ -379,7 +383,7 @@ class Updates extends Module {
 	function content(){
 		global $WebMS;
 		?>
-		Your copy of OpenWebMS will now contact resplace.net and check if there are any updates, if it does not appear below then please try again later.<br /><br />
+		Your copy of OpenWebMS will now contact resplace.net and check if there are any updates, if it does not appear below then please try again later.<br><br>
 		<div style="padding:10px;">
 		<?php
 
@@ -451,38 +455,42 @@ if (isset($_REQUEST['nav'])) {
 }
 
 //built in pages
-if (!isset($_REQUEST['nav']) && !isset($_REQUEST['pane'])) {
-	$page->add("welcome",Module::CENTER);
-}
-if (isset($_REQUEST['nav']) && $_REQUEST['nav']=="VersionHistory") {
-	$page->add("VersionHistory");
-}
-if (isset($_REQUEST['nav']) && $_REQUEST['nav']=="Updates") {
-	$page->add("Updates");
-}
-
-
-//External Modular admin pages
-$files=GetFiles("Modules");
-if (count($files)) {
-	foreach ($files as $fil) {
-		$name=explode('.',$fil);
-		if ($name[1]=='php') {
-			if (isset($_REQUEST['nav']) && $name[0]==$_REQUEST['nav']) {
-				include("Modules/".$fil);
+if (!isset($_REQUEST['nav'])) {
+	if (!isset($_REQUEST['pane']))
+		$page->add("welcome",Module::CENTER);
+} else {
+	if ($_REQUEST['nav']=="VersionHistory")
+		$page->add("VersionHistory");
+		
+	if ($_REQUEST['nav']=="Updates")
+		$page->add("Updates");
+		
+	//External Modular admin pages
+	$files=GetFiles("Modules");
+	if (count($files)) {
+		foreach ($files as $fil) {
+			$name=explode('.',$fil);
+			if ($name[1]=='php') {
+				if ($name[0]==$_REQUEST['nav']) {
+					include("Modules/".$fil);
+				}
 			}
 		}
 	}
 }
 
+
+
+
 //Load requested administration panes
-$files=GetFiles("AdminPanes");
-if (count($files)) {
-	foreach ($files as $fil) {
-		$name=explode('.',$fil);
-		if ($name[1]=='php') {
-			if (isset($_REQUEST['pane']) && $name[0]==$_REQUEST['pane']) {
-				include("AdminPanes/".$fil);
+if (isset($_REQUEST['pane'])) {
+	if (count($adminpanes)) {
+		foreach ($adminpanes as $fil) {
+			$name=explode('.',$fil);
+			if ($name[1]=='php') {
+				if ($name[0]==$_REQUEST['pane']) {
+					include("AdminPanes/".$fil);
+				}
 			}
 		}
 	}
