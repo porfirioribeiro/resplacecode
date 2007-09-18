@@ -26,7 +26,7 @@ class Menu extends Module {
 					$id=preg_replace(array("/-/","/ /"),"_",$val->get("name"));
 					
 					//read cookie
-					if ($_COOKIE['MENU_'.$id.'_COOKIE']=="none") {
+					if ((!isset($_COOKIE['MENU_'.$id.'_COOKIE'])) || ($_COOKIE['MENU_'.$id.'_COOKIE']=="none")) {
 						$b="none";
 					} else {
 						$b="block";

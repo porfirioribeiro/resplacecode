@@ -14,7 +14,7 @@ class PagesManage extends Module {
 		if (isset($_POST['addpage'])) {
 			?>
 			<div class="fieldset">
-			<div class="ftitle"><b>Add/Edit page:</b></div><br />
+			<div class="ftitle"><b>Add/Edit page:</b></div><br>
 			Request should have succeeded.
 			<?php
 			$pageid=str_replace(array(" ","/"),array("_","_"),$_POST['pageid']);
@@ -24,14 +24,14 @@ class PagesManage extends Module {
 				WriteFile($path."Pages/".$_POST['folder'].'/'.$pageid.".php",stripslashes($_POST['data']));
 			}
 			
-			?></div><br /><br /><?php
+			?></div><br><br><?php
 			}
 
 		if (isset($_GET['pageiddel']))
 			{
 			?>
 			<div class="fieldset">
-			<div class="ftitle"><b>Deleting page:</b></div><br />
+			<div class="ftitle"><b>Deleting page:</b></div><br>
 			Request should have succeeded.
 			<?php
 			if ($_GET['folder']==""){
@@ -39,13 +39,13 @@ class PagesManage extends Module {
 			}else{
 				unlink($path."Pages/".$_GET['folder']."/".$_GET['pageiddel'].".php");
 			}
-			?></div><br /><br /><?php
+			?></div><br><br><?php
 			}
 
 		?>
 		<div class="fieldset">
-		<div class="ftitle"><b>Page explorer:</b></div><br />
-		Heres a list of web pages that exist in this system:<br /><br />
+		<div class="ftitle"><b>Page explorer:</b></div><br>
+		Heres a list of web pages that exist in this system:<br><br>
 		<table width="400" border="1" bordercolor="#9bcf82" cellspacing="2" cellpadding="2" class="tbl">
 		<tr>
 			<td class="sub" style="text-align:left" colspan="3"><b>%Root% Directory:</b></td>
@@ -121,16 +121,16 @@ class PagesManage extends Module {
 			
 		echo'<tr><td colspan="3" class="sub"><a href="?nav=PagesManage&amp;page=page-add">Add new page</a></td></tr></table><br>
 		';
-		?></div><br /><br />
+		?></div><br><br>
 
 			<?php
 		if (isset($_GET['page']) && $_GET['page']=="page-add")
 			{
 			?>
 			<div class="fieldset">
-			<div class="ftitle"><b>Add new page:</b></div><br />
+			<div class="ftitle"><b>Add new page:</b></div><br>
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-			<b>Directory:</b><br /><i>A directory to place this file into. New directory.</i><br />
+			<b>Directory:</b><br><i>A directory to place this file into. New directory.</i><br>
 				<?php
 					$files=GetFolders($WebMS["PagesPath"]);
 					if (count($files)) {
@@ -148,14 +148,14 @@ class PagesManage extends Module {
 				?>
 			<br><br>
 			<input type="hidden" name="nav" value="PagesManage" />
-			<b>Page Name:</b><br /><i>Define the name of the file, also used to load your page using index.php?page=PageID.</i><br />
-				<input name="pageid" type="text" value="<?=$_GET['pageid']; ?>" /><br /><br />
+			<b>Page Name:</b><br><i>Define the name of the file, also used to load your page using index.php?page=PageID.</i><br>
+				<input name="pageid" type="text" value="<?=$_GET['pageid']; ?>" /><br><br>
 			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"></textarea>
-			<textarea name="data" style="display:none;"></textarea><br />
+			<textarea name="data" style="display:none;"></textarea><br>
 			<input name="addpage" value="Create Page" id="EditAreaSubmit" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 
-			</div><br />
+			</div><br>
 
 			<?php
 			}
@@ -168,7 +168,7 @@ class PagesManage extends Module {
 				{
 				?>
 				<div class="fieldset">
-				<div class="ftitle"><b>Editing '<?=$_GET['pageid']; ?>':</b></div><br />
+				<div class="ftitle"><b>Editing '<?=$_GET['pageid']; ?>':</b></div><br>
 				<?php
 				if ($_GET['folder']==""){
 					$file=$path."Pages/".$_GET['pageid'].".php";	
@@ -183,17 +183,17 @@ class PagesManage extends Module {
 
 
 				<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-				<b>Directory:</b><br /><i>The directory this file exists in.</i><br />
+				<b>Directory:</b><br><i>The directory this file exists in.</i><br>
 				<?php
 					echo'<input name="folder" type="text" value="'.$_GET['folder'].'" disabled>';
 				?>
 			<br><br>
 				<input type="hidden" name="nav" value="PagesManage" />
 				<input type="hidden" name="folder" value="<?=$_GET['folder']?>" />
-				<b>Page Name:</b><br /><i>Define the name of the file, also used to load your page using index.php?page=PageID.</i><br />
-				<input name="pageid" type="text" value="<?=$_GET['pageid']; ?>" /><br /><br />
+				<b>Page Name:</b><br><i>Define the name of the file, also used to load your page using index.php?page=PageID.</i><br>
+				<input name="pageid" type="text" value="<?=$_GET['pageid']; ?>" /><br><br>
 				<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"><?=$filedata; ?></textarea>
-			<textarea name="data" style="display:none;"></textarea><br />
+			<textarea name="data" style="display:none;"></textarea><br>
 			<input name="addpage" value="Save Edit" id="EditAreaSubmit" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 

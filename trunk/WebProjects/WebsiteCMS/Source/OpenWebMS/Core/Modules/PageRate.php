@@ -103,7 +103,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 			?>
 			<div id="PageRate_Arround" style="height: 50px;cursor:default;" onmouseover="$('PageRate_Display').hide();$('PageRate_Vote').show();" onmouseout="$('PageRate_Display').show();$('PageRate_Vote').hide();">
 				<div id="PageRate_Display">
-					<b>Current rating:</b><br />
+					<b>Current rating:</b><br>
 					
 					<div id="PageRate_votes" title="Voted <?=$rv; ?> / 5 with <?=$votes; ?> votes." style="width:100px; <?php
 						if (!strcmp($this->bac2[1],"none")==0) {
@@ -119,7 +119,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 					if (!$nope==1){
 						?>
 						<div id="PageRate_rate">
-							<b>Rate page:</b><br />
+							<b>Rate page:</b><br>
 							<script language="javascript">
 								selsource=0;
 								function switchstar(val,inout) {

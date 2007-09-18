@@ -17,7 +17,7 @@ class FunctionsManage extends Module {
 			Request should have succeeded.
 			<?php
 			WriteFile($page->functionspath.$_POST['edit'].".php",stripslashes($_POST['data']));
-			?></fieldset><br /><?php
+			?></fieldset><br><?php
 			}
 			
 		//delete
@@ -29,7 +29,7 @@ class FunctionsManage extends Module {
 			Request should have succeeded.
 			<?php
 			unlink($page->functionspath.$_GET['del'].".php");
-			?></fieldset><br /><?php
+			?></fieldset><br><?php
 			}
 		
 		?>
@@ -79,7 +79,7 @@ class FunctionsManage extends Module {
 			<input type="hidden" name="nav" value="FunctionsManage" />
 			<input type="hidden" name="edit" value="<?=$_GET['edit']; ?>" />
 			<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"><?=$filedata; ?></textarea>
-			<textarea name="data" style="display:none;"></textarea><br />
+			<textarea name="data" style="display:none;"></textarea><br>
 			<input name="editpage" value="Save Edit" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 			</fieldset>
@@ -118,7 +118,7 @@ class Myfunction extends function {
 	}
 }
 ?&gt;</textarea>
-			<textarea name="data" style="display:none;"></textarea><br />
+			<textarea name="data" style="display:none;"></textarea><br>
 			<input name="editpage" value="Create function" onclick="data.value = editAreaLoader.getValue('use_php')" type="submit">
 			</form>
 			</fieldset>

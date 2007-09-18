@@ -48,6 +48,7 @@
   error_reporting(E_ALL); 
   
   function errorHandler($errno, $errstr, $errfile, $errline, $othervars) { 
+  	global $WebMS;
     $ret[] = "Date          : " . date("F j, Y, g:i:s a"); 
     $ret[] = "Server        : " . $_SERVER['SERVER_NAME']; 
     $ret[] = "Error No      : $errno"; 
@@ -59,6 +60,9 @@
     $ret[] = "Method        : " . $_SERVER['REQUEST_METHOD']; 
     $ret[] = '$_REQUEST     :'; 
     foreach($_REQUEST as $key=>$value) 
+      $ret[] = "           $key => $value";
+    $ret[] = '$WebMS[]      :'; 
+    foreach($WebMS as $key=>$value) 
       $ret[] = "           $key => $value"; 
 	 
 	//if(function_exists('debug_backtrace')){

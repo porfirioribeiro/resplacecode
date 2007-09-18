@@ -6,7 +6,7 @@ session_start();
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright (c) 2007 ResPlace Team
-* @lastedit 11-09-07
+* @lastedit 18-09-07
 */
 
 //ob_start("ob_gzhandler");
@@ -21,7 +21,7 @@ class WebMS{
 	var $devMode=false;
 	var $title="";
 	var $content_type="text/html; charset=utf-8";
-	var $favicon="http://tpvgames.co.uk/favicon.ico";
+	var $favicon="favicon.ico";
 	var $description="OpenWebMS Driven Website";
 	var $keywords="OpenWebMS, resplace, resplace.net";
 	var $id="";
@@ -79,6 +79,7 @@ class WebMS{
 		
 		//activate/deactivate dev mode
 		//FIXME
+		$_SESSION['developer_mode']=true;
 		if (isset($_REQUEST['devMODE'])) {
 			if (isset($adminpassword) && isset($_SESSION['admin_session'])) {
 				if ($adminpassword==$_SESSION['admin_session']) {
@@ -183,9 +184,10 @@ class WebMS{
 <html>
   <head>
     <meta http-equiv="content-type" content="<?=$this->content_type; ?>">
-    <meta name="generator" content="PSPad+Aptana+ZendStudio">
+    <meta name="generator" content="PSPad+Aptana+ZendStudio+Eclipse+Notepad2">
     <meta name="description" content="<?php echo $this->description; ?>">
     <meta name="keywords" content="<?php echo $this->keywords; ?>">
+    <link rel="shortcut icon" href="<?php echo $WebMS["WebMSUrl"].'/'.$this->favicon; ?>">
     <?php
     foreach ($this->Metas as $key=>$meta) {
     	$str="";
@@ -368,6 +370,9 @@ class WebMS{
 		if ($this->devMode) {
 			echo'<br><br><hr><div align="left"><b>$_REQUEST:</b><br>';
 			foreach($_REQUEST as $key=>$value) 
+				echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$key => $value<br>";
+			echo'<br><br><hr><div align="left"><b>$WebMS:</b><br>';
+			foreach($WebMS as $key=>$value) 
 				echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$key => $value<br>";
 			echo'</div>';
 		}

@@ -18,7 +18,7 @@ class ErrorLog extends Module {
 			Request should have succeeded.
 			<?php
 			unlink($path."Core/Includes/errors.log");
-			?></fieldset><br /><?php
+			?></fieldset><br><?php
 			}
 		
 		?>
@@ -40,11 +40,11 @@ class ErrorLog extends Module {
 			<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 				<input type="hidden" name="manage" value="ErrorLog" />
 				<textarea id="use_php" name="datap" style="height: 350px; width: 100%;"><?=$filedata; ?></textarea>
-			<textarea name="data" style="display:none;"></textarea><br />
+			<textarea name="data" style="display:none;"></textarea><br>
 			<input name="addpage" value="Save Edit" id="EditAreaSubmit" onclick="data.value = editAreaLoader.getValue('use_none')" type="submit">
 			</form>
 			
-			</fieldset><br /><?php
+			</fieldset><br><?php
 			
 		}
 	}

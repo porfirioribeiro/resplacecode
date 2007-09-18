@@ -13,7 +13,7 @@ class Files extends Module {
 		if (isset($_FILES['userfile']['name'])) {
 			?>
 			<div class="fieldset">
-			<div class="ftitle"><b>Upload file:</b></div><br />
+			<div class="ftitle"><b>Upload file:</b></div><br>
 
 			<?php
 			include $path.'setup.php';
@@ -25,7 +25,7 @@ class Files extends Module {
 				print "For some reason upload failed :(";
 				}
 			?>
-			</div><br /><br>
+			</div><br><br>
 			<?php
 			}
 
@@ -33,16 +33,16 @@ class Files extends Module {
 		if (isset($_GET['del'])) {
 			?>
 			<div class="fieldset">
-			<div class="ftitle"><b>Deleting file:</b></div><br />
+			<div class="ftitle"><b>Deleting file:</b></div><br>
 			Request should have succeeded.
 			<?php
 			unlink($path."Files/".$_GET['del']);
-			?></div><br /><br><?php
+			?></div><br><br><?php
 			}
 
 		?>
 		<div class="fieldset">
-		<div class="ftitle"><b>File Explorer:</b></div><br />
+		<div class="ftitle"><b>File Explorer:</b></div><br>
 		Heres a list of the currently uploaded files:<br><br>
 		<table width="400" border="1" bordercolor="#9bcf82" cellspacing="2" cellpadding="2" class="tbl">
 		<?php
@@ -62,9 +62,9 @@ class Files extends Module {
 			<form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
 			<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
 			<input type="hidden" name="manage" value="Files"  />
-			Upload a file:<br />
+			Upload a file:<br>
 			<input name="userfile" type="file" />
-			<br />
+			<br>
 			<input type="submit" value="Upload" />
 			</form>
 		</td></tr>

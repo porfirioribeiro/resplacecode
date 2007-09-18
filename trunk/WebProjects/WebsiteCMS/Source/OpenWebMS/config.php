@@ -35,24 +35,25 @@ $WebMS["JSUrl"]             =$WebMS["CoreUrl"]  ."JS/";
 //used for GDLib
 $WebMS["imgNumb"]			=0;
 
+//Use a UMS?
+$WebMS["UMS"]=true;
+
 //Integrations - true or false.
 $WebMS["Integrate"]			=false;
 //filename of integration script, ie. smf.php
 $WebMS["IntegrateScript"]	="";
 
-//user variables when using the built in user management
-if (!$WebMS["Integrate"]){
-	$WebMS["User_ID"]="";
-	$WebMS["User_Username"]="";
-	$WebMS["User_Password"]="";
-	$WebMS["User_Email"]="";
-	$WebMS["User_Name"]="";
-	$WebMS["User_Userlvl"]=0;
-	$WebMS["User_Datereg"]="";
-	$WebMS["User_Datelog"]="";
-	$WebMS["User_Sig"]="";
-	$WebMS["User_Avatar"]="";
-}
+//user variables
+$WebMS["User_ID"]=0;
+$WebMS["User_Username"]="";
+$WebMS["User_Password"]="";
+$WebMS["User_Email"]="";
+$WebMS["User_Name"]="";
+$WebMS["User_Userlvl"]=0;
+$WebMS["User_Datereg"]="";
+$WebMS["User_Datelog"]="";
+$WebMS["User_Sig"]="";
+$WebMS["User_Avatar"]="";
 
 //MySQL Configuration
 //Use MySQL? false or true
@@ -81,6 +82,7 @@ class Conf{
 
 Conf::$conf;
 
+//include("Core/Integrations/SimpleMachines.php");
 include_once $WebMS["IncPath"]."String.php";
 include_once $WebMS["IncPath"]."error_reporter.php";
 include_once $WebMS["IncPath"]."ResDB.php";
