@@ -50,18 +50,26 @@
   function errorHandler($errno, $errstr, $errfile, $errline, $othervars) { 
   	global $WebMS;
 	//wordwrap(str_replace("\\","\ ",$errfile),50,"&hellip;\n              : ",false)
-    $ret[] = "	[[" . date("F j, Y, g:i:s a")."]] [[{$_SERVER['SERVER_NAME']}]]
-    			[[" . gethostbyaddr($_SERVER['REMOTE_ADDR']). "]]
-    			[[{$_SERVER['REMOTE_ADDR']}]]
-    			[[$errno]]
-    			[[$errfile]]
-    			[[$errstr]]
-    			[[$errline]]
-    			[[{$_SERVER['REQUEST_METHOD']}]]"; 
+	$errlen="";
+	$errlen=strlen($errstr);
+	if (strlen($errlen)==1) {
+		$errlen="0".$errlen;
+	}
+	
+    $ret[] = $errlen.$errstr."
+[[" . date("F j, Y, g:i:s a")."]]
+[[{$_SERVER['SERVER_NAME']}]]
+[[" . gethostbyaddr($_SERVER['REMOTE_ADDR']). "]]
+[[{$_SERVER['REMOTE_ADDR']}]]
+[[$errno]]
+[[$errfile]]
+[[$errstr]]
+[[$errline]]
+[[{$_SERVER['REQUEST_METHOD']}]]"; 
     $ret[] = '[['; 
     foreach($_REQUEST as $key=>$value) 
       $ret[] = "||$key||=>||$value||";
-    $ret[]="]]";
+    $ret[]="]]\n";
     $ret[] = '[['; 
     foreach($WebMS as $key=>$value) 
       $ret[] = "||$key||=>||$value||"; 
@@ -114,11 +122,106 @@
 		if ($_SESSION['developer_mode']==true) {
 		echo'<div align="center"><b>Developer Mode: CODE ERROR!</b><br>
 		<i>Fix the error or report it and disable developer mode to view this page.</i></div><br><br>
-		
-		<div align="left" style="border: 1px solid black; padding:2px; font-family:\'Lucida Console\', Times, serif; font-size:14px;">';
-		die(str_replace(array("\n"," "),array("<br>","&nbsp;"),$error).'</div><br><br><i>This error has been logged.</i>');
+		';
+		ShowError(dirname(__FILE__)."\errors\\".$errordoccount.".log");
+		die('<br><br><i>This error has been logged.</i>');
 		}
   } 
   
   $old_error_handler = set_error_handler("errorHandler"); 
+  
+	function ShowError($file) {
+		$fh=fopen($file,'a+');
+		if (!filesize($file)==0) {
+			$filedata=fread($fh,filesize($file));
+		} else {
+			$filedata="No Errors Logged.";
+		}
+		fclose($fh);
+		
+		//chop and style the error report :)
+		
+		//date
+		preg_match_all("/\[\[(.*?)\]\]/",$filedata,$err);
+		$lang=array("Date","Server","Host","IP","Error No","In File","Error","At Line","Method");
+		
+		?>
+		<div align="left" style="background-color:white; border: 1px solid black; padding:5px; font-family:\'Lucida Console\', Times, serif; font-size:14px;">
+
+		<table>
+		<?php
+		$cnt=0;
+		
+		foreach ($lang as $t) {
+			?>
+				<tr>
+					<td><b><?=$t ?> </b></td>
+			  		<td width="25"><b>:</b></td>
+					<td><?=$err[1][$cnt] ?></td>
+			  	</tr>
+			<?php
+			$cnt+=1;
+		}
+		$cnt2=0;
+		
+		preg_match_all("/\|\|(.*?)\|\|\=\>\|\|(.*?)\|\|/",$err[1][$cnt],$err2);
+		?>
+			<tr>
+				<td><b>$REQUEST </b></td>
+			  	<td width="25"><b>:</b></td>
+			  	<td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>
+					<table>
+		<?php
+		foreach ($err2[0] as $t) {
+			?>
+						<tr>
+					    	<td ><?=$err2[1][$cnt2] ?></td>
+					    	<td align="center" width="25"><b>=&gt;</b></td>
+					    	<td ><?=(($err2[2][$cnt2]=="") ? "<div style='color:red'>null</div>":$err2[2][$cnt2]) ?></td>
+						</tr>
+			<?php
+			$cnt2+=1;
+		}
+		?>
+					</table>
+				</td>
+			</tr>
+		<?php
+		$cnt3=0;
+		preg_match_all("/\|\|(.*?)\|\|\=\>\|\|(.*?)\|\|/",$err[1][$cnt+1],$err3);
+		?>
+			<tr>
+				<td><b>$WebMS </b></td>
+			  	<td width="25"><b>:</b></td>
+			  	<td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>
+					<table>
+		<?php
+		foreach ($err3[0] as $t) {
+			?>
+						<tr>
+					    	<td ><?=$err3[1][$cnt3] ?></td>
+					    	<td align="center" width="25"><b>=&gt;</b></td>
+					    	<td ><?=(($err3[2][$cnt3]=="") ? "<div style='color:red'>null</div>":$err3[2][$cnt3]) ?></td>
+						</tr>
+			<?php
+			$cnt3+=1;
+		}
+		?>
+					</table>
+				</td>
+			</tr>
+		</table>
+		</div>
+		<?php
+	}
 ?>

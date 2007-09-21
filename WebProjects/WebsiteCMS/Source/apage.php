@@ -35,8 +35,6 @@ class internalHtml extends Module {
 }
 
 function someContent($mod){
-	preg_match_all("/\[t\](.*?)\[t\]/","[t]Test[t][t]Test2[t]",$ymatches);
-	print_r($matches[1]);
 	?>
 	this is a module, with a <a href='#'>link</a>.<br><br>
 	<table border='1' cellpadding="3" cellspacing="0" class="tbl">

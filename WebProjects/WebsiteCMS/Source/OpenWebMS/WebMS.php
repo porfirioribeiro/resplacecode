@@ -75,13 +75,25 @@ class WebMS{
 		$this->globallogo=$WebMS["GlobalLogo"];
 		
 		//activate/deactivate dev mode
-		//FIXME
-		$_SESSION['developer_mode']=true;
-		if (isset($_REQUEST['devMODE'])) {
-			if (isset($adminpassword) && isset($_SESSION['admin_session'])) {
-				if ($adminpassword==$_SESSION['admin_session']) {
-					$_SESSION['developer_mode']=(!(isset($_SESSION['developer_mode'])?$_SESSION['developer_mode']:true));
-				}
+		//dev mode can leak sensitive data, so lets MAKE SURE they can access it!
+		//Ok first lets load non UMS permissions
+		if (!$WebMS['Integrate'] && !$WebMS['UMS']) {
+			$db=new ResDB("WebMSoptions");
+			$psswd=$db->get("adminpassword");
+			if ($psswd=="") {
+				$psswd=md5($WebMS["FailSafeLogin"]);
+			}
+			
+			if ((isset($_SESSION['admin_session'])) && ($_SESSION['admin_session']==$psswd)) {
+				$WebMS["User_Userlvl"]=2;
+			}
+		}
+		
+		//Are they an administrator?
+		if ($WebMS["User_Userlvl"]==2) {
+			$_SESSION['developer_mode']=(((!isset($_SESSION['developer_mode'])) || ($_SESSION['developer_mode']==false)) ? false:true);
+			if (isset($_GET['devMODE'])) {
+				$_SESSION['developer_mode']=(((!isset($_SESSION['developer_mode'])) || ($_SESSION['developer_mode']==false)) ? true:false);
 			}
 		}
 		

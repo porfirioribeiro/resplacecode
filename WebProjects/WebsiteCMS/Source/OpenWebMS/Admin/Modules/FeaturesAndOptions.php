@@ -29,6 +29,11 @@ if (isset($_POST['submit2'])) {
 			$_POST['ums_which']=false;
 		}
 		
+		if (!$_POST['ums_use']) {
+			$_POST['ums_which']=false;
+			$_POST['int_scr']="";
+		}
+		
 		$db->put("Integrate",		($_POST['ums_which']));
 		$db->put("IntegrateScript",	($_POST['int_scr']));
 	}

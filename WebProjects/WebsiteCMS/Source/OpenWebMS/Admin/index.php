@@ -58,107 +58,100 @@ if (isset($_GET["message"])){
 	$page->addAlert("dbmesage",$_GET["message"]);
 }
 
-
-
 //check if we can use internel or integrated systems to handle login.
-if ($WebMS["Integrate"]==false){
-	
-	$addd=false;
-	
-	if ($WebMS["MySQL_Use"]){
-		$db= new sql();
-		$result=$db->query("SELECT * FROM ".$WebMS["MySQL_Prefix"]."users WHERE usrlvl='2'",true);
-		$db->disconnect();
-		
-		if (count($result)) {
-			//there are administrators
-			$addd=true;
-		}
-		
-	}
-	
-	if ($WebMS["MySQL_Use"]==false || $addd==false){
-		//use super admin routine for access to admin panel.
-		
-		$db=new ResDB("WebMSoptions");
-		$psswd=$db->get("adminpassword");
-		if ($psswd=="") {
-			$psswd=md5("openwebms");
-		}
+$grantaccess=false;
+$reason="An unknown error occured!";
+$logintype=0;
 
-		if (isset($_POST['psswd'])){
-			$_SESSION['admin_session']=md5($_POST['psswd']);
-		}
-
-		if (!isset($_SESSION['admin_session']) || $_SESSION['admin_session']!=$psswd){
-			class internalHtml extends Module {
-				function internalHtml($page){
-					$this->title="Admin Panel";
-					parent::Module($page);
-				}
-				function content(){
-					global $path, $devmode, $WebMS, $addd;
-					//set the admin password
-					
-					if ($WebMS["MySQL_Use"]==false){
-						$stringq="You are running non-integrated mode and MySQL is disabled.";
-					}
-					if ($addd==false){
-						$stringq="There are no administrators set in the non-integrated user database.";
-					}
-					
-					?>
-					Welcome to the admin panel, please login below using the super admin password:<br>
-					<i>Default password is documented in the readme.txt document, this password should be changed immediately after you first login.</i><br><br>
-		
-					<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
-						<input name="psswd" type="password" />
-						<input name="submit" type="submit" value="Login" />
-					</form><br><br>
-					The reason you have to use the super admin password is outlined below:<br>
-					- <?=$stringq?>
-					<?php
-				}
-			}
-			
-			$page->add("internalHtml");
-			$page->create();
-			exit();
-		}		
+//check if we are using integrated!
+if ($WebMS['Integrate']) {
+	if ($WebMS["User_Userlvl"]==2) {
+		$grantaccess=true;
 	} else {
-		//non-integrated method, admin exists...
-		if (!$WebMS["User_Userlvl"]==2) {
-			$stopadmin=true;
-			$reason='Please <a href="'.$WebMS["WebMSUrl"].'User/Login.php">login as an administrator</a> to access this admin panel.';
-		}
+		$reason="Please login as an administrator on the integrated software to access this admin panel.";
 	}
 } else {
-	//integrated method, assume an admin exists (cant check)
-	if (!$WebMS["User_Userlvl"]==2) {
-			$stopadmin=true;
-			$reason='Please login as an administrator on the integrated software to access this admin panel.';
+	//check if we are using built-in
+	if ($WebMS['UMS']) {
+		if ($WebMS['MySQL_Use']) {
+			if ($WebMS["User_Userlvl"]==2) {
+				$grantaccess=true;
+			} else {
+				$reason="Please <a href='{$WebMS["WebMSUrl"]}User/Login.php'>login as an administrator</a>.";
+				$logintype=1;
+			}
+		} else {
+			$reason="UMS is enabled but MySQL is not setup, system needs MySQL.";
+			$logintype=2;
 		}
+	} else {
+		$reason="UMS is not enabled.";
+		$logintype=2;
+	}	
+}
+
+
+
+//Process some logins
+if ($logintype==1) {
+	//FIXME
+	//maybe not needed
+} else if ($logintype==2) {
+	//super admin login
+	$db=new ResDB("WebMSoptions");
+		$psswd=$db->get("adminpassword");
+		if ($psswd=="") {
+			$psswd=md5($WebMS["FailSafeLogin"]);
+		}
+	if (isset($_POST['psswd'])){
+		$_POST['psswd']=md5($_POST['psswd']);
+		$_SESSION['admin_session']=$_POST['psswd'];
+	}
+	
+	if ((isset($_SESSION['admin_session'])) && ($_SESSION['admin_session']==$psswd)) {
+		$grantaccess=true;
+		$WebMS["User_Userlvl"]=2;
+	}
 }
 
 //stop admin entry...
-if ($stopadmin==true){
+if (!$grantaccess){
+	
 	class internalHtml extends Module {
 		function internalHtml($page){
 			$this->title="Admin Panel";
 			parent::Module($page);
 		}
 		function content(){
-			global $path, $devmode,$reason;
-			?>
-			I'm sorry but the administration panel is off limits to you because of the following reason:<br><br>
+			global $path, $devmode, $WebMS, $reason, $logintype;
+			//set the admin password
+			
+			if ($logintype==1) {
+				//integrated logon box here
+			} else if ($logintype==2) {
+				//Super admin login
+				?>
+				Welcome to the admin panel, please login below using the super admin password:<br>
+				<i>Default password is documented in the readme.txt document, this password should be changed immediately after you first login.</i><br><br>
+	
+				<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
+					<input name="psswd" type="password" />
+					<input name="submit" type="submit" value="Login" />
+				</form><br><br>
+				<?php
+			}
+			
+			?><br><br>
+			Error Details Below:<br>
 			<?php
-			echo '<b>- '.$reason.'</b>';
+			echo $reason;
 		}
 	}
 	
 	$page->add("internalHtml");
 	$page->create();
 	exit();
+	
 }
 
 /**
