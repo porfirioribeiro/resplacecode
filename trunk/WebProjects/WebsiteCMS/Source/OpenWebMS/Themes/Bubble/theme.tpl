@@ -64,7 +64,7 @@
 		</div>
 	#{end:title}	
 	#{start:content}	
-		<div style="#{display_modulestop}">
+		<div style="#{display_modulestop}; padding-left:2px;padding-right:2px;">
 			#{write_modulestop}
 		</div>	
 		<table cellpadding="0" cellspacing="0" width="100%">                
@@ -80,7 +80,7 @@
 		    	</td>	              
 		    </tr>           
 		</table>
-		<div style="#{display_modulesbottom}">
+		<div style="#{display_modulesbottom}; padding-left:2px;padding-right:2px;">
 			#{write_modulesbottom}
 		</div>	
 	#{end:content}

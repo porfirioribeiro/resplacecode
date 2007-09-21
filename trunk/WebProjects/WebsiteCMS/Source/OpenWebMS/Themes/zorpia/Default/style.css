@@ -18,21 +18,36 @@ a:visited {
 
 /* Stuff in tables */
 .tbl {
-	border:1px solid #bfdd97;
+	border:1px solid #91C846;
 }
 table.tbl td {
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:12px;
-	border:1px solid #bfdd97;
+	border:1px solid #91C846;
 }
 td.main {
-	color:#acacf0;
-	background-color:#4e4eab;
+	color:#000000;
+	background-color:#91C846;
 	text-align:center;
 }
 td.sub {
-	background-color:#6b6bcd;
+	background-color:#AAC881;
 	text-align:center;
+}
+
+.fieldset {
+	border: 1px dashed #BFDD97;
+	background-color: #EAFFCF;
+	padding:5px;
+}
+.ftitle {
+	position:relative;
+	padding:3px;
+	top: -1.00em; left: 1em;
+	background-color:#91C846;
+	color:white;
+	display:inline;
+	width:auto;
 }
 
 /* module title on the left top bottom and right */

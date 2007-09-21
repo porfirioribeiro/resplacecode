@@ -11,22 +11,37 @@ body {
 
 /* Stuff in tables */
 .tbl {
-	border:1px solid #cfcfff;
+	border:1px solid #7F80FF;
 }
 table.tbl td {
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:12px;
-	border:1px solid #cfcfff;
+	border:1px solid #7F80FF;
+	padding:3px;
 }
 td.main {
 	color:#acacf0;
-	background-color:#4e4eab;
+	background-color:#5F61FF;
 	text-align:center;
 }
 td.sub {
-	background-color:#6b6bcd;
+	background-color:#7375FF;
 	text-align:center;
 }
+
+.fieldset {
+	border: 1px dashed #7F80FF;
+	padding:5px;
+}
+.ftitle {
+	position:relative;
+	padding:3px;
+	top: -1.00em; left: 1em;
+	background-color:#7F80FF;
+	display:inline;
+	width:auto;
+}
+
 a {
 	color:#454545;
 }

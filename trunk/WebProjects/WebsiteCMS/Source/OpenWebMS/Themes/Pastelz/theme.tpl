@@ -43,10 +43,9 @@
 #{start:page}	
 	#{start:title}	
 		<div class="MainMid"> 
-			<div class="Box">                
-				<div class="TopLeft"><div class="TopRight"></div></div>                
+			<div class="Box">                                
 				<div style="float:right;" id="AjaxLoader"></div>
-				<div align="left" style="padding-left:10px">
+				<div align="left" style="padding-left:10px;padding-top:4px;">
 				#{iif:GlobalLogo,<img src="#{GlobalLogoPath}" border="0" />,<div class="TitleImage alpha" title="My Website Name"></div>}
 				</div>
 				<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
@@ -55,7 +54,7 @@
 		
 	#{end:title}	
 	#{start:content}
-		<div style="#{display_modulestop}">
+		<div style="#{display_modulestop}; padding-left:2px ;padding-right:2px ;">
 			#{write_modulestop}
 		</div>	
 		<table cellpadding="0" cellspacing="0" width="100%">                
@@ -71,7 +70,7 @@
 		    	</td>	              
 		    </tr>           
 		</table>
-		<div style="#{display_modulesbottom}">
+		<div style="#{display_modulesbottom} padding-left:2px ;padding-right:2px ;">
 			#{write_modulesbottom}
 		</div>	
 	#{end:content}

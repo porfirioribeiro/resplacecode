@@ -6,7 +6,7 @@ session_start();
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright (c) 2007 ResPlace Team
-* @lastedit 18-09-07
+* @lastedit 21-09-07
 */
 
 //ob_start("ob_gzhandler");
