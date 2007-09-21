@@ -5,7 +5,7 @@
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright ? 2007 ResPlace Team
-* @lastedit 09-09-07
+* @lastedit 20-09-07
 */
 
 //Set path to the data/ directory FIRST:
@@ -58,10 +58,13 @@ if (isset($_GET["message"])){
 	$page->addAlert("dbmesage",$_GET["message"]);
 }
 
+
+
 //check if we can use internel or integrated systems to handle login.
 if ($WebMS["Integrate"]==false){
 	
 	$addd=false;
+	
 	if ($WebMS["MySQL_Use"]){
 		$db= new sql();
 		$result=$db->query("SELECT * FROM ".$WebMS["MySQL_Prefix"]."users WHERE usrlvl='2'",true);
@@ -79,6 +82,9 @@ if ($WebMS["Integrate"]==false){
 		
 		$db=new ResDB("WebMSoptions");
 		$psswd=$db->get("adminpassword");
+		if ($psswd=="") {
+			$psswd=md5("openwebms");
+		}
 
 		if (isset($_POST['psswd'])){
 			$_SESSION['admin_session']=md5($_POST['psswd']);
@@ -91,13 +97,13 @@ if ($WebMS["Integrate"]==false){
 					parent::Module($page);
 				}
 				function content(){
-					global $path, $devmode;
+					global $path, $devmode, $WebMS, $addd;
 					//set the admin password
 					
 					if ($WebMS["MySQL_Use"]==false){
 						$stringq="You are running non-integrated mode and MySQL is disabled.";
 					}
-					if ($ddd==false){
+					if ($addd==false){
 						$stringq="There are no administrators set in the non-integrated user database.";
 					}
 					

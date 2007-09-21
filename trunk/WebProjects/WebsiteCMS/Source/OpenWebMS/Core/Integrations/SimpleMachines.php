@@ -17,7 +17,7 @@
 //get user info by user id
 //fetch user level 0 - guest, 1 - member, 2 - admin
 
-$SSIPath="../../../../New Folder/Unsorted/smf105/SSI.php";
+$SSIPath=$WebMS["WebMSPath"]."../../../../../New Folder/Unsorted/smf105/SSI.php";
 include($SSIPath);
 
 	//$db=new ResDB("WebMSoptions");
@@ -55,14 +55,14 @@ function ProfileLink() {
 
 
 function CurrentUser() {
-	global $WebMS, $SSIPath, $memberContext;
+	global $WebMS, $SSIPath, $memberContext, $context, $memberContext, $user_info;
 	//Info: fetches user information for currently logged in user (if there is one) and stores details in the global variables of the system.
 	
 	
 	loadMemberData($context['user']['id']);
 	//foreach ($members_id as $id)
 		loadMemberContext($context['user']['id']);
-	
+
 	//Fetch user permission (if guest set username etc to guest)
 	if ($user_info['is_guest']) {
 		$WebMS["User_Userlvl"]=0;

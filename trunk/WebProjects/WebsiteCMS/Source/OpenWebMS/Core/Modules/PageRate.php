@@ -1,10 +1,10 @@
 <?php
 /**
-* Page Rate module<br>
+* Page Rate module
 * This module allows a visitor to rate a page
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright � 2007 ResPlace Team
+* @copyright (c) 2007 ResPlace Team
 * @lastedit 12-05-07
 *
 *@notes Need to gather IP address to stop multiple rating.
@@ -15,7 +15,13 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 	$db=new ResDB("PageRater");
 	$page=$db->getMap($_GET["page"]);
 	$bar=$db->get("pageratebarbac");
+	if ($bar=="") {
+		$bar="Star/Blue.png";
+	}
 	$bac=$db->get("pageratebar");
+	if ($bac=="") {
+		$bac="Star/Grey.png";
+	}
 	$ips=explode(",",$page->get("ip",""));
 	$nope=0;
 	foreach ($ips as $ipc){
@@ -51,7 +57,13 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 			$this->title="Rate this Page";	
 			$this->db=new ResDB("PageRater");
 			$this->bar=$this->db->get("pageratebarbac");
+			if ($this->bar=="") {
+				$this->bar="Star/Blue.png";
+			}
 			$this->bac=$this->db->get("pageratebar");
+			if ($this->bac=="") {
+				$this->bac="Star/Grey.png";
+			}
 			$this->bac2=explode("/",$this->bac);
 			$this->pg=$this->db->getMap($this->page->id);
 			$this->url=str_replace($_SERVER["DOCUMENT_ROOT"],"", preg_replace("/\\\/","/",__FILE__));

@@ -1,11 +1,11 @@
 <?php
 /**
-* Skin Changer module<br>
+* Skin Changer module
 * This module allows a visitor to select which skin to use on the website
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright � 2007 ResPlace Team
-* @lastedit 12-05-07
+* @copyright (c) 2007 ResPlace Team
+* @lastedit 20-09-07
 */
 
 class SkinChanger extends Module {

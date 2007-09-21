@@ -70,12 +70,9 @@ class WebMS{
 		$starttime = explode(' ', microtime());
 		$this->pagebegin=$starttime[1] + $starttime[0];
 		
-		//read WebMS settings DB
-		$db=new ResDB("WebMSoptions");
-			$adminpassword=$db->get("adminpassword");
-			$this->defaultskin=$db->get("defaultskin");
-			$this->globallogo=$db->get("logo_use");
-		//database doesnt need closing since no changes are made :)
+		$adminpassword=$WebMS["AdminPassword"];
+		$this->defaultskin=$WebMS["DefaultSkin"];
+		$this->globallogo=$WebMS["GlobalLogo"];
 		
 		//activate/deactivate dev mode
 		//FIXME
@@ -87,6 +84,7 @@ class WebMS{
 				}
 			}
 		}
+		
 		$this->devMode=$_SESSION['developer_mode'];
 		$this->self=$this;
 		$this->id=$_SERVER['PHP_SELF'];

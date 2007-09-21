@@ -130,7 +130,7 @@ class DefaultTheme extends Module {
 			<div class="fieldset">
 				<div class="ftitle"><b>Default Theme:</b></div><br>
 				<i>This is the theme you wish to use to render your website as default.</i><br>
-				<div style="overflow:scroll; height:250px;">
+				<div style="overflow:scroll; height:260px;">
 					<table><tr>
 					<?php
 					$contents=GetFolders($this->page->themespath);

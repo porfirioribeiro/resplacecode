@@ -4,8 +4,8 @@
 * This script will return an array of files or folders in a directory you send it
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright � 2007 ResPlace Team
-* @lastedit 12-05-07
+* @copyright (c) 2007 ResPlace Team
+* @lastedit 19-09-07
 */
 
 //WARNING!!

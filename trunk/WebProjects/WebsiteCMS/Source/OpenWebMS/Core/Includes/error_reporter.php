@@ -49,22 +49,23 @@
   
   function errorHandler($errno, $errstr, $errfile, $errline, $othervars) { 
   	global $WebMS;
-    $ret[] = "Date          : " . date("F j, Y, g:i:s a"); 
-    $ret[] = "Server        : " . $_SERVER['SERVER_NAME']; 
-    $ret[] = "Error No      : $errno"; 
-    $ret[] = "On file       : ".wordwrap(str_replace("\\","\ ",$errfile),50,"&hellip;\n              : ",false); 
-    $ret[] = "On line       : $errline"; 
-    $ret[] = "Error         : $errstr"; 
-    $ret[] = "IP            : " . $_SERVER['REMOTE_ADDR']; 
-    $ret[] = "Host          : " . gethostbyaddr($_SERVER['REMOTE_ADDR']); 
-    $ret[] = "Method        : " . $_SERVER['REQUEST_METHOD']; 
-    $ret[] = '$_REQUEST     :'; 
+	//wordwrap(str_replace("\\","\ ",$errfile),50,"&hellip;\n              : ",false)
+    $ret[] = "	[[" . date("F j, Y, g:i:s a")."]] [[{$_SERVER['SERVER_NAME']}]]
+    			[[" . gethostbyaddr($_SERVER['REMOTE_ADDR']). "]]
+    			[[{$_SERVER['REMOTE_ADDR']}]]
+    			[[$errno]]
+    			[[$errfile]]
+    			[[$errstr]]
+    			[[$errline]]
+    			[[{$_SERVER['REQUEST_METHOD']}]]"; 
+    $ret[] = '[['; 
     foreach($_REQUEST as $key=>$value) 
-      $ret[] = "           $key => $value";
-    $ret[] = '$WebMS[]      :'; 
+      $ret[] = "||$key||=>||$value||";
+    $ret[]="]]";
+    $ret[] = '[['; 
     foreach($WebMS as $key=>$value) 
-      $ret[] = "           $key => $value"; 
-	 
+      $ret[] = "||$key||=>||$value||"; 
+	$ret[]="]]";
 	//if(function_exists('debug_backtrace')){
         //print "backtrace:\n";
 		//$ret[] = "Backtrace :"; 
@@ -77,12 +78,9 @@
         //    print "\n";
         //}
     //}
-
-	  $ret[] = " ";
-	  $ret[] = " ";
     $error = ""; 
     foreach($ret as $line) 
-      $error .= "$line\n"; 
+      $error .= "$line"; 
     
     //$to = "example@yahoo.com"; 
     //$from = "Error Catcher <errors@example.com>"; 
@@ -92,9 +90,23 @@
 	
 	//log the error instead of using mail :)
 	
-		$fh=fopen(dirname(__FILE__)."\errors.log",'a');
+      	$errordocs=GetFiles(dirname(__FILE__)."\errors\\");
+  		$errordoccount=count($errordocs);
+  		
+	
+		$fh=fopen(dirname(__FILE__)."\errors\\".$errordoccount.".log",'a');
 		fwrite($fh,$error);
 		fclose($fh);
+		
+		//get hash of error file
+		//$errorhash=md5_file(dirname(__FILE__)."\errors\\".$errordoccount.".log");
+		//
+		//foreach ($errordocs as $doc) {
+		//	if ($errorhash==md5_file(dirname(__FILE__)."\errors\\".$doc)) {
+		//		//delete our log, it exists already!
+		//		unlink(dirname(__FILE__)."\errors\\".$errordoccount.".log");
+		//	}
+		//}
 		
 		if (!isset($_SESSION['developer_mode']))
 			$_SESSION['developer_mode']=false;
@@ -109,6 +121,4 @@
   } 
   
   $old_error_handler = set_error_handler("errorHandler"); 
-  
-       
 ?>

@@ -1,15 +1,14 @@
 <?php
-//needs modifying
 /**
 * User Login Management (NON INTEGRATED)
 * This script validates sessions created when a user logs into the website (when system is not running integration).
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright ? 2007 ResPlace Team
-* @lastedit 09-09-07
+* @copyright (c) 2007 ResPlace Team
+* @lastedit 20-09-07
 */
 
-if ((!$WebMS["Integrate"]) && (isset($_SESSION["username"]))) {
+if (($WebMS['UMS']) && (!$WebMS["Integrate"]) && (isset($_SESSION["username"]))) {
 		//Not using integration, run script...
 		
 		//grab user data
