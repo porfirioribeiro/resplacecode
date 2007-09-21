@@ -34,10 +34,26 @@ class ErrorLog extends Module {
 					if (!filesize($logpath.$file)==0) {
 						//get length of error message (for caption)
 						$errlength=fread($fh,2);
-						//get caption
-						$errcaption=fread($fh,(int)$errlength);
-						echo '<a href="?nav=ErrorLog&amp;error='.$errcnt.'">'.$errcaption.'</a><br>';
-						$errcnt+=1;
+						if ($errlength>0){
+							//get caption
+							$errcaption=fread($fh,(int)$errlength);
+							$a=array();
+							preg_match("/\[.*\]/",$errcaption,$a);
+							$errcaption=preg_split("/\[.*\]/",$errcaption);
+							if (isset($errcaption[0])){
+								echo '<a href="?nav=ErrorLog&amp;error='.$errcnt.'">'.$errcaption[0].'</a>';
+							}
+							if (isset($a[0])){
+								$a=$a[0];
+								$a=preg_replace("/function/","http://php.net/manual/en/function",$a);
+								echo $a;
+								//http://php.net/manual/en/function
+							}	
+							if (isset($errcaption[1])){
+								echo $errcaption[1].'<br>';
+							}						
+							$errcnt+=1;
+						}
 						
 					} else {
 						
