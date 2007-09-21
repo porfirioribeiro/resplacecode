@@ -1,13 +1,14 @@
 <?php
 /**
-* LoadSkin Script<br>
+* LoadSkin Script
 * This script manages the loading of the default, the selected, or finds an existing skin.
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright © 2007 ResPlace Team
-* @lastedit 25-07-07
+* @copyright (c) 2007 ResPlace Team
+* @lastedit 20-09-07
 */
 $skindone=0;
+$done=0;
 
 if (isset($_POST['SkinMenu'])){
 	$_SESSION['currentskin']=$_POST['SkinMenu'];
@@ -53,9 +54,10 @@ if (!$skindone==1){
 							$this->selectedskin=$item."/".$item2."/";
 							$patt=apply_skin($this->themespath,$this->selectedskin);
 							//$this->selectedskin=$this->selectedskin;
-							$_SESSION['currentskin']=$this->selectedskin;
+							//$_SESSION['currentskin']=$this->selectedskin;
 							include($this->themespath.$patt."theme.php");
 							$skindone=1;
+							$done=1;
 							break;
 						}
 					}

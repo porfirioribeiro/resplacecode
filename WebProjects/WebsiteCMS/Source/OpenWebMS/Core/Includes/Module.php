@@ -4,8 +4,8 @@
 * Contains the code to build the Modules for the site
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright � 2007 ResPlace Team
-* @lastedit 12-05-07
+* @copyright (c) 2007 ResPlace Team
+* @lastedit 19-09-07
 */
 
 class Module{

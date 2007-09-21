@@ -1,11 +1,11 @@
 <?php
 /**
-* Browser script<br>
+* Browser script
 * This script finds out what browser the user is using
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright � 2003 Gary White
-* @lastedit 10-11-03
+* @copyright (c) 2003 Gary White
+* @lastedit 19-09-03
 */
 /*****************************************************************
 	Typical Usage:
