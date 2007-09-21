@@ -5,7 +5,7 @@
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright ? 2007 ResPlace Team
-* @lastedit 20-09-07
+* @lastedit 21-09-07
 */
 
 //Set path to the data/ directory FIRST:

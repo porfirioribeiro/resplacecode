@@ -35,6 +35,20 @@ td.sub {
 	text-align:center;
 }
 
+.fieldset {
+	border: 1px dashed #DBDBDB;
+	background-color: #F3F3F3;
+	padding:5px;
+}
+.ftitle {
+	position:relative;
+	padding:3px;
+	top: -1.00em; left: 1em;
+	background-color:#DBDBDB;
+	display:inline;
+	width:auto;
+}
+
 /* module title on the left top bottom and right */
 .modules_title {
 	border:1px solid #DDDDDD;
@@ -64,7 +78,7 @@ td.sub {
 .Module{
 	padding:4px;
 	margin-top:0px;
-	margin-bottom:10px;
+	margin-bottom:4px;
 }
 
 /* The main title image */
@@ -89,6 +103,7 @@ td.sub {
 	text-align:center;
 	background-color:#DDDDDD;
 	height:75px;
+	margin-bottom:5px;
 }
 
 /*Footer Style*/
