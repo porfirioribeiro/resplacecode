@@ -1,0 +1,120 @@
+/* Main body style */
+body {
+	padding:0px;
+	margin:0px;
+	text-align:center;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background-color:#999999;
+}
+/* modules on the left top bottom and right */
+.modules_lrtb_title {
+	background-color:#666666;
+	color:#FFFFFF;
+	padding:6px;
+}
+.modules_lrtb_content {
+	background-color:#999999;
+	padding:4px;
+	margin-bottom:5px;
+}
+
+/* modules on center */
+.modules_c_title {
+	background-color:#999999;
+	color:#FFFFFF;
+	padding:6px;
+}
+.modules_c_content {
+	background-color:#CCCCCC;
+	padding:4px;
+	margin-bottom:5px;
+}
+
+a {
+	color:#454545;
+}
+a:visited {
+	color:#454545;
+}
+/* The main title image */
+.TitleImage {
+	background-image:URL(Images/title.png);
+	width:334px;
+	height:78px;
+}
+/* This is the frame which goes around the whole site, usually left invisible, design preference. */
+.MainFrame {
+	width:100%;
+	border:0px;
+}
+
+/* Middle section for the main box at the top, where the title goes... */
+.MainMid {
+	
+	text-align:center;
+	margin:4px;
+	margin-bottom:0px;
+}
+
+.SmallIcon{
+	width:16px;
+	height:16px;	
+	cursor:pointer;
+}
+.CollapseIcon{
+	background-image:URL(Images/collapse.png);
+}
+.CollapseIconOver{
+	background-image:URL(Images/collapse_over.png);
+}
+.UnCollapseIcon{
+	background-image:URL(Images/uncollapse.png);
+}
+.UnCollapseIconOver{
+	background-image:URL(Images/uncollapse_over.png);
+}
+.MinimizeLeftIcon{
+	background-image:URL(Images/minimize_left.png);
+}
+.MinimizeLeftIconOver{
+	background-image:URL(Images/minimize_left_over.png);
+}
+.MinimizeRightIcon{
+	background-image:URL(Images/minimize_right.png);
+}
+.MinimizeRightIconOver{
+	background-image:URL(Images/minimize_right_over.png);
+}
+.Module{
+	margin-top:2px;
+}
+#LeftColumn {
+	width:200px;
+	padding:2px;
+	vertical-align:top;
+	background-color:#999999;
+}
+#CenterColumn {
+	padding:2px;
+	vertical-align:top;
+	background-color:#CCCCCC;
+}
+#RightColumn {
+	width:200px;
+	padding:2px;
+	vertical-align:top;
+	background-color:#999999;
+}
+#TopColumn {
+	width:200px;
+	padding:2px;
+	vertical-align:top;
+	background-color:#999999;
+}
+#BottomColumn {
+	width:200px;
+	padding:2px;
+	vertical-align:top;
+	background-color:#999999;
+}

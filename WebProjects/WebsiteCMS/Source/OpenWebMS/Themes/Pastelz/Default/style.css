@@ -1,0 +1,161 @@
+/* Main body style */
+body {
+	padding:0px;
+	margin:0px;
+	text-align:center;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#444444;
+	background-color:#FFFFFF;
+}
+
+/*<a></a> Styles*/
+a {
+	color:#454545;
+}
+a:visited {
+	color:#454545;
+}
+
+/* Stuff in tables */
+.tbl {
+	border:1px solid #CFCFCF;
+}
+table.tbl td {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border:1px solid #CFCFCF;
+}
+td.main {
+	background-color:#CFCFCF;
+	text-align:center;
+}
+td.sub {
+	background-color:#DFDFDF;
+	text-align:center;
+}
+
+.fieldset {
+	border: 1px dashed #DBDBDB;
+	background-color: #F3F3F3;
+	padding:5px;
+}
+.ftitle {
+	position:relative;
+	padding:3px;
+	top: -1.00em; left: 1em;
+	background-color:#DBDBDB;
+	display:inline;
+	width:auto;
+}
+
+/* module title on the left top bottom and right */
+.modules_title {
+	border:1px solid #DDDDDD;
+	text-align:left;
+	background-color:#FCFCFC;
+	background-image:url(Images/module_title_bg.png);
+	font-size:14px;
+	color:#333333;
+	padding-top:2px;
+	padding-left:12px;
+	padding-right:4px;
+}
+
+/* module content on the left top bottom and right */
+.modules_content {
+	background-color:#FFFFFF;
+	border:1px solid #DDDDDD;
+	border-top:0px;
+	text-align:left;
+}
+
+.BoxContent {
+	padding:4px;
+}
+
+/*box within each module */
+.Module{
+	padding:4px;
+	margin-top:0px;
+	margin-bottom:4px;
+}
+
+/* The main title image */
+.TitleImage {
+	background-image:URL(Images/title.png);
+	width:334px;
+	height:78px;
+}
+.TitleText{
+	overflow:hidden;
+	height:20px;
+}
+
+/* This is the frame which goes around the whole site, usually left invisible, design preference. */
+.MainFrame {
+	width:100%;
+	border:0px;
+}
+
+/* Middle section for the main box at the top, where the title goes... */
+.MainMid {
+	text-align:center;
+	background-color:#DDDDDD;
+	height:75px;
+	margin-bottom:5px;
+}
+
+/*Footer Style*/
+.Footer {
+	text-align:center;
+	padding:2px;
+	border-top:5px solid #FF0000;
+	background-color:#DDDDDD;
+	border-right:0px;
+}
+
+/*??*/
+.SmallIcon{
+	/*IE 5-6 fix */
+	font-size:1px;
+
+	margin-top:3px;
+	width:11px;
+	height:11px;
+	cursor:pointer;
+}
+
+/*Module minimize/maximize icons*/
+.CollapseIcon{
+	background-image:URL(Images/uncollapsed.png);
+}
+
+.UnCollapseIcon{
+	background-image:URL(Images/collapsed.png);
+}
+/*Table Styles*/
+#LeftColumn {
+	width:200px;
+	padding:2px;
+	vertical-align:top;
+}
+#CenterColumn {
+	padding:2px;
+	vertical-align:top;
+}
+#RightColumn {
+	width:200px;
+	padding:2px;
+	vertical-align:top;
+}
+#TopColumn {
+	width:200px;
+	padding:2px;
+	vertical-align:top;
+}
+#BottomColumn {
+	width:200px;
+	padding:2px;
+	vertical-align:top;
+}

@@ -1,0 +1,5793 @@
+Date          : September 11, 2007, 3:29:31 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ WebMS.php
+On line       : 89
+Error         : Undefined index:  developer_mode
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:29:31 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 25
+Error         : mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'root'@'localhost' (using password: YES)
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:29:31 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 26
+Error         : mysql_select_db(): supplied argument is not a valid MySQL-Link resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:29:31 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Functions\&hellip;
+              : IntegratedLogin.php
+On line       : 16
+Error         : Undefined index:  username
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:29:31 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 39
+Error         : mysql_query(): supplied argument is not a valid MySQL-Link resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:31:05 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Functions\&hellip;
+              : IntegratedLogin.php
+On line       : 16
+Error         : Undefined index:  username
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:05 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:05 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Projects_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:05 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Web_Projects_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:05 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_OpenWebMS_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 109
+Error         : imagesetbrush(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 110
+Error         : imagesettile(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 281
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 481
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:31:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 493
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:44:52 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:44:52 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:44:52 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : index.php
+On line       : 97
+Error         : Undefined variable: WebMS
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:44:52 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : index.php
+On line       : 100
+Error         : Undefined variable: ddd
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:45:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           psswd => letmein
+           submit => Login
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:45:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           psswd => letmein
+           submit => Login
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:45:16 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:45:16 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:46:23 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           nav => db
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:46:23 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           nav => db
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:46:26 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           nav => db
+           action => editDB
+           place => data
+           db => PageRater
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:46:26 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           nav => db
+           action => editDB
+           place => data
+           db => PageRater
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:49:58 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           nav => db
+           action => delDB
+           place => 
+           db => PageRater
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:49:58 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           nav => db
+           action => delDB
+           place => 
+           db => PageRater
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:49:58 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           nav => db
+           category => 
+           db => PageRater
+           message => Database <b>PageRater</b> Deleted!
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:49:58 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           nav => db
+           category => 
+           db => PageRater
+           message => Database <b>PageRater</b> Deleted!
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:10 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Projects_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Web_Projects_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_OpenWebMS_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : PageRate.php
+On line       : 109
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 109
+Error         : imagesetbrush(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 110
+Error         : imagesettile(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 281
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 481
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:50:11 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 493
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 3:58:00 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ WebMS.php
+On line       : 89
+Error         : Undefined index:  developer_mode
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:04 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Functions\&hellip;
+              : IntegratedLogin.php
+On line       : 16
+Error         : Undefined index:  username
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:04 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:04 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Projects_COOKIE
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:04 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Web_Projects_COOKIE
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:04 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_OpenWebMS_COOKIE
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:04 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : PageRate.php
+On line       : 109
+Error         : Undefined offset:  1
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 109
+Error         : imagesetbrush(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 110
+Error         : imagesettile(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 281
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 481
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:05 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 493
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Projects_COOKIE
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Web_Projects_COOKIE
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_OpenWebMS_COOKIE
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : PageRate.php
+On line       : 109
+Error         : Undefined offset:  1
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 109
+Error         : imagesetbrush(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 110
+Error         : imagesettile(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 281
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 481
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 3:58:22 pm
+Server        : 81.193.43.254
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 493
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 88.104.182.255
+Host          : 88-104-182-255.dynamic.dsl.as9105.com
+Method        : GET
+$_REQUEST     :
+           PHPSESSID => 724c0a4fd05655941b252f421b46b171
+ 
+ 
+Date          : September 11, 2007, 4:00:40 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:40 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Projects_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:40 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Web_Projects_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:40 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_OpenWebMS_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:40 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : PageRate.php
+On line       : 109
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 109
+Error         : imagesetbrush(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 110
+Error         : imagesettile(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 281
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 481
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:41 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 493
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Pastelz/Blue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:55 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:55 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:59 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => WebMS_Options
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:00:59 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => WebMS_Options
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 57
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:02 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Admin\&hellip;
+              : AdminPanes\ PageRater.php
+On line       : 90
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => PageRater
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:15 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:15 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:20 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => themes
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:01:20 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           pane => themes
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           pane => themes
+           logo_use => yes
+           logo_define => LogoAndText
+           MAX_FILE_SIZE => 30000
+           logo_text => Resplace.net
+           submit2 => Save Changes
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:06 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           pane => themes
+           logo_use => yes
+           logo_define => LogoAndText
+           MAX_FILE_SIZE => 30000
+           logo_text => Resplace.net
+           submit2 => Save Changes
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:21 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:21 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Projects_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:21 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Web_Projects_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:21 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_OpenWebMS_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:21 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : PageRate.php
+On line       : 109
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 109
+Error         : imagesetbrush(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 110
+Error         : imagesettile(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 281
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 481
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:22 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 493
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : GET
+$_REQUEST     :
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:34 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ DBMS.php
+On line       : 54
+Error         : Undefined variable: data
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:34 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Projects_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:34 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_Web_Projects_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:34 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : Menu.php
+On line       : 29
+Error         : Undefined index:  MENU_OpenWebMS_COOKIE
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:34 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\ Modules\&hellip;
+              : PageRate.php
+On line       : 109
+Error         : Undefined offset:  1
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 100
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 105
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 107
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 109
+Error         : imagesetbrush(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 110
+Error         : imagesettile(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 281
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 481
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 123
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 89
+Error         : imagecreatetruecolor() [<a href='function.imagecreatetruecolor'>function.imagecreatetruecolor</a>]: Invalid image dimensions
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 93
+Error         : imagealphablending(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 94
+Error         : imagesavealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 95
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 96
+Error         : imagecolorallocatealpha(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 97
+Error         : imagefilledrectangle(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 158
+Error         : imagecolorallocate(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 125
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 8
+On file       : D:\ Xampp\ htdocs\ owms\ apage.php
+On line       : 127
+Error         : Undefined variable: textdim
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 223
+Error         : imagettftext() expects parameter 1 to be resource, boolean given
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
+Date          : September 11, 2007, 4:02:35 pm
+Server        : porf.dynip.sapo.pt
+Error No      : 2
+On file       : D:\ Xampp\ htdocs\ owms\ OpenWebMS\ Core\&hellip;
+              : Includes\ GDLib.php
+On line       : 493
+Error         : imagepng(): supplied argument is not a valid Image resource
+IP            : 81.193.43.254
+Host          : frutaria
+Method        : POST
+$_REQUEST     :
+           SkinMenu => Bubble/RoyalBlue/
+           MODULE_Withstringmethod_Cookie => false
+           PHPSESSID => 30aa5e824d79c027f937e4a45d6c78ab
+ 
+ 
