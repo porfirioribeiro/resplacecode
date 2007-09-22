@@ -45,7 +45,7 @@ class ErrorLog extends Module {
 							}
 							if (isset($a[0])){
 								$a=$a[0];
-								$a=preg_replace("/function/","http://php.net/manual/en/function",$a);
+								$a=preg_replace("/\"function/","http://php.net/manual/en/function",$a);
 								echo $a;
 								//http://php.net/manual/en/function
 							}	
