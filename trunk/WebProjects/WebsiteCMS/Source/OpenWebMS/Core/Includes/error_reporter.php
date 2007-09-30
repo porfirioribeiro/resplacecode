@@ -1,202 +1,186 @@
-<?php 
-//*************************************************************** 
-//** title  : Error mailing logging facility 
-//** 
-//** file   : error.php 
-//** 
-//** story  : When your site is live you never want people to see 
-//**          php errors no matter what. Sometimes this is possible 
-//**          though because your host might upgrade PHP or MySQL 
-//**          or something else can go bad. The usual advice given 
-//**          is to have error_reporting(0) on the live sites. But 
-//**          then you will never get to know that an error is there. 
-//**          
-//**          I use a different approach here. I set error reporting 
-//**          to E_ALL (that is report all errors) but I have 
-//**          over-ridden the error handler to construct a nice 
-//**          error report and mail it to me. The application 
-//**          continues, and if the error was not major, the user 
-//**          will never get to notice anything. You on the other 
-//**          side though will know that something has gone wrong 
-//**          and you'll run to fix it. 
-//** 
-//**          Customize the $to and $from variables, include this 
-//**          file and enjoy. 
-//**          
-//**          You are going to get something like this: 
-//**          
-//**          Date    : December 3, 2005, 3:55:12 am 
-//**          Server  : example.com 
-//**          Error No: 8 
-//**          On file : /home/example/public_html/temp/error.php 
-//**          On line : 35 
-//**          Error   : Use of undefined constant bar - assumed 'bar' 
-//**          IP      : 87.203.242.37 
-//**          Host    : athedsl-12355.otenet.gr 
-//**          Method  : GET 
-//**          Vars    : 
-//**                    name => test 
-//**                    age = 55 
-//** 
-//** 
-//** author : Ioannis Cherouvim 
-//** web    : http://cherouvim.com 
-//** date   : 2005-12-03 
-//*************************************************************** 
-  
-  
-  error_reporting(E_ALL); 
-  
-  function errorHandler($errno, $errstr, $errfile, $errline, $othervars) { 
-  	global $WebMS;
-	//wordwrap(str_replace("\\","\ ",$errfile),50,"&hellip;\n              : ",false)
-	$errlen="";
-	$errlen=strlen($errstr);
-	if (strlen($errlen)==1) {
-		$errlen="0".$errlen;
+<?php
+/**
+* Error Reporter
+* Logs generated errors
+* Licenced under GPLv2 read GPL.txt for details
+* @version 1
+* @copyright ? 2007 ResPlace Team
+* @lastedit 23-09-07
+*/
+
+error_reporting(E_ALL);
+
+//setup error handling function
+function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
+	Global $WebMS;
+	
+	//Grab error code
+	list($errno) = func_get_args();
+	//Grab date/time
+	$date=date("d-m-y g:i a");
+	//Grab error severity array
+	$severity=errorSeverity($errno);
+	
+	//format errstr for header
+	//split it
+	preg_match("/(.*?)\[(.*?)\](.*?)/",strip_tags($errstr),$splterrstr);
+	//make sure there are 4 values returned (matched)
+	if (count($splterrstr)==4) {
+		$splterrstr[2]=strip_tags($splterrstr[2]);
+		$errstr2=$splterrstr[1]."(".$splterrstr[2].")".$splterrstr[3];
+		//change $errstr to what we actually want...
+		$errstr=$splterrstr[1]."(<a href='http://php.net/".$splterrstr[2]."' target='_blank'>".$splterrstr[2]."</a>)".$splterrstr[3];
+	} else {
+		$errstr2=$errstr;
 	}
 	
-    $ret[] = $errlen.$errstr."
-[[" . date("F j, Y, g:i:s a")."]]
-[[{$_SERVER['SERVER_NAME']}]]
-[[" . gethostbyaddr($_SERVER['REMOTE_ADDR']). "]]
-[[{$_SERVER['REMOTE_ADDR']}]]
-[[$errno]]
-[[$errfile]]
-[[$errstr]]
-[[$errline]]
-[[{$_SERVER['REQUEST_METHOD']}]]"; 
-    $ret[] = '[['; 
-    foreach($_REQUEST as $key=>$value) 
-      $ret[] = "||$key||=>||$value||";
-    $ret[]="]]\n";
-    $ret[] = '[['; 
-    foreach($WebMS as $key=>$value) 
-      $ret[] = "||$key||=>||$value||"; 
-	$ret[]="]]";
-	//if(function_exists('debug_backtrace')){
-        //print "backtrace:\n";
-		//$ret[] = "Backtrace :"; 
-        //$backtrace = debug_backtrace();
-        //array_shift($backtrace);
-        //foreach($backtrace as $i=>$l){
-        //    $ret[]= "[$i] in function <b>{$l['class']}{$l['type']}{$l['function']}</b>";
-        //    if($l['file']) $ret[]= " in <b>{$l['file']}</b>";
-        //    if($l['line']) $ret[]= " on line <b>{$l['line']}</b>";
-        //    print "\n";
-        //}
-    //}
-    $error = ""; 
-    foreach($ret as $line) 
-      $error .= "$line"; 
-    
-    //$to = "example@yahoo.com"; 
-    //$from = "Error Catcher <errors@example.com>"; 
-    //$headers = "To: $to\r\n"; 
-    //$headers .= "From: $from\r\n"; 
-    //mail($to, "Error on " . $_SERVER['SERVER_NAME'], $error, $headers); 
+	//Create the header
+	$header="]@[{$errstr2}]@[{$errline}]@[{$errfile}]@[{$severity[0]}{$severity[1]}]@[{$date}]} \n";
+	$headerlength=str_pad(strlen($header)+6,3,"0",STR_PAD_LEFT);
+	$header="H{[".$headerlength.$header;
 	
-	//log the error instead of using mail :)
+	//Create the error report
+	$report="@{{$date}}@ @{{$_SERVER['SERVER_NAME']}}@ @{".gethostbyaddr($_SERVER['REMOTE_ADDR'])."}@ @{{$_SERVER['REMOTE_ADDR']}}@ @{{$errstr}}@ @{{$errfile}}@ @{{$errline}}@ @{{$_SERVER['REQUEST_METHOD']}}@ @{";
 	
-      	$errordocs=GetFiles(dirname(__FILE__)."\errors\\");
-  		$errordoccount=count($errordocs);
-  		
+	//grab $WebMS values
+	foreach($WebMS as $key=>$value) {
+		$report=$report."||".strip_tags($key)."||@||".strip_tags($value)."||";
+	}
 	
-		$fh=fopen(dirname(__FILE__)."\errors\\".$errordoccount.".log",'a');
-		fwrite($fh,$error);
-		fclose($fh);
+	$report=$report."}@ @{";
+	
+	//grab $Request values
+	foreach($_REQUEST as $key=>$value) {
+		$report=$report."||".strip_tags($key)."||@||".strip_tags($value)."||";
+	}
+	
+	$report=$report."}@";
+	
+	//Find out how many error reports exist
+	$errordocs=GetFiles(dirname(__FILE__)."\errors\\");
+  	$errcnt=count($errordocs)+1;
+  	
+  	//Write the error
+  	$fh=fopen(dirname(__FILE__)."\errors\\".$errcnt.".log",'a');
+		fwrite($fh,$header.$report);
+	fclose($fh);
+	
+	//Show error if were in debug mode
+	if (!isset($_SESSION['developer_mode']))
+		$_SESSION['developer_mode']=false;
 		
-		//get hash of error file
-		//$errorhash=md5_file(dirname(__FILE__)."\errors\\".$errordoccount.".log");
-		//
-		//foreach ($errordocs as $doc) {
-		//	if ($errorhash==md5_file(dirname(__FILE__)."\errors\\".$doc)) {
-		//		//delete our log, it exists already!
-		//		unlink(dirname(__FILE__)."\errors\\".$errordoccount.".log");
-		//	}
-		//}
-		
-		if (!isset($_SESSION['developer_mode']))
-			$_SESSION['developer_mode']=false;
-		
-		if ($_SESSION['developer_mode']==true) {
-		echo'<div align="center"><b>Developer Mode: CODE ERROR!</b><br>
-		<i>Fix the error or report it and disable developer mode to view this page.</i></div><br><br>
-		';
-		ShowError(dirname(__FILE__)."\errors\\".$errordoccount.".log");
-		die('<br><br><i>This error has been logged.</i>');
-		}
-  } 
-  
-  $old_error_handler = set_error_handler("errorHandler"); 
-  
-	function ShowError($file) {
-		$fh=fopen($file,'a+');
+	if ($_SESSION['developer_mode']==true) {
+		echo'<div align="center"><b>Developer Mode:</b><br>
+		<i>There was an error doc!</i></div><br>
+		<div align="left">
+		An error has been reported by the system, the details of this error and it\'s severity are shown below. A log of this error has also been made, the error logging facility offers more advanced features.
+		</div><br>';
+		ShowError(dirname(__FILE__)."\errors\\".$errcnt.".log",$errcnt);
+		die('<br><i>The system was halted by the error message, to stop halting of the system please turn off developer mode (or fix the bug of course).</i>');
+	}
+	
+	
+	
+}
+
+function ShowError($file,$id) {
+	global $WebMS;
+	$fh=fopen($file,'a+');
 		if (!filesize($file)==0) {
 			$filedata=fread($fh,filesize($file));
+			$errlength=$filedata;
+			
+			//chop and grab the header infirmation
+			if (preg_match("/\H\{\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\}/",$filedata,$header)) {
+				//header was read successfully
+				//echo Header title
+				
+				//grab data!
+				if (preg_match("/\@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@/",$filedata,$data)) {
+					?>
+						<div align="center">
+						<div align="left" style="overflow:scroll;height:440px;width:97%;background-color:white; border: 1px solid black; padding:5px; font-size:14px;">
+						<?="<div align='center'><b>" ?> 
+						<?php 
+							$errid=substr($header[5],0,1);
+							$errstr=substr($header[5],1,strlen($header[5]));
+							echo "<img src='{$WebMS['CoreUrl']}Images/error{$errid}.png' border='0' alt='[{$errid}]' title='{$errstr}' style='padding-right:5px;vertical-align:center' \>";
+							echo"{$header['2']}</b></div><br>";
+							?>
+						<table>
+					<?php
+					errorGenerate($header,$data);
+					?>
+						</table>
+						</div>
+						</div>
+					<?php
+				}
+			}
+				
 		} else {
 			$filedata="No Errors Logged.";
 		}
 		fclose($fh);
 		
-		//chop and style the error report :)
 		
-		//date
-		preg_match_all("/\[\[(.*?)\]\]/",$filedata,$err);
-		$lang=array("Date","Server","Host","IP","Error No","In File","Error","At Line","Method");
 		
-		?>
-		<div align="left" style="background-color:white; border: 1px solid black; padding:5px; font-family:\'Lucida Console\', Times, serif; font-size:14px;">
+}
 
-		<table>
-		<?php
-		$cnt=0;
+function errorGenerate($header,$data) {
+	global $WebMS;
+	//output the error contents...
+	$lang=array("Date","Server","Host","IP","Error","In File","Line","Method");
+	
+	$cnt=1;
 		
-		foreach ($lang as $t) {
-			?>
-				<tr>
-					<td><b><?=$t ?> </b></td>
-			  		<td width="25"><b>:</b></td>
-					<td><?=$err[1][$cnt] ?></td>
-			  	</tr>
-			<?php
-			$cnt+=1;
-		}
-		$cnt2=0;
-		
-		preg_match_all("/\|\|(.*?)\|\|\=\>\|\|(.*?)\|\|/",$err[1][$cnt],$err2);
+	foreach ($lang as $t) {
 		?>
 			<tr>
-				<td><b>$REQUEST </b></td>
-			  	<td width="25"><b>:</b></td>
-			  	<td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td>
-					<table>
+				<td><b><?=$t ?> </b></td>
+		  		<td width="25"><b>:</b></td>
+				<td><?=$data[$cnt] ?></td>
+		  	</tr>
 		<?php
-		foreach ($err2[0] as $t) {
-			?>
-						<tr>
-					    	<td ><?=$err2[1][$cnt2] ?></td>
-					    	<td align="center" width="25"><b>=&gt;</b></td>
-					    	<td ><?=(($err2[2][$cnt2]=="") ? "<div style='color:red'>null</div>":$err2[2][$cnt2]) ?></td>
-						</tr>
-			<?php
-			$cnt2+=1;
-		}
+		$cnt+=1;
+	}
+	
+	$cnt2=0;
+		
+	preg_match_all("/\|\|(.*?)\|\|\@\|\|(.*?)\|\|/",$data[$cnt],$err2);
+	?>
+		<tr>
+			<td><b>$WebMS: </b></td>
+		  	<td width="25"><b>:</b></td>
+		  	<td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td>
+				<table>
+	<?php
+	
+	foreach ($err2[0] as $t) {
 		?>
-					</table>
+					<tr>
+				    	<td ><?=$err2[1][$cnt2] ?></td>
+				    	<td align="center" width="25"><b>=&gt;</b></td>
+				    	<td ><?=(($err2[2][$cnt2]=="") ? "<div style='color:red'>null</div>":$err2[2][$cnt2]) ?></td>
+					</tr>
+		<?php
+		$cnt2+=1;
+	}
+	?>
+				</table>
 				</td>
 			</tr>
 		<?php
 		$cnt3=0;
-		preg_match_all("/\|\|(.*?)\|\|\=\>\|\|(.*?)\|\|/",$err[1][$cnt+1],$err3);
+		preg_match_all("/\|\|(.*?)\|\|\@\|\|(.*?)\|\|/",$data[$cnt+1],$err3);
 		?>
 			<tr>
-				<td><b>$WebMS </b></td>
+				<td><b>$_REQUEST: </b></td>
 			  	<td width="25"><b>:</b></td>
 			  	<td>
 			</tr>
@@ -220,8 +204,65 @@
 					</table>
 				</td>
 			</tr>
-		</table>
-		</div>
-		<?php
+	<?php
+	
+}
+
+function errorSeverity($errno) {
+	switch ($errno) {
+	    case E_ERROR:
+	        return array(1,"ERROR");
+	        break;
+	        
+	    case E_WARNING:
+	        return array(2,"WARNING");
+	        break;
+	        
+	    case E_PARSE:
+	        return array(1,"PARSING ERROR");
+	        break;
+	        
+	    case E_NOTICE:
+	        return array(3,"NOTICE");
+	        break;
+	        
+	    case E_CORE_ERROR:
+	        return array(1,"CODE ERROR");
+	        break;
+		
+	    case E_CORE_WARNING:
+	        return array(1,"CORE WARNING");
+	        break;
+	        
+	    case E_COMPILE_ERROR:
+	        return array(1,"COMPILE ERROR");
+	        break;
+	        
+	    case E_COMPILE_WARNING:
+	        return array(2,"COMPILE WARNING");
+	        break;
+	        
+		case E_USER_ERROR:
+	        return array(1,"USER ERROR");
+	        break;
+	
+	    case E_USER_WARNING:
+	        return array(2,"USER WARNING");
+	        break;
+	
+	    case E_USER_NOTICE:
+	        return array(3,"USER NOTICE");
+	        break;
+	        
+	    case E_RECOVERABLE_ERROR:
+	        return array(3,"RECOVERABLE ERROR");
+	        break;
+	
+	    default:
+	        return array(1,"UNKNOWN ERROR");
+	        break;
 	}
+}
+
+$old_error_handler = set_error_handler("errorHandler"); 
 ?>

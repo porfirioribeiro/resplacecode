@@ -38,6 +38,9 @@ td.sub {
 	background-color:#A7B6E5;
 	text-align:center;
 }
+.highlight {
+	background-color:#A7B6E5;	
+}
 
 .fieldset {
 	border: 1px dashed #5674D5;
