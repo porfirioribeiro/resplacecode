@@ -157,15 +157,15 @@ function errorGenerate($header,$data) {
 	preg_match_all("/\|\|(.*?)\|\|\@\|\|(.*?)\|\|/",$data[$cnt],$err2);
 	?>
 		<tr>
-			<td><b>$WebMS: </b></td>
+			<td><b>$WebMS </b></td>
 		  	<td width="25"><b>:</b></td>
-		  	<td>
+		  	<td><a href="javascript:;" style="text-decoration: none;" onclick="$('WEBMS_LOG_VAR').toggle()">(Click here for expand\contract)</a></td>
 		</tr>
 		<tr>
 			<td></td>
 			<td></td>
 			<td>
-				<table>
+				<table style="display: none;" id="WEBMS_LOG_VAR">
 	<?php
 	
 	foreach ($err2[0] as $t) {
@@ -187,15 +187,15 @@ function errorGenerate($header,$data) {
 		preg_match_all("/\|\|(.*?)\|\|\@\|\|(.*?)\|\|/",$data[$cnt+1],$err3);
 		?>
 			<tr>
-				<td><b>$_REQUEST: </b></td>
+				<td><b>$_REQUEST </b></td>
 			  	<td width="25"><b>:</b></td>
-			  	<td>
+			  	<td><a href="javascript:;" style="text-decoration: none;" onclick="$('REQUEST_LOG_VAR').toggle()">(Click here for expand\contract)</a></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td></td>
 				<td>
-					<table>
+					<table style="display: none;" id="REQUEST_LOG_VAR">
 		<?php
 		foreach ($err3[0] as $t) {
 			?>

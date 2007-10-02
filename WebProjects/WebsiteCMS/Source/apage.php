@@ -35,6 +35,7 @@ class internalHtml extends Module {
 }
 
 function someContent($mod){
+  echo $idontexist;
 	?>
 	this is a module, with a <a href='#'>link</a>.<br><br>
 	<table border='1' cellpadding="3" cellspacing="0" class="tbl">

@@ -97,7 +97,7 @@ class WebMS{
 			}
 		}
 		
-		$this->devMode=$_SESSION['developer_mode'];
+		$this->devMode=isset($_SESSION['developer_mode']) && $_SESSION['developer_mode'];
 		$this->self=$this;
 		$this->id=$_SERVER['PHP_SELF'];
 		if (isset($_REQUEST['page'])){
