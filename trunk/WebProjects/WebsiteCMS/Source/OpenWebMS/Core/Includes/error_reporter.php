@@ -5,7 +5,7 @@
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright ? 2007 ResPlace Team
-* @lastedit 23-09-07
+* @lastedit 02-10-07
 */
 
 error_reporting(E_ALL);
@@ -56,9 +56,16 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 	
 	$report=$report."}@";
 	
-	//Find out how many error reports exist
+	//Find out largest error id
 	$errordocs=GetFiles(dirname(__FILE__)."\errors\\");
-  	$errcnt=count($errordocs)+1;
+	if (count($errordocs)) {
+		rsort($errordocs,SORT_NUMERIC);
+		//print_r($errordocs);
+		$hf=explode('.',$errordocs[0]);
+	  	$errcnt=(int)$hf[0]+1;
+	} else {
+		$errcnt=1;
+	}
   	
   	//Write the error
   	$fh=fopen(dirname(__FILE__)."\errors\\".$errcnt.".log",'a');

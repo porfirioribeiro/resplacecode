@@ -10,10 +10,23 @@ class ErrorLog extends Module {
 		
 		if (isset($_GET['err'])) {
 			//Load error viewer
+			$err=(int)$_GET['err'];
+			
+			ShowError($WebMS["IncPath"] ."errors\\".$err.".log",$err);
 		} else {
 			//load list of errors
 			$logpath=$path."/Core/Includes/errors/";
 			$efiles=GetFiles($logpath);
+			
+			//read sort
+			$sort=0;
+			if (isset($_GET['sort']))
+			$sort=(int)$_GET['sort'];
+			if ($sort==1) {
+				asort($efiles,SORT_NUMERIC);
+			} else {
+				arsort($efiles,SORT_NUMERIC);
+			}
 			
 			//check there are some errors
 			if (count($efiles)) {
@@ -39,8 +52,8 @@ class ErrorLog extends Module {
 						$estart=1;
 						$eend=10;
 					} else {
-						$estart=$errperpage*($errpage-1);
-						$eend=$errperpage*$errpage;
+						$estart=$errperpage*($errpage-1)+($errpage-1);
+						$eend=$errperpage*$errpage+($errpage-1);
 					}
 
 					if ($foreachcnt>=$estart && $foreachcnt<=$eend) {
@@ -78,6 +91,12 @@ $page->add("ErrorLog");
 
 function MakeHeader($errpage, $errperpage, $efiles) {
 	global $WebMS;
+	
+	$sort=0;
+	if (isset($_GET['sort']))
+	$sort=(int)$_GET['sort'];
+	
+	
 	//Start table
 	?>
 		<table class="tbl" cellspacing=0 cellpadding=4>
@@ -92,6 +111,24 @@ function MakeHeader($errpage, $errperpage, $efiles) {
 				<b>File:</b>
 			</td>
 			<td class="main">
+				<?php
+					if ($sort==1) {
+						//sort ascending
+						?>
+						<a href="?nav=ErrorLog&amp;sort=2"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortup.png" border="0" style="vertical-align:middle"></a>
+						<?php
+					} else if ($sort==2) {
+						//sort descending
+						?>
+						<a href="?nav=ErrorLog&amp;sort=1"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortdown.png" border="0" style="vertical-align:middle"></a>
+						<?php
+					} else {
+						//no sorting :(
+						?>
+						<a href="?nav=ErrorLog&amp;sort=1"><img src="<?=$WebMS['AdminUrl'] ?>icons/sort.png" border="0" style="vertical-align:middle"></a>
+						<?php
+					}
+				?>
 				<b>Date:</b>
 			</td>
 			<td class="main">
@@ -141,7 +178,7 @@ function ListError($head,$mode=1,$file) {
 		$file=explode('.',$file);
 		$file=$file[0];
 		?>
-			<tr onMouseOver="this.className='highlight'" onMouseOut="this.className=''" onClick="window.location = '?nav=ErrorLog&amp;errid=<?=$file ?>'">
+			<tr onMouseOver="this.className='highlight'" onMouseOut="this.className=''" onClick="window.location = '?nav=ErrorLog&amp;err=<?=$file ?>'">
 				<td align="center">
 					<img src='<?=$WebMS['CoreUrl'] ?>Images/error<?=$errid ?>.png' border='0' alt='[<?=$errid ?>]' title='<?=$errstr ?>' style='padding-right:5px;vertical-align:center' \>
 				</td>
@@ -158,7 +195,7 @@ function ListError($head,$mode=1,$file) {
 					<?=$head[6]; ?>
 				</td>
 				<td>
-					<b>ToDo.</b>
+					<a href="?nav=ErrorLog&amp;del=<?=$file ?>"><img src="<?=$WebMS['AdminUrl'] ?>icons/button_cancel.png" border="0"></a>
 				</td>
 			</tr>
 		<?
