@@ -84,13 +84,14 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 		$_SESSION['developer_mode']=false;
 		
 	if ($_SESSION['developer_mode']==true) {
-		echo'<div align="center"><b>Developer Mode:</b><br>
-		<i>There was an error doc!</i></div><br>
-		<div align="left">
-		An error has been reported by the system, the details of this error and it\'s severity are shown below. A log of this error has also been made, the error logging facility offers more advanced features.
-		</div><br>';
+		echo'<div class="ErrorO">
+		<div class="Title"><div class="modefloat">Debug Mode</div>
+		<b>An error has occurred!</b></div>
+		<div class="Content">
+		An error has been reported by the system, the details of this error and it\'s severity are shown below. A log of this error has also been made.
+		<br><br>';
 		ShowError(dirname(__FILE__)."\errors\\".$errcnt.".log",$errcnt);
-		die('<br><i>The system was halted by the error message, to stop halting of the system please turn off developer mode (or fix the bug of course).</i>');
+		die('<br><i>The system was halted by Developer Mode to stop halting of the system please turn off Developer Mode (or fix the bug of course).</i></div></div>');
 	}
 	
 	
@@ -113,13 +114,13 @@ function ShowError($file,$id) {
 				if (preg_match("/\@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@\ \@\{(.*?)\}\@/",$filedata,$data)) {
 					?>
 						<div align="center">
-						<div align="left" style="overflow:scroll;height:440px;width:97%;background-color:white; border: 1px solid black; padding:5px; font-size:14px;">
-						<?="<div align='center'><b>" ?> 
+						<div align="left" class="Error">
+						<b>
 						<?php 
 							$errid=substr($header[5],0,1);
 							$errstr=substr($header[5],1,strlen($header[5]));
 							echo "<img src='{$WebMS['CoreUrl']}Images/error{$errid}.png' border='0' alt='[{$errid}]' title='{$errstr}' style='padding-right:5px;vertical-align:center' \>";
-							echo"{$header['2']}</b></div><br>";
+							echo"{$header['2']}</b><br><br>";
 							?>
 						<table>
 					<?php

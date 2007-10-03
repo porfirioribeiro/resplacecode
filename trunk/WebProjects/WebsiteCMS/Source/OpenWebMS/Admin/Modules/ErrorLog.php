@@ -17,6 +17,13 @@ class ErrorLog extends Module {
 	function content() {
 		global $WebMS, $path;
 		
+		if (isset($_GET['del'])) {
+			$del=(int)$_GET['del'];
+			if (file_exists($WebMS["IncPath"] ."errors\\".$del.".log")) {
+				unlink($WebMS["IncPath"] ."errors\\".$del.".log");
+			}
+		}
+		
 		if (isset($_GET['err'])) {
 			//Load error viewer
 			$err=(int)$_GET['err'];
@@ -56,6 +63,7 @@ class ErrorLog extends Module {
 				
 				//run through each error file
 				$foreachcnt=0;
+				$datarray=array();
 				foreach ($efiles as $file) {
 					$foreachcnt+=1;
 					//start/end at
@@ -79,8 +87,10 @@ class ErrorLog extends Module {
 							if (preg_match("/\H\{\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\}/",$header,$head)) {
 								//header was read successfully
 								//list the error
-								ListError($head,1,$file);
+								$datarray[]=array($file,$head);
+								//ListError($head,1,$file);
 							} else {
+								//TODO provoke error handler
 								echo 'There was an error loading the header data!';
 							}
 							
@@ -89,6 +99,14 @@ class ErrorLog extends Module {
 						}
 					}
 				}
+				
+				//apply sorting to array
+				
+				//display errors
+				foreach ($datarray as $i) {
+					ListError($i[1],1,$i[0]);
+				}
+				
 				//End the table
 				ListError(null,2,null);
 			} else {
@@ -136,7 +154,7 @@ function MakeHeader($errpage, $errperpage, $efiles) {
 					} else {
 						//no sorting :(
 						?>
-						<a href="?nav=ErrorLog&amp;sort=1"><img src="<?=$WebMS['AdminUrl'] ?>icons/sort.png" border="0" style="vertical-align:middle"></a>
+						<a href="?nav=ErrorLog&amp;sort=1"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortdown.png" border="0" style="vertical-align:middle"></a>
 						<?php
 					}
 				?>
@@ -146,8 +164,8 @@ function MakeHeader($errpage, $errperpage, $efiles) {
 				<b>Action:</b>
 			</td>
 		</tr>
-		<tr class="sub">
-			<td colspan="5">
+		<tr>
+			<td class="sub" style="text-align:left" colspan="5">
 			Page: 
 			<?php
 				//how many pages?
@@ -211,6 +229,19 @@ function ListError($head,$mode=1,$file) {
 			</tr>
 		<?
 	}
+}
+
+function array_sort($array, $key)
+{
+   for ($i = 0; $i < sizeof($array); $i++) {
+        $sort_values[$i] = $array[$i][$key];
+   }
+   asort ($sort_values);
+   reset ($sort_values);
+   while (list ($arr_key, $arr_val) = each ($sort_values)) {
+          $sorted_arr[] = $array[$arr_key];
+   }
+   return $sorted_arr;
 }
 
 ?>
