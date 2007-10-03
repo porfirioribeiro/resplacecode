@@ -1,4 +1,13 @@
 <?php
+/**
+* Error Log Reader
+* Allows user to read/remove errors
+* Licenced under GPLv2 read GPL.txt for details
+* @version 1
+* @copyright ? 2007 ResPlace Team
+* @lastedit 03-10-07
+*/
+
 class ErrorLog extends Module {
 	function ErrorLog($page){
 		parent::Module($page);
@@ -17,6 +26,8 @@ class ErrorLog extends Module {
 			//load list of errors
 			$logpath=$path."/Core/Includes/errors/";
 			$efiles=GetFiles($logpath);
+			unset($efiles["errors.log"]);
+			sort($efiles);
 			
 			//read sort
 			$sort=0;
