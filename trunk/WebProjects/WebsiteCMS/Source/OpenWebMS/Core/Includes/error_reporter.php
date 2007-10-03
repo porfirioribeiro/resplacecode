@@ -5,7 +5,7 @@
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright ? 2007 ResPlace Team
-* @lastedit 02-10-07
+* @lastedit 03-10-07
 */
 
 error_reporting(E_ALL);
@@ -66,11 +66,18 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 	} else {
 		$errcnt=1;
 	}
-  	
-  	//Write the error
-  	$fh=fopen(dirname(__FILE__)."\errors\\".$errcnt.".log",'a');
-		fwrite($fh,$header.$report);
-	fclose($fh);
+	
+	//write the grouping data
+	$uniquestring=preg_replace('/[^a-zA-Z0-9]/i', '_', $errstr2.$errline.$errfile);
+	$group=grouping(dirname(__FILE__)."\errors\\log\errors.log",$errcnt,$uniquestring);
+	if ($group==0) {
+	  	//Write the error
+	  	$fh=fopen(dirname(__FILE__)."\errors\\".$errcnt.".log",'a');
+			fwrite($fh,$header.$report);
+		fclose($fh);
+	} else {
+		$errcnt=$group;
+	}
 	
 	//Show error if were in debug mode
 	if (!isset($_SESSION['developer_mode']))
@@ -116,7 +123,8 @@ function ShowError($file,$id) {
 							?>
 						<table>
 					<?php
-					errorGenerate($header,$data);
+					$uniquestring=preg_replace('/[^a-zA-Z0-9]/i', '_', $header[2].$header[3].$header[4]);
+					errorGenerate($header,$data,$uniquestring);
 					?>
 						</table>
 						</div>
@@ -134,10 +142,57 @@ function ShowError($file,$id) {
 		
 }
 
-function errorGenerate($header,$data) {
+function errorGenerate($header,$data,$uniquestring) {
 	global $WebMS;
+	//Figure out if this error occured once or more
+	$sdate="Date";
+	$exists=false;
+	$dataz="";
+	$file=dirname(__FILE__)."\errors\\log\errors.log";
+	if (file_exists($file)) {
+		$size=filesize($file);
+		$fh=fopen($file,"r");
+		$serstr=fread($fh,$size);
+		fclose($fh);
+		$serialized=unserialize($serstr);
+		
+		foreach ($serialized as $i) {
+			if ($i[1]==$uniquestring) {
+				$dataz=$i[2];
+				if (count($dataz)) {
+					$exists=true;
+				}
+				break;
+			}
+		}
+	}
+	
+	if ($exists==true) {
+		$sdate="First Date";
+		?>
+		<tr>
+			<td valign="top"><b>Occurred</b></td>
+	  		<td valign="top" width="25"><b>:</b></td>
+			<td>
+			<?php
+				//remove duplicates
+				echo (count($dataz)+1).' Times. ';
+				?><a href="javascript:;" style="text-decoration: none;" onclick="$('REQUEST_DATES').toggle()">(More Details...)</a>
+				<div style="display: none;padding-left:15px" id="REQUEST_DATES"><?php
+				$dataz = array_flip(array_flip($dataz));
+				
+				foreach ($dataz as $i):
+					echo $i.'<br>';
+				endforeach;
+			?>
+				<br></div>
+			</td>
+	  	</tr>
+		<?php
+	}
+	
 	//output the error contents...
-	$lang=array("Date","Server","Host","IP","Error","In File","Line","Method");
+	$lang=array($sdate,"Server","Host","IP","Error","In File","Line","Method");
 	
 	$cnt=1;
 		
@@ -211,7 +266,65 @@ function errorGenerate($header,$data) {
 					</table>
 				</td>
 			</tr>
+			
 	<?php
+	
+}
+
+function grouping($file,$fileno,$string) {
+	//unserialize...
+	$filen=0;
+	
+	if (file_exists($file)) {
+		$size=filesize($file);
+		$fh=fopen($file,"r");
+		$serstr=fread($fh,$size);
+		fclose($fh);
+	
+		$fh=fopen($file,"w");
+		$serialized=unserialize($serstr);
+	
+		//check if error already exists in array
+		$exists=false;
+		$cn=0-1;
+		foreach ($serialized as $i) {
+			$cn+=1;
+			if (!file_exists(dirname(__FILE__)."\errors\\".$i[0].'.log')) {
+				unset($serialized[$cn]);
+			}
+		}
+		$cn=0-1;
+		sort($serialized);
+		foreach ($serialized as $i) {
+			$cn+=1;
+			if ($i[1]==$string) {
+				$exists=true;
+				$filen=$i[0];
+				$idt=$cn;
+			}
+		}
+	} else {
+		$fh=fopen($file,"w");
+		$serstr="";
+		$exists=false;
+	}
+	if ($exists==true) {
+		//again!!
+		
+		$serialized[$idt][2][]=date("d-m-y g:i a");
+		
+		//re-serialize...
+		$serstr=serialize($serialized);
+	} else {
+		//first time
+		$times=array();
+		$serialized[]=array($fileno,$string,$times);
+		//re-serialize...
+		$serstr=serialize($serialized);
+	}
+	fwrite($fh,$serstr);
+	fclose($fh);
+	return $filen;
 	
 }
 
