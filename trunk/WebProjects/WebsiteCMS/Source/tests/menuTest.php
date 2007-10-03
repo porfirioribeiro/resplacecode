@@ -1,9 +1,10 @@
 <?php 
-include_once "data/Functions/ResDB.php";
-$db=new ResDB("Data/db/Menu.db");
+include_once "../OpenWebMS/Core/Includes/ResDB.php";
+$db=new ResDB("Menu2");
 $m1=$db->addMap("1");
-$m1->put("name","Home");
+$m1->put("name","Home__");
 $m1->put("url","http://resplace.net/");
+$m1->put("icon","http://porf.no-ip.org/owms/OpenWebMS/Core/Images/link/home.png");
 $m2=$db->addMap("2");
 $m2->put("name","Blog");
 $m2->put("url","http://blog.resplace.net/");
@@ -17,6 +18,10 @@ $m3=$db->addMap("3");
 	$wpm12=$wpm1->addMap("1");
 	$wpm12->put("name","WebsiteCMS");
 	$wpm12->put("url","http://projects.resplace/cms/");
+$db->close();
+print_r($db);
+
+
 function expandMenu($mnu){
 	for ($i=1;$i<=count($mnu);$i++){
 		$val=$mnu[$i];
@@ -27,7 +32,7 @@ function expandMenu($mnu){
 				<a style="display:block;" href="javascript:;" onclick="$('<?=$id?>').toggle();"><?=$val->get("name")?></a>
 				<div $id="<?=$id?>" style="padding-left:10px">
 				<?php
-					expandMenu($val->getArray());
+					expandMenu($val);
 				?>
 				</div>
 				<?php				
@@ -48,7 +53,7 @@ function expandMenu($mnu){
 ?>
 
 <div>
-	<?=expandMenu($db->getArray())?>
+	<!--?=expandMenu($db)?-->
 </div>
 
 

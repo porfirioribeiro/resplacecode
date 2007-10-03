@@ -13,10 +13,17 @@
 //	}
 //};
 
-function togglemenu(_this,mnu){
-	if (_this.style.display=="block" || _this.style.display===""){
+function togglemenu(id){
+	var _this=$("MENU_PANEL_"+id);
+	var _item=$("MENU_ITEM_"+id);
+	var mnu="MENU_"+id+"_COOKIE";
+	if (!_this.visible()){
 		Cookie.Write(mnu,"block");	
+		_this.show();
+		_item.className="sectionOpen";
 	} else {
 		Cookie.Write(mnu,"none",50000);	
+		_this.hide();
+		_item.className="section";
 	}
 }
