@@ -6,7 +6,7 @@ session_start();
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright (c) 2007 ResPlace Team
-* @lastedit 21-09-07
+* @lastedit 04-10-07
 */
 
 //ob_start("ob_gzhandler");
@@ -385,13 +385,37 @@ class WebMS{
 		
 		//developer mode
 		if ($this->devMode) {
-			echo'<br><br><hr><div align="left"><b>$_REQUEST:</b><br>';
-			foreach($_REQUEST as $key=>$value) 
-				echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$key => $value<br>";
-			echo'<br><br><hr><div align="left"><b>$WebMS:</b><br>';
-			foreach($WebMS as $key=>$value) 
-				echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$key => $value<br>";
-			echo'</div>';
+			?><div class="ErrorO ErrorRel">
+			<div class="Title">Debug:</div>
+			<div class="Content">
+			<a name="goto1"> </a>
+			<b><a href="#goto1" style="text-decoration: none;" onclick="$('WEBMS_DEBUG_1').toggle()">$_REQUEST:</a></b><br>
+			<table style="display: none;" id="WEBMS_DEBUG_1"><?php
+			foreach ($_REQUEST as $key=>$value):
+				?>
+				<tr>
+					<td align="left"><?=$key ?></td>
+					<td align="center" width="25"><b>=&gt;</b></td>
+					<td align="left"><?=$value ?></td>
+				</tr>
+				<?php	
+			endforeach;
+			?></table>
+			<br>
+			<a name="goto2"> </a>
+			<b><a href="#goto2" style="text-decoration: none;" onclick="$('WEBMS_DEBUG_2').toggle()">$WebMS:</a></b><br>
+			<table style="display: none;" id="WEBMS_DEBUG_2"><?php
+			foreach ($WebMS as $key=>$value):
+				?>
+				<tr>
+					<td align="left"><?=$key ?></td>
+					<td align="center" width="25"><b>=&gt;</b></td>
+					<td align="left"><?=$value ?></td>
+				</tr>
+				<?php	
+			endforeach;
+			?></table>
+			</div></div><?php
 		}
 		?> 
 		                			
