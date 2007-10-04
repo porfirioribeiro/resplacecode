@@ -19,11 +19,16 @@ function togglemenu(id){
 	var mnu="MENU_"+id+"_COOKIE";
 	if (!_this.visible()){
 		Cookie.Write(mnu,"block");	
-		_this.show();
-		_item.className="sectionOpen";
+		//_this.show();
+		//_item.className="sectionOpen";
 	} else {
 		Cookie.Write(mnu,"none",50000);	
-		_this.hide();
-		_item.className="section";
+		//_this.hide();
+		//_item.className="section";
 	}
+	Effect.toggle(_this,"slide",{duration:0.4});
+		Effect.Fade(_item,{duration:0.2,to:0.1,afterFinish:function(){
+			_item.toggleClasseNameWith("sectionOpen","section");
+			Effect.Appear(_item,{duration:0.2});
+	}});
 }
