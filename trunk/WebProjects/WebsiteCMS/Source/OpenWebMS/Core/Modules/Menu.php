@@ -23,7 +23,10 @@ class Menu extends Module {
 		$page->addCSS($page->config["ModulesUrl"]."Menu/Menu.css");
 
 	}
-	function expandMenu($mnu){
+	function expandMenu($mnu,$par=""){
+		?>
+		
+		<?php
 		for ($i=1;$i<=count($mnu);$i++){
 			if (!isset($mnu[$i])){
 				return;
@@ -31,8 +34,7 @@ class Menu extends Module {
 			$val=$mnu[$i];
 			if (ArrayMap::is($val)){
 				if ($val->isMap("1")){
-					$id=preg_replace(array("/-/","/ /"),"_",$val->get("name"));
-					
+					$id=preg_replace(array("/-/","/ /"),"_",(($par=="")?"":"$par"."_").$val->get("name"));
 					//read cookie
 					if ((!isset($_COOKIE['MENU_'.$id.'_COOKIE'])) || ($_COOKIE['MENU_'.$id.'_COOKIE']=="none")) {
 						$b="none";
@@ -41,25 +43,30 @@ class Menu extends Module {
 						$b="block";
 						$c="sectionOpen";
 					}
-					echo($val->get("icon"));
 					?>
 					
-					<a id="MENU_ITEM_<?=$id?>" class="<?=$c ?>" style="display:block; text-decoration:none;" href="javascript:;" onclick="togglemenu('<?=$id?>')"><?=$val->get("name")?></a>
+					<a id="MENU_ITEM_<?=$id?>" class="<?=$c ?>"  style="display:block; text-decoration:none;" href="javascript:;" onclick="togglemenu('<?=$id?>')"><?=$val->get("name")?></a>
 					<div class="section" id="MENU_PANEL_<?=$id?>" style="display:<?=$b?>;padding-left:10px">
+					<div>
 					<?php
-						$this->expandMenu($val);
+						$this->expandMenu($val,$val->name);
 					?>
+					</div>
 					</div>
 					<?php				
 				}else{
 					$name=$val->get("name");
-					$url =$val->get("url"); 			
+					$url =$val->get("url"); 
+					$icon=$val->get("icon");			
 					?>
-					<a class="sublink" href="<?=$val->get("url")?>"><?=$val->get("name")?></a>
+					<a class="sublink" style="<?=($icon)?"background-image: URL($icon);":""?>" href="<?=$val->get("url")?>"><?=$val->get("name")?></a>
 					<?php	
 				}
 			}
 		}
+		?>
+		
+		<?php		
 	}
 	function content(){
 	?>
