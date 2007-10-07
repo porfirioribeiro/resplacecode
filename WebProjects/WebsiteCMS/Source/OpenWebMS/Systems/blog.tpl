@@ -1,8 +1,9 @@
 #{start:post}
 <div>
-	<div class="heading"><b><a href="blog.php?bp=#{id}" title="#{title}">#{title}</a></b></div>
+	
+	<div class="heading">#{del}<b><a href="blog.php?bp=#{id}" title="#{title}">#{title}</a></b></div>
 	<div style="padding-left:3px">
-	<i>Posted by #{userid} on #{date}.</i><br>
+	<i>Posted by #{userid} in category #{cat} on #{date}.</i><br>
 	#{sub}</div>
 	<br>
 </div>
@@ -12,6 +13,10 @@
 	<b>New blog post:</b><br><br>
 	<form action="#{action}" method="POST">
 		<input type="hidden" name="add">
+		Category:<br>
+		<select name="catid">
+			#{CATS}
+		</select>
 		Title:<br><input type="text" name="title"><br><br>
 		Description:<br><input type="text" name="des"><br><br>
 		Body:<br>
@@ -20,15 +25,18 @@
 	</form>
 </div>
 #{end:addpost}
-#{start:showpost}
+#{start:addcat}
 <div>
-	<div class="heading"><b><a href="blog.php?bp=#{id}" title="#{title}">#{title}</a></b></div>
-	<div style="padding-left:3px">
-	<i>Posted by #{userid} on #{date}.</i><br><br>
-	#{body}</div>
-	<br>
+	<b>New blog category:</b><br><br>
+	<form action="#{action}" method="POST">
+		<input type="hidden" name="add2">
+		Title:<br><input type="text" name="title"><br><br>
+		Description:<br><input type="text" name="des"><br><br>
+		<input type="submit" value="Save">
+	</form>
 </div>
-#{end:showpost}
+#{end:addcat}
+
 
 #{start:main}
 	<div>
@@ -37,10 +45,29 @@
 		<div>#{posts}</div>
 	</div>
 #{end:main}
-
+#{start:list}
+		<div>#{posts}</div>
+#{end:list}
+#{start:cat}
+	<div>
+		<a href="?cat=#{id}" title="#{des}">#{title}</a>
+	</div>
+#{end:cat}
+#{start:SelectCat}
+	<option value="#{id}">#{name}</option>
+#{end:SelectCat}
 #{start:showing}
 	<div>
 		<div>#{showpost}</div>
 		<div>&laquo;Back ^Top</div>
 	</div>
 #{end:showing}
+#{start:showpost}
+<div>
+	<div style="float:right"><i>Posted by #{userid} #{cat} on #{date}.</i></div>
+	<br><br>
+	<div style="padding-left:3px">
+	#{body}<br><br></div>
+	<br>
+</div>
+#{end:showpost}
