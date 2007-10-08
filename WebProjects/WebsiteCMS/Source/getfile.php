@@ -14,23 +14,23 @@
  // Initialize new session
  session_start();
 
- // Basic Definitions
- //$_REQUEST['page'] = preg_match("/[^a-z0-9_-]/", '', strtolower( $_REQUEST['page'] ));
- $Page = strtolower( $_REQUEST['page'] );
- //$Action = $_REQUEST['action'];
-
- // Do we have a page set?
- //if( !isset( $_REQUEST['page'] ) )
- //{
- 	// If not load from a session
-//	$Page = $_SESSION['page'];
- //}
-
- // Create a new session for our page
+ foreach ($_GET as $n => $val) {
+ 	$page=$n;
+ 	break;
+ }
+ 
+ if ($page=="p" && $_GET[$page]!=null){
+ 	$page=$_GET[$page];
+ }
+ 
+ echo $page;
+ 
+/*
  $_SESSION['page'] = $Page;
 
  if( file_exists( PATH . "Pages/$Page.php" ) )
  {
  	include( PATH . "Pages/$Page.php" );
  }
+*/
 ?>

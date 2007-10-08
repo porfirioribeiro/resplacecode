@@ -1,8 +1,8 @@
 <?php 
-include_once "../OpenWebMS/Core/Includes/ResDB.php";
-$db=new ResDB("Menu2");
+include_once "../OpenWebMS/WebMS.php";
+$db=new ResDB("Menu");
 $m1=$db->addMap("1");
-$m1->put("name","Home__");
+$m1->put("name","Home");
 $m1->put("url","http://resplace.net/");
 $m1->put("icon","http://porf.no-ip.org/owms/OpenWebMS/Core/Images/link/home.png");
 $m2=$db->addMap("2");
@@ -13,6 +13,7 @@ $m3=$db->addMap("3");
 	$pm1=$m3->addMap("1");
 		$pm1->put("name","Home");
 		$pm1->put("url","http://projects.resplace.net/");
+		$pm1->put("icon","http://porf.no-ip.org/owms/OpenWebMS/Core/Images/link/home.png");
 	$wpm1=$m3->addMap("2");
 	$wpm1->put("name","Web Projects");
 	$wpm12=$wpm1->addMap("1");
