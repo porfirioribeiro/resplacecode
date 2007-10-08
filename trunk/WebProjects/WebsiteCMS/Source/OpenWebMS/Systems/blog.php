@@ -1,10 +1,10 @@
 <?php
-$path="../";
-include_once $path.'WebMS.php';
-$page=new WebMS($path,"Blog");
+
+
+$page=new WebMS(WEBMS_ROOT,"Blog");
 
 $page->addMeta(array('name' => 'keywords','content' => 'blog,personal,'));
-$page->addDefaults();
+
 $ct="";
 $ct2="";
 $title="Blog";
@@ -15,12 +15,12 @@ $db=new ResDB("Blog","Blog",true);
 //Define the table (created if not exist)
 $table=$db->addTable("entrys",array("AI"=>"id","catid","userid","title","sub","body","date"));
 $tableCat=$db->addTable("categorys",array("AI"=>"id","name","description"));
-$tpl=new TplFile("blog.tpl");
+$tpl=new TplFile(dirname(__FILE__)."/blog.tpl");
 
 //Generate Category list
 $rows=$tableCat->getAll();
 $posts="";
-$ct2="<a href='blog.php'>Blog Homepage</a><br><br><b>Category's</b><br>";
+$ct2="<a href='?blog'>Blog Homepage</a><br><br><b>Category's</b><br>";
 foreach ($rows as $row) {
 	$ct2.=$tpl->get("cat")->parse(array('id'=>$row['id'],'des'=>$row['description'],'title'=>$row['name']));
 	$catarray[$row['id']]=array('id'=>$row['id'],'name'=>$row['name'],'des'=>$row['description']);
