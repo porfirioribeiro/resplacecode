@@ -125,7 +125,17 @@ class WebMS{
 	    foreach ($_css as $_c){
 	      $this->addCSS($WebMS["CoreUrl"]."Styles/".$_c);
 	    }
-		
+		global $WebMS;
+
+		$this->addJS("prototype.js");	
+		$this->addJS("protoExt.js");
+		$this->addJS("cookie.js");	
+		$this->addJS("site.js");
+		$this->addJS("menu.js");	
+		$this->addOnLoad("el=$('AjaxLoader');if (el){el.hide();Ajax.Responders.register({onCreate: function(){el.show();},onComplete: function(){if(Ajax.activeRequestCount==0){el.hide();}}})}");
+		foreach ($this->functionsSearchPath as $fpath) {
+			$this->loadFunctions($fpath);
+		}			
 	}
 	function addCSS($file){
 		//$style=$this->findFilesOnPath(array(""),$file);
@@ -181,19 +191,7 @@ class WebMS{
 	function addFunctionSearchPath($p){
 		$this->functionsSearchPath[]=$p;
 	}
-	function addDefaults(){
-		global $WebMS;
 
-		$this->addJS("prototype.js");	
-		$this->addJS("protoExt.js");
-		$this->addJS("cookie.js");	
-		$this->addJS("site.js");
-		$this->addJS("menu.js");	
-		$this->addOnLoad("el=$('AjaxLoader');if (el){el.hide();Ajax.Responders.register({onCreate: function(){el.show();},onComplete: function(){if(Ajax.activeRequestCount==0){el.hide();}}})}");
-		foreach ($this->functionsSearchPath as $fpath) {
-			$this->loadFunctions($fpath);
-		}					
-	}
 	function create(){
 	global $browser, $WebMS;
     ?>
