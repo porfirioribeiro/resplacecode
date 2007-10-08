@@ -26,9 +26,10 @@ function togglemenu(id){
 		//_this.hide();
 		//_item.className="section";
 	}
-	Effect.toggle(_this,"slide",{duration:0.4});
-		Effect.Fade(_item,{duration:0.2,to:0.1,afterFinish:function(){
+	function afterFinish(){
 			_item.toggleClasseNameWith("sectionOpen","section");
 			Effect.Appear(_item,{duration:0.2});
-	}});
+	}
+	Effect.toggle(_this,"slide",{duration:0.4});
+		Effect.Fade(_item,{duration:0.2,to:0.1,afterFinish:afterFinish});
 }

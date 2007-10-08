@@ -1,6 +1,6 @@
 <?php
-$path="../data/";
-include_once $path.'site.php';
+$path="../OpenWebMS/";
+include_once "../OpenWebMS/WebMS.php";
 $page=new WebMS($path,"Blog");
 $page->addDefaults();
 
