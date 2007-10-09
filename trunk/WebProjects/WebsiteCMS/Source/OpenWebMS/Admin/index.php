@@ -14,10 +14,10 @@ $stopadmin=false;
 $page=new WebMS("OpenWebMS/","Admin Panel");
 
 //read all the admin modules/functions and panes
-$page->addFunctionSearchPath("OpenWebMS/Admin/Functions/");
-$page->addModuleSearchPath("OpenWebMS/Admin/Modules/");
-$page->addModuleSearchPath("OpenWebMS/Admin/AdminPanes/");
-$page->addJS("OpenWebMS/Admin/edit_area/edit_area_full.js");
+$page->addFunctionSearchPath($WebMS['AdminPath']."Functions/");
+$page->addModuleSearchPath($WebMS['AdminPath']."Modules/");
+$page->addModuleSearchPath($WebMS['AdminPath']."AdminPanes/");
+$page->addJS("edit_area/edit_area_full.js");
 $page->addJSCode("
 function editAreaSaveHandler(){
 	$('EditAreaSubmit').click();

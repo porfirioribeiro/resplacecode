@@ -31,7 +31,7 @@ class ErrorLog extends Module {
 			ShowError($WebMS["IncPath"] ."errors\\".$err.".log",$err);
 		} else {
 			//load list of errors
-			$logpath=$path."/Core/Includes/errors/";
+			$logpath=$WebMS['CorePath']."Includes/errors/";
 			$efiles=GetFiles($logpath);
 			unset($efiles["errors.log"]);
 			sort($efiles);
@@ -144,17 +144,17 @@ function MakeHeader($errpage, $errperpage, $efiles) {
 					if ($sort==1) {
 						//sort ascending
 						?>
-						<a href="?nav=ErrorLog&amp;sort=2"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortup.png" border="0" style="vertical-align:middle"></a>
+						<a href="?Admin.ErrorLog&amp;sort=2"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortup.png" border="0" style="vertical-align:middle"></a>
 						<?php
 					} else if ($sort==2) {
 						//sort descending
 						?>
-						<a href="?nav=ErrorLog&amp;sort=1"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortdown.png" border="0" style="vertical-align:middle"></a>
+						<a href="?Admin.ErrorLog&amp;sort=1"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortdown.png" border="0" style="vertical-align:middle"></a>
 						<?php
 					} else {
 						//no sorting :(
 						?>
-						<a href="?nav=ErrorLog&amp;sort=1"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortdown.png" border="0" style="vertical-align:middle"></a>
+						<a href="?Admin.ErrorLog&amp;sort=1"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortdown.png" border="0" style="vertical-align:middle"></a>
 						<?php
 					}
 				?>
@@ -181,7 +181,7 @@ function MakeHeader($errpage, $errperpage, $efiles) {
 					if ($errpage==$current) {
 						echo "$current ";
 					} else {
-						echo "<a href='?nav=ErrorLog&amp;errpage={$current}'>{$current}</a> ";
+						echo "<a href='?Admin.ErrorLog&amp;errpage={$current}'>{$current}</a> ";
 					}
 				}
 			?>
@@ -207,7 +207,7 @@ function ListError($head,$mode=1,$file) {
 		$file=explode('.',$file);
 		$file=$file[0];
 		?>
-			<tr onMouseOver="this.className='highlight'" onMouseOut="this.className=''" onClick="window.location = '?nav=ErrorLog&amp;err=<?=$file ?>'">
+			<tr onMouseOver="this.className='highlight'" onMouseOut="this.className=''" onClick="window.location = '?Admin.ErrorLog&amp;err=<?=$file ?>'">
 				<td align="center">
 					<img src='<?=$WebMS['CoreUrl'] ?>Images/error<?=$errid ?>.png' border='0' alt='[<?=$errid ?>]' title='<?=$errstr ?>' style='padding-right:5px;vertical-align:center' \>
 				</td>
@@ -224,7 +224,7 @@ function ListError($head,$mode=1,$file) {
 					<?=$head[6]; ?>
 				</td>
 				<td>
-					<a href="?nav=ErrorLog&amp;del=<?=$file ?>"><img src="<?=$WebMS['AdminUrl'] ?>icons/button_cancel.png" border="0"></a>
+					<a href="?Admin.ErrorLog&amp;del=<?=$file ?>"><img src="<?=$WebMS['AdminUrl'] ?>icons/button_cancel.png" border="0"></a>
 				</td>
 			</tr>
 		<?
