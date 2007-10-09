@@ -67,16 +67,16 @@ if ($cat!=null && is_file($pages.$cat.$page.".php") ){
 	include "apage.php";
 }else{
 	//TODO=Error Page including
-	$page= new WebMS("OpenWebMS/","Error, Page not found!!");
+	$p= new WebMS("OpenWebMS/","Error, Page not found!!");
 	$st="<b>Page Not Found</b><br>";
-	$st.="Could not find $page";
+	$st.="Could not find $page ";
 	if ($cat){
 		$st.=" on category <b>$cat</b> !!";
 	}else{
 		$st.="either on pages or systems!!";
 	}
-	$page->addS($st,"Error",Module::TOP);
-	$page->create();
+	$p->addS($st,"Error",Module::TOP);
+	$p->create();
 }
  
 
