@@ -27,7 +27,6 @@ class internalHtml extends Module {
 		parent::Module($page);
 	}
 	function content(){
-		echo $lol;
 		?>
 		Testing the creation of a module using the more complicated class method.		
 		<?php

@@ -8,17 +8,16 @@
 * @lastedit 21-09-07
 */
 
-//Set path to the data/ directory FIRST:
-$path="../";
+
 $stopadmin=false;
-include_once $path.'WebMS.php';
-$page=new WebMS($path,"Admin Panel");
+
+$page=new WebMS("OpenWebMS/","Admin Panel");
 
 //read all the admin modules/functions and panes
-$page->addFunctionSearchPath("Functions/");
-$page->addModuleSearchPath("Modules/");
-$page->addModuleSearchPath("AdminPanes/");
-$page->addJS("edit_area/edit_area_full.js");
+$page->addFunctionSearchPath("OpenWebMS/Admin/Functions/");
+$page->addModuleSearchPath("OpenWebMS/Admin/Modules/");
+$page->addModuleSearchPath("OpenWebMS/Admin/AdminPanes/");
+$page->addJS("OpenWebMS/Admin/edit_area/edit_area_full.js");
 $page->addJSCode("
 function editAreaSaveHandler(){
 	$('EditAreaSubmit').click();
@@ -53,7 +52,7 @@ if ($('use_none')){
 		syntax_selection_allow:\"php,js,css,html\"
 	});
 }");
-$page->addDefaults();
+
 if (isset($_GET["message"])){
 	$page->addAlert("dbmesage",$_GET["message"]);
 }
@@ -134,7 +133,7 @@ if (!$grantaccess){
 				Welcome to the admin panel, please login below using the super admin password:<br>
 				<i>Default password is documented in the readme.txt document, this password should be changed immediately after you first login.</i><br><br>
 	
-				<form action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
+				<form action="<?=$_SERVER['PHP_SELF']; ?>?Admin" method="post">
 					<input name="psswd" type="password" />
 					<input name="submit" type="submit" value="Login" />
 				</form><br><br>
@@ -189,7 +188,7 @@ if ($firstrun){
 //load the administration panes before we enter the class
 //so we can access this variable outside the class ;)
 $adminpanes=array();
-$adminpanes=GetFiles("AdminPanes");
+$adminpanes=GetFiles("OpenWebMS/Admin/AdminPanes");
 
 /**
  * MAIN ADMINISTRATION PANEL
@@ -206,29 +205,29 @@ class AdminMenu2 extends Module {
 		?>
 		<b>Main:</b>
 		<div style="padding-left:8px;">
-			<a href="index.php">Summary</a><br>
-			<a href="index.php?nav=VersionHistory">Version History</a><br>
-			<a href="index.php?nav=Updates">Updates</a><br>
+			<a href="index.php?Admin">Summary</a><br>
+			<a href="index.php?Admin.VersionHistory">Version History</a><br>
+			<a href="index.php?Admin.Updates">Updates</a><br>
 		</div>
 		<br>
 		<b>Management:</b>
 		<div style="padding-left:8px;">
 			<? //<a href="?manage=menu">Menu</a><br>
 			?>
-			<a href="?nav=PagesManage">Web pages</a> <br>
+			<a href="index.php?Admin.PagesManage">Web pages</a> <br>
 			<div style="padding-left:8px;">
-				<a href="?nav=Files">Files</a>
+				<a href="index.php?Admin.Files">Files</a>
 			</div>
-			<a href="?nav=db">Database's</a> <br>
-			<a href="?nav=ModulesManage">Modules</a> <br>
-			<a href="?nav=FunctionsManage">Functions</a> <br>
-			<a href="?nav=LManager">Layouts</a> <br>
+			<a href="index.php?Admin.db">Database's</a> <br>
+			<a href="index.php?Admin.ModulesManage">Modules</a> <br>
+			<a href="index.php?Admin.FunctionsManage">Functions</a> <br>
+			<a href="index.php?Admin.LManager">Layouts</a> <br>
 		</div>
 		<br>
 		<b>Configuration:</b>
 		<div style="padding-left:8px;">
-			<a href="index.php?nav=FeaturesAndOptions">Features &amp; Options</a><br>
-			<a href="index.php?nav=ThemesAndLayout">Themes &amp; Layout</a><br>
+			<a href="index.php?Admin.FeaturesAndOptions">Features &amp; Options</a><br>
+			<a href="index.php?Admin.ThemesAndLayout">Themes &amp; Layout</a><br>
 			<?php
 			/*
 			integration will be tough to get right... first we must make sure its totally adaptable for integrating whatever system is required, such as IPB SMF or etc.
@@ -260,7 +259,7 @@ class AdminMenu2 extends Module {
 
 					$name=explode('.',$fil);
 					if ($name[1]=='php') {
-						echo'<a href="?pane='.$name[0].'">'.$name[0].'</a> <br>';
+						echo'<a href="index.php?Admin.Panes.'.$name[0].'">'.$name[0].'</a> <br>';
 						}
 					}
 				}
@@ -270,8 +269,9 @@ class AdminMenu2 extends Module {
 		<br>
 		<b>Misc:</b>
 		<div style="padding-left:8px;">
-			<a href="?devMODE<?=$this->page->devMode?"&amp;message=You just disabled Debug Mode.":""?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br>
-			<a href="?nav=ErrorLog">View Error Log</a><br>
+			<a href="?Admin&devMODE<?=$this->page->devMode?"&amp;message=You just disabled Debug Mode.":""?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br>
+			<a href="?Admin.ErrorLog">View Error Log</a><br>
+			<a href="?">View Site</a><br>
 			<br>
 		</div>
 
@@ -302,153 +302,40 @@ class welcome extends Module {
 }
 
 //version history module!
-class VersionHistory extends Module {
-	function VersionHistory($page){
-		$this->side=Module::CENTER;
-		$this->title="Version History";
-		parent::Module($page);
-	}
-	function content(){
-		global $WebMS;
-		?>
-		Version History is obtained from resplace.net servers, if it does not appear below then please try again later.<br><br>
-		<div style="padding:10px;">
-		<?php
 
-		// get the host name and url path
-		$parsedUrl = parse_url("http://resplace.net/WebMS/VersionHistory.php?verid=".$WebMS['Version']);
-		$host = $parsedUrl['host'];
-		if (isset($parsedUrl['path'])) {
-			$path = $parsedUrl['path'];
-		} else {
-			// the url is pointing to the host like http://www.mysite.com
-			$path = '/';
-		}
 
-		if (isset($parsedUrl['query'])) {
-			$path .= '?' . $parsedUrl['query'];
-		}
-
-		if (isset($parsedUrl['port'])) {
-			$port = $parsedUrl['port'];
-		} else {
-			// most sites use port 80
-			$port = '80';
-			}
-
-			$timeout = 10;
-			$response = '';
-
-			// connect to the remote server
-			$fp = @fsockopen($host, '80', $errno, $errstr, $timeout );
-
-			if( !$fp ) {
-				echo "Cannot retrieve $url";
-			} else {
-				// send the necessary headers to get the file
-				fputs($fp, "GET $path HTTP/1.0\r\n" .
-				"Host: $host\r\n" .
-				"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.3) Gecko/20060426 Firefox/1.5.0.3\r\n" .
-				"Accept: */*\r\n" .
-				"Accept-Language: en-us,en;q=0.5\r\n" .
-				"Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\n" .
-				"Keep-Alive: 300\r\n" .
-				"Connection: keep-alive\r\n" .
-				"Referer: http://$host\r\n\r\n");
-
-				// retrieve the response from the remote server
-				while ( $line = fread( $fp, 4096 ) ) {
-				$response .= $line;
-			}
-
-			fclose( $fp );
-
-			// strip the headers
-			$pos      = strpos($response, "\r\n\r\n");
-			$response = substr($response, $pos + 4);
-
-			echo $response;
-		}
-		echo'</div>';
-	}
-}
 //version update module!
-class Updates extends Module {
-	function Updates($page){
-		$this->side=Module::CENTER;
-		$this->title="OpenWebMS Updates";
-		parent::Module($page);
-	}
-	function content(){
-		global $WebMS;
-		?>
-		Your copy of OpenWebMS will now contact resplace.net and check if there are any updates, if it does not appear below then please try again later.<br><br>
-		<div style="padding:10px;">
-		<?php
 
-		// get the host name and url path
-		$parsedUrl = parse_url("http://resplace.net/WebMS/Updates.php?verid=".$WebMS['Version']);
-		$host = $parsedUrl['host'];
-		if (isset($parsedUrl['path'])) {
-			$path = $parsedUrl['path'];
-		} else {
-			// the url is pointing to the host like http://www.mysite.com
-			$path = '/';
-		}
-
-		if (isset($parsedUrl['query'])) {
-			$path .= '?' . $parsedUrl['query'];
-		}
-
-		if (isset($parsedUrl['port'])) {
-			$port = $parsedUrl['port'];
-		} else {
-			// most sites use port 80
-			$port = '80';
-			}
-
-			$timeout = 10;
-			$response = '';
-
-			// connect to the remote server
-			$fp = @fsockopen($host, '80', $errno, $errstr, $timeout );
-
-			if( !$fp ) {
-				echo "Cannot retrieve $url";
-			} else {
-				// send the necessary headers to get the file
-				fputs($fp, "GET $path HTTP/1.0\r\n" .
-				"Host: $host\r\n" .
-				"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.3) Gecko/20060426 Firefox/1.5.0.3\r\n" .
-				"Accept: */*\r\n" .
-				"Accept-Language: en-us,en;q=0.5\r\n" .
-				"Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\n" .
-				"Keep-Alive: 300\r\n" .
-				"Connection: keep-alive\r\n" .
-				"Referer: http://$host\r\n\r\n");
-
-				// retrieve the response from the remote server
-				while ( $line = fread( $fp, 4096 ) ) {
-				$response .= $line;
-			}
-
-			fclose( $fp );
-
-			// strip the headers
-			$pos      = strpos($response, "\r\n\r\n");
-			$response = substr($response, $pos + 4);
-
-			echo $response;
-		}
-		echo'</div>';
-	}
-}
 
 
 
 
 
 $nav='';
+
+
+if (defined("ADMIN_NAVIGATE")){
+	if (defined("ADMIN_PANE")){
+		if (is_file("OpenWebMS/Admin/AdminPanes/".ADMIN_PANE.".php")){
+			include "OpenWebMS/Admin/AdminPanes/".ADMIN_PANE.".php";
+		}else{
+			$page->addS("The Specified Pane ( ".ADMIN_PANE." ) does not exists","ERROR!");
+		}
+	}else{
+		if (is_file("OpenWebMS/Admin/Modules/".ADMIN_NAVIGATE.".php")){
+			include("OpenWebMS/Admin/Modules/".ADMIN_NAVIGATE.".php");
+		}else{
+			$page->addS("Cant navigate to  ".ADMIN_NAVIGATE." , it does not exists","ERROR!");
+		}
+		
+		//$page->addS("You need to specify a Pane to navigate to!","ERROR!");
+	}
+}else{
+	$page->add("welcome",Module::CENTER);
+}
+
+
+/*
 if (isset($_REQUEST['nav'])) {
 	$nav=$_REQUEST['nav'];
 }
@@ -465,7 +352,7 @@ if (!isset($_REQUEST['nav'])) {
 		$page->add("Updates");
 		
 	//External Modular admin pages
-	$files=GetFiles("Modules");
+	$files=GetFiles("OpenWebMS/Admin/Modules");
 	if (count($files)) {
 		foreach ($files as $fil) {
 			$name=explode('.',$fil);
@@ -494,7 +381,7 @@ if (isset($_REQUEST['pane'])) {
 		}
 	}
 }
-
+*/
 /**
  * Create the page :)
  * 
