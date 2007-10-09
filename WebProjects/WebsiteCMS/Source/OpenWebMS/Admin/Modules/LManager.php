@@ -1,7 +1,7 @@
 <?php
-class LayoutManager extends Module {
+class LManager extends Module {
 	var $db;
-    function LayoutManager($page){
+    function LManager($page){
     	parent::Module($page);
     	$this->title="Manage layout";
     	$this->db=new ResDB("Layouts","core");
@@ -12,4 +12,6 @@ class LayoutManager extends Module {
     	}    	
     }
 }
+
+$page->add("LManager");
 ?>
