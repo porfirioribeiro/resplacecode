@@ -27,6 +27,11 @@ $page="";
  
 $page=preg_replace('/[^a-zA-Z0-9_-]/i', '-',$page);
 $page=preg_split("/_/",$page);
+define("URL_PART_N",count($page));
+foreach ($page as $n=>$urlpart) {
+	$nn=$n+1;
+	define("URL_PART_$nn",$urlpart);
+}
 
 
 if (sizeof($page)>1){
