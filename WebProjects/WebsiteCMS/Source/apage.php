@@ -9,14 +9,13 @@
 */
 //Set path then include the system into the page.
 $path="OpenWebMS/";
-include_once $path.'WebMS.php';
+//include_once $path.'WebMS.php';
 
 //Setup the WebMS class
 $page=new WebMS($path,"Main Site");
 //add some meta keywords
 $page->addMeta(array('name' => 'keywords','content' => 'resplace,cms,website'));
-//add defaults
-$page->addDefaults();
+
 
 //begin adding modules...
 $page->add("Menu");
