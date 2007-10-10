@@ -121,7 +121,7 @@ class PagesManage extends Module {
 			
 		echo'<tr><td colspan="3" class="sub"><a href="?Admin.PagesManage&amp;page=page-add">Add new page</a></td></tr></table><br>
 		';
-		?></div><br><br>
+		?><br><br>
 
 			<?php
 		if (isset($_GET['page']) && $_GET['page']=="page-add")

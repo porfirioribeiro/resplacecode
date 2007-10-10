@@ -314,21 +314,19 @@ class welcome extends Module {
 $nav='';
 
 
-if (defined("ADMIN_NAVIGATE")){
-	if (defined("ADMIN_PANE")){
-		if (is_file("OpenWebMS/Admin/AdminPanes/".ADMIN_PANE.".php")){
-			include "OpenWebMS/Admin/AdminPanes/".ADMIN_PANE.".php";
+if (defined("URL_PART_2")){
+	if (defined("URL_PART_3") && URL_PART_2=="Panes"){
+		if (is_file("OpenWebMS/Admin/AdminPanes/".URL_PART_3.".php")){
+			include "OpenWebMS/Admin/AdminPanes/".URL_PART_3.".php";
 		}else{
-			$page->addS("The Specified Pane ( ".ADMIN_PANE." ) does not exists","ERROR!");
+			$page->addS("The Specified Pane ( ".URL_PART_3." ) does not exists","ERROR!");
 		}
 	}else{
-		if (is_file("OpenWebMS/Admin/Modules/".ADMIN_NAVIGATE.".php")){
-			include("OpenWebMS/Admin/Modules/".ADMIN_NAVIGATE.".php");
+		if (is_file("OpenWebMS/Admin/Modules/".URL_PART_2.".php")){
+			include("OpenWebMS/Admin/Modules/".URL_PART_2.".php");
 		}else{
-			$page->addS("Cant navigate to  ".ADMIN_NAVIGATE." , it does not exists","ERROR!");
+			$page->addS("Cant navigate to  ".URL_PART_2." , it does not exists","ERROR!");
 		}
-		
-		//$page->addS("You need to specify a Pane to navigate to!","ERROR!");
 	}
 }else{
 	$page->add("welcome",Module::CENTER);
