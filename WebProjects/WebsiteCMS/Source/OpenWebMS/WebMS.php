@@ -11,7 +11,7 @@ session_start();
 
 //ob_start("ob_gzhandler");
 
-include dirname(__FILE__).'/config.php';
+include_once dirname(__FILE__).'/config.php';
 global $WebMS;
 WebMS::$_config=$WebMS;
 class WebMS{
