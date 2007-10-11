@@ -1,31 +1,40 @@
 <?php
 /**
- * $Id: getfile.php, v#.#.#, 2007-MAY-08
- * @Author: Dean Williams < email >
- * @Author: Porfirio Ribeiro < email >
- * @Build: 20070508
- * @Notes:
- * [05-08-07 @ 10:32PM PST] - Organized and added header to document < steve >
- */
-
+* System Content Provider
+* Handles all requests (or should) in the system
+* Licenced under GPLv2 read GPL.txt for details
+* @version 1
+* @copyright (c) 2007 ResPlace Team
+* @lastedit 10-10-07
+*/
+include_once("OpenWebMS/config.php");
 define("WEBMS_ROOT","OpenWebMS/");
 
+//TODO remove...
 $pages=WEBMS_ROOT."Pages/";
 $systems=WEBMS_ROOT."Systems/";
 $admin=WEBMS_ROOT."Admin/";
 $tests=WEBMS_ROOT."Tests/";
 include_once(WEBMS_ROOT."WebMS.php");
 
+//check what format we are using to load pages!
+if ($WebMS["URLFormat"]=="CleanDots") {
+	//CleanDots method...
+}
+
 $page="";
+//Get the first $_GET that exists...
  foreach ($_GET as $n => $val) {
  	$page=$n;
  	break;
  }
  
+ //if $_GET is "p" we are using the ?p=blah
  if ($page=="p" && $_GET[$page]!=null){
  	$page=$_GET[$page];
  }
- 
+
+//replace all bad characters!
 $page=preg_replace('/[^a-zA-Z0-9_-]/i', '-',$page);
 define("URL_PART_COMPLETE",$page);
 
@@ -95,6 +104,10 @@ if (URL_PART_1=="Admin"){
 	}
 	$p->addS($st,"Error",Module::TOP);
 	$p->create();
+}
+
+function url() {
+	
 }
  
 
