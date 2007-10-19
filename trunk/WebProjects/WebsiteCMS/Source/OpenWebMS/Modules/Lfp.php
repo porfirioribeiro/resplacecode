@@ -4,7 +4,7 @@
 * This module list the latest forum topicss
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright © 2007 ResPlace Team
+* @copyright (c) 2007 ResPlace Team
 * @lastedit 12-05-07
 */
 

@@ -82,11 +82,10 @@ class options extends Module {
 		?>
 			The system settings are settings regarding the system as a whole, it's pretty important you take a look at these, especially if you want to enable the UMS and etc.
 			<br><br><br>
-			<form name="form" enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
+			<form name="form" enctype="multipart/form-data" action="<?=url(array("*","*")); ?>" method="post">
 			
 				<div class="fieldset">
 				<div class="ftitle"><b>MySQL Setup:</b></div><br>
-					<input name="nav" value="FeaturesAndOptions" type="hidden" />
 					
 					<b>Use MySQL?</b><br>
 					<i>Would you like to enable and use MySQL (Required for built-in UMS)?</i><br>
@@ -136,11 +135,10 @@ class Integrations extends Module {
 			A User Management System (UMS) is a great way to allow visitors to your site to register and become regular members of your website, this feature could help deliver "members only" information or just to keep track of frequent visitors to your website.<br>
 			Below you can configure settings regarding the UMS.
 			<br><br><br>
-			<form name="form2" enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
+			<form name="form2" enctype="multipart/form-data" action="<?=url(array("*","*")); ?>" method="post">
 			
 				<div class="fieldset">
 				<div class="ftitle"><b>Main Settings:</b></div><br>
-					<input name="nav" value="FeaturesAndOptions" type="hidden" />
 					
 					<b>Use UMS?</b><br>
 					<i>Would you like to use a UMS in OpenWebMS (this includes integration)?</i><br>

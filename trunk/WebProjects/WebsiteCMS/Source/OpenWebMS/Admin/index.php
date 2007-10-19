@@ -53,9 +53,40 @@ if ($('use_none')){
 	});
 }");
 
-if (isset($_GET["message"])){
-	$page->addAlert("dbmesage",$_GET["message"]);
+//TODO replace this feature perhaps?
+//if (isset($_GET["message"])){
+//	$page->addAlert("dbmesage",$_GET["message"]);
+//}
+//<?=$this->page->devMode?"&amp;message=You just disabled Debug Mode.":""? >
+if (isset($WebMS['URLArray'][1]) && $WebMS['URLArray'][1]=="DevMode") {
+	if ($page->devMode) {
+		$page->addAlert("Developer Mode","<b>Developer Mode</b> was just enabled, this is useful for debuging the system and making sure its complient and secure.");
+	} else {
+		$page->addAlert("Developer Mode","<b>Developer Mode</b> was just disabled.");
+	}
 }
+//New error handler is loaded here
+if ($page->devMode) {
+	if (isset($_SESSION['DevError']) && !$_SESSION['DevError']=="") {
+ 		//load the error
+ 		//TODO please fix the JS error :s
+ 		echo'<html>
+ 		<head>
+ 			<link rel="stylesheet" href="'.$WebMS["CoreUrl"].'Styles/ErrorReporter.css" type="text/css">
+ 		</head>
+ 		<body>
+ 		<div class="ErrorO">
+		<div class="Title"><div class="modefloat">Debug Mode</div>
+		<b>An error has occurred!</b></div>
+		<div class="Content">
+		An error has been reported by the system, the details of this error and it\'s severity are shown below. A log of this error has also been made.
+		<br><br>';
+		ShowError($WebMS["IncPath"]."\errors\\".$_SESSION['DevError'].".log",$_SESSION['DevError']);
+		$_SESSION['DevError']="";
+		die('<br><i>The system was halted by Developer Mode to stop halting of the system please turn off Developer Mode (or fix the bug of course).</i></div></div></body></html>');
+	}
+}
+
 
 //check if we can use internel or integrated systems to handle login.
 $grantaccess=false;
@@ -269,8 +300,8 @@ class AdminMenu2 extends Module {
 		<br>
 		<b>Misc:</b>
 		<div style="padding-left:8px;">
-			<a href="?Admin&devMODE<?=$this->page->devMode?"&amp;message=You just disabled Debug Mode.":""?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br>
-			<a href="?Admin.ErrorLog">View Error Log</a><br>
+			<a href="<?=url(array("*","DevMode"));?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br>
+			<a href="<?=url(array("*","ErrorLog"));?>">View Error Log</a><br>
 			<a href="?">View Site</a><br>
 			<br>
 		</div>
@@ -313,19 +344,20 @@ class welcome extends Module {
 
 $nav='';
 
-
-if (defined("URL_PART_2")){
-	if (defined("URL_PART_3") && URL_PART_2=="Panes"){
-		if (is_file("OpenWebMS/Admin/AdminPanes/".URL_PART_3.".php")){
-			include "OpenWebMS/Admin/AdminPanes/".URL_PART_3.".php";
+//TODO
+//echo "page={$WebMS["URLPage"]} sub={$WebMS["URLCat"]}";
+if (!$WebMS["URLCat"]==""){
+	if ($WebMS["URLCat"]=="Panes"){
+		if (is_file("OpenWebMS/Admin/AdminPanes/".$WebMS["URLArray"][2].".php")){
+			include "OpenWebMS/Admin/AdminPanes/".$WebMS["URLArray"][2].".php";
 		}else{
-			$page->addS("The Specified Pane ( ".URL_PART_3." ) does not exists","ERROR!");
+			$page->addS("The Specified Pane ( ".$WebMS["URLArray"][2]." ) does not exists","ERROR!");
 		}
 	}else{
-		if (is_file("OpenWebMS/Admin/Modules/".URL_PART_2.".php")){
-			include("OpenWebMS/Admin/Modules/".URL_PART_2.".php");
+		if (is_file("OpenWebMS/Admin/Modules/".$WebMS["URLCat"].".php")){
+			include("OpenWebMS/Admin/Modules/".$WebMS["URLCat"].".php");
 		}else{
-			$page->addS("Cant navigate to  ".URL_PART_2." , it does not exists","ERROR!");
+			$page->addS("Cant navigate to  ".$WebMS["URLCat"]." , it does not exists","ERROR!");
 		}
 	}
 }else{

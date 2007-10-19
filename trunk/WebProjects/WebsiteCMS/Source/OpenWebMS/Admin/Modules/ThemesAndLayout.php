@@ -1,4 +1,13 @@
 <?php
+/**
+* Themes & Layout Management (Admin)
+* Allows themes and layout management.
+* Licenced under GPLv2 read GPL.txt for details
+* @version 1
+* @copyright (c) 2007 ResPlace Team
+* @lastedit 19-10-07
+*/
+
 //write and read all settings to DB when/if required
 $db=new ResDB("WebMSoptions");
 
@@ -48,9 +57,9 @@ $logo_use=$db->get("logo_use");
 $logo_define=$db->get("logo_define");
 $logo_text=$db->get("logo_text");
 
-if (isset($_GET['skin1'])) {
-	$db->put("defaultskin",($_GET['skin1'].'/'.$_GET['skin2'].'/'));
-	$page->addMeta(array('http-equiv' => 'refresh','content' => '3;'.$_SERVER['PHP_SELF']."?nav=ThemesAndLayout"));
+if (isset($WebMS['URLArray'][2])) {
+	$db->put("defaultskin",($WebMS['URLArray'][2].'/'.$WebMS['URLArray'][3].'/'));
+	$page->addMeta(array('http-equiv' => 'refresh','content' => '3;'.url(array("*","*"))));
 	$page->addAlert("Page Reloading...","Skin Applied!<br>This page should refresh in 3 seconds...");
 }
 	
@@ -163,7 +172,7 @@ class DefaultTheme extends Module {
 												if($item2 != '.' && $item2 != '..'){	
 													//echo "<option value='{$itemi}/{$itemi2}/'>{$item2}</option>";
 													echo "
-													<td align='center'><a href='".$_SERVER['PHP_SELF']."?nav=ThemesAndLayout&amp;skin1={$itemi}&amp;skin2={$itemi2}'><img src='".$this->page->themespath."{$itemi}/{$itemi2}/preview.png' border='0'>
+													<td align='center'><a href='".url(array("*","*",$itemi,$itemi2))."'><img src='".$this->page->themespath."{$itemi}/{$itemi2}/preview.png' border='0'>
 													<br>{$item} - {$item2}</a></td>";
 												}
 											}
@@ -185,7 +194,7 @@ class DefaultTheme extends Module {
 				<div class="fieldset">
 				<div class="ftitle"><b>Theme Preferences:</b></div><br>
 					Below are some options regarding how WebMS handles modules such as how they collapse and how they behave. Please note that some skins may not listen to these settings or may not offer them, this is the skins fault not ours.<br><br>
-					<form name="form1" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
+					<form name="form1" action="<?=url(array("*","*")); ?>" method="post">
 						<input name="nav" value="ThemesAndLayout" type="hidden" />
 						<b>Use effects when collapsing modules?</b><br>
 						<i>If you would like some kind of effect when a module is collapsed then select "yes".</i><br>
@@ -233,7 +242,7 @@ class ThemeLogo extends Module {
 			<div class="ftitle"><b>Theme Logo:</b></div><br>
 			Below you can configure your website logo, you can either define/construct a global logo used on all themes (best with alpha-blended logo's), or use the logo image defined by the themes (good if you require a different logo for each theme).
 			<br><br>
-				<form name="form2" enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']; ?>" method="post">
+				<form name="form2" enctype="multipart/form-data" action="<?=url(array("*","*")); ?>" method="post">
 					<input name="nav" value="ThemesAndLayout" type="hidden" />
 					
 					<b>Use Global Logo?</b><br>

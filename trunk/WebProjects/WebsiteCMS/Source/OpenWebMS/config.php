@@ -5,7 +5,7 @@
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright (c) 2007 ResPlace Team
-* @lastedit 21-09-07
+* @lastedit 19-10-07
 */
 
 error_reporting(E_ALL); 
@@ -18,6 +18,10 @@ $WebMS["Version"]				="0.1|BETA";
 //Normal		- ?p=blah&amp;c=blah&amp;a=blah
 //CleanDots		- ?blah.blah.huh.yey
 $WebMS["URLFormat"]				="CleanDots";
+$WebMS["URLParts"]				=0;
+$WebMS["URLArray"]				=array();
+$WebMS["URLPage"]				="";
+$WebMS["URLCat"]				="";
 $WebMS["RootPath"]          	=preg_replace("/\\\/","/",preg_replace("/OpenWebMS$/","",dirname(__FILE__)));
 $WebMS["RootUrl"]           	=str_replace($_SERVER["DOCUMENT_ROOT"], "", $WebMS["RootPath"]);
 $WebMS["WebMSPath"]         	=$WebMS["RootPath"] ."OpenWebMS/";

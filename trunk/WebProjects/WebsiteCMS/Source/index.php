@@ -5,7 +5,7 @@
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright (c) 2007 ResPlace Team
-* @lastedit 10-10-07
+* @lastedit 19-10-07
 */
 include_once("OpenWebMS/config.php");
 define("WEBMS_ROOT","OpenWebMS/");
@@ -20,94 +20,128 @@ include_once(WEBMS_ROOT."WebMS.php");
 //check what format we are using to load pages!
 if ($WebMS["URLFormat"]=="CleanDots") {
 	//CleanDots method...
-}
-
-$page="";
-//Get the first $_GET that exists...
- foreach ($_GET as $n => $val) {
- 	$page=$n;
- 	break;
- }
- 
- //if $_GET is "p" we are using the ?p=blah
- if ($page=="p" && $_GET[$page]!=null){
- 	$page=$_GET[$page];
- }
-
-//replace all bad characters!
-$page=preg_replace('/[^a-zA-Z0-9_-]/i', '-',$page);
-define("URL_PART_COMPLETE",$page);
-
-$page=preg_split("/_/",$page);
-define("URL_PART_N",count($page));
-foreach ($page as $n=>$urlpart) {
-	$nn=$n+1;
-	define("URL_PART_$nn",$urlpart);
-}
-
-
-if (sizeof($page)>1){
-	$cat=$page[0];
-	if (isset($page[2])){
-		$pane=$page[2];
+	//Read first parameter
+	foreach ($_GET as $n => $val) {
+	 	$page=$n;
+	 	break;
+	 }
+	 
+	//If it has a value capture it
+	if ($_GET[$page]!=null) {
+		$page=$_GET[$page];
 	}
-	$page=$page[1];	
-}else{
-	$cat=null;
-	$page=$page[0];
-	$pane=null;
-}
-
-
-if (URL_PART_1=="Admin"){
-	include $admin."index.php";//devMODE
-}else if (URL_PART_1=="Test"){
-	if (defined("URL_PART_2")){
-		if (is_file($tests.URL_PART_2.".php")){
-			include $tests.URL_PART_2.".php";
-		}else{
-			//TODO=Test Page including
-			$p= new WebMS("OpenWebMS/","Error, Test Page not found!!");
-			$p->addS("<b>Test Page Not Found</b><br>Could not find Test Page : $page ","Error",Module::TOP);
+	
+	//Preg out bad characters
+	$page=preg_replace('/[^a-zA-Z0-9\-]/i','%SPL%',$page);
+	//set full request to variable
+	//TODO We need this?
+	//define("URL_COMPLETE",$page);
+	
+	//split into an array
+	$page=explode("%SPL%",$page);
+	//set array to variable
+	$WebMS["URLParts"]=count($page);
+	$WebMS["URLArray"]=$page;
+	
+	if (sizeof($page)>1){
+		$cat=$page[0];
+		if (isset($page[2])){
+			$pane=$page[2];
+		}
+		$page=$page[1];	
+	}else{
+		$cat=null;
+		$page=$page[0];
+		$pane=null;
+	}
+	
+	//begin deciding events!
+	if ($WebMS["URLParts"]==0 || $WebMS["URLArray"][0]=="") {
+		//nothing set, load default homepage
+		include $pages."homepage.php";
+	} else {
+		if ($WebMS["URLArray"][0]=="Admin") {
+			//load admin page
+			$WebMS["URLPage"]=$WebMS["URLArray"][0];
+			if (isset($WebMS["URLArray"][1])) {
+				$WebMS["URLCat"]=$WebMS["URLArray"][1];
+			}
+			include $admin."index.php";
+		} else if ($WebMS["URLArray"][0]=="Test") {
+			if ($WebMS["URLParts"]>=2){
+				if (is_file($tests.$WebMS["URLArray"][1].".php")){
+					$WebMS["URLCat"]=$WebMS["URLArray"][0];
+					$WebMS["URLPage"]=$WebMS["URLArray"][1];
+					include $tests.$WebMS["URLArray"][1].".php";
+				}else{
+					//TODO=Test Page including
+					$p= new WebMS("OpenWebMS/","Error, Test Page not found!!");
+					$p->addS("<b>Test Page Not Found</b><br>Could not find Test Page : $page ","Error",Module::TOP);
+					$p->create();
+				}
+			}else{
+				//TODO=Test Pages Browsing
+				$p= new WebMS("OpenWebMS/","Browse Test pages");
+				$st="<b>Browse Test pages</b><br><br><ul>";
+				$tf=GetFiles($tests,"*.php");
+				foreach ($tf as $f) {
+					$f=str_replace(".php","",$f);
+					$st.="<li><a href='?Test.$f'>$f</a></li>";
+				}
+				$st.="</ul>";
+				$p->addS($st,"Browser",Module::TOP);
+				$p->create();
+			}
+		} else if (is_file($systems.$WebMS["URLArray"][0].".php")) {
+			//include a system file
+			$WebMS["URLPage"]=$WebMS["URLArray"][0];
+			include $systems.$WebMS["URLArray"][0].".php";
+		} else if (($WebMS["URLParts"]>=2 && is_file($pages.$WebMS["URLArray"][1].".php")) && (is_dir($pages.$WebMS["URLArray"][0]))) {	
+			//include a page (sub)
+			$WebMS["URLPage"]=$WebMS["URLArray"][0];
+			$WebMS["URLCat"]=$WebMS["URLArray"][1];
+			include $pages.$WebMS["URLArray"][0]."/".$WebMS["URLArray"][1].".php";
+		} else if (is_file($pages.$WebMS["URLArray"][0].".php")) {	
+			//include a page
+			$WebMS["URLPage"]=$WebMS["URLArray"][0];
+			include $pages.$WebMS["URLArray"][0].".php";
+			//TODO fix for pages in categorys?
+		} else {
+			//TODO=Error Page including
+			$p= new WebMS("OpenWebMS/","Error, Page not found!!");
+			$st="<b>Page Not Found</b><br>";
+			$st.="Could not find $page ";
+			if ($cat){
+				$st.=" on category <b>$cat</b> !!";
+			}else{
+				$st.="either on pages or systems!!";
+			}
+			$p->addS($st,"Error",Module::TOP);
 			$p->create();
 		}
-	}else{
-		//TODO=Test Pages Browsing
-		$p= new WebMS("OpenWebMS/","Browse Test pages");
-		$st="<b>Browse Test pages</b><br><br><ul>";
-		$tf=GetFiles($tests,"*.php");
-		foreach ($tf as $f) {
-			$f=str_replace(".php","",$f);
-			$st.="<li><a href='?Test.$f'>$f</a></li>";
-		}
-		$st.="</ul>";
-		$p->addS($st,"Browser",Module::TOP);
-		$p->create();
 	}
-	//include $admin."index.php";//devMODE
-}else if (URL_PART_1==""){
-	//TODO=Default page including
-	include "apage.php";
-}else if (is_file($systems.URL_PART_1.".php")){
-	include $systems.URL_PART_1.".php";
-}else if (is_file($pages.URL_PART_1.".php") && (defined("URL_PART_2") && is_dir($pages.URL_PART_1) ) ){
-	include $pages.URL_PART_1.".php";
-}else{
-	//TODO=Error Page including
-	$p= new WebMS("OpenWebMS/","Error, Page not found!!");
-	$st="<b>Page Not Found</b><br>";
-	$st.="Could not find $page ";
-	if ($cat){
-		$st.=" on category <b>$cat</b> !!";
-	}else{
-		$st.="either on pages or systems!!";
-	}
-	$p->addS($st,"Error",Module::TOP);
-	$p->create();
 }
 
-function url() {
-	
+
+
+function url($arr=null) {
+	global $WebMS;
+	if ($WebMS["URLFormat"]=="CleanDots") {
+		//CleanDots method...
+		$frm="";
+		
+		if (count($arr)) {
+			for($i=0;$i<=count($arr)-1;$i++) {
+				if (!$i==0)
+					$frm.=".";
+				if ($arr[$i]=="*")
+					$arr[$i]=$WebMS["URLArray"][$i];
+			   	$frm.=$arr[$i];
+			}
+		}
+		
+		return "?".$frm;
+	}
 }
  
 
