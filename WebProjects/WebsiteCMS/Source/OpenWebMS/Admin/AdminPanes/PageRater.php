@@ -1,15 +1,24 @@
 <?php
+/**
+* PageRater Pane (Admin)
+* Allows user to set PageRater options.
+* Licenced under GPLv2 read GPL.txt for details
+* @version 1
+* @copyright (c) 2007 ResPlace Team
+* @lastedit 19-10-07
+*/
+
 //write and read all settings to DB when/if required
 $db=new ResDB("PageRater");
 //submits
 //administration
 
 //change main options such as default skin etc...
-if (isset($_REQUEST['style'])) {
-	$db->put("pageratebarbac",($_REQUEST['style'].'/'.$_REQUEST['style2']));
+if (isset($WebMS["URLArray"][3]) && $WebMS["URLArray"][3]=="Back") {
+	$db->put("pageratebarbac",($WebMS["URLArray"][4].'/'.str_replace("-D0T-",".",$WebMS["URLArray"][5])));
 }
-if (isset($_REQUEST['style3'])) {
-	$db->put("pageratebar",($_REQUEST['style3'].'/'.$_REQUEST['style4']));
+if (isset($WebMS["URLArray"][3]) && $WebMS["URLArray"][3]=="Fore") {
+	$db->put("pageratebar",($WebMS["URLArray"][4].'/'.str_replace("-D0T-",".",$WebMS["URLArray"][5])));
 }
 if (isset($_POST['pageratebg'])) {
 	$db->put("pageratebg",($_POST['pageratebg']));
@@ -17,8 +26,8 @@ if (isset($_POST['pageratebg'])) {
 
 
 //read it
-$pageratebara=explode("/",$db->get("pageratebar"));
-$pageratebarb=explode("/",$db->get("pageratebarbac"));
+$pageratebara=explode("/",$db->get("pageratebarbac"));
+$pageratebarb=explode("/",$db->get("pageratebar"));
  $db->close();
 
 
@@ -55,9 +64,9 @@ class PageRater extends Module {
 							foreach ($BarStyleFiles as $file) {
 								$filen=explode(".",$file);
 								if (strcmp($folder.'/'.$file,$pageratebara[0].'/'.$pageratebara[1])==0) {
-									echo "<div style='border:1px solid black'><img src='".$WebMS['ModulesUrl']."PageRate/Bars/$folder/$file' /><a href='?style3=$folder&amp;style4=$file&amp;pane=PageRater' style='position:relative; top: -0.50em; left: 0.5em;'>$filen[0]</a></div>";
+									echo "<div style='border:1px solid black'><img src='".$WebMS['ModulesUrl']."PageRate/Bars/$folder/$file' /><a href='".url(array("*","*","*",$folder,str_replace(".","-D0T-",$file)))."' style='position:relative; top: -0.50em; left: 0.5em;'>$filen[0]</a></div>";
 								} else {
-									echo "<img src='".$WebMS['ModulesUrl']."PageRate/Bars/$folder/$file' /><a href='?style3=$folder&amp;style4=$file&amp;pane=PageRater' style='position:relative; top: -0.50em; left: 0.5em;'>$filen[0]</a><br>";
+									echo "<img src='".$WebMS['ModulesUrl']."PageRate/Bars/$folder/$file' /><a href='".url(array("*","*","*","Back",$folder,str_replace(".","-D0T-",$file)))."' style='position:relative; top: -0.50em; left: 0.5em;'>$filen[0]</a><br>";
 								}
 							}
 
@@ -86,9 +95,9 @@ class PageRater extends Module {
 						foreach ($BarStyleFiles as $file) {
 							$filen=explode(".",$file);
 							if (strcmp($folder.'/'.$file,$pageratebarb[0].'/'.$pageratebarb[1])==0) {
-								echo "<div style='border:1px solid black'><img src='".$WebMS['ModulesUrl']."PageRate/Bars/$folder/$file' /><a href='?style=$folder&amp;style2=$file&amp;pane=PageRater' style='position:relative; top: -0.50em; left: 0.5em;'>$filen[0]</a></div>";
+								echo "<div style='border:1px solid black'><img src='".$WebMS['ModulesUrl']."PageRate/Bars/$folder/$file' /><a href='".url(array("*","*","*",$folder,str_replace(".","-D0T-",$file)))."' style='position:relative; top: -0.50em; left: 0.5em;'>$filen[0]</a></div>";
 							} else {
-								echo "<img src='".$WebMS['ModulesUrl']."PageRate/Bars/$folder/$file' /><a href='?style=$folder&amp;style2=$file&amp;pane=PageRater' style='position:relative; top: -0.50em; left: 0.5em;'>$filen[0]</a><br>";
+								echo "<img src='".$WebMS['ModulesUrl']."PageRate/Bars/$folder/$file' /><a href='".url(array("*","*","*","Fore",$folder,str_replace(".","-D0T-",$file)))."' style='position:relative; top: -0.50em; left: 0.5em;'>$filen[0]</a><br>";
 							}
 						}
 

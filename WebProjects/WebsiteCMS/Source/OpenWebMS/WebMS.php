@@ -6,7 +6,7 @@ session_start();
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright (c) 2007 ResPlace Team
-* @lastedit 04-10-07
+* @lastedit 19-10-07
 */
 
 //ob_start("ob_gzhandler");
@@ -92,7 +92,7 @@ class WebMS{
 		//Are they an administrator?
 		if ($WebMS["User_Userlvl"]==2) {
 			$_SESSION['developer_mode']=(((!isset($_SESSION['developer_mode'])) || ($_SESSION['developer_mode']==false)) ? false:true);
-			if (isset($_GET['devMODE'])) {
+			if (isset($WebMS["URLArray"][1])) {
 				$_SESSION['developer_mode']=(((!isset($_SESSION['developer_mode'])) || ($_SESSION['developer_mode']==false)) ? true:false);
 			}
 		}
@@ -100,9 +100,16 @@ class WebMS{
 		$this->devMode=isset($_SESSION['developer_mode']) && $_SESSION['developer_mode'];
 		$this->self=$this;
 		$this->id=$_SERVER['PHP_SELF'];
-		if (isset($_REQUEST['page'])){
-			$this->id.=$_REQUEST['page'];
+		//TODO is this replacement corrent?
+		//if (isset($_REQUEST['page'])){
+		//	$this->id.=$_REQUEST['page'];
+		//}
+		$tid="";
+		foreach($WebMS["URLArray"] as $i) {
+			$tid.=$i;
 		}
+		$this->id=$tid;
+		
 	    $this->id=str_replace(array("/","\\","-"," ","."),"_",$this->id);
 	    $this->path=$_path;
 	    $this->themespath=$this->path.$this->themespath;
@@ -116,11 +123,8 @@ class WebMS{
 		$this->modulesSearchPath[]=$this->config["UserModulesPath"];
 		$this->modulesSearchPath[]=$this->config["ModulesPath"];
 		$this->functionsSearchPath[]=$this->functionspath;
-		//developer mode alert
-		if ($this->devMode) {
-			$this->addAlert("Developer Mode","You are currently in Developer Mode, this is useful for debuging the system and making sure its complient and secure. <br><b>Note:</b><i>developer mode is only active on the machine + browser you activated it on via a session.</i>");
-		}
 		$_css=GetFiles($WebMS["CorePath"]."Styles/","*.css");
+		
 
 	    foreach ($_css as $_c){
 	      $this->addCSS($WebMS["CoreUrl"]."Styles/".$_c);

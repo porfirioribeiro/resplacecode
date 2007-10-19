@@ -44,6 +44,14 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 	
 	//grab $WebMS values
 	foreach($WebMS as $key=>$value) {
+		//array fix
+		if (is_array($value)) {
+			$e="";
+			foreach($value as $v) {
+				$e.=$v;
+			}
+			$value=$e;
+		}
 		$report=$report."||".strip_tags($key)."||@||".strip_tags($value)."||";
 	}
 	
@@ -84,14 +92,11 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 		$_SESSION['developer_mode']=false;
 		
 	if ($_SESSION['developer_mode']==true) {
-		echo'<div class="ErrorO">
-		<div class="Title"><div class="modefloat">Debug Mode</div>
-		<b>An error has occurred!</b></div>
-		<div class="Content">
-		An error has been reported by the system, the details of this error and it\'s severity are shown below. A log of this error has also been made.
-		<br><br>';
-		ShowError(dirname(__FILE__)."\errors\\".$errcnt.".log",$errcnt);
-		die('<br><i>The system was halted by Developer Mode to stop halting of the system please turn off Developer Mode (or fix the bug of course).</i></div></div>');
+		$_SESSION['DevError']=$errcnt;
+		echo '<meta http-equiv="refresh" content="1;url='.url(array("Admin")).'">';
+		die('<b>An error has occured, you should be <a href="'.url(array("Admin")).'">redirected</a>.');
+		//$page->addMeta(array('http-equiv' => 'refresh','content' => '3;'.url(array("Admin"))));
+		//$page->addAlert("Page Redirection...","Ooops there was an error!<br>Redirecting you to the error...");
 	}
 	
 	
@@ -100,6 +105,7 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 
 function ShowError($file,$id) {
 	global $WebMS;
+	
 	$fh=fopen($file,'a+');
 		if (!filesize($file)==0) {
 			$filedata=fread($fh,filesize($file));
