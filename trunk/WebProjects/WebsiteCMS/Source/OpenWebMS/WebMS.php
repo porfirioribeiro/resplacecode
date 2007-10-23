@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 /**
 * System Shell
 * The system shell (the centre of WebMS)
@@ -91,8 +91,7 @@ class WebMS{
 		
 		//Are they an administrator?
 		if ($WebMS["User_Userlvl"]==2) {
-			$_SESSION['developer_mode']=(((!isset($_SESSION['developer_mode'])) || ($_SESSION['developer_mode']==false)) ? false:true);
-			if (isset($WebMS["URLArray"][1])) {
+			if (isset($WebMS["URLArray"][1]) && $WebMS["URLArray"][1]=="DevMode") {
 				$_SESSION['developer_mode']=(((!isset($_SESSION['developer_mode'])) || ($_SESSION['developer_mode']==false)) ? true:false);
 			}
 		}
@@ -228,7 +227,8 @@ class WebMS{
     }
     ?>
 	<script type="text/javascript" language="javascript">
-		var htcpath="<?=$this->path.'Core/JS/'; ?>";
+		var htcpath="<?=$WebMS['JSPath']; ?>";
+		var WebMS_JS_URL="<?=$WebMS['JSUrl']; ?>";
 	</script>
     <?php
     foreach ($this->JS_files as $key=>$value) {
@@ -496,6 +496,12 @@ class WebMS{
 			break;
 		}
 		
+	}
+	function addLayout($name){
+		global $WebMS;
+		if (file_exists($WebMS['UserLayoutsPath'].$name.".php")){
+			include($WebMS['UserLayoutsPath'].$name.".php");
+		}
 	}
 	function addAlert($name,$text){
 		$this->alerts[]=array("name"=>$name,"text"=>$text);

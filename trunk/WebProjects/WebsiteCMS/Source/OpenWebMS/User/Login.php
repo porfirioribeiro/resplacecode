@@ -7,19 +7,15 @@
 * @lastedit 05-07-07
 */
 //Set path then include the system into the page.
-$path="../";
+$path="OpenWebMS/";
 include_once $path.'WebMS.php';
 
 //Setup the WebMS class
 $page=new WebMS($path,"Main Site");
 //add some meta keywords
 $page->addMeta(array('name' => 'keywords','content' => 'register,free'));
-//add defaults
-$page->addDefaults();
 
-//begin adding modules...
-$page->add("Menu");
-$page->add("PageRate");
+$page->addLayout("Default");
 
 function someContent($mod){
 	global $WebMS;

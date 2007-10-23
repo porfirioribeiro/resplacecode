@@ -36,7 +36,7 @@ class SQL{
 	}
 
 	function query($querys,$fetch) {
-		$query = mysql_query($querys,$this->db) or die('Query failed: ' . mysql_error());;
+		$query = mysql_query($querys,$this->db) or die('Query failed: ' . mysql_error());
 
 		if(empty($GLOBALS['queries'])) $GLOBALS['queries'] = 0;
 		$GLOBALS['queries']++;

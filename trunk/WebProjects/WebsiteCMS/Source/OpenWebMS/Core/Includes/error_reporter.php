@@ -92,11 +92,38 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 		$_SESSION['developer_mode']=false;
 		
 	if ($_SESSION['developer_mode']==true) {
-		$_SESSION['DevError']=$errcnt;
-		echo '<meta http-equiv="refresh" content="1;url='.url(array("Admin")).'">';
-		die('<b>An error has occured, you should be <a href="'.url(array("Admin")).'">redirected</a>.');
+		//$_SESSION['DevError']=$errcnt;
+		//echo '<meta http-equiv="refresh" content="1;url='.url(array("Admin")).'">';
+		//die('<b>An error has occured, you should be <a href="'.url(array("Admin")).'">redirected</a>.');
 		//$page->addMeta(array('http-equiv' => 'refresh','content' => '3;'.url(array("Admin"))));
 		//$page->addAlert("Page Redirection...","Ooops there was an error!<br>Redirecting you to the error...");
+		
+		//lose the data
+		ob_end_clean();
+		ob_start();
+		
+		//echo error
+		//load the error
+ 		//TODO please fix the JS error :s
+ 		echo'<html>
+ 		<head>
+ 			<link rel="stylesheet" href="'.$WebMS["CoreUrl"].'Styles/ErrorReporter.css" type="text/css">
+ 		</head>
+ 		<body style="background-color:#F7EEBA">
+ 		<div class="ErrorO">
+		<div class="Title"><div class="modefloat">Debug Mode</div>
+		<b>An error has occurred!</b></div>
+		<div class="Content">
+		An error has been reported by the system, the details of this error and it\'s severity are shown below. A log of this error has also been made.
+		<br><br>';
+		ShowError($WebMS["IncPath"]."\errors\\".$errcnt.".log",$errcnt);
+		die('<br><i>The system was halted by Developer Mode to stop halting of the system please turn off Developer Mode (or fix the bug of course).</i></div></div></body></html>');
+		
+		$cont= ob_get_contents();
+		ob_end_clean();
+		
+		echo $cont;
+		die(' ');
 	}
 	
 	
@@ -155,7 +182,7 @@ function errorGenerate($header,$data,$uniquestring) {
 	$sdate="Date";
 	$exists=false;
 	$dataz="";
-	$file=dirname(__FILE__)."\errors\\log\errors.log";
+	$file=dirname(__FILE__)."\errors\log\errors.log";
 	if (file_exists($file)) {
 		$size=filesize($file);
 		$fh=fopen($file,"r");

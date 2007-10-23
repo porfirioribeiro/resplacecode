@@ -7,12 +7,19 @@
 * @copyright (c) 2007 ResPlace Team
 * @lastedit 19-10-07
 */
+
+//start collecting the output
+session_start();
+ob_start();
+
 include_once("OpenWebMS/config.php");
 define("WEBMS_ROOT","OpenWebMS/");
 
 //TODO remove...
+$page="";
 $pages=WEBMS_ROOT."Pages/";
 $systems=WEBMS_ROOT."Systems/";
+$users=WEBMS_ROOT."User/";
 $admin=WEBMS_ROOT."Admin/";
 $tests=WEBMS_ROOT."Tests/";
 include_once(WEBMS_ROOT."WebMS.php");
@@ -27,7 +34,7 @@ if ($WebMS["URLFormat"]=="CleanDots") {
 	 }
 	 
 	//If it has a value capture it
-	if ($_GET[$page]!=null) {
+	if ((isset($_GET[$page])) && (!$_GET[$page]==null)) {
 		$page=$_GET[$page];
 	}
 	
@@ -58,7 +65,9 @@ if ($WebMS["URLFormat"]=="CleanDots") {
 	//begin deciding events!
 	if ($WebMS["URLParts"]==0 || $WebMS["URLArray"][0]=="") {
 		//nothing set, load default homepage
-		include $pages."homepage.php";
+		$WebMS['URLPage']="Homepage.php";
+		$WebMS['URLArray']=array("Homepage");
+		include $pages."Homepage.php";
 	} else {
 		if ($WebMS["URLArray"][0]=="Admin") {
 			//load admin page
@@ -92,6 +101,10 @@ if ($WebMS["URLFormat"]=="CleanDots") {
 				$p->addS($st,"Browser",Module::TOP);
 				$p->create();
 			}
+		} else if (is_file($users.$WebMS["URLArray"][0].".php")) {
+			//include a users file
+			$WebMS["URLPage"]=$WebMS["URLArray"][0];
+			include $users.$WebMS["URLArray"][0].".php";
 		} else if (is_file($systems.$WebMS["URLArray"][0].".php")) {
 			//include a system file
 			$WebMS["URLPage"]=$WebMS["URLArray"][0];
@@ -121,6 +134,11 @@ if ($WebMS["URLFormat"]=="CleanDots") {
 		}
 	}
 }
+
+//grab all the collected HTML then output it.
+$cont= ob_get_contents();
+ob_end_clean();
+echo $cont;
 
 
 

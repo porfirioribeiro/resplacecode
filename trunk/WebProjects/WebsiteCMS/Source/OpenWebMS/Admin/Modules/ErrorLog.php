@@ -17,6 +17,26 @@ class ErrorLog extends Module {
 	function content() {
 		global $WebMS, $path;
 		
+	$exists=false;
+	$dataz="";
+	$file=$WebMS['IncPath']."errors/log/errors.log";
+	if (file_exists($file)) {
+		$size=filesize($file);
+		$fh=fopen($file,"r");
+		$serstr=fread($fh,$size);
+		fclose($fh);
+		$serialized=unserialize($serstr);
+		//remove bad lines
+		$cn=0;
+		foreach ($serialized as $i) {
+			$cn+=1;
+			if (!file_exists($WebMS['IncPath']."errors/".$i[0].'.log')) {
+				unset($serialized[$cn]);
+			}
+		}
+	}
+		
+		
 		if (isset($_GET['del'])) {
 			$del=(int)$_GET['del'];
 			if (file_exists($WebMS["IncPath"] ."errors\\".$del.".log")) {
