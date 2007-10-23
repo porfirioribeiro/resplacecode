@@ -59,7 +59,7 @@ class Menu extends Module {
 					$url =$val->get("url"); 
 					$icon=$val->get("icon");			
 					?>
-					<a class="sublink" style="<?=($icon)?"background-image: URL($icon);":""?>" href="<?=$val->get("url")?>"><?=$val->get("name")?></a>
+					<a class="sublink alpha" style="<?=($icon)?"background-image: URL($icon);":""?>" href="<?=$val->get("url")?>"><?=$val->get("name")?></a>
 					<?php	
 				}
 			}
