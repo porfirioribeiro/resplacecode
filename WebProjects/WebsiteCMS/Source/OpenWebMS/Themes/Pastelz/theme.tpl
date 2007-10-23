@@ -78,8 +78,12 @@
 	<div align="center">
 		<div class="Footer"> 
 					<div style="padding-bottom:5px"><b>powered by <a href="http://resplace.net/OpenWebMS/" title="Module based PHP web site management system">OpenWebMS</a></b><br />Copyright &copy; resplace.net</div>
-					<img src="#{imgpath}gen_php.png" alt="[DB]" title="Generated in #{WebMS_load} sec/s" /> <img src="#{imgpath}gen_resdb.png" alt="[DB]" title="#{ResDB_queries} ResDB Queries" /> <img src="#{imgpath}html401.png" alt="[HTML 4.01]" title="HTML 4.01 Complient" />
+					<img src="#{imgpath}html401.png" alt="[HTML 4.01]" title="HTML 4.01 Complient" />
 		</div>
+	</div>
+	<div align="right" style="padding-top:10px">
+		Page generated in #{WebMS_load} seconds.<br>
+		#{ResDB_queries} ResDB Queries were made.
 	</div>
 	#{end:footer}
 #{end:page}			

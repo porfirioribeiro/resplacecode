@@ -10,7 +10,7 @@
 #{start:addpost}
 <div>
 	<b>New blog post:</b><br><br>
-	<form action="#{action}" method="POST">
+	<form action="#{action}" method="post">
 		<input type="hidden" name="add">
 		Category:<br>
 		<select name="catid">
@@ -19,7 +19,10 @@
 		Title:<br><input type="text" name="title"><br><br>
 		Description:<br><input type="text" name="des"><br><br>
 		Body:<br>
-		<textarea style="width:500px;height:120px" name="body"></textarea><br>
+		<textarea style="width:500px;height:120px" id="body" name="body"></textarea><br>
+		<script language="javascript1.2">
+		    make_wyzz('body');
+		  </script>
 		<br><input type="submit" value="Save">
 	</form>
 </div>

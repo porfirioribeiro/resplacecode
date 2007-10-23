@@ -14,10 +14,10 @@ $db=new ResDB("PageRater");
 //administration
 
 //change main options such as default skin etc...
-if (isset($WebMS["URLArray"][3]) && $WebMS["URLArray"][3]=="Back") {
+if (isset($WebMS["URLArray"][3]) && $WebMS["URLArray"][3]=="Fore") {
 	$db->put("pageratebarbac",($WebMS["URLArray"][4].'/'.str_replace("-D0T-",".",$WebMS["URLArray"][5])));
 }
-if (isset($WebMS["URLArray"][3]) && $WebMS["URLArray"][3]=="Fore") {
+if (isset($WebMS["URLArray"][3]) && $WebMS["URLArray"][3]=="Back") {
 	$db->put("pageratebar",($WebMS["URLArray"][4].'/'.str_replace("-D0T-",".",$WebMS["URLArray"][5])));
 }
 if (isset($_POST['pageratebg'])) {
@@ -26,8 +26,8 @@ if (isset($_POST['pageratebg'])) {
 
 
 //read it
-$pageratebara=explode("/",$db->get("pageratebarbac"));
-$pageratebarb=explode("/",$db->get("pageratebar"));
+$pageratebarb=explode("/",$db->get("pageratebarbac"));
+$pageratebara=explode("/",$db->get("pageratebar"));
  $db->close();
 
 

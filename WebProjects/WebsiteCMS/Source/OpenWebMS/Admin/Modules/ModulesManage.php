@@ -54,7 +54,7 @@ class ModulesManage extends Module {
 			foreach ($files as $fil) {
 
 				$name=explode('.',$fil);
-				if ($name[1]=='php') {
+				if (isset($name[1]) && $name[1]=='php') {
 
 
 					echo'<tr>

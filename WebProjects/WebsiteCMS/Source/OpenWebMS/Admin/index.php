@@ -65,28 +65,6 @@ if (isset($WebMS['URLArray'][1]) && $WebMS['URLArray'][1]=="DevMode") {
 		$page->addAlert("Developer Mode","<b>Developer Mode</b> was just disabled.");
 	}
 }
-//New error handler is loaded here
-if ($page->devMode) {
-	if (isset($_SESSION['DevError']) && !$_SESSION['DevError']=="") {
- 		//load the error
- 		//TODO please fix the JS error :s
- 		echo'<html>
- 		<head>
- 			<link rel="stylesheet" href="'.$WebMS["CoreUrl"].'Styles/ErrorReporter.css" type="text/css">
- 		</head>
- 		<body>
- 		<div class="ErrorO">
-		<div class="Title"><div class="modefloat">Debug Mode</div>
-		<b>An error has occurred!</b></div>
-		<div class="Content">
-		An error has been reported by the system, the details of this error and it\'s severity are shown below. A log of this error has also been made.
-		<br><br>';
-		ShowError($WebMS["IncPath"]."\errors\\".$_SESSION['DevError'].".log",$_SESSION['DevError']);
-		$_SESSION['DevError']="";
-		die('<br><i>The system was halted by Developer Mode to stop halting of the system please turn off Developer Mode (or fix the bug of course).</i></div></div></body></html>');
-	}
-}
-
 
 //check if we can use internel or integrated systems to handle login.
 $grantaccess=false;
@@ -164,7 +142,7 @@ if (!$grantaccess){
 				Welcome to the admin panel, please login below using the super admin password:<br>
 				<i>Default password is documented in the readme.txt document, this password should be changed immediately after you first login.</i><br><br>
 	
-				<form action="<?=$_SERVER['PHP_SELF']; ?>?Admin" method="post">
+				<form action="<?=url(array("*")); ?>" method="post">
 					<input name="psswd" type="password" />
 					<input name="submit" type="submit" value="Login" />
 				</form><br><br>
@@ -236,29 +214,29 @@ class AdminMenu2 extends Module {
 		?>
 		<b>Main:</b>
 		<div style="padding-left:8px;">
-			<a href="index.php?Admin">Summary</a><br>
-			<a href="index.php?Admin.VersionHistory">Version History</a><br>
-			<a href="index.php?Admin.Updates">Updates</a><br>
+			<a href="<?=url(array("*")) ?>">Summary</a><br>
+			<a href="<?=url(array("*","VersionHistory")) ?>">Version History</a><br>
+			<a href="<?=url(array("*","Updates")) ?>">Updates</a><br>
 		</div>
 		<br>
 		<b>Management:</b>
 		<div style="padding-left:8px;">
 			<? //<a href="?manage=menu">Menu</a><br>
 			?>
-			<a href="index.php?Admin.PagesManage">Web pages</a> <br>
+			<a href="<?=url(array("*","PagesManage")) ?>">Web pages</a> <br>
 			<div style="padding-left:8px;">
-				<a href="index.php?Admin.Files">Files</a>
+				<a href="<?=url(array("*","Files")) ?>">Files</a>
 			</div>
-			<a href="index.php?Admin.db">Database's</a> <br>
-			<a href="index.php?Admin.ModulesManage">Modules</a> <br>
-			<a href="index.php?Admin.FunctionsManage">Functions</a> <br>
-			<a href="index.php?Admin.LManager">Layouts</a> <br>
+			<a href="<?=url(array("*","db")) ?>">Database's</a> <br>
+			<a href="<?=url(array("*","ModulesManage")) ?>">Modules</a> <br>
+			<a href="<?=url(array("*","FunctionsManage")) ?>">Functions</a> <br>
+			<a href="<?=url(array("*","LManager")) ?>">Layouts</a> <br>
 		</div>
 		<br>
 		<b>Configuration:</b>
 		<div style="padding-left:8px;">
-			<a href="index.php?Admin.FeaturesAndOptions">Features &amp; Options</a><br>
-			<a href="index.php?Admin.ThemesAndLayout">Themes &amp; Layout</a><br>
+			<a href="<?=url(array("*","FeaturesAndOptions")) ?>">Features &amp; Options</a><br>
+			<a href="<?=url(array("*","ThemesAndLayout")) ?>">Themes &amp; Layout</a><br>
 			<?php
 			/*
 			integration will be tough to get right... first we must make sure its totally adaptable for integrating whatever system is required, such as IPB SMF or etc.
@@ -290,7 +268,7 @@ class AdminMenu2 extends Module {
 
 					$name=explode('.',$fil);
 					if ($name[1]=='php') {
-						echo'<a href="index.php?Admin.Panes.'.$name[0].'">'.$name[0].'</a> <br>';
+						echo'<a href="'.url(array("Admin","Panes",$name[0])).'">'.$name[0].'</a> <br>';
 						}
 					}
 				}
@@ -302,7 +280,6 @@ class AdminMenu2 extends Module {
 		<div style="padding-left:8px;">
 			<a href="<?=url(array("*","DevMode"));?>"><?=$this->page->devMode?"Disable Debug Mode":"Enable Debug Mode"?></a><br><br>
 			<a href="<?=url(array("*","ErrorLog"));?>">View Error Log</a><br>
-			<a href="?">View Site</a><br>
 			<br>
 		</div>
 
