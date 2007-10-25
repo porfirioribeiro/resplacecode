@@ -1,6 +1,6 @@
 #{start:post}
 <div>
-	<div class="heading">#{del}<b><a href="?blog&bp=#{id}" title="#{title}">#{title}</a></b></div>
+	<div class="heading">#{del}<b><a href="?{echo "test"}?blog&bp=#{id}" title="#{title}">#{title}</a></b></div>
 	<div style="padding-left:3px">
 	<i>Posted by #{userid} in category #{cat} on #{date}.</i><br>
 	#{sub}</div>

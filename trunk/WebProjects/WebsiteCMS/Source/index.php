@@ -5,7 +5,7 @@
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright (c) 2007 ResPlace Team
-* @lastedit 19-10-07
+* @lastedit 24-10-07
 */
 
 //start collecting the output
@@ -109,7 +109,7 @@ if ($WebMS["URLFormat"]=="CleanDots") {
 			//include a system file
 			$WebMS["URLPage"]=$WebMS["URLArray"][0];
 			include $systems.$WebMS["URLArray"][0].".php";
-		} else if (($WebMS["URLParts"]>=2 && is_file($pages.$WebMS["URLArray"][1].".php")) && (is_dir($pages.$WebMS["URLArray"][0]))) {	
+		} else if (($WebMS["URLParts"]>=2 && is_file($pages.$WebMS["URLArray"][0].'/'.$WebMS["URLArray"][1].".php")) && (is_dir($pages.$WebMS["URLArray"][0]))) {	
 			//include a page (sub)
 			$WebMS["URLPage"]=$WebMS["URLArray"][0];
 			$WebMS["URLCat"]=$WebMS["URLArray"][1];
@@ -149,12 +149,20 @@ function url($arr=null) {
 		$frm="";
 		
 		if (count($arr)) {
-			for($i=0;$i<=count($arr)-1;$i++) {
-				if (!$i==0)
-					$frm.=".";
-				if ($arr[$i]=="*")
-					$arr[$i]=$WebMS["URLArray"][$i];
-			   	$frm.=$arr[$i];
+			if (isset($arr[0]) && $arr[0]=="**") {
+				for($i=0;$i<=count($WebMS["URLArray"])-1;$i++) {
+					if (!$i==0)
+						$frm.=".";
+				   	$frm.=$WebMS["URLArray"][$i];
+				}
+			} else {
+				for($i=0;$i<=count($arr)-1;$i++) {
+					if (!$i==0)
+						$frm.=".";
+					if ($arr[$i]=="*")
+						$arr[$i]=$WebMS["URLArray"][$i];
+				   	$frm.=$arr[$i];
+				}
 			}
 		}
 		
