@@ -23,7 +23,8 @@ class Menu extends Module {
 		$page->addCSS($page->config["ModulesUrl"]."Menu/Menu.css");
 
 	}
-	function expandMenu($mnu,$par=""){
+	function expandMenu($mnu,$par="",$id=0){
+		global $WebMS;
 		?>
 		
 		<?php
@@ -38,18 +39,19 @@ class Menu extends Module {
 					//read cookie
 					if ((!isset($_COOKIE['MENU_'.$id.'_COOKIE'])) || ($_COOKIE['MENU_'.$id.'_COOKIE']=="none")) {
 						$b="none";
-						$c="section";
+						$c="folder closed alpha";
 					} else {
 						$b="block";
-						$c="sectionOpen";
+						$c="folder open alpha";
 					}
 					?>
-					
+					<div class="group">
 					<a id="MENU_ITEM_<?=$id?>" class="<?=$c ?>"  style="display:block; text-decoration:none;" href="javascript:;" onclick="togglemenu('<?=$id?>')"><?=$val->get("name")?></a>
-					<div class="section" id="MENU_PANEL_<?=$id?>" style="display:<?=$b?>;padding-left:10px">
+					</div>
+					<div class="section alpha" id="MENU_PANEL_<?=$id?>" style="display:<?=$b?>;">
 					<div>
 					<?php
-						$this->expandMenu($val,$val->name);
+						$this->expandMenu($val,$val->name,$id);
 					?>
 					</div>
 					</div>
@@ -57,9 +59,47 @@ class Menu extends Module {
 				}else{
 					$name=$val->get("name");
 					$url =$val->get("url"); 
-					$icon=$val->get("icon");			
+					$icon=$val->get("icon");
+					$AddClass="";
+					$AddClass2="";
+					//Is url {lol,lol}?
+					
+					$FLet=substr($url,0,1);
+					$LLet=substr($url,-1);
+
+					if ($FLet=="{" && $LLet=="}") {
+						//Special URL
+						$arrs=substr($url,1,-1);
+						$arr=explode(",",$arrs);
+						$url=url($arr);	
+						
+						//Are we on this page NOW?
+						if ($arr==$WebMS['URLArray']) {
+							$AddClass="selitem";
+							$AddClass2="sellink";
+							if (!$id==0)
+								echo"<script type=\"text/javascript\" language=\"JavaScript\">forcevisible('$id');</script>";
+						}
+					} else {
+						//grab the ?...
+						$str='?'.$_SERVER['QUERY_STRING'];
+						$str2=explode("?",$url);
+						if (isset($str2[1])) {
+							$str2=="?".$str2[1];
+						} else {
+							$str2="";	
+						}
+						if ($str==$url || $str==$str2) {
+							$AddClass="selitem";
+							$AddClass2="sellink";
+							if (!$id==0)
+								echo"<script type=\"text/javascript\" language=\"JavaScript\">forcevisible('$id');</script>";
+						}
+					}
 					?>
-					<a class="sublink alpha" style="<?=($icon)?"background-image: URL($icon);":""?>" href="<?=$val->get("url")?>"><?=$val->get("name")?></a>
+					<div class="item alpha <?=$AddClass; ?>">
+					<a class="link alpha <?=$AddClass2; ?>" style="<?=($icon)?"background-image: URL($icon);":""?>" href="<?=$url ?>"><?=$val->get("name")?></a>
+					</div>
 					<?php	
 				}
 			}
@@ -77,4 +117,3 @@ class Menu extends Module {
 	}
 }
 ?>
-
