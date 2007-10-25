@@ -1,32 +1,84 @@
-.Menu{
+.Menu .item{
+	background-image:URL(itembg.png);
+	background-repeat:repeat-x;
+	padding:1px;
+	padding-left:3px;
+	margin:1px;
+}
 
-}
+.Menu .folder{
+	padding:2px;
+	padding-left:13px;
+	}
+.Menu .group{
+	background-image:URL(groupbg.png);
+	background-repeat:repeat-x;
+	padding-left:3px;
+	margin:1px;
+	}
+.Menu .folder.open{
+	display:block;
+	background-image:URL(arrow1.png);
+	background-repeat:no-repeat;
+	background-position: left;
+	}
+.Menu .folder.closed{
+	display:block;
+	background-image:URL(arrow.png);
+	background-repeat:no-repeat;
+	background-position: left;
+	}
+.Menu .section{
+	/*border-left:1px solid black;*/
+	}
+
+
 .Menu div.section{
-	padding-left:15px;
-	/*margin-bottom:13px;*/
+	padding-left:5px;
+	margin-bottom:5px;
+	
 }
+.Menu .sellink{
+	color:red;	
+}
+.Menu .selitem{
+	background-image:URL(selected.png);
+	background-repeat:repeat-x;
+}
+/*
 .Menu a.section{
 	display:block;
 	background-image:URL(folder.gif);
 	background-repeat:no-repeat;
 	background-position: left;
+	padding:1px;
 	padding-left:13px;
-	/*float:left; 
+	/float:left; 
 	width: 10px; 
-	height: 10px;*/
+	height: 10px;/
 }
 .Menu a.sectionOpen{
 	display:block;
 	background-image:url(folderOpen.gif);
 	background-repeat:no-repeat;
 	background-position: left;
+	padding1px;
 	padding-left:13px;
+	
 }
-.Menu a.sublink{
+*/
+.Menu .section .item{
+	
+	}
+.Menu a.link{
 	display:block;
+	background-image:URL(item.png);
 	background-repeat:no-repeat;
 	background-position: left;
+	text-decoration:none;
+	padding:1px;
 	padding-left:13px;
+
 }
 
 /*
