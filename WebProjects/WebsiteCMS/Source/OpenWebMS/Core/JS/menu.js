@@ -20,16 +20,35 @@ function togglemenu(id){
 	if (!_this.visible()){
 		Cookie.Write(mnu,"block");	
 		//_this.show();
-		//_item.className="sectionOpen";
+		//_item.className="item open";
 	} else {
 		Cookie.Write(mnu,"none",50000);	
 		//_this.hide();
-		//_item.className="section";
+		//_item.className="item closed";
 	}
 	function afterFinish(){
-			_item.toggleClasseNameWith("sectionOpen","section");
+			_item.toggleClasseNameWith("open","closed");
 			Effect.Appear(_item,{duration:0.2});
 	}
 	Effect.toggle(_this,"slide",{duration:0.4});
 		Effect.Fade(_item,{duration:0.2,to:0.1,afterFinish:afterFinish});
+}
+
+function forcevisible(id){
+	var _this=$("MENU_PANEL_"+id);
+	var _item=$("MENU_ITEM_"+id);
+	var mnu="MENU_"+id+"_COOKIE";
+	if (!_this.visible()){
+		Cookie.Write(mnu,"block");	
+		//_this.show();
+		//_item.className="open";
+		
+		function afterFinish(){
+			_item.toggleClasseNameWith("open","closed");
+			Effect.Appear(_item,{duration:0.2});
+		}
+		Effect.toggle(_this,"slide",{duration:0.4});
+			Effect.Fade(_item,{duration:0.2,to:0.1,afterFinish:afterFinish});
+	} 
+	
 }
