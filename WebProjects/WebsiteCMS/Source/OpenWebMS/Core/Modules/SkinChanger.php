@@ -5,7 +5,7 @@
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
 * @copyright (c) 2007 ResPlace Team
-* @lastedit 20-09-07
+* @lastedit 24-09-07
 */
 
 class SkinChanger extends Module {
@@ -22,7 +22,7 @@ class SkinChanger extends Module {
 	<form name="ChangeSkin" method="POST" action="<?=$_SERVER['PHP_SELF'].'?page='.$_REQUEST['page']; ?>">
     <?php
 	}else{?>
-	<form name="ChangeSkin" method="POST" action="<?=$_SERVER['PHP_SELF']; ?>">
+	<form name="ChangeSkin" method="POST" action="<?=url(array("**")); ?>">
     <?php } ?>
 	  <select name="SkinMenu" onchange="ChangeSkin.submit()">
 			<?php
