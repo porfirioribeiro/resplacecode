@@ -11,7 +11,7 @@
 
 
 // This must be a path to a blank image. That's all the configuration you need.
-if (typeof blankImg == 'undefined') var blankImg = htcpath+'blank.gif';
+if (typeof blankImg == 'undefined') var blankImg = WebMS_JS_URL+'blank.gif';
 
 
 var f = 'DXImageTransform.Microsoft.AlphaImageLoader';
@@ -38,9 +38,11 @@ function doFix()
  {
   if ((/\.png$/i).test(src))
   {
-   if (currentStyle.width == 'auto' && currentStyle.height == 'auto')
+   if (currentStyle.width == 'auto' && currentStyle.height == 'auto') {
     style.width = offsetWidth + 'px';
-   filt(src, 'scale');
+    style.height = offsetHeight + 'px';
+    }
+   filt(src, 'crop');
    src = blankImg;
   }
   else if (src.indexOf(blankImg) < 0) filt();
@@ -50,10 +52,21 @@ function doFix()
   if (bgImg.match(/^url[("']+(.*\.png)[)"']+$/i))
   {
    var s = RegExp.$1;
-   if (currentStyle.width == 'auto' && currentStyle.height == 'auto')
-    style.width = offsetWidth + 'px';
+   if (currentStyle.width == 'auto' && currentStyle.height == 'auto') {
+    //style.width = offsetWidth-5 + 'px';
+    style.height = offsetHeight + 'px';
+    }
    style.backgroundImage = 'none';
-   filt(s, 'crop');
+
+   if (currentStyle.backgroundRepeat == 'no-repeat')
+   {
+   	filt(s,'crop');
+   }
+   else
+   {
+    filt(s, 'scale');
+   }
+
    // IE link fix.
    for (var n = 0; n < childNodes.length; n++)
     if (childNodes[n].style) childNodes[n].style.position = 'relative';
