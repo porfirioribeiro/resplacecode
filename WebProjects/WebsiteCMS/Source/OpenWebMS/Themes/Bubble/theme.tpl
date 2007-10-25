@@ -57,7 +57,7 @@
 				<div class="TopLeft"><div class="TopRight"></div></div>                
 				<div style="float:right;" id="AjaxLoader"></div>
 				<div align="center">
-				#{iif:GlobalLogo,<img src="#{GlobalLogoPath}" border="0" />,<div class="TitleImage alpha" title="My Website Name"></div>}
+				#{iif:GlobalLogo,<img class="alpha" src="#{GlobalLogoPath}" border="0" />,<div class="TitleImage alpha" title="My Website Name"></div>}
 				</div>
 				<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
 			</div>
@@ -87,7 +87,7 @@
 	#{start:footer}
 	<div align="center">
 		<div> 
-					<div style="padding-bottom:5px; padding-top:10px"><b>powered by <a href="http://resplace.net/OpenWebMS/" title="Module based PHP web site management system">OpenWebMS</a></b><br />Copyright &copy; resplace.net</div>
+					<div style="padding-bottom:5px; padding-top:10px"><b>powered by <a href="http://resplace.net/?Projects.OpenWebMS" title="Module based PHP web site management system">OpenWebMS</a></b><br />Copyright &copy; resplace.net</div>
 					<img src="#{imgpath}html401.png" alt="[HTML 4.01]" title="HTML 4.01 Complient" />
 		</div>
 	</div>
