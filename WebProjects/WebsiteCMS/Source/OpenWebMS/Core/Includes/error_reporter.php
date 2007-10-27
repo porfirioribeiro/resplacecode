@@ -14,6 +14,8 @@ error_reporting(E_ALL);
 function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 	Global $WebMS;
 	
+	$OwnDir=preg_replace("/\\\/","/",dirname(__FILE__));
+	
 	//Grab error code
 	list($errno) = func_get_args();
 	//Grab date/time
@@ -65,7 +67,7 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 	$report=$report."}@";
 	
 	//Find out largest error id
-	$errordocs=GetFiles(dirname(__FILE__)."\errors\\");
+	$errordocs=GetFiles("{$OwnDir}/errors/");
 	if (count($errordocs)) {
 		rsort($errordocs,SORT_NUMERIC);
 		//print_r($errordocs);
@@ -77,10 +79,10 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 	
 	//write the grouping data
 	$uniquestring=preg_replace('/[^a-zA-Z0-9]/i', '_', $errstr2.$errline.$errfile);
-	$group=grouping(dirname(__FILE__)."\errors\\log\errors.log",$errcnt,$uniquestring);
+	$group=grouping("{$OwnDir}/errors/log/errors.log",$errcnt,$uniquestring);
 	if ($group==0) {
 	  	//Write the error
-	  	$fh=fopen(dirname(__FILE__)."\errors\\".$errcnt.".log",'a');
+	  	$fh=fopen("{$OwnDir}/errors/{$errcnt}.log",'a');
 			fwrite($fh,$header.$report);
 		fclose($fh);
 	} else {
@@ -116,7 +118,7 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 		<div class="Content">
 		An error has been reported by the system, the details of this error and it\'s severity are shown below. A log of this error has also been made.
 		<br><br>';
-		ShowError($WebMS["IncPath"]."\errors\\".$errcnt.".log",$errcnt);
+		ShowError($WebMS["IncPath"]."/errors/".$errcnt.".log",$errcnt);
 		die('<br><i>The system was halted by Developer Mode to stop halting of the system please turn off Developer Mode (or fix the bug of course).</i></div></div></body></html>');
 		
 		$cont= ob_get_contents();
@@ -178,11 +180,13 @@ function ShowError($file,$id) {
 
 function errorGenerate($header,$data,$uniquestring) {
 	global $WebMS;
+	$OwnDir=preg_replace("/\\\/","/",dirname(__FILE__));
+	
 	//Figure out if this error occured once or more
 	$sdate="Date";
 	$exists=false;
 	$dataz="";
-	$file=dirname(__FILE__)."\errors\log\errors.log";
+	$file="{$OwnDir}/errors/log/errors.log";
 	if (file_exists($file)) {
 		$size=filesize($file);
 		$fh=fopen($file,"r");
@@ -306,6 +310,8 @@ function errorGenerate($header,$data,$uniquestring) {
 }
 
 function grouping($file,$fileno,$string) {
+	$OwnDir=preg_replace("/\\\/","/",dirname(__FILE__));
+	
 	//unserialize...
 	$filen=0;
 	
@@ -323,7 +329,7 @@ function grouping($file,$fileno,$string) {
 		$cn=0-1;
 		foreach ($serialized as $i) {
 			$cn+=1;
-			if (!file_exists(dirname(__FILE__)."\errors\\".$i[0].'.log')) {
+			if (!file_exists("{$OwnDir}/errors/{$i[0]}.log")) {
 				unset($serialized[$cn]);
 			}
 		}
