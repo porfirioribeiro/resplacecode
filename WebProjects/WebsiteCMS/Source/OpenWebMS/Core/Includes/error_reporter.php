@@ -29,9 +29,9 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 	//make sure there are 4 values returned (matched)
 	if (count($splterrstr)==4) {
 		$splterrstr[2]=strip_tags($splterrstr[2]);
-		$errstr2=$splterrstr[1]."(".$splterrstr[2].")".$splterrstr[3];
+		$errstr2="{$splterrstr[1]}({$splterrstr[2]}){$splterrstr[3]}";
 		//change $errstr to what we actually want...
-		$errstr=$splterrstr[1]."(<a href='http://php.net/".$splterrstr[2]."' target='_blank'>".$splterrstr[2]."</a>)".$splterrstr[3];
+		$errstr=$splterrstr[1]."(<a href='http://php.net/{$splterrstr[2]}' target='_blank'>{$splterrstr[2]}</a>){$splterrstr[3]}";
 	} else {
 		$errstr2=$errstr;
 	}
@@ -118,7 +118,7 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 		<div class="Content">
 		An error has been reported by the system, the details of this error and it\'s severity are shown below. A log of this error has also been made.
 		<br><br>';
-		ShowError($WebMS["IncPath"]."/errors/".$errcnt.".log",$errcnt);
+		ShowError("{$WebMS["IncPath"]}/errors/{$errcnt}.log",$errcnt);
 		die('<br><i>The system was halted by Developer Mode to stop halting of the system please turn off Developer Mode (or fix the bug of course).</i></div></div></body></html>');
 		
 		$cont= ob_get_contents();
