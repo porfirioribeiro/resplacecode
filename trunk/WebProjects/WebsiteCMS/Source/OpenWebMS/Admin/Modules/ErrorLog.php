@@ -19,7 +19,7 @@ class ErrorLog extends Module {
 		
 	$exists=false;
 	$dataz="";
-	$file=$WebMS['IncPath']."errors/log/errors.log";
+	$file="{$WebMS['IncPath']}errors/log/errors.log";
 	if (file_exists($file)) {
 		$size=filesize($file);
 		$fh=fopen($file,"r");
@@ -27,11 +27,13 @@ class ErrorLog extends Module {
 		fclose($fh);
 		$serialized=unserialize($serstr);
 		//remove bad lines
-		$cn=0;
-		foreach ($serialized as $i) {
-			$cn+=1;
-			if (!file_exists($WebMS['IncPath']."errors/".$i[0].'.log')) {
-				unset($serialized[$cn]);
+		if (count($serialized)) {
+			$cn=0;
+			foreach ($serialized as $i) {
+				$cn+=1;
+				if (!file_exists("{$WebMS['IncPath']}errors/{$i[0]}.log")) {
+					unset($serialized[$cn]);
+				}
 			}
 		}
 	}
@@ -39,8 +41,8 @@ class ErrorLog extends Module {
 		
 		if (isset($_GET['del'])) {
 			$del=(int)$_GET['del'];
-			if (file_exists($WebMS["IncPath"] ."errors\\".$del.".log")) {
-				unlink($WebMS["IncPath"] ."errors\\".$del.".log");
+			if (file_exists("{$WebMS["IncPath"]}errors/{$del}.log")) {
+				unlink("{$WebMS["IncPath"]}errors/{$del}.log");
 			}
 		}
 		
@@ -48,10 +50,10 @@ class ErrorLog extends Module {
 			//Load error viewer
 			$err=(int)$_GET['err'];
 			
-			ShowError($WebMS["IncPath"] ."errors\\".$err.".log",$err);
+			ShowError("{$WebMS["IncPath"]}errors/{$err}.log",$err);
 		} else {
 			//load list of errors
-			$logpath=$WebMS['CorePath']."Includes/errors/";
+			$logpath="{$WebMS['IncPath']}errors/";
 			$efiles=GetFiles($logpath);
 			unset($efiles["errors.log"]);
 			sort($efiles);
