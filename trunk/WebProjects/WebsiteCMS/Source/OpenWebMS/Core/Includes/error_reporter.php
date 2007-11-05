@@ -14,6 +14,14 @@ error_reporting(E_ALL);
 function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 	Global $WebMS;
 	
+	//lose the data
+		$handlers = ob_list_handlers();
+		while ( ! empty($handlers) )    {
+		    ob_end_clean();
+		    $handlers = ob_list_handlers();
+		}
+		//ob_end_clean();
+	
 	$OwnDir=preg_replace("/\\\/","/",dirname(__FILE__));
 	
 	//Grab error code
@@ -100,8 +108,7 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 		//$page->addMeta(array('http-equiv' => 'refresh','content' => '3;'.url(array("Admin"))));
 		//$page->addAlert("Page Redirection...","Ooops there was an error!<br>Redirecting you to the error...");
 		
-		//lose the data
-		ob_end_clean();
+		
 		ob_start();
 		
 		//echo error
@@ -150,11 +157,12 @@ function ShowError($file,$id) {
 					?>
 						<div align="center">
 						<div align="left" class="Error">
+						<div style="float:right"><a href="<?=url(array("Admin","ErrorLog","Print",$id)) ?>"><img src='<?=$WebMS['CoreUrl'] ?>Images/print.png' border='0' alt='[=]' title='Print this error' style="vertical-align:middle" \></a><a href="<?=url(array("Admin","ErrorLog","Print",$id)) ?>">Print</a> <a href="<?=url(array("Admin","ErrorLog",'Del',$id)); ?>"><img src="<?=$WebMS['AdminUrl'] ?>icons/button_cancel.png" alt="[x]" title="Delete this error" border="0" style="vertical-align:middle"></a><a href="<?=url(array("Admin","ErrorLog",'Del',$id)); ?>">Delete</a></div>
 						<b>
 						<?php 
 							$errid=substr($header[5],0,1);
 							$errstr=substr($header[5],1,strlen($header[5]));
-							echo "<img src='{$WebMS['CoreUrl']}Images/error{$errid}.png' border='0' alt='[{$errid}]' title='{$errstr}' style='padding-right:5px;vertical-align:center' \>";
+							echo "<img src='{$WebMS['CoreUrl']}Images/error{$errid}.png' border='0' alt='[{$errid}]' title='{$errstr}' style='padding-right:5px;vertical-align:middle' \>";
 							echo"{$header['2']}</b><br><br>";
 							?>
 						<table>
@@ -237,14 +245,28 @@ function errorGenerate($header,$data,$uniquestring) {
 	foreach ($lang as $t) {
 		?>
 			<tr>
-				<td><b><?=$t ?> </b></td>
-		  		<td width="25"><b>:</b></td>
-				<td><?=$data[$cnt] ?></td>
+				<td valign="top"><b><?=$t ?> </b></td>
+		  		<td valign="top" width="25"><b>:</b></td>
+		  		<?php
+					//split out HREF tag
+					//TODO fix weird URL bug here :s
+			     preg_match("/(.*?)\(\<(.*?)\>\)(.*?)/",$data[$cnt],$strstg1);
+			     if (count($strstg1)==4) {
+						//there was a HREF there
+						$strstg1[1]=preg_replace( "/([^\n\r \.,]{5})/i" , '$1<span style="font-size:1px"> </span>',$strstg1[1]);
+						$strstg1[3]=preg_replace( "/([^\n\r \.,]{5})/i" , '$1<span style="font-size:1px"> </span>',$strstg1[3]);
+						$strstg2=$strstg1[1].'<'.$strstg1[2].'>'.$strstg1[3];
+						
+					} else {
+						$strstg2 =preg_replace( "/([^\n\r \.,]{5})/i" , '$1<span style="font-size:1px"> </span>', $data[$cnt] );
+					}
+          	?>
+				<td><?=$strstg2 ?></td>
 		  	</tr>
 		<?php
 		$cnt+=1;
 	}
-	
+
 	$cnt2=0;
 		
 	preg_match_all("/\|\|(.*?)\|\|\@\|\|(.*?)\|\|/",$data[$cnt],$err2);
@@ -252,7 +274,7 @@ function errorGenerate($header,$data,$uniquestring) {
 		<tr>
 			<td><b>$WebMS </b></td>
 		  	<td width="25"><b>:</b></td>
-		  	<td><a href="javascript:;" style="text-decoration: none;" onclick="$('WEBMS_LOG_VAR').toggle()">(Click here for expand\contract)</a></td>
+		  	<td><a href="javascript:;" id="AHREF1" style="text-decoration: none;" onclick="$('WEBMS_LOG_VAR').toggle()">(Click here for expand\contract)</a></td>
 		</tr>
 		<tr>
 			<td></td>
@@ -264,9 +286,10 @@ function errorGenerate($header,$data,$uniquestring) {
 	foreach ($err2[0] as $t) {
 		?>
 					<tr>
-				    	<td ><?=$err2[1][$cnt2] ?></td>
-				    	<td align="center" width="25"><b>=&gt;</b></td>
-				    	<td ><?=(($err2[2][$cnt2]=="") ? "<div style='color:red'>null</div>":$err2[2][$cnt2]) ?></td>
+				    	<td valign="top"><?=$err2[1][$cnt2] ?></td>
+				    	<td valign="top" align="center" width="25"><b>=&gt;</b></td>
+
+				    	<td valign="top" style="width:100%"><?=(($err2[2][$cnt2]=="") ? "<div style='color:red'>null</div>":preg_replace( "/([^\n\r \.,]{10})/i" , '$1<span style="font-size:1px"> </span>',$err2[2][$cnt2])) ?></td>
 					</tr>
 		<?php
 		$cnt2+=1;
@@ -282,7 +305,7 @@ function errorGenerate($header,$data,$uniquestring) {
 			<tr>
 				<td><b>$_REQUEST </b></td>
 			  	<td width="25"><b>:</b></td>
-			  	<td><a href="javascript:;" style="text-decoration: none;" onclick="$('REQUEST_LOG_VAR').toggle()">(Click here for expand\contract)</a></td>
+			  	<td><a href="javascript:;" id="AHREF2" style="text-decoration: none;" onclick="$('REQUEST_LOG_VAR').toggle()">(Click here for expand\contract)</a></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -293,9 +316,9 @@ function errorGenerate($header,$data,$uniquestring) {
 		foreach ($err3[0] as $t) {
 			?>
 						<tr>
-					    	<td ><?=$err3[1][$cnt3] ?></td>
-					    	<td align="center" width="25"><b>=&gt;</b></td>
-					    	<td ><?=(($err3[2][$cnt3]=="") ? "<div style='color:red'>null</div>":$err3[2][$cnt3]) ?></td>
+					    	<td valign="top"><?=$err3[1][$cnt3] ?></td>
+					    	<td valign="top" align="center" width="25"><b>=&gt;</b></td>
+					    	<td valign="top" style="width:100%"><?=(($err3[2][$cnt3]=="") ? "<div style='color:red'>null</div>":preg_replace( "/([^\n\r \.,]{10})/i" , '$1<span style="font-size:1px"> </span>',$err3[2][$cnt3])) ?></td>
 						</tr>
 			<?php
 			$cnt3+=1;

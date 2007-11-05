@@ -268,7 +268,7 @@ class WebMS{
 	foreach ($this->JS_codes as $key=>$value) {
     	echo $value."\n";
     }    
-	?>		
+	?>
 	</script>
     <title><?php echo $this->title; ?></title>        
   </head> 

@@ -17,39 +17,76 @@ class ErrorLog extends Module {
 	function content() {
 		global $WebMS, $path;
 		
-	$exists=false;
-	$dataz="";
-	$file="{$WebMS['IncPath']}errors/log/errors.log";
-	if (file_exists($file)) {
-		$size=filesize($file);
-		$fh=fopen($file,"r");
-		$serstr=fread($fh,$size);
-		fclose($fh);
-		$serialized=unserialize($serstr);
-		//remove bad lines
-		if (count($serialized)) {
-			$cn=0;
-			foreach ($serialized as $i) {
-				$cn+=1;
-				if (!file_exists("{$WebMS['IncPath']}errors/{$i[0]}.log")) {
-					unset($serialized[$cn]);
+		$exists=false;
+		$dataz="";
+		$file="{$WebMS['IncPath']}errors/log/errors.log";
+		if (file_exists($file)) {
+			$size=filesize($file);
+			$fh=fopen($file,"r");
+			$serstr=fread($fh,$size);
+			fclose($fh);
+			$serialized=unserialize($serstr);
+			//remove bad lines
+			if (count($serialized)) {
+				$cn=0;
+				foreach ($serialized as $i) {
+					$cn+=1;
+					if (!file_exists("{$WebMS['IncPath']}errors/{$i[0]}.log")) {
+						unset($serialized[$cn]);
+					}
 				}
 			}
 		}
-	}
-		
-		
-		if (isset($_GET['del'])) {
-			$del=(int)$_GET['del'];
+
+
+		if (isset($WebMS['URLArray'][2]) && $WebMS['URLArray'][2]=="Del" && isset($WebMS['URLArray'][3])) {
+			$del=(int)$WebMS['URLArray'][3];
 			if (file_exists("{$WebMS["IncPath"]}errors/{$del}.log")) {
 				unlink("{$WebMS["IncPath"]}errors/{$del}.log");
 			}
 		}
-		
-		if (isset($_GET['err'])) {
+
+      if (isset($WebMS['URLArray'][2]) && $WebMS['URLArray'][2]=="Print" && isset($WebMS['URLArray'][3])) {
+         //lose the buffer
+			$handlers = ob_list_handlers();
+			while ( ! empty($handlers) )    {
+			    ob_end_clean();
+			    $handlers = ob_list_handlers();
+			}
+			ob_start();
+			echo'<html><head>
+			<style>
+			td {
+				border-bottom:1px solid black;
+			}
+			table {
+				border-spacing:0px;
+				padding:3px;
+				width:100%;
+			}
+			</style>
+			</head><body>
+			';
 			//Load error viewer
-			$err=(int)$_GET['err'];
-			
+			$err=(int)$WebMS['URLArray'][3];
+			ShowError("{$WebMS["IncPath"]}errors/{$err}.log",$err);
+			$cont= ob_get_contents();
+			ob_end_clean();
+			echo $cont;
+			echo '
+         <script type="text/javascript" language="javascript">
+            document.getElementById("WEBMS_LOG_VAR").style.display="block";
+            document.getElementById("REQUEST_LOG_VAR").style.display="block";
+            document.getElementById("AHREF1").innerHTML="";
+            document.getElementById("AHREF2").innerHTML="";
+            window.print();
+			</script>
+			</body></html>';
+			exit;
+		} else if (isset($WebMS['URLArray'][2]) && $WebMS['URLArray'][2]=="Show" && isset($WebMS['URLArray'][3])) {
+			//Load error viewer
+			$err=(int)$WebMS['URLArray'][3];
+
 			ShowError("{$WebMS["IncPath"]}errors/{$err}.log",$err);
 		} else {
 			//load list of errors
@@ -57,32 +94,35 @@ class ErrorLog extends Module {
 			$efiles=GetFiles($logpath);
 			unset($efiles["errors.log"]);
 			sort($efiles);
-			
+
 			//read sort
 			$sort=0;
-			if (isset($_GET['sort']))
-			$sort=(int)$_GET['sort'];
+			if (isset($WebMS['URLArray'][5]))
+			$sort=(int)$WebMS['URLArray'][5];
 			if ($sort==1) {
 				asort($efiles,SORT_NUMERIC);
 			} else {
 				arsort($efiles,SORT_NUMERIC);
 			}
-			
+
 			//check there are some errors
 			if (count($efiles)) {
 				//How many errors per page?
 				$errperpage=10;
-				
-				
-				if (isset($_GET['errpage'])) {
-					$errpage=(int)$_GET['errpage'];
+
+
+				if (isset($WebMS['URLArray'][4])) {
+					$errpage=(int)$WebMS['URLArray'][4];
+					if ($errpage==0) {
+						$errpage=1;
+					}
 				} else {
 					$errpage=1;
 				}
-				
+
 				//Begin the table
 				MakeHeader($errpage, $errperpage, $efiles);
-				
+
 				//run through each error file
 				$foreachcnt=0;
 				$datarray=array();
@@ -104,7 +144,7 @@ class ErrorLog extends Module {
 							$str1=fread($fh,3);
 							$headerlength=fread($fh,3);
 							$header=$str1.$headerlength.fread($fh,(int)$headerlength-6);
-							
+
 							//chop and grab the header infirmation
 							if (preg_match("/\H\{\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\}/",$header,$head)) {
 								//header was read successfully
@@ -115,20 +155,20 @@ class ErrorLog extends Module {
 								//TODO provoke error handler
 								echo 'There was an error loading the header data!';
 							}
-							
+
 						} else {
 							echo 'File was empty?';
 						}
 					}
 				}
-				
+
 				//apply sorting to array
-				
+
 				//display errors
 				foreach ($datarray as $i) {
 					ListError($i[1],1,$i[0]);
 				}
-				
+
 				//End the table
 				ListError(null,2,null);
 			} else {
@@ -139,18 +179,16 @@ class ErrorLog extends Module {
 }
 	
 $page->add("ErrorLog");
-
 function MakeHeader($errpage, $errperpage, $efiles) {
 	global $WebMS;
 	
 	$sort=0;
-	if (isset($_GET['sort']))
-	$sort=(int)$_GET['sort'];
-	
+	if (isset($WebMS['URLArray'][5]))
+	$sort=(int)$WebMS['URLArray'][5];
 	
 	//Start table
 	?>
-		<table class="tbl" cellspacing=0 cellpadding=4>
+		<table style="width:100%" class="tbl" cellspacing=0 cellpadding=4>
 		<tr>
 			<td class="main" align="center">
 				<b>-</b>
@@ -166,17 +204,17 @@ function MakeHeader($errpage, $errperpage, $efiles) {
 					if ($sort==1) {
 						//sort ascending
 						?>
-						<a href="?Admin.ErrorLog&amp;sort=2"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortup.png" border="0" style="vertical-align:middle"></a>
+						<a href="<?=url(array('*','*','*','*','*','2')); ?>"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortup.png" border="0" style="vertical-align:middle"></a>
 						<?php
 					} else if ($sort==2) {
 						//sort descending
 						?>
-						<a href="?Admin.ErrorLog&amp;sort=1"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortdown.png" border="0" style="vertical-align:middle"></a>
+						<a href="<?=url(array('*','*','*','*','*','1')); ?>"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortdown.png" border="0" style="vertical-align:middle"></a>
 						<?php
 					} else {
 						//no sorting :(
 						?>
-						<a href="?Admin.ErrorLog&amp;sort=1"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortdown.png" border="0" style="vertical-align:middle"></a>
+						<a href="<?=url(array('*','*','*','*','*','1')); ?>"><img src="<?=$WebMS['AdminUrl'] ?>icons/sortdown.png" border="0" style="vertical-align:middle"></a>
 						<?php
 					}
 				?>
@@ -203,7 +241,7 @@ function MakeHeader($errpage, $errperpage, $efiles) {
 					if ($errpage==$current) {
 						echo "$current ";
 					} else {
-						echo "<a href='?Admin.ErrorLog&amp;errpage={$current}'>{$current}</a> ";
+						echo "<a href='".url(array('*','*','*','*',$current,'*'))."'>{$current}</a> ";
 					}
 				}
 			?>
@@ -229,16 +267,22 @@ function ListError($head,$mode=1,$file) {
 		$file=explode('.',$file);
 		$file=$file[0];
 		?>
-			<tr onMouseOver="this.className='highlight'" onMouseOut="this.className=''" onClick="window.location = '?Admin.ErrorLog&amp;err=<?=$file ?>'">
+			<tr onMouseOver="this.className='highlight'" onMouseOut="this.className=''" onClick="window.location = '<?=url(array('*','*','Show',$file)); ?>'">
 				<td align="center">
 					<img src='<?=$WebMS['CoreUrl'] ?>Images/error<?=$errid ?>.png' border='0' alt='[<?=$errid ?>]' title='<?=$errstr ?>' style='padding-right:5px;vertical-align:center' \>
 				</td>
-				<td style="padding-right:20px">
-					<?=$head[2] ?>
-				</td>
-				<td style="padding-right:20px">
+				<td style="padding-right:20px;">
 					<?php
-					$filesplit=explode("\\",$head[4]);
+						$strstg2 = preg_replace( "/([^\n\r \.,]{5})/i" , '$1<span style="font-size:1px"> </span>', $head[2] );
+          			echo $strstg2
+					?>
+				</td>
+				<td style="padding-right:20px;">
+					<?php
+					$filesplit=explode("/",$head[4]);
+					if (count($filesplit)==1) {
+            $filesplit=explode("\\",$head[4]);
+          }
 					echo $filesplit[count($filesplit)-1];
 					?>
 				</td>
@@ -246,7 +290,7 @@ function ListError($head,$mode=1,$file) {
 					<?=$head[6]; ?>
 				</td>
 				<td>
-					<a href="?Admin.ErrorLog&amp;del=<?=$file ?>"><img src="<?=$WebMS['AdminUrl'] ?>icons/button_cancel.png" border="0"></a>
+					<a href="<?=url(array("*","*","Print",$file)) ?>"><img src='<?=$WebMS['CoreUrl'] ?>Images/print.png' border='0' alt='Print' title='Print this error' \></a> <a href="<?=url(array('*','*','Del',$file)); ?>"><img src="<?=$WebMS['AdminUrl'] ?>icons/button_cancel.png" alt="Delete" title="Delete this error" border="0"></a>
 				</td>
 			</tr>
 		<?

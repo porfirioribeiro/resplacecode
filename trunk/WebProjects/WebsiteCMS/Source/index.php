@@ -10,6 +10,7 @@
 
 //start collecting the output
 session_start();
+ini_set('implicit_flush',false);
 ob_start();
 
 include_once("OpenWebMS/config.php");
@@ -114,7 +115,7 @@ if ($WebMS["URLFormat"]=="CleanDots") {
 			$WebMS["URLPage"]=$WebMS["URLArray"][0];
 			$WebMS["URLCat"]=$WebMS["URLArray"][1];
 			include $pages.$WebMS["URLArray"][0]."/".$WebMS["URLArray"][1].".php";
-		} else if (is_file($pages.$WebMS["URLArray"][0].".php")) {	
+		} else if (is_file($pages.$WebMS["URLArray"][0].".php")) {
 			//include a page
 			$WebMS["URLPage"]=$WebMS["URLArray"][0];
 			include $pages.$WebMS["URLArray"][0].".php";
@@ -134,13 +135,11 @@ if ($WebMS["URLFormat"]=="CleanDots") {
 		}
 	}
 }
-
+//trigger_error("Cannot divide by zero", E_USER_ERROR);
 //grab all the collected HTML then output it.
 $cont= ob_get_contents();
 ob_end_clean();
 echo $cont;
-
-
 
 function url($arr=null) {
 	global $WebMS;
@@ -160,7 +159,12 @@ function url($arr=null) {
 					if (!$i==0)
 						$frm.=".";
 					if ($arr[$i]=="*")
-						$arr[$i]=$WebMS["URLArray"][$i];
+					   if (isset($WebMS["URLArray"][$i])) {
+                     $arr[$i]=$WebMS["URLArray"][$i];
+						} else {
+							$arr[$i]='';
+						}
+						
 				   	$frm.=$arr[$i];
 				}
 			}
