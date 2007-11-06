@@ -18,10 +18,12 @@ class Module{
 	 * @var WebMS
 	 */
 	var $page=null;
-	var $title="Def Title";
+	var $title="";
 	var $side=Module::CENTER;
 	var $collapseAble=true;
 	var $minimizeAble=true;
+	var $heading=true;
+	//TODO auto show/hiding
 	
 	/**
 	 * Creates a module, this function is mostly called internal
