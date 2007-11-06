@@ -38,7 +38,10 @@ class ErrorLog extends Module {
 			}
 		}
 
-
+      if (isset($WebMS['URLArray'][2]) && $WebMS['URLArray'][2]=="ThisOne") {
+         trigger_error("oooops! This one we missed! (Test Error)",E_USER_NOTICE);
+      }
+      
 		if (isset($WebMS['URLArray'][2]) && $WebMS['URLArray'][2]=="Del" && isset($WebMS['URLArray'][3])) {
 			$del=(int)$WebMS['URLArray'][3];
 			if (file_exists("{$WebMS["IncPath"]}errors/{$del}.log")) {
@@ -108,7 +111,7 @@ class ErrorLog extends Module {
 			//check there are some errors
 			if (count($efiles)) {
 				//How many errors per page?
-				$errperpage=10;
+				$errperpage=20;
 
 
 				if (isset($WebMS['URLArray'][4])) {
@@ -131,10 +134,10 @@ class ErrorLog extends Module {
 					//start/end at
 					if ($errpage==1) {
 						$estart=1;
-						$eend=10;
+						$eend=$errperpage;
 					} else {
-						$estart=$errperpage*($errpage-1)+($errpage-1);
-						$eend=$errperpage*$errpage+($errpage-1);
+						$estart=($errperpage*$errpage)-($errperpage-1);
+						$eend=($errperpage*$errpage);
 					}
 
 					if ($foreachcnt>=$estart && $foreachcnt<=$eend) {
@@ -152,12 +155,14 @@ class ErrorLog extends Module {
 								$datarray[]=array($file,$head);
 								//ListError($head,1,$file);
 							} else {
-								//TODO provoke error handler
-								echo 'There was an error loading the header data!';
+								trigger_error("An error log file could not be read correctly at: ".$logpath.$file,E_WARNING);
+								//unset($logpath.$file);
 							}
 
 						} else {
-							echo 'File was empty?';
+							trigger_error("An error log file was found empty and has been deleted",E_WARNING);
+							$wtf=$logpath.$file;
+							unset($wtf);
 						}
 					}
 				}
@@ -172,7 +177,7 @@ class ErrorLog extends Module {
 				//End the table
 				ListError(null,2,null);
 			} else {
-				echo'No Errors!';
+				echo'Well fortunately there are no errors to list... Oh did we forget <a href="'.url(array("*","*","ThisOne")).'">this one</a>?';
 			}
 		}
 	}
