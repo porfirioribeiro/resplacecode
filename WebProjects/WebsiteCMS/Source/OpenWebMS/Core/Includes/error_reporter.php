@@ -113,11 +113,11 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 		
 		//echo error
 		//load the error
- 		//TODO please fix the JS error :s
  		echo'<html>
  		<head>
  			<link rel="stylesheet" href="'.$WebMS["CoreUrl"].'Styles/ErrorReporter.css" type="text/css">
- 		</head>
+			<script src="'.$WebMS["JSUrl"].'prototype.js" type="text/javascript" language="JavaScript"></script>
+		</head>
  		<body style="background-color:#F7EEBA">
  		<div class="ErrorO">
 		<div class="Title"><div class="modefloat">Debug Mode</div>
@@ -442,7 +442,7 @@ function errorSeverity($errno) {
 	        break;
 	
 	    default:
-	        return array(1,"UNKNOWN ERROR");
+	        return array(4,"UNKNOWN ERROR");
 	        break;
 	}
 }

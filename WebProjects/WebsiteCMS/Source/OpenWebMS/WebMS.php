@@ -204,28 +204,28 @@ class WebMS{
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
-    <meta http-equiv="content-type" content="<?=$this->content_type; ?>">
-    <meta name="generator" content="PSPad+Aptana+ZendStudio+Eclipse+Notepad2">
-    <meta name="description" content="<?php echo $this->description; ?>">
-    <meta name="keywords" content="<?php echo $this->keywords; ?>">
-    <link rel="shortcut icon" href="<?php echo $WebMS["WebMSUrl"].'/'.$this->favicon; ?>">
-    <?php
-    foreach ($this->Metas as $key=>$meta) {
-    	$str="";
+   <meta http-equiv="content-type" content="<?=$this->content_type; ?>">
+   <meta name="generator" content="PSPad+Aptana+ZendStudio+Eclipse+Notepad2">
+   <meta name="description" content="<?php echo $this->description; ?>">
+   <meta name="keywords" content="<?php echo $this->keywords; ?>">
+   <link rel="shortcut icon" href="<?php echo $WebMS["WebMSUrl"].'/'.$this->favicon; ?>">
+   <?php
+   foreach ($this->Metas as $key=>$meta) {
+		$str="";
     	foreach ($meta as $key=>$value){
     		$str.=' '.$key.'="'.$value.'"';
-    	}
+   	}
     	echo "<meta".$str.">"."\n";
-    }
-    foreach ($this->RSS as $key=>$value) {
+   }
+   foreach ($this->RSS as $key=>$value) {
     	echo '    <link rel="alternate" type="application/rss+xml" title="'.$value["title"].'" href="'.$value["href"].'">'."\n";
-    }
-    ?>
-    <?php
-    foreach ($this->CSS_files as $key=>$value) {
-    	echo '<link rel="stylesheet" href="'.$value.'" type="text/css">'."\n";
-    }
-    ?>
+   }
+   ?>
+   <?php
+   foreach ($this->CSS_files as $key=>$value) {
+   	echo '<link rel="stylesheet" href="'.$value.'" type="text/css">'."\n";
+   }
+   ?>
 	<script type="text/javascript" language="javascript">
 		var htcpath="<?=$WebMS['JSPath']; ?>";
 		var WebMS_JS_URL="<?=$WebMS['JSUrl']; ?>";
