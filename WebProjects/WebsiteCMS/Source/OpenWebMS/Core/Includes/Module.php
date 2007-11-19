@@ -18,11 +18,17 @@ class Module{
 	 * @var WebMS
 	 */
 	var $page=null;
-	var $title="";
+	var $title=null;
 	var $side=Module::CENTER;
-	var $collapseAble=true;
-	var $minimizeAble=true;
-	var $heading=true;
+	var $collapsed=false;
+	var $allowminimize=true;
+	var $titled=true;
+	var $automated=false;
+	var $timingshow=null;
+	var $timinghide=null;
+	var $moduleid=null;
+	
+	
 	//TODO auto show/hiding
 	
 	/**
@@ -40,46 +46,100 @@ class Module{
 		$this->contentS=$s;
 	}
 	function write(){
+		if ($this->title==null) {
+			$this->title='Untitled_'.mt_rand(1111,9999);
+		}
 		$module="MODULE_".preg_replace("/\W*/","",$this->title);
 		$minTitle=preg_replace("/[^a-z0-9_+& ]*/i","",$this->title);
-		$p=$this->page;
+  		$p=$this->page;
 		ob_start();
 		$this->content();
 		$content=ob_get_contents();
-		ob_end_clean();
-		$data=array(
-			"title"=>$this->title,
-			"id"=>$module,
-			"cookie"=>$module."_Cookie",
-			"collapsed" =>(isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")),
-			"content" =>$content
-		);		
+		ob_end_clean();		
 		$modcont=null;
 		$tpl=$p->moduleTpl;
+        //new
+        //Get TPL template
+        switch ($this->side) {
+          case Module::TOP:
+            $this->TPLt="T";
+            break;
+          case Module::LEFT:
+            $this->TPLt="L";
+            break;
+          case Module::CENTER:
+            $this->TPLt="C";
+            break;
+          case Module::RIGHT:
+            $this->TPLt="R";
+            break;
+          case Module::BOTTOM:
+            $this->TPLt="B";
+            break;
+          default:
+            $this->TPLt="D";
+            break; 
+        }
+        
+        //titled or untitled?
+        if ($this->titled==true) {
+          $data=array(
+      			"title"=>$this->title,
+      			"id"=>$module,
+      			"cookie"=>$module."_Cookie",
+      			"collapsed" =>((isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")) || ($this->collapsed==true)),
+      			"content" =>$content
+      		);  
+          
+          $this->TPLd="Titled".$this->TPLt;
+          if (!$tpl->isPart($this->TPLd)) {
+            $this->TPLd="TitledD";
+          }
+        } else {
+          $data=array(
+      			"title"=>$this->title,
+      			"id"=>$module,
+      			"cookie"=>$module."_Cookie",
+      			"collapsed" =>((isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")) || ($this->collapsed==true)),
+      			"content" =>$content
+      		);
+      		
+          $this->TPLd="Untitled".$this->TPLt;
+          if (!$tpl->isPart($this->TPLd)) {
+            $this->TPLd="UntitledD";
+          }
+        }
+        
+        //Call template
+        $modcont=$tpl->get($this->TPLd)->evaluate($data);
+
+        //old
+        /*
         if ($this->side==Module::LEFT){
         	if ($tpl->isPart("left")){
-        		$modcont=$tpl->get("left")->evaluate($data); 
-        	}	                 
-        }elseif ($this->side==Module::CENTER){  
+        		$modcont=$tpl->get("left")->evaluate($data);
+        	}
+        }elseif ($this->side==Module::CENTER){
         	if ($tpl->isPart("center")){
-        		$modcont=$tpl->get("center")->evaluate($data); 
-        	} 	      	
-        }elseif ($this->side==Module::TOP){  
+        		$modcont=$tpl->get("center")->evaluate($data);
+        	}
+        }elseif ($this->side==Module::TOP){
         	if ($tpl->isPart("top")){
-        		$modcont=$tpl->get("top")->evaluate($data); 
-        	}   	
-        }elseif ($this->side==Module::BOTTOM){  
+        		$modcont=$tpl->get("top")->evaluate($data);
+        	}
+        }elseif ($this->side==Module::BOTTOM){
         	if ($tpl->isPart("bottom")){
-        		$modcont=$tpl->get("bottom")->evaluate($data); 
-        	}    	
-        }elseif ($this->side==Module::RIGHT){        
+        		$modcont=$tpl->get("bottom")->evaluate($data);
+        	}
+        }elseif ($this->side==Module::RIGHT){
         	if ($tpl->isPart("right")){
-        		$modcont=$tpl->get("right")->evaluate($data); 
-        	}	   
+        		$modcont=$tpl->get("right")->evaluate($data);
+        	}
         }
 		if ($modcont==null){
 			$modcont=$tpl->get("default")->evaluate($data);
 		}
+		*/
 		echo $modcont;
 		$this->finish();
 	}
