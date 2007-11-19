@@ -109,11 +109,11 @@ class WebMS{
 		}
 		$this->id=$tid;
 		
-	    $this->id=str_replace(array("/","\\","-"," ","."),"_",$this->id);
-	    $this->path=$_path;
-	    $this->themespath=$this->path.$this->themespath;
-	    $this->modulespath=$this->path.$this->modulespath;
-	    $this->functionspath=$this->path.$this->functionspath;
+	   $this->id=str_replace(array("/","\\","-"," ","."),"_",$this->id);
+	   $this->path=$_path;
+	   $this->themespath=$this->path.$this->themespath;
+	   $this->modulespath=$this->path.$this->modulespath;
+	   $this->functionspath=$this->path.$this->functionspath;
 		$this->corepath=$this->path.$this->corepath;
 //	    $this->libpath=$this->path.$this->libpath;
 //	    $this->stylepath=$this->path.$this->stylepath;
@@ -125,9 +125,9 @@ class WebMS{
 		$_css=GetFiles($WebMS["CorePath"]."Styles/","*.css");
 		
 
-	    foreach ($_css as $_c){
-	      $this->addCSS($WebMS["CoreUrl"]."Styles/".$_c);
-	    }
+	   foreach ($_css as $_c){
+			$this->addCSS($WebMS["CoreUrl"]."Styles/".$_c);
+	   }
 		
 	    //LOAD DEFAULTS
 		$this->addJS("prototype.js");	
@@ -429,19 +429,109 @@ class WebMS{
 </html>
     <?php
 	}
-	function addF($fn,$title,$side=Module::CENTER ,$pos="bottom"){		
+	
+	function addModule($in,$title,$side=null,$allowminimized=true,$collapsed=false,$titled=true,$automated=false,$timingshow=null,$timinghide=null,$pos="bottom"){
+		if (is_object($in)) {
+	   	//this is an object
+	   	$mod=$in;
+		} else if (class_exists($in) && is_subclass_of($in,"Module")) {
+			$mod=new $in($this);
+		} else if (function_exists($in)) {
+			//this is a function
+			$mod=new Module($this);
+			$mod->addContent($in);
+		} else {
+			$m=$this->findFilesOnPath($this->modulesSearchPath,$in.".php");
+			if ($m!=null) {
+				include_once $m;
+				$mod=new $in($this);
+			} else {
+				//this must be a string...
+				$mod=new Module($this);
+				$mod->setContentS($in);
+			}
+		}
+
+      if (!$title==null) {
+			$mod->title=$title;
+		}
+		$mod->allowminimized=$allowminimized;
+		$mod->collapsed=$collapsed;
+		$mod->titled=$titled;
+		$mod->automated=$automated;
+		$mod->timingshow=$timingshow;
+		$mod->timinghide=$timinghide;
+		
+		if (!$side){
+			$side=$mod->side;
+		}else{
+			$mod->side=$side;
+		}
+		switch ($side) {
+			case Module::TOP:
+				if ($pos==Module::BOTTOM){
+					array_push($this->ModulesTop,$mod);
+				}else if ($pos==Module::TOP){
+					array_unshift($this->ModulesTop,$mod);
+				}
+			break;
+			case Module::LEFT:
+				if ($pos==Module::BOTTOM){
+					array_push($this->ModulesLeft,$mod);
+				}else if ($pos==Module::TOP){
+					array_unshift($this->ModulesLeft,$mod);
+				}
+			break;
+			case Module::CENTER:
+				if ($pos==Module::BOTTOM){
+					array_push($this->ModulesCenter,$mod);
+				}else if ($pos==Module::TOP){
+					array_unshift($this->ModulesCenter,$mod);
+				}
+			break;
+			case Module::RIGHT:
+				if ($pos==Module::BOTTOM){
+					array_push($this->ModulesRight,$mod);
+				}else if ($pos==Module::TOP){
+					array_unshift($this->ModulesRight,$mod);
+				}
+			break;
+			case Module::BOTTOM:
+				if ($pos==Module::BOTTOM){
+					array_push($this->ModulesBottom,$mod);
+				}else if ($pos==Module::TOP){
+					array_unshift($this->ModulesBottom,$mod);
+				}
+			break;
+		}
+  }
+  
+  
+  function addF($fn,$title,$side=Module::CENTER,$allowminimized=true,$collapsed=false,$titled=true,$automated=false,$timingshow=null,$timinghide=null,$pos="bottom"){
 		$mod=new Module($this);
 		$mod->addContent($fn);
 		$mod->title=$title;
+		$mod->allowminimized=$allowminimized;
+		$mod->collapsed=$collapsed;
+		$mod->titled=$titled;
+		$mod->automated=$automated;
+		$mod->timingshow=$timingshow;
+		$mod->timinghide=$timinghide;
 		$this->add($mod,$side,$pos);
 	}
-	function addS($s,$title,$side=Module::CENTER ,$pos="bottom"){		
+	function addS($s,$title,$side=Module::CENTER,$allowminimized=true,$collapsed=false,$titled=true,$automated=false,$timingshow=null,$timinghide=null,$pos="bottom"){
 		$mod=new Module($this);
 		$mod->setContentS($s);
 		$mod->title=$title;
+		$mod->allowminimized=$allowminimized;
+		$mod->collapsed=$collapsed;
+		$mod->titled=$titled;
+		$mod->automated=$automated;
+		$mod->timingshow=$timingshow;
+		$mod->timinghide=$timinghide;
 		$this->add($mod,$side,$pos);
 	}
-	function add($mod,$side=null,$pos="bottom"){	
+	function add($mod,$side=null,$allowminimized=true,$collapsed=false,$titled=true,$automated=false,$timingshow=null,$timinghide=null,$pos="bottom"){
 		if (is_object($mod)){
 			$modl=$mod;
 		}else if (class_exists($mod) && is_subclass_of($mod,"Module")){
@@ -452,7 +542,14 @@ class WebMS{
 				include_once $m;
 				$modl=new $mod($this);	
 			}
-		}		
+		}
+		$modl->allowminimized=$allowminimized;
+		$modl->collapsed=$collapsed;
+		$modl->titled=$titled;
+		$modl->automated=$automated;
+		$modl->timingshow=$timingshow;
+		$modl->timinghide=$timinghide;
+
 		if (!$side){
 			$side=$modl->side;
 		}else{

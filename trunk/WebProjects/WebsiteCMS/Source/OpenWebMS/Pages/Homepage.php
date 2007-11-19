@@ -18,8 +18,8 @@ $page->addMeta(array('name' => 'keywords','content' => 'resplace,cms,website'));
 
 
 //begin adding modules...
-$page->add("Menu");
-$page->add("PageRate");
+$page->addModule("Menu",null,Module::LEFT,true,false,false);
+$page->addModule("PageRate");
 
 class internalHtml extends Module {
 	function internalHtml($page){
@@ -70,17 +70,17 @@ function bop($mod){
 	Some content on bottom ;)
 	<?php
 }
-$page->add("internalHtml");
-$page->addF("top","on da top",Module::TOP);
-$page->addF("bop","on da bott",Module::BOTTOM);
-$page->add("SkinChanger",Module::RIGHT);
-$page->add("Lfp");
+$page->addModule("internalHtml");
+$page->addModule("top","on da top",Module::TOP);
+$page->addModule("bop","on da bott",Module::BOTTOM);
+$page->addModule("SkinChanger",null,Module::RIGHT,Module::BOTTOM,true,true);
+$page->addModule("Lfp");
 //$page->add("Box");
-$page->addF("someContent","Create function method");
+$page->addModule("someContent","Create function method");
 
 
 $AbsRootPath=preg_replace("/\\\/","/",dirname(__FILE__));
 $RootPath=str_replace($_SERVER["DOCUMENT_ROOT"], "", $AbsRootPath);
-$page->addS($_SERVER['SERVER_ADMIN'].$_SERVER['HTTP_HOST'],"With string method");
+$page->addModule($_SERVER['SERVER_ADMIN'].$_SERVER['HTTP_HOST'],"With string method");
 $page->create();
 ?>

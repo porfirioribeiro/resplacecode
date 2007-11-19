@@ -1,6 +1,6 @@
 #{start:module}
-	#{start:default}
-		<div id="#{id}" class="Module">                  
+  #{start:TitledD}
+    <div id="#{id}" class="Module">                  
 	        <div class="modules_title">      	
 			    <div style="float:right" id="#{id}_right_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
 				<div class="TitleText">#{title}</div>                        
@@ -10,34 +10,17 @@
 					#{content}
 				</div>
 			</div>	
-		</div> 			
-	#{end:default}		
-	#{start:left}	
-		<div id="#{id}" class="Module">                  
-	        <div class="modules_title">      	
-			    <div style="float:right" id="#{id}_right_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
-				<div class="TitleText">#{title}</div>                        
-	        </div>	       
+		</div> 
+  #{end:TitledD}
+  #{start:UntitledD}
+    <div id="#{id}" class="Module">    
 			<div class="modules_content" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
 				<div class="BoxContent">
 					#{content}
 				</div>
 			</div>	
-		</div> 	
-	#{end:left}	
-	#{start:right}	
-		<div id="#{id}" class="Module">                  
-	        <div class="modules_title">      	
-			    <div style="float:right" id="#{id}_left_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
-				<div class="TitleText">#{title}</div>                        
-	        </div>	       
-			<div class="modules_content" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
-				<div class="BoxContent">
-					#{content}
-				</div>
-			</div>	
-		</div> 	
-	#{end:right}
+		</div> 
+  #{end:UntitledD}
 #{end:module}
 
 #{start:page}	
