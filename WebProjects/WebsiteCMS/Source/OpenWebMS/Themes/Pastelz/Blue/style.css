@@ -124,12 +124,24 @@ td.sub {
 	border-right:0px;
 }
 
-/*??*/
+/*The Div that goes around the minimze icon in modules with a title*/
 .SmallIcon{
 	/*IE 5-6 fix */
 	font-size:1px;
 
 	margin-top:3px;
+	width:11px;
+	height:11px;
+	cursor:pointer;
+}
+
+/*The Div that goes around the minimze icon in modules without a title*/
+.SmallIcon2{
+	/*IE 5-6 fix */
+	font-size:1px;
+
+	margin-top:5px;
+	margin-right:5px;
 	width:11px;
 	height:11px;
 	cursor:pointer;
@@ -142,8 +154,6 @@ td.sub {
 .UnCollapseIcon{
 	background-image:URL(Images/collapsed.png);
 }
-
-
 
 /*Table Styles*/
 #LeftColumn {

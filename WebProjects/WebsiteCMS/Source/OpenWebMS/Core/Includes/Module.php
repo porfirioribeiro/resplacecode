@@ -20,13 +20,14 @@ class Module{
 	var $page=null;
 	var $title=null;
 	var $side=Module::CENTER;
-	var $collapsed=false;
-	var $allowminimize=true;
-	var $titled=true;
+	var $Collapsed=false;
+	var $ShowMinimize=true;
+	var $ShowTitle=true;
 	var $automated=false;
 	var $timingshow=null;
 	var $timinghide=null;
 	var $moduleid=null;
+	var $UseTPL=true;
 	
 	
 	//TODO auto show/hiding
@@ -82,50 +83,59 @@ class Module{
 				$this->TPLt="D";
 				break;
 		}
-        
-		//show minimizer or not?
-		$minimizecode="";
-  if ($this->allowminimize) {
-		   if ((isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")) || ($this->collapsed==true)) {
-				$mdd="CollapseIcon";
-			} else {
-				$mdd="UnCollapseIcon";
+
+
+		//Use template?
+		if ($this->UseTPL) {
+			//show minimizer or not?
+			$minimizecode="";
+			if ($this->ShowMinimize) {
+			   if ($this->ShowTitle) {
+			      $stylz="SmallIcon";
+			   } else {
+			      $stylz="SmallIcon2";
+				}
+			   if ((isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")) || ($this->Collapsed==true)) {
+					$mdd="CollapseIcon";
+				} else {
+					$mdd="UnCollapseIcon";
+				}
+				$minimizecode="<div style=\"float:right\" id=\"{$module}_icon\" class=\"{$stylz} {$mdd}\" onclick=\"collapseToogle(this,'{$module}','{$module}_Cookie')\"></div>";
 			}
-			$minimizecode="<div style=\"float:right\" id=\"{$module}_right_icon\" class=\"SmallIcon {$mdd}\" onclick=\"collapseToogle(this,'{$module}','{$module}_Cookie')\"></div>";
-		}
-        //titled or untitled?
-        if ($this->titled) {
-          $data=array(
-      			"title"=>$this->title,
-      			"id"=>$module,
-      			"cookie"=>$module."_Cookie",
-      			"minimizer"=>$minimizecode,
-      			"collapsed" =>((isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")) || ($this->collapsed==true)),
-      			"content" =>$content
-      		);  
-          
-          $this->TPLd="Titled".$this->TPLt;
-          if (!$tpl->isPart($this->TPLd)) {
-            $this->TPLd="TitledD";
-          }
-        } else {
-          $data=array(
-      			"title"=>$this->title,
-      			"id"=>$module,
-      			"cookie"=>$module."_Cookie",
-      			"minimizer"=>$minimizecode,
-      			"collapsed" =>((isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")) || ($this->collapsed==true)),
-      			"content" =>$content
-      		);
-      		
-          $this->TPLd="Untitled".$this->TPLt;
-          if (!$tpl->isPart($this->TPLd)) {
-            $this->TPLd="UntitledD";
-          }
-        }
-        
-        //Call template
-        $modcont=$tpl->get($this->TPLd)->evaluate($data);
+	      //titled or untitled?
+	      if ($this->ShowTitle) {
+	         $data=array(
+	      		"title"=>$this->title,
+	      		"id"=>$module,
+	      		"cookie"=>$module."_Cookie",
+	      		"minimizer"=>$minimizecode,
+	      		"collapsed" =>((isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")) || ($this->Collapsed==true)),
+	      		"content" =>$content
+	      		);
+
+	         $this->TPLd="Titled".$this->TPLt;
+	         if (!$tpl->isPart($this->TPLd)) {
+	         	$this->TPLd="TitledD";
+	         }
+	      } else {
+	         $data=array(
+	      		"title"=>$this->title,
+	      		"id"=>$module,
+	      		"cookie"=>$module."_Cookie",
+	      		"minimizer"=>$minimizecode,
+	      		"collapsed" =>((isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")) || ($this->Collapsed==true)),
+	      		"content" =>$content
+	      		);
+
+	         $this->TPLd="Untitled".$this->TPLt;
+	         if (!$tpl->isPart($this->TPLd)) {
+	         	$this->TPLd="UntitledD";
+	         }
+	      }
+
+	      //Call template
+	      $modcont=$tpl->get($this->TPLd)->evaluate($data);
+	 }
 
         //old
         /*

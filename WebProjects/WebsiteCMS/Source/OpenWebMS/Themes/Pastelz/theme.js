@@ -1,28 +1,22 @@
 
 function collapseToogle(el,module,cookie){
-	var hLeft=$(module+"_left_icon");
-	var hRight=$(module+"_right_icon");
+	var MIcon=$(module+"_icon");
+
 	var moduleEl=$(module+"_container");
 	/* Small workaround for make you not be able to collapse while colapsing ;)*/
 	if (!moduleEl["___collapsing__"]){
 		moduleEl["___collapsing__"]=true;
 		Effect.toggle(moduleEl,"slide",{
 			afterFinish:function(){
-				moduleEl["___collapsing__"]=false;					
+				moduleEl["___collapsing__"]=false;
 			}
 		});
-		if (hLeft){
-			Effect.Fade(hLeft,{duration:0.5,to:0.1,afterFinish:function(){
-				hLeft.toggleClasseNameWith("CollapseIcon","UnCollapseIcon");
-				Effect.Appear(hLeft,{duration:0.5});
+		if (MIcon){
+			Effect.Fade(MIcon,{duration:0.5,to:0.1,afterFinish:function(){
+			   Effect.Appear(MIcon,{duration:0.5});
+				MIcon.toggleClasseNameWith("CollapseIcon","UnCollapseIcon");
 			}});
 		}
-		if (hRight){
-			Effect.Fade(hRight,{duration:0.5,to:0.1,afterFinish:function(){
-				hRight.toggleClasseNameWith("CollapseIcon","UnCollapseIcon");
-				Effect.Appear(hRight,{duration:0.5});		
-			}});		
-		}	
 		
 		Cookie.Write(cookie,moduleEl.visible());	
 	}else{
