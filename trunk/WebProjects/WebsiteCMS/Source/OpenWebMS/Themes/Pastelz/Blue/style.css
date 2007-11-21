@@ -60,7 +60,7 @@ td.sub {
 	}
 
 /* module title on the left top bottom and right */
-.modules_title {
+.ModuleTitle {
 	text-align: left;
 	background-color: #6581DA;
 	background-image: url(Images/module_title_bg.png);
@@ -71,24 +71,23 @@ td.sub {
 	padding-right: 4px;
 }
 
+/*box within each module */
+.ModuleBox{
+	padding:4px;
+	margin-top:0px;
+	margin-bottom:4px;
+}
+
 /* module content on the left top bottom and right */
-.modules_content {
+.ModuleContent {
 	background-color:#C0CAEB;
 	border:1px solid #264CC6;
-	border-top:0px;
 	margin-top:0px;
 	text-align:left;
 }
 
 .BoxContent {
 	padding:4px;
-}
-
-/*box within each module */
-.Module{
-	padding:4px;
-	margin-top:0px;
-	margin-bottom:4px;
 }
 
 /* The main title image */

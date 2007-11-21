@@ -1,11 +1,11 @@
 #{start:module}
   #{start:TitledD}
-    <div id="#{id}" class="Module">                  
-	        <div class="modules_title">      	
-			    <div style="float:right" id="#{id}_right_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
-				<div class="TitleText">#{title}</div>                        
+    <div id="#{id}" class="ModuleBox">
+	        <div class="ModuleTitle">
+				#{minimizer}
+				<div class="TitleText">#{title}</div>
 	        </div>	       
-			<div class="modules_content" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
+			<div class="ModuleContent" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
 				<div class="BoxContent">
 					#{content}
 				</div>
@@ -13,8 +13,9 @@
 		</div> 
   #{end:TitledD}
   #{start:UntitledD}
-    <div id="#{id}" class="Module">    
-			<div class="modules_content" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
+	#{minimizer}
+    <div id="#{id}" class="ModuleBox">
+			<div class="ModuleContent" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
 				<div class="BoxContent">
 					#{content}
 				</div>
