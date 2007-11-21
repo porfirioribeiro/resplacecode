@@ -430,7 +430,7 @@ class WebMS{
     <?php
 	}
 	
-	function addModule($in,$title,$side=null,$allowminimized=true,$collapsed=false,$titled=true,$automated=false,$timingshow=null,$timinghide=null,$pos="bottom"){
+	function addModule($in,$title,$side=null,$ShowMinimize=true,$Collapsed=false,$ShowTitle=true,$automated=false,$timingshow=null,$timinghide=null,$pos="bottom"){
 		if (is_object($in)) {
 	   	//this is an object
 	   	$mod=$in;
@@ -455,9 +455,9 @@ class WebMS{
       if (!$title==null) {
 			$mod->title=$title;
 		}
-		$mod->allowminimized=$allowminimized;
-		$mod->collapsed=$collapsed;
-		$mod->titled=$titled;
+		$mod->ShowMinimize=$ShowMinimize;
+		$mod->Collapsed=$Collapsed;
+		$mod->ShowTitle=$ShowTitle;
 		$mod->automated=$automated;
 		$mod->timingshow=$timingshow;
 		$mod->timinghide=$timinghide;
