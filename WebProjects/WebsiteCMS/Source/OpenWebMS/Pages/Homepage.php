@@ -23,7 +23,7 @@ $page->addModule("PageRate");
 
 class internalHtml extends Module {
 	function internalHtml($page){
-		$this->title="Class method";
+		//$this->title="Class method";
 		parent::Module($page);
 	}
 	function content(){
@@ -52,13 +52,12 @@ function someContent($mod){
 	</table>
 	<?php
 
-	$b=new GDLib(100,60);
-		$b->CreateStyle('Big','Eunjin',70,'#0000BB','#85BF7D');
-		$b->Captcha();
-		$file=$b->out(true);
-		?>
-		<img src='<?=$file; ?>' border='0' alt='test' title='test' />
-		<?php
+	//$b=new GDLib(100,60);
+	//	$b->CreateStyle('Big','Eunjin',70,'#0000BB','#85BF7D');
+	//	$b->Captcha();
+	//	$file=$b->out(true);
+	//	>
+	//	<img src='<?=$file; >' border='0' alt='test' title='test' />
 }
 function top($mod){
 	?>

@@ -468,13 +468,6 @@ class WebMS{
 			$mod->side=$side;
 		}
 		switch ($side) {
-			case Module::TOP:
-				if ($pos==Module::BOTTOM){
-					array_push($this->ModulesTop,$mod);
-				}else if ($pos==Module::TOP){
-					array_unshift($this->ModulesTop,$mod);
-				}
-			break;
 			case Module::LEFT:
 				if ($pos==Module::BOTTOM){
 					array_push($this->ModulesLeft,$mod);
@@ -503,9 +496,18 @@ class WebMS{
 					array_unshift($this->ModulesBottom,$mod);
 				}
 			break;
+         case Module::TOP:
+				if ($pos==Module::BOTTOM){
+					array_push($this->ModulesTop,$mod);
+				}else if ($pos==Module::TOP){
+					array_unshift($this->ModulesTop,$mod);
+				}
+			break;
 		}
   }
   
+  /*
+  THE DEPRECATED METHOD::
   
   function addF($fn,$title,$side=Module::CENTER,$allowminimized=true,$collapsed=false,$titled=true,$automated=false,$timingshow=null,$timinghide=null,$pos="bottom"){
 		$mod=new Module($this);
@@ -594,6 +596,7 @@ class WebMS{
 		}
 		
 	}
+	*/
 	function addLayout($name){
 		global $WebMS;
 		if (file_exists($WebMS['UserLayoutsPath'].$name.".php")){

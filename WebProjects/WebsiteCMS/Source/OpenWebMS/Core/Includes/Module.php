@@ -47,10 +47,12 @@ class Module{
 	}
 	function write(){
 		if ($this->title==null) {
-			$this->title='Untitled_'.mt_rand(1111,9999);
+			$this->titleid='Untitled_'.mt_rand(1111,9999);
+		} else {
+			$this->titleid=$this->title;
 		}
-		$module="MODULE_".preg_replace("/\W*/","",$this->title);
-		$minTitle=preg_replace("/[^a-z0-9_+& ]*/i","",$this->title);
+		$module="Module_".preg_replace("/\W*/","",$this->titleid);
+		$minTitle=preg_replace("/[^a-z0-9_+& ]*/i","",$this->titleid);
   		$p=$this->page;
 		ob_start();
 		$this->content();
@@ -58,35 +60,46 @@ class Module{
 		ob_end_clean();		
 		$modcont=null;
 		$tpl=$p->moduleTpl;
-        //new
-        //Get TPL template
-        switch ($this->side) {
-          case Module::TOP:
-            $this->TPLt="T";
-            break;
-          case Module::LEFT:
-            $this->TPLt="L";
-            break;
-          case Module::CENTER:
-            $this->TPLt="C";
-            break;
-          case Module::RIGHT:
-            $this->TPLt="R";
-            break;
-          case Module::BOTTOM:
-            $this->TPLt="B";
-            break;
-          default:
-            $this->TPLt="D";
-            break; 
-        }
+		//new
+		//Get TPL template
+		switch ($this->side) {
+			case Module::TOP:
+				$this->TPLt="T";
+				break;
+			case Module::LEFT:
+				$this->TPLt="L";
+				break;
+			case Module::CENTER:
+				$this->TPLt="C";
+				break;
+			case Module::RIGHT:
+				$this->TPLt="R";
+				break;
+			case Module::BOTTOM:
+				$this->TPLt="B";
+				break;
+			default:
+				$this->TPLt="D";
+				break;
+		}
         
+		//show minimizer or not?
+		$minimizecode="";
+  if ($this->allowminimize) {
+		   if ((isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")) || ($this->collapsed==true)) {
+				$mdd="CollapseIcon";
+			} else {
+				$mdd="UnCollapseIcon";
+			}
+			$minimizecode="<div style=\"float:right\" id=\"{$module}_right_icon\" class=\"SmallIcon {$mdd}\" onclick=\"collapseToogle(this,'{$module}','{$module}_Cookie')\"></div>";
+		}
         //titled or untitled?
-        if ($this->titled==true) {
+        if ($this->titled) {
           $data=array(
       			"title"=>$this->title,
       			"id"=>$module,
       			"cookie"=>$module."_Cookie",
+      			"minimizer"=>$minimizecode,
       			"collapsed" =>((isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")) || ($this->collapsed==true)),
       			"content" =>$content
       		);  
@@ -100,6 +113,7 @@ class Module{
       			"title"=>$this->title,
       			"id"=>$module,
       			"cookie"=>$module."_Cookie",
+      			"minimizer"=>$minimizecode,
       			"collapsed" =>((isset($_COOKIE[$module."_Cookie"]) && ($_COOKIE[$module."_Cookie"]=="true")) || ($this->collapsed==true)),
       			"content" =>$content
       		);
