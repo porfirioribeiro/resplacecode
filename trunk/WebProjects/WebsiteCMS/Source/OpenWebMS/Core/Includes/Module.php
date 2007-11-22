@@ -135,6 +135,8 @@ class Module{
 
 	      //Call template
 	      $modcont=$tpl->get($this->TPLd)->evaluate($data);
+	 } else {
+		$modcont=$content;
 	 }
 
         //old
