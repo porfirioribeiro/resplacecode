@@ -53,7 +53,7 @@ var MyMethods={
 			y: curtop
 		};
 	},
-	setOpacity:function(element, opacity){
+	setOpacity_:function(element, opacity){
 		element=$(element);
 		if (Prototype.Browser.IE){
 			element.style.filter="alpha(opacity="+opacity*100+")";
