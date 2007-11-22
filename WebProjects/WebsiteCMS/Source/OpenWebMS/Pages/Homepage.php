@@ -18,7 +18,10 @@ $page->addMeta(array('name' => 'keywords','content' => 'resplace,cms,website'));
 
 
 //begin adding modules...
-$page->addModule("Menu",null,Module::LEFT,true,false,false);
+//$page->addModule("Menu",null,Module::LEFT,true,false,false,$UseTPL=false);
+//addModule($in,$title=null,$side=null,$ShowMinimize=true,$Collapsed=false,$ShowTitle=true,$UseTPL=true,$automated=false,$timingshow=null,$timinghide=null,$pos="bottom"){
+
+$page->addModule("Menu",null,$side=Module::LEFT,$UseTPL=false);
 $page->addModule("PageRate");
 
 class internalHtml extends Module {

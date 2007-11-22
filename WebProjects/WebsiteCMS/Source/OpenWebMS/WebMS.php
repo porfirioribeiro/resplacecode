@@ -430,7 +430,8 @@ class WebMS{
     <?php
 	}
 	
-	function addModule($in,$title,$side=null,$ShowMinimize=true,$Collapsed=false,$ShowTitle=true,$automated=false,$timingshow=null,$timinghide=null,$pos="bottom"){
+	function addModule($in,$title=null,$side=null,$ShowMinimize=null,$Collapsed=null,$ShowTitle=null,$UseTPL=null,$automated=null,$timingshow=null,$timinghide=null,$pos="bottom"){
+
 		if (is_object($in)) {
 	   	//this is an object
 	   	$mod=$in;
@@ -452,16 +453,31 @@ class WebMS{
 			}
 		}
 
-      if (!$title==null) {
+      if (!is_null($title)) {
 			$mod->title=$title;
 		}
-		$mod->ShowMinimize=$ShowMinimize;
-		$mod->Collapsed=$Collapsed;
-		$mod->ShowTitle=$ShowTitle;
-		$mod->automated=$automated;
-		$mod->timingshow=$timingshow;
-		$mod->timinghide=$timinghide;
-		
+		if (!is_null($ShowMinimize)) {
+		   $mod->ShowMinimize=$ShowMinimize;
+		}
+		if (!is_null($Collapsed)) {
+		   $mod->Collapsed=$Collapsed;
+		}
+		if (!is_null($ShowTitle)) {
+		   $mod->ShowTitle=$ShowTitle;
+		}
+		if (!is_null($automated)) {
+		   $mod->automated=$automated;
+		}
+		if (!is_null($timingshow)) {
+		   $mod->timingshow=$timingshow;
+		}
+		if (!is_null($timinghide)) {
+		   $mod->timinghide=$timinghide;
+		}
+		if (!is_null($UseTPL)) {
+		   $mod->UseTPL=$UseTPL;
+		}
+
 		if (!$side){
 			$side=$mod->side;
 		}else{
@@ -505,10 +521,10 @@ class WebMS{
 			break;
 		}
   }
-  
+
   /*
   THE DEPRECATED METHOD::
-  
+
   function addF($fn,$title,$side=Module::CENTER,$allowminimized=true,$collapsed=false,$titled=true,$automated=false,$timingshow=null,$timinghide=null,$pos="bottom"){
 		$mod=new Module($this);
 		$mod->addContent($fn);

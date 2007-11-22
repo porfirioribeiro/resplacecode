@@ -13,7 +13,6 @@
 		</div> 
   #{end:TitledD}
   #{start:UntitledD}
-	#{minimizer}
     <div id="#{id}" class="ModuleBox">
 			<div class="ModuleContent" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
 				<div class="BoxContent">
