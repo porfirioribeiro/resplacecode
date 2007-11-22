@@ -5,8 +5,12 @@
 $tpath=$this->themespath.$this->selectedskin;
 //include("module.php");
 $this->addCSS($tpath."style.css");
-$arr=explode("/",$this->selectedskin);
-$this->addJS($this->themespath.$arr[0]."/theme.js");
+//Include a custom theme.js (from our theme directory)
+	//$arr=explode("/",$this->selectedskin);
+	//$this->addJS($this->themespath.$arr[0]."/theme.js");
+//** We can now use the "default" one from Core/JS **
+$this->addJS("theme.js");
+
 $this->addPreloadImg(array(
 	$tpath."Images/collapse.png",
 	$tpath."Images/collapse_over.png",
