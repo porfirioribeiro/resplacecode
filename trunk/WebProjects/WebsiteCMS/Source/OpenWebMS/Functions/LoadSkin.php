@@ -73,6 +73,7 @@ if (!$skindone==1){
 }
 
 function apply_skin($themespath,$skinpath) {
+	global $WebMS;
 	//global WebMS::page;
 	$ex=explode("/",$skinpath);
 	if (file_exists($themespath.$ex[0]."/theme.php")){
