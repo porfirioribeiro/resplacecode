@@ -98,6 +98,6 @@ class Menu extends Module {
 	}
 }
 
-$page->add("Menu");
+$page->addModule("Menu");
 
 ?>

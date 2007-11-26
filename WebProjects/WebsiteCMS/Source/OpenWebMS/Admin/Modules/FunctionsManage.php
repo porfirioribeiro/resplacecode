@@ -137,5 +137,5 @@ class Myfunction extends function {
 		}
 	}
 	
-	$page->add("FunctionsManage");
+	$page->addModule("FunctionsManage");
 ?>

@@ -117,5 +117,5 @@ class LManager extends Module {
 			}
 		}
 	}
-	$page->add("LManager");
+	$page->addModule("LManager");
 ?>

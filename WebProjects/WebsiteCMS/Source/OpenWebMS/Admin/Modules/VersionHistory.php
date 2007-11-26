@@ -69,5 +69,5 @@ class VersionHistory extends Module {
 		echo'</div>';
 	}
 }
-$page->add("VersionHistory");
+$page->addModule("VersionHistory");
 ?>

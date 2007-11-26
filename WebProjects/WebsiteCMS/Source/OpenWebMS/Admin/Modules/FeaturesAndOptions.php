@@ -120,7 +120,7 @@ class options extends Module {
 	}
 }
 
-$page->add('options');
+$page->addModule('options');
 
 //Display options modules
 class Integrations extends Module {
@@ -202,5 +202,5 @@ class Integrations extends Module {
 	}
 }
 
-$page->add('Integrations');
+$page->addModule('Integrations');
 ?>

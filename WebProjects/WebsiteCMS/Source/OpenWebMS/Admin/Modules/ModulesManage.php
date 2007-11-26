@@ -135,5 +135,5 @@ class MyModule extends Module {
 			}
 		}
 	}
-	$page->add("ModulesManage");
+	$page->addModule("ModulesManage");
 ?>

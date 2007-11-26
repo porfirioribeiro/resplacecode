@@ -4,6 +4,6 @@
 //location which can easily be modified, these pages are included into a page using:
 //$page->addLayout("name"); (name of this file, without .php)
 
-$this->add("SkinChanger",Module::LEFT);
-$this->add("PageRate",Module::LEFT);
+$this->addModule("SkinChanger",Module::LEFT);
+$this->addModule("PageRate",Module::LEFT);
 ?>
