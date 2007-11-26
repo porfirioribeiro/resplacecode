@@ -146,6 +146,22 @@ a:visited {
 	/*IE 5-6 fix */
 	font-size:1px;
 }
+.BoxTopLeft {
+	background-image:url(Images/topl_wid.png);
+	background-repeat:no-repeat;
+	background-color:#ababff;
+	height:10px;
+	/*IE 5-6 fix */
+	font-size:1px;
+}
+.BoxTopRight {
+	background-image:url(Images/topr_wid.png);
+	height:10px;
+	width:10px;
+	float:right;
+	/*IE 5-6 fix */
+	font-size:1px;
+}
 .Module{
 	margin-top:2px;
 }

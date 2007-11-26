@@ -21,12 +21,13 @@ $page->addMeta(array('name' => 'keywords','content' => 'resplace,cms,website'));
 //$page->addModule("Menu",null,Module::LEFT,true,false,false,$UseTPL=false);
 //addModule($in,$title=null,$side=null,$ShowMinimize=true,$Collapsed=false,$ShowTitle=true,$UseTPL=true,$automated=false,$timingshow=null,$timinghide=null,$pos="bottom"){
 
-$page->addModule("Menu",null,$side=Module::LEFT,$UseTPL=false);
+$page->addModule("Menu",null,Module::LEFT,false);
 $page->addModule("PageRate");
 
 class internalHtml extends Module {
 	function internalHtml($page){
 		//$this->title="Class method";
+		$this->ShowTitle=false;
 		parent::Module($page);
 	}
 	function content(){
@@ -72,7 +73,8 @@ function bop($mod){
 	Some content on bottom ;)
 	<?php
 }
-$page->addModule("internalHtml");
+$page->addModule("internalHtml","lol",Module::LEFT);
+$page->addModule("internalHtml","lol",Module::LEFT);
 $page->addModule("top","on da top",Module::TOP);
 $page->addModule("bop","on da bott",Module::BOTTOM);
 $page->addModule("SkinChanger",null,Module::RIGHT,Module::BOTTOM,true,true);

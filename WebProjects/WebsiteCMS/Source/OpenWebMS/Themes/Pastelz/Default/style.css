@@ -34,6 +34,9 @@ td.sub {
 	background-color:#DFDFDF;
 	text-align:center;
 }
+.highlight {
+	background-color:#A7B6E5;
+}
 
 .fieldset {
 	border: 1px dashed #DBDBDB;
@@ -50,7 +53,7 @@ td.sub {
 }
 
 /* module title on the left top bottom and right */
-.modules_title {
+.ModuleTitle {
 	border:1px solid #DDDDDD;
 	text-align:left;
 	background-color:#FCFCFC;
@@ -62,23 +65,23 @@ td.sub {
 	padding-right:4px;
 }
 
+.ModuleBox {
+	padding:4px;
+	margin-top:0px;
+	margin-bottom:4px;
+}
+
 /* module content on the left top bottom and right */
-.modules_content {
+.ModuleContent {
 	background-color:#FFFFFF;
 	border:1px solid #DDDDDD;
 	border-top:0px;
 	text-align:left;
 }
 
-.BoxContent {
-	padding:4px;
-}
-
 /*box within each module */
-.Module{
+.BoxContent{
 	padding:4px;
-	margin-top:0px;
-	margin-bottom:4px;
 }
 
 /* The main title image */
@@ -121,6 +124,16 @@ td.sub {
 	font-size:1px;
 
 	margin-top:3px;
+	width:11px;
+	height:11px;
+	cursor:pointer;
+}
+.SmallIcon2{
+	/*IE 5-6 fix */
+	font-size:1px;
+
+	margin-top:5px;
+	margin-right:5px;
 	width:11px;
 	height:11px;
 	cursor:pointer;
