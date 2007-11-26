@@ -162,6 +162,6 @@ class dbList extends Module {
 	}
 }
 
-$page->add("dbEditor");
-$page->add("dbList",Module::RIGHT);
+$page->addModule("dbEditor");
+$page->addModule("dbList",null,Module::RIGHT);
 ?>

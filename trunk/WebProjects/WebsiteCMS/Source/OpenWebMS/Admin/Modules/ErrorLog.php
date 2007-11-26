@@ -183,7 +183,7 @@ class ErrorLog extends Module {
 	}
 }
 	
-$page->add("ErrorLog");
+$page->addModule("ErrorLog");
 function MakeHeader($errpage, $errperpage, $efiles) {
 	global $WebMS;
 	

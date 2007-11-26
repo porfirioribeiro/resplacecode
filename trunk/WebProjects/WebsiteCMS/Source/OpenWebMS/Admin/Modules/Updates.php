@@ -69,5 +69,5 @@ class Updates extends Module {
 		echo'</div>';
 	}
 }
-$page->add("Updates");
+$page->addModule("Updates");
 ?>

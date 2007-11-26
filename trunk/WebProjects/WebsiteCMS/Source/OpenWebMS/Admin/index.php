@@ -156,7 +156,7 @@ if (!$grantaccess){
 		}
 	}
 	
-	$page->add("internalHtml");
+	$page->addModule("internalHtml");
 	$page->create();
 	exit();
 	
@@ -189,7 +189,7 @@ if ($firstrun){
 		}
 	}
 	
-	$page->add("internalHtml");
+	$page->addModule("internalHtml");
 	$page->create();
 	exit();
 }
@@ -291,7 +291,7 @@ class AdminMenu2 extends Module {
 
 //Hide admin menu function, no implementation yet.
 if (isset($_GET['menu']) && $_GET['menu']=='hide') {}else{
-	$page->add("AdminMenu2",Module::LEFT);
+	$page->addModule("AdminMenu2",null,Module::LEFT);
 }
 
 //Welcome to the admin panel module!
@@ -338,7 +338,7 @@ if (!$WebMS["URLCat"]==""){
 		}
 	}
 }else{
-	$page->add("welcome",Module::CENTER);
+	$page->addModule("welcome",null,Module::CENTER);
 }
 
 
@@ -350,13 +350,13 @@ if (isset($_REQUEST['nav'])) {
 //built in pages
 if (!isset($_REQUEST['nav'])) {
 	if (!isset($_REQUEST['pane']))
-		$page->add("welcome",Module::CENTER);
+		$page->addModule("welcome",Module::CENTER);
 } else {
 	if ($_REQUEST['nav']=="VersionHistory")
-		$page->add("VersionHistory");
+		$page->addModule("VersionHistory");
 		
 	if ($_REQUEST['nav']=="Updates")
-		$page->add("Updates");
+		$page->addModule("Updates");
 		
 	//External Modular admin pages
 	$files=GetFiles("OpenWebMS/Admin/Modules");

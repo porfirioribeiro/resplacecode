@@ -292,7 +292,7 @@ class ThemeLogo extends Module {
 	}
 }
 
-$page->add('ThemesAndLayout');
-$page->add('DefaultTheme');
-$page->add('ThemeLogo');
+$page->addModule('ThemesAndLayout');
+$page->addModule('DefaultTheme');
+$page->addModule('ThemeLogo');
 ?>

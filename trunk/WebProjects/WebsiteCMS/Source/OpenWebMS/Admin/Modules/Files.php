@@ -84,5 +84,5 @@ class Files extends Module {
 		}
 	}
 
-	$page->add("Files");
+	$page->addModule("Files");
 ?>

@@ -212,5 +212,5 @@ class PagesManage extends Module {
 			}
 		}
 	}
-	$page->add("PagesManage");
+	$page->addModule("PagesManage");
 ?>
