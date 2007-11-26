@@ -1,53 +1,37 @@
 #{start:module}
-	#{start:default}
-		<div id="#{id}" class="Module">                  
-	        <div class="TitleMid">                            
-	            <div class="TitleLeft"></div>
-			    <div style="float:left;" id="#{id}_left_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
-			    <div class="TitleRight"></div>   
-			    <div style="float:right;" id="#{id}_right_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>
-				<div class="TitleText">#{title}</div>                        
-	        </div>	        
+	#{start:TitledD}
+		<div id="#{id}" class="Module">
+	   	<div class="TitleMid">
+	   		<div class="TitleLeft"></div>
+			   <div class="TitleRight"></div>
+			   #{minimizer}
+				<div class="TitleText">#{title}</div>
+	      </div>
 			<div class="Box" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
 				<div class="BoxContent">
 					#{content}
 				</div>
-			<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
-			</div>	
-		</div> 			
-	#{end:default}		
-	#{start:left}	
-		<div id="#{id}" class="Module">                  
-	        <div class="TitleMid">                            
-		        <div class="TitleLeft"></div>
-			    <div class="TitleRight"></div>       	
-			    <div style="float:right" id="#{id}_right_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div>  
-				<div class="TitleText">#{title}</div>                        
-	        </div>	       
+				<div class="BoxBotLeft">
+					<div class="BoxBotRight"></div>
+				</div>
+			</div>
+		</div>
+   #{end:TitledD}
+   #{start:UntitledD}
+		<div id="#{id}" class="Module">
 			<div class="Box" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
+            <div class="BoxTopLeft">
+					<div class="BoxTopRight"></div>
+				</div>
 				<div class="BoxContent">
 					#{content}
 				</div>
-			<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
-			</div>	
-		</div> 	
-	#{end:left}	
-	#{start:right}	
-		<div id="#{id}" class="Module">                  
-	        <div class="TitleMid">                            
-	            <div class="TitleLeft"></div>	
-			    <div style="float:left;" id="#{id}_left_icon" class="SmallIcon #{iif:collapsed,CollapseIcon,UnCollapseIcon}" onclick="collapseToogle(this,'#{id}','#{cookie}')"></div> 
-				<div class="TitleRight"></div> 
-				<div class="TitleText">#{title}</div>                        
-	        </div>	       
-			<div class="Box" id="#{id}_container" style="display:#{iif:collapsed,none,block}">
-				<div class="BoxContent">
-					#{content}
+				<div class="BoxBotLeft">
+					<div class="BoxBotRight"></div>
 				</div>
-			<div class="BoxBotLeft"><div class="BoxBotRight"></div></div>
-			</div>	
-		</div>         		
-	#{end:right}	
+			</div>
+		</div>
+   #{end:UntitledD}
 #{end:module}
 
 #{start:page}	

@@ -5,7 +5,9 @@
 $tpath=$this->themespath.$this->selectedskin;
 //include("module.php");
 $this->addCSS($tpath."style.css");
-$this->addJS($this->themespath."Bubble/theme.js");
+
+$this->addJS("theme.js");
+
 $this->addPreloadImg(array(
 	$tpath."Images/collapse.png",
 	$tpath."Images/collapse_over.png",

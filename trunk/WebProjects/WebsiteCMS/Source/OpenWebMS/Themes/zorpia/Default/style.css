@@ -56,7 +56,7 @@ td.sub {
 	font-size:14px;
 	color:#FFFFFF;
 	padding:2px;
-	margin-bottom:2px;
+	margin-bottom:1px;
 }
 
 /* module content on the left top bottom and right */
@@ -82,7 +82,7 @@ td.sub {
 /*box within each module */
 .Module{
 	margin:2px;
-	margin-bottom:20px;
+	margin-bottom:5px;
 }
 
 /* The main title image */
