@@ -328,13 +328,13 @@ if (!$WebMS["URLCat"]==""){
 		if (is_file("OpenWebMS/Admin/AdminPanes/".$WebMS["URLArray"][2].".php")){
 			include "OpenWebMS/Admin/AdminPanes/".$WebMS["URLArray"][2].".php";
 		}else{
-			$page->addS("The Specified Pane ( ".$WebMS["URLArray"][2]." ) does not exists","ERROR!");
+			$page->addModule("The Specified Pane ( ".$WebMS["URLArray"][2]." ) does not exists","ERROR!");
 		}
 	}else{
 		if (is_file("OpenWebMS/Admin/Modules/".$WebMS["URLCat"].".php")){
 			include("OpenWebMS/Admin/Modules/".$WebMS["URLCat"].".php");
 		}else{
-			$page->addS("Cant navigate to  ".$WebMS["URLCat"]." , it does not exists","ERROR!");
+			$page->addModule("Cant navigate to  ".$WebMS["URLCat"]." , it does not exists","ERROR!");
 		}
 	}
 }else{
