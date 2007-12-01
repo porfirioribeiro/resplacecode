@@ -86,5 +86,8 @@ $page->addModule("someContent","Create function method");
 $AbsRootPath=preg_replace("/\\\/","/",dirname(__FILE__));
 $RootPath=str_replace($_SERVER["DOCUMENT_ROOT"], "", $AbsRootPath);
 $page->addModule($_SERVER['SERVER_ADMIN'].$_SERVER['HTTP_HOST'],"With string method");
+$page->addModule('<iframe src="http://my.netbeans.org/Widget.html?userID=260" width="200" height="200" FRAMEBORDER="0"></iframe>',null,Module::RIGHT,false,false,false,false);
+$page->addModule('<embed src="http://www.box.net/static/flash/box_explorer.swf?widgetHash=040fet9al1&v=1" width="200" height="300" wmode="transparent" type="application/x-shockwave-flash"></embed>',null,Module::LEFT,false,false,false,false);
+//
 $page->create();
 ?>
