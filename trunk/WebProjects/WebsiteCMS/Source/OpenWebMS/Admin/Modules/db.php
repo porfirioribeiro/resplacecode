@@ -80,7 +80,7 @@ function toggleEl(el,ct){
 			 <?php
 			 if (!ArrayMap::is($value)){
 			 ?>			
-				 <a href="javascript:void(0)" onclick="$('<?=$id."_edit"?>').toggle();//var _Path_='<?=$p?>';document.location=location.search+'&action=editValue&path=<?=$p?>'">
+				 <a href="javascript:void(0)" onclick="$('{$id}._edit').toggle();//var _Path_='<?=$p?>';document.location=location.search+'&action=editValue&path=<?=$p?>'">
 				 	<img alt="Edit" title="Edit the value of this key" border="0" style="vertical-align:middle" src="icons/edit.png">
 				 </a>
 			 <?php 
@@ -114,7 +114,7 @@ function toggleEl(el,ct){
 		/*if ($this->message!=""){
 			echo '<div style="border:1px solid gray;padding:5px;">'.$this->message.'</div>';
 		}*/
-		if ($this->action=="editDB"){
+		/*if ($this->action=="editDB"){
 			if (!is_file($this->dbFile)){
 				echo "Invalid database!!";
 				return;
@@ -131,20 +131,22 @@ function toggleEl(el,ct){
 			}
 		}else{
 			echo "Select a database to edit!";
-		}
+		}*/
 	}
 }
 
 class dbList extends Module {
+	var $tpl;
 	function dbList($page){
 		parent::Module($page);
 		$this->title="Database List";		
-		$this->side=Module::LEFT;
+		$this->side=Module::RIGHT;
+		$this->tpl=new TplFile("tpl/db.tpl");
 	}
 	function content(){
-		$tpl=new TplFile("tpl/db.tpl");
+		
 		foreach (GetFolders($this->page->path."db/") as $category) {
-			echo $tpl->get("dbList")->get("addDB")->parse(array("category"=>$category));
+			echo $this->tpl->get("dbList")->get("addDB")->parse(array("category"=>$category));
 			foreach (GetFiles($this->page->path."db/".$category."/","*.db") as $file) {
 				$file=str_replace(".db","",$file);
 				?>
@@ -152,7 +154,7 @@ class dbList extends Module {
 				<?php
 			}
 		}
-		echo $tpl->get("dbList")->get("addDB")->parse(array("category"=>""));
+		echo $this->tpl->get("dbList")->get("addDB")->parse(array("category"=>""));
 		foreach (GetFiles($this->page->path."db/","*.db") as $file) {
 			$file=str_replace(".db","",$file);
 			?>
@@ -163,5 +165,5 @@ class dbList extends Module {
 }
 
 $page->addModule("dbEditor");
-$page->addModule("dbList",null,Module::RIGHT);
+$page->addModule("dbList");
 ?>

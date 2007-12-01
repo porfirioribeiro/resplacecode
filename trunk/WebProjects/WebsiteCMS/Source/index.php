@@ -86,7 +86,7 @@ if ($WebMS["URLFormat"]=="CleanDots") {
 				}else{
 					//TODO=Test Page including
 					$p= new WebMS("OpenWebMS/","Error, Test Page not found!!");
-					$p->addS("<b>Test Page Not Found</b><br>Could not find Test Page : $page ","Error",Module::TOP);
+					$p->addModule("<b>Test Page Not Found</b><br>Could not find Test Page : $page ","Error",Module::TOP);
 					$p->create();
 				}
 			}else{
@@ -99,7 +99,7 @@ if ($WebMS["URLFormat"]=="CleanDots") {
 					$st.="<li><a href='?Test.$f'>$f</a></li>";
 				}
 				$st.="</ul>";
-				$p->addS($st,"Browser",Module::TOP);
+				$p->addModule($st,"Browser",Module::TOP);
 				$p->create();
 			}
 		} else if (is_file($users.$WebMS["URLArray"][0].".php")) {
@@ -130,7 +130,7 @@ if ($WebMS["URLFormat"]=="CleanDots") {
 			}else{
 				$st.="either on pages or systems!!";
 			}
-			$p->addS($st,"Error",Module::TOP);
+			$p->addModule($st,"Error",Module::TOP);
 			$p->create();
 		}
 	}
