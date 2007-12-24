@@ -39,6 +39,7 @@ class internalHtml extends Module {
 
 function someContent($mod){
 	echo url(array("*","ttt","lol","woot"));
+	//trigger_error("oooops! This one we missed! (Test Error)",E_USER_NOTICE);
 	?><br><br>
 	this is a module, with a <a href='#'>link</a>.<br><br>
 	<table border='1' cellpadding="3" cellspacing="0" class="tbl">

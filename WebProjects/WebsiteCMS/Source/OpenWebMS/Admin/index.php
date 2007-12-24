@@ -8,7 +8,6 @@
 * @lastedit 21-09-07
 */
 
-
 $stopadmin=false;
 
 $page=new WebMS("OpenWebMS/","Admin Panel");
