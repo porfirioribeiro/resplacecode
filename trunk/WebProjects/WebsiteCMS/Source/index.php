@@ -173,6 +173,4 @@ function url($arr=null) {
 		return "?".$frm;
 	}
 }
- 
-
 ?>

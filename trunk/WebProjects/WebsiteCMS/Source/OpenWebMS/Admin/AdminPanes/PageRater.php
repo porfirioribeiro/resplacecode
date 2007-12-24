@@ -127,7 +127,7 @@ class PageRater extends Module {
 }
 
 //call it into page
-$page->add('PageRater');
+$page->addModule('PageRater');
 
 
 

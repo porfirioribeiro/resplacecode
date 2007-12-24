@@ -48,6 +48,18 @@ class ErrorLog extends Module {
 				unlink("{$WebMS["IncPath"]}errors/{$del}.log");
 			}
 		}
+		
+		if (isset($WebMS['URLArray'][2]) && $WebMS['URLArray'][2]=="DelAll") {
+			//$del=(int)$WebMS['URLArray'][3];
+			//if (file_exists("{$WebMS["IncPath"]}errors/{$del}.log")) {
+			//	unlink("{$WebMS["IncPath"]}errors/{$del}.log");
+			//}
+			$files=GetFiles("{$WebMS["IncPath"]}errors/");
+			foreach ($files as $f) {
+				unlink("{$WebMS["IncPath"]}errors/{$f}");
+			}
+			unlink("{$WebMS["IncPath"]}errors/log/errors.log");
+		}
 
       if (isset($WebMS['URLArray'][2]) && $WebMS['URLArray'][2]=="Print" && isset($WebMS['URLArray'][3])) {
          //lose the buffer
@@ -279,7 +291,7 @@ function ListError($head,$mode=1,$file) {
 				<td style="padding-right:20px;">
 					<?php
 						$strstg2 = preg_replace( "/([^\n\r \.,]{5})/i" , '$1<span style="font-size:1px"> </span>', $head[2] );
-          			echo $strstg2
+          			echo $strstg2;
 					?>
 				</td>
 				<td style="padding-right:20px;">

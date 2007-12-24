@@ -195,11 +195,12 @@ class WebMS{
 	function create(){
 	global $browser, $WebMS;
 	
+	
 	//Add any requested functions
 	foreach ($this->functionsSearchPath as $fpath) {
-			$this->loadFunctions($fpath);
-		}	
-	
+		$this->loadFunctions($fpath);
+	}	
+		
     ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

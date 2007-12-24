@@ -26,7 +26,8 @@
 #{start:page}	
 	#{start:title}	
 		<div class="MainMid"> 
-			<div class="Box">                                
+			<div class="Box">
+				<div style="float:right">Welcome</div>                                
 				<div style="float:right;" id="AjaxLoader"></div>
 				<div align="left" style="padding-left:10px;padding-top:4px;">
 				#{iif:GlobalLogo,<img class="alpha" src="#{GlobalLogoPath}" border="0" />,<div class="TitleImage alpha" title="My Website Name"></div>}

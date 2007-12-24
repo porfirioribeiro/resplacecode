@@ -13,13 +13,7 @@ error_reporting(E_ALL);
 //setup error handling function
 function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 	Global $WebMS;
-	
-	//lose the data
-		$handlers = ob_list_handlers();
-		while ( ! empty($handlers) )    {
-		    ob_end_clean();
-		    $handlers = ob_list_handlers();
-		}
+	//echo "<br>$errno, $errstr, $errfile, $errline, $othervars<br>";
 		//ob_end_clean();
 	
 	$OwnDir=preg_replace("/\\\/","/",dirname(__FILE__));
@@ -108,6 +102,12 @@ function errorHandler($errno, $errstr, $errfile, $errline, $othervars) {
 		//$page->addMeta(array('http-equiv' => 'refresh','content' => '3;'.url(array("Admin"))));
 		//$page->addAlert("Page Redirection...","Ooops there was an error!<br>Redirecting you to the error...");
 		
+		//lose the data
+		$handlers = ob_list_handlers();
+		while ( ! empty($handlers) )    {
+		    ob_end_clean();
+		    $handlers = ob_list_handlers();
+		}
 		
 		ob_start();
 		

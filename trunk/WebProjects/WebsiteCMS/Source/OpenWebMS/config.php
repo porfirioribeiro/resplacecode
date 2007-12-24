@@ -125,7 +125,6 @@ $db=new ResDB("WebMSoptions");
  * Usually you would call the Error Handler first, however this script seems to cause the output of the PHP headers, which in turn fucks up integration scripts which require the headers for modification. So thats why its all the way down here :)
  */
 include_once $WebMS["IncPath"]."error_reporter.php";
-
 include_once $WebMS["IncPath"]."Module.php";
 include_once $WebMS["IncPath"]."Template.php";
 include_once $WebMS["IncPath"]."Theme.php";
