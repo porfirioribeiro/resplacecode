@@ -1,0 +1,38 @@
+/*Alert Box Styles*/
+.AlertBox{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	background-color:#FFFFE1;
+	border:1px solid #FAFAD2;
+	vertical-align:middle;
+}
+.AlertBox .box{
+	float:left;
+	width:92%;
+	padding:5px;
+}
+.AlertBox .warn{
+	background-image: url(AlertBox/warn.png);
+	width: 22px;
+	height: 22px;
+	margin: 5px;
+	float: left;
+}
+.AlertBox .close{
+	background-image: url(AlertBox/close.png);
+	width:16px;
+	height:16px;
+	display:block;
+	float:right;
+	margin: 5px;
+}
+.AlertBox .close:hover{
+	background-image: url(AlertBox/close_over.png);
+	width:16px;
+	height:16px;
+	display:block;
+	float:right;
+	margin: 5px;
+}

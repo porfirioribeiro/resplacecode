@@ -1,0 +1,5 @@
+# Stops ability to read DB files in the browser.
+<limit GET POST PUT>
+order deny,allow
+Deny from all
+</limit>
