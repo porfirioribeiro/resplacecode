@@ -12,7 +12,7 @@ $path="../OpenWebMS/";
 include_once $path.'WebMS.php';
 
 //Setup the WebMS class
-$page=new WebMS($path,"Main Site");
+$page=new WebMS("Main Site");
 //add some meta keywords
 $page->addMeta(array('name' => 'keywords','content' => 'resplace,cms,website'));
 //add defaults

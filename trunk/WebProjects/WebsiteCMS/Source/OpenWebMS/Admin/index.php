@@ -10,7 +10,7 @@
 
 $stopadmin=false;
 
-$page=new WebMS("OpenWebMS/","Admin Panel");
+$page=new WebMS("Admin Panel");
 
 //read all the admin modules/functions and panes
 $page->addFunctionSearchPath($WebMS['AdminPath']."Functions/");

@@ -166,13 +166,13 @@ class DefaultTheme extends Module {
 											if ($itemi.'/'.$itemi2.'/'==$defaultskin){
 												//echo "<option selected value='{$itemi}/{$itemi2}/'>{$item2}</option>";
 												echo "
-												<td align='center'><img src='".$this->page->themespath."{$itemi}/{$itemi2}/preview.png' border='1'>
+												<td align='center'><img src='".$WebMS["ThemesUrl"]."{$itemi}/{$itemi2}/preview.png' border='1'>
 												<br><b>{$item} - {$item2}</b></a></td>";
 											}else{
 												if($item2 != '.' && $item2 != '..'){	
 													//echo "<option value='{$itemi}/{$itemi2}/'>{$item2}</option>";
 													echo "
-													<td align='center'><a href='".url(array("*","*",$itemi,$itemi2))."'><img src='".$this->page->themespath."{$itemi}/{$itemi2}/preview.png' border='0'>
+													<td align='center'><a href='".url(array("*","*",$itemi,$itemi2))."'><img src='".$WebMS["ThemesUrl"]."{$itemi}/{$itemi2}/preview.png' border='0'>
 													<br>{$item} - {$item2}</a></td>";
 												}
 											}

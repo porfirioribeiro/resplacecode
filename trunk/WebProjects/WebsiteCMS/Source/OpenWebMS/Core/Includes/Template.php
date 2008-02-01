@@ -56,6 +56,8 @@ class Template{
 				}		
 			}
 		}
+		//#\{WebMS:(.*)\}
+		//$result=preg_replace("/".$this->patern[0].$key.$this->patern[1]."/",$value,$result);
 		return $result;
 	}
 	function parse($object){

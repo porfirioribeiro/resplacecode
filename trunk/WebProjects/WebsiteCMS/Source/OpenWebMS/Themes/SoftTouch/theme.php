@@ -2,7 +2,7 @@
 //theme path is already known!!
 //$tpath=$this->themespath."Rigid-Blue/";
 //echo $this->themespath.$this->selectedskin;
-$tpath=$this->themespath.$this->selectedskin;
+$tpath=$WebMS["ThemesUrl"].$this->selectedskin;
 //include("module.php");
 $this->addCSS($tpath."style.css");
 $this->addJS($this->themespath."SoftTouch/theme.js");

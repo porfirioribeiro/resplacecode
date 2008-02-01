@@ -52,6 +52,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 		var $url;
 		var $base;
 		function PageRate($page){
+			global $WebMS;
 			$this->page=$page;
 			$this->side=Module::LEFT;
 			$this->title="Rate this Page";	
@@ -67,7 +68,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 			$this->bac2=explode("/",$this->bac);
 			$this->pg=$this->db->getMap($this->page->id);
 			$this->url=str_replace($_SERVER["DOCUMENT_ROOT"],"", preg_replace("/\\\/","/",__FILE__));
-			$this->base=str_replace("PageRate.php","",$this->url);
+			$this->base=$WebMS["ServerURL"].str_replace("PageRate.php","",$this->url);
 			$this->page->addJSCode("
 				function PageRate(rate){
 					var url='".$this->url."';
@@ -119,7 +120,7 @@ if (isset($_GET["RatePage"]) && isset($_GET["page"]) && isset($_GET["path"])){
 					<b>Rate page:</b><br>
 					
 					<div id="PageRate_votes" title="Voted <?=$rv; ?>/5 with <?=$votes; ?> votes." style="width:100px; <?php
-						if (!strcmp($this->bac2[1],"none")==0) {
+						if (!strcmp($this->bac2[1],"none")==0) {										
 							echo "background-image:URL(".$this->base."PageRate/Bars/".$this->bac.");";
 						}
 					?> height: 20px;">
