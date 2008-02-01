@@ -12,20 +12,28 @@ error_reporting(E_ALL);
 
 global $WebMS;
 $WebMS=array();
+$WebMS["mod_rewrite"]=(getenv('mod_rewrite')=="true");
+
 $WebMS["FailSafeLogin"]				="openwebms";
 $WebMS["Version"]				="0.1|BETA";
 //url formats:
 //Normal		- ?p=blah&amp;c=blah&amp;a=blah
 //CleanDots		- ?blah.blah.huh.yey
-$WebMS["URLFormat"]				="CleanDots";
+//Slashs        - /blah/blah/blah/huh/yey
+$WebMS["URLFormat"]				="Slashs";
 $WebMS["URLParts"]				=0;
 $WebMS["URLArray"]				=array();
 $WebMS["URLPage"]				="";
 $WebMS["URLCat"]				="";
-$WebMS["RootPath"]          	=preg_replace("/\\\/","/",preg_replace("/OpenWebMS$/","",dirname(__FILE__)));
-$WebMS["RootUrl"]           	=str_replace($_SERVER["DOCUMENT_ROOT"], "", $WebMS["RootPath"]);
-$WebMS["WebMSPath"]         	=$WebMS["RootPath"] ."OpenWebMS/";
+$WebMS["ServerURL"]             =((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == TRUE) ? 'https://' : 'http://').($_SERVER['HTTP_HOST']).(($_SERVER['SERVER_PORT']!=80 && $_SERVER['SERVER_PORT']!=443)  ? ":{$_SERVER['SERVER_PORT']}" : '');
+$WebMS["RootUrl"]           	=$WebMS["ServerURL"].str_replace("index.php","",$_SERVER['SCRIPT_NAME']);
+$WebMS["ScriptUrl"]             =$WebMS["ServerURL"].$_SERVER['SCRIPT_NAME'];
+$WebMS["RootPath"]          	="";	
+$WebMS["Path"]                  ="OpenWebMS/";					 
+$WebMS["WebMSPath"]         	=dirname(__FILE__)."/";
 $WebMS["WebMSUrl"]          	=$WebMS["RootUrl"]  ."OpenWebMS/";
+$WebMS["SystemPath"]         	=$WebMS["WebMSPath"]."System/";
+$WebMS["SystemUrl"]          	=$WebMS["WebMSUrl"] ."System/";
 $WebMS["FilesPath"]         	=$WebMS["WebMSPath"]."Files/";
 $WebMS["FilesUrl"]          	=$WebMS["WebMSUrl"] ."Files/";
 $WebMS["TempPath"]          	=$WebMS["WebMSPath"]."Temp/";
@@ -55,26 +63,8 @@ $WebMS["PagesPath"]         	=$WebMS["WebMSPath"] ."Pages/";
 $WebMS["PagesUrl"]          	=$WebMS["WebMSUrl"]  ."Pages/";
 $WebMS["JSPath"]            	=$WebMS["CorePath"] ."JS/";
 $WebMS["JSUrl"]             	=$WebMS["CoreUrl"]  ."JS/";
+$WebMS["imgNumb"]				      =0;
 
-//used for GDLib
-$WebMS["imgNumb"]				=0;
-
-class Conf{
-  static $conf;
-  function get($key){
-  	return Conf::$conf[$key];
-  }
-  function set($key,$value){
-  	Conf::$conf[$key]=$value;
-  }
-  function __get($key){
-  	return Conf::$conf[$w];
-  }
-  function __set($key,$value){
-  	Conf::$conf[$key]=$value;
-  }
-}
-Conf::$conf;
 
 include_once $WebMS["IncPath"]."String.php";
 include_once $WebMS["IncPath"]."ResDB.php";

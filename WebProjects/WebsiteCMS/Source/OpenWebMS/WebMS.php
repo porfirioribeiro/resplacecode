@@ -62,8 +62,9 @@ class WebMS{
 	var $moduleTpl;
 	var $pageTpl;
 	var $menuTpl;
-	function WebMS($_path="data/",$_title=""){
+	function WebMS($_title=""){
 		global $WebMS;
+		$_path=$WebMS["Path"]; 
 		$this->config=WebMS::$_config;
 		
 		//start site timer
@@ -385,7 +386,7 @@ class WebMS{
 		
 		
 		echo $this->pageTpl->get("footer")->evaluate(array(
-			"imgpath"=>$this->themespath.$this->selectedskin."Images/",
+			"imgpath"=>$WebMS["ThemesUrl"].$this->selectedskin."Images/",
 			"ResDB_queries"=>ResDB::$resdbopen+ResDB::$resdbclose,
 			"WebMS_load"=>round(($starttime[1] + $starttime[0])-$this->pagebegin,2)));
 		

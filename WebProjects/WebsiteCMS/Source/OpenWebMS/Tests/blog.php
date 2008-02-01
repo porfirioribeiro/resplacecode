@@ -1,7 +1,7 @@
 <?php
 $path="../OpenWebMS/";
 include_once "../OpenWebMS/WebMS.php";
-$page=new WebMS($path,"Blog");
+$page=new WebMS("Blog");
 $page->addDefaults();
 
 

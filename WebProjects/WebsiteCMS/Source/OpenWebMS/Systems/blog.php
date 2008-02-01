@@ -1,6 +1,6 @@
 <?php
 
-$page=new WebMS(WEBMS_ROOT,"Blog");
+$page=new WebMS("Blog");
 
 $page->addMeta(array('name' => 'keywords','content' => 'blog,personal,'));
 $ct="";
