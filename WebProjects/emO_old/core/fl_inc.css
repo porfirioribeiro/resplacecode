@@ -1,0 +1,22 @@
+/* Floating layer css */
+    .fdiv{
+      position: absolute;
+      top:10px;
+      left:20px;
+      visibility: hidden;/*visible;*/
+    }
+    .fdiv .caption{
+      background: #6980DA ;
+      height:20px;
+      padding: 5px; 
+      text-align: center;
+      cursor: move;
+    }
+    .fdiv .content{
+      background: rgb(236,236,216); 
+      padding: 7px;
+    }
+    .fdiv .footer{
+      background: rgb(236,236,216); 
+      padding: 7px;
+    }
