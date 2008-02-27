@@ -1,0 +1,89 @@
+.toolbar{
+	height:20px;
+	vertical-align:middle;
+	padding:5px;
+	background-image:url(img/head.png)
+}
+.statusbar{
+	width:630px;
+	height:20px;
+	vertical-align:middle;
+	padding:5px;
+	background-image:url(img/head.png)
+}
+.fields{
+	height:300px;
+	vertical-align:top;
+	padding:5px;
+	background-image:url(img/body.png)
+}
+
+.btn{
+  /*position: absolute;*/
+  top: 5px;
+  left:9px;
+}
+
+.tabs{
+  visibility: hidden;
+  position: absolute;
+  left:22px;
+  top:81px;
+}
+
+.bem{
+  border-top: 1px solid #FFFFFF;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #0066FF;
+  border-left: 1px solid #0066FF;
+  height:20px;
+  background-image:url(bg.png);
+  background-repeat:repeat-x;
+}
+.bemp{
+  border-top: 1px solid #0066FF;
+  border-right: 1px solid #0066FF;
+  border-bottom: 1px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF;
+  height:20px;
+  background-image:url(bg.png);
+  background-repeat:repeat-x;
+}
+
+.bem:hover{
+  border-top: 1px solid #FFFFFF;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #0066FF;
+  border-left: 1px solid #0066FF;
+  height:20px;
+  background-image:url(bgh.png);
+  background-repeat:repeat-x;
+}
+.bemp:hover{
+  border-top: 1px solid #0066FF;/*#ACA899;*/
+  border-right: 1px solid #0066FF;
+  border-bottom: 1px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF;
+  height:20px;
+  background-image:url(bgh.png);
+  background-repeat:repeat-x;
+}
+
+.barrow{
+	width:20px;
+	height:20px;
+	margin:0px;
+}
+
+button{
+	background-image:url(bg.png);
+	background-repeat:repeat-x;
+	border:1px solid #0066FF;
+}
+
+button:hover{
+	background-image:url(bgh.png);
+	background-repeat:repeat-x;
+	border:1px solid white;
+	border-color:#0099FF;
+}
