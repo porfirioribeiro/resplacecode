@@ -1,6 +1,14 @@
 <?php
-error_reporting(E_ALL); 
+/**
+* OpenWebMS Configuration File
+* This file loads all "super global" variables, aswell as post-run scripts
+* Licenced under GPLv2 read GPL.txt for details
+* @version 1
+* @copyright (c) 2007 ResPlace Team
+* @lastedit 19-10-07
+*/
 
+error_reporting(E_ALL); 
 
 global $WebMS;
 $WebMS=array();
@@ -14,16 +22,16 @@ $WebMS["Version"]				="0.1|BETA";
 //Normal		- ?p=blah&amp;c=blah&amp;a=blah
 //CleanDots		- ?blah.blah.huh.yey
 //Slashs        - /blah/blah/blah/huh/yey
-$WebMS["URLFormat"]				="CleanDots";
-$WebMS["URLParts"]				=0;
-$WebMS["URLArray"]				=array();
-$WebMS["URLPage"]				="";
-$WebMS["URLCat"]				="";
-$WebMS["ServerURL"]             =((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == TRUE) ? 'https://' : 'http://').($_SERVER['HTTP_HOST']).(($_SERVER['SERVER_PORT']!=80 && $_SERVER['SERVER_PORT']!=443)  ? ":{$_SERVER['SERVER_PORT']}" : '');
+$WebMS["URLFormat"]				    ="CleanDots";
+$WebMS["URLParts"]				    =0;
+$WebMS["URLArray"]				    =array();
+$WebMS["URLPage"]				      ="";
+$WebMS["URLCat"]				      ="";
+$WebMS["ServerURL"]           =((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == TRUE) ? 'https://' : 'http://').($_SERVER['HTTP_HOST']).(($_SERVER['SERVER_PORT']!=80 && $_SERVER['SERVER_PORT']!=443)  ? ":{$_SERVER['SERVER_PORT']}" : '');
 $WebMS["RootUrl"]           	=$WebMS["ServerURL"].str_replace("index.php","",$_SERVER['SCRIPT_NAME']);
-$WebMS["ScriptUrl"]             =$WebMS["ServerURL"].$_SERVER['SCRIPT_NAME'];
-$WebMS["RootPath"]          	="";//preg_replace("/\\\/","/",preg_replace("/AutoSys$/","",dirname(__FILE__)));							 
-$WebMS["WebMSPath"]         	=dirname(__FILE__)."/";//$WebMS["RootPath"] ."AutoSys/";
+$WebMS["ScriptUrl"]           =$WebMS["ServerURL"].$_SERVER['SCRIPT_NAME'];
+$WebMS["RootPath"]          	="";						 
+$WebMS["WebMSPath"]         	=dirname(__FILE__)."/";
 $WebMS["WebMSUrl"]          	=$WebMS["RootUrl"]  ."AutoSys/";
 $WebMS["SystemPath"]         	=$WebMS["WebMSPath"]."System/";
 $WebMS["SystemUrl"]          	=$WebMS["WebMSUrl"] ."System/";
@@ -55,10 +63,7 @@ $WebMS["PagesUrl"]          	=$WebMS["WebMSUrl"]  ."Pages/";
 $WebMS["JSPath"]            	=$WebMS["CorePath"] ."JS/";
 $WebMS["JSUrl"]             	=$WebMS["CoreUrl"]  ."JS/";
 $WebMS["ImagesUrl"]          	=$WebMS["WebMSUrl"]  ."Images/";
-
-
-//used for GDLib
-$WebMS["imgNumb"]				=0;
+$WebMS["imgNumb"]			      	=0;
 
 include_once $WebMS["IncPath"]."JSON.php";
 include_once $WebMS["IncPath"]."String.php";
@@ -110,7 +115,6 @@ $db=new ResDB("WebMSoptions");
  * Usually you would call the Error Handler first, however this script seems to cause the output of the PHP headers, which in turn fucks up integration scripts which require the headers for modification. So thats why its all the way down here :)
  */
 include_once $WebMS["IncPath"]."error_reporter.php";
-
 include_once $WebMS["IncPath"]."Module.php";
 include_once $WebMS["IncPath"]."Template.php";
 include_once $WebMS["IncPath"]."Theme.php";
