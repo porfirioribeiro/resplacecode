@@ -4,8 +4,8 @@
 * This module builds the menu from the DB
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright � 2007 ResPlace Team
-* @lastedit 14-05-07
+* @copyright (c) 2007 ResPlace Team
+* @lastedit 05-03-08
 */
 global $WebMS;
 class Menu extends Module {
