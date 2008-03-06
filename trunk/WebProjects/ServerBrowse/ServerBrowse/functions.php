@@ -27,10 +27,10 @@ function GetFolderSize($d,$chachecount=2,$folderloc)
 		if($h==0)return 0; 
 		
 		//check if chache file exists...
-		if (file_exists($folderloc."chache/".hash('md5', $d).'.tmp'))
+		if (file_exists($folderloc."cache/".hash('md5', $d).'.tmp'))
 			{
 			//echo"*$d*";
-			$read=explode("|",file_get_contents($folderloc."chache/".hash('md5', $d).'.tmp'));
+			$read=explode("|",file_get_contents($folderloc."cache/".hash('md5', $d).'.tmp'));
 			$sf=$read['3'];
 			
 			//is the chache too old now?
@@ -38,7 +38,7 @@ function GetFolderSize($d,$chachecount=2,$folderloc)
 			$difference=((strtotime(date("Y-n-d"))-$filedate)/(60 * 60 * 24));
 			if ($difference > 1)
 				{
-				unlink($folderloc."chache/".hash('md5', $d).'.tmp');
+				unlink($folderloc."cache/".hash('md5', $d).'.tmp');
 				
 				}
 			}
@@ -76,7 +76,7 @@ function GetFolderSize($d,$chachecount=2,$folderloc)
 				
 				
 				if (!$void=="STOP")
-				{ file_put_contents($folderloc."chache/".hash('md5', $d).'.tmp',date('j')."|".date('n')."|".date('Y')."|".$sf); }
+				{ file_put_contents($folderloc."cache/".hash('md5', $d).'.tmp',date('j')."|".date('n')."|".date('Y')."|".$sf); }
 				//echo'Put: '.$folderloc."chache/".hash('md5', $d).'.tmp - <b>'.$d.'</b><br>';
 			} 
 		closedir($h); 
