@@ -1,6 +1,8 @@
 <?php
 $files=array(
 	"firebug/firebug",
+	"ext/json2",
+	"ext/XMLHttpRequest",
 	"Next",
 	"Protos",
 	"Color",
