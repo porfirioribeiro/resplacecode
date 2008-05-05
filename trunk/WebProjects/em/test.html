@@ -1,0 +1,263 @@
+<html>
+    <head>
+        <title>Emote Maker Online v3</title>
+        <link rel="stylesheet" type="text/css" href="lib/resources/css/ext-all.css"/>
+        <!--link rel="stylesheet" type="text/css" href="lib/resources/css/xtheme-aero.css"/-->
+        <!-- LIBS -->
+        <script type="text/javascript" src="lib/adapter/ext/ext-base.js">
+        </script>
+        <!-- ENDLIBS -->
+        <script type="text/javascript" src="lib/ext-all.js">
+        </script>
+        <script type="text/javascript" src="lib/EMObjectView.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="images/icon.css"/>
+        <style type="text/css">
+            html, body {
+                font: normal 12px verdana;
+                margin: 0;
+                padding: 0;
+                border: 0 none;
+                overflow: hidden;
+                height: 100%;
+            }
+            
+            p {
+                margin: 5px;
+            }
+            
+            .settings {
+                background-image: url(http://extjs.com/deploy/dev/examples/shared/icons/fam/folder_wrench.png) !important;
+            }
+            
+            .nav {
+                background-image: url(http://extjs.com/deploy/dev/examples/shared/icons/fam/folder_go.png) !important;
+            }
+        </style>
+        <script type="text/javascript">
+            Ext.onReady(function(){
+            
+                Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+                //start 
+                // The action
+                var action = new Ext.Action({
+                    text: 'Action 1',
+                    handler: function(){
+                        alert('You clicked on "Action 1".');
+                    },
+                    iconCls: 'settings'
+                });
+                
+                var viewport = new Ext.Panel({
+                    renderTo: Ext.get("content"),
+                    title: "Emote Maker Online v3",
+                    style: "text-align:left;",
+                    layout: 'border',
+                    width: 800,
+                    height: 600,
+                    items: [new Ext.Panel({
+                        region: "north",
+                        border: false,
+                        tbar: [action, {
+                            text: 'Save',
+                            iconCls: 'ic_export',
+                            menu: {
+                                items: [{
+                                    text: 'As Png',
+                                    iconCls: 'ic_export_img'
+                                }, {
+                                    text: 'As Gif',
+                                    iconCls: 'ic_export_img'
+                                }, {
+                                    text: 'As Jpeg',
+                                    iconCls: 'ic_export_img'
+                                }, {
+                                    text: 'More...',
+                                    iconCls: 'ic_export_img'
+                                }]
+                            }
+                        }]
+                    }), {
+                        region: 'south',
+                        contentEl: 'south',
+                        split: true,
+                        height: 100,
+                        minSize: 100,
+                        maxSize: 200,
+                        collapsible: true,
+                        title: 'South',
+                        margins: '0 5 5 5'
+                    }, {
+                        region: 'east',
+                        title: 'East Side',
+                        collapsible: true,
+                        split: true,
+                        width: 225,
+                        minSize: 175,
+                        maxSize: 400,
+                        layout: 'fit',
+                        margins: '5 5 0 0',
+                        items: new Ext.TabPanel({
+                            border: false,
+                            activeTab: 1,
+                            tabPosition: 'bottom',
+                            items: [{
+                                html: '<p>A TabPanel component can be a region.</p>',
+                                title: 'A Tab',
+                                autoScroll: true
+                            }, new Ext.grid.PropertyGrid({
+                                title: 'Property Grid',
+                                closable: true,
+                                source: {
+                                    "(name)": "Properties Grid",
+                                    "grouping": false,
+                                    "autoFitColumns": true,
+                                    "productionQuality": false,
+                                    "created": new Date(Date.parse('10/15/2006')),
+                                    "tested": false,
+                                    "version": .01,
+                                    "borderWidth": 1
+                                }
+                            })]
+                        })
+                    }, {
+                        region: 'west',
+                        title: 'ImageObjects',
+                        layout: 'fit',
+                        split: true,
+                        width: 200,
+                        minSize: 175,
+                        maxSize: 400,
+                        collapsible: true,
+                        margins: '5 0 0 5',
+                        items: new Ext.TabPanel({
+                            border: false,
+                            activeTab: 0,
+                            items: [{
+                                title: "Small",
+                                layout: 'accordion',
+                                layoutConfig: {
+                                    animate: true
+                                },
+                                items: [/*{title:"boo",html:"Fuck"},*/new EM.ObjectView({
+                                    title: "Faces",
+                                    iconCls: 'ic_export_img',
+                                    em: {
+                                        src: "small_faces.gif",
+                                        width: 18,
+                                        height: 18
+                                    }
+                                }), new EM.ObjectView({
+                                    title: "Eyes",
+                                    iconCls: 'ic_export_img',
+                                    em: {
+                                        src: "small_eyes.gif",
+                                        width: 18,
+                                        height: 18
+                                    }
+                                }), new EM.ObjectView({
+                                    title: "Mouths",
+                                    iconCls: 'ic_export_img',
+                                    em: {
+                                        src: "small_mouth.gif",
+                                        width: 18,
+                                        height: 18
+                                    }
+                                })]
+                            }, {
+                                title: "Normal",
+                                layout: 'accordion',
+                                layoutConfig: {
+                                    animate: true
+                                },
+                                items: [new EM.ObjectView({
+                                    title: "Faces",
+                                    iconCls: 'ic_export_img',
+                                    em: {
+                                        src: "med_faces.gif",
+                                        width: 20,
+                                        height: 20
+                                    }
+                                }), new EM.ObjectView({
+                                    title: "Eyes",
+                                    iconCls: 'ic_export_img',
+                                    em: {
+                                        src: "med_eyes.gif",
+                                        width: 20,
+                                        height: 20
+                                    }
+                                }), new EM.ObjectView({
+                                    title: "Mouths",
+                                    iconCls: 'ic_export_img',
+                                    em: {
+                                        src: "med_mouth.gif",
+                                        width: 20,
+                                        height: 20
+                                    }
+                                })]
+                            }]
+                        })
+                    
+                        /*layout: 'accordion',
+                         layoutConfig: {
+                         animate: true
+                         },
+                         items: [new EM.ObjectView({
+                         title: "Faces",
+                         iconCls: 'ic_export_img',
+                         em:{
+                         src:"med_faces.gif",
+                         width:20,
+                         height:20
+                         }
+                         }), new EM.ObjectView({
+                         title: "Eyes",
+                         iconCls: 'ic_export_img'
+                         }), new EM.ObjectView({
+                         title: "Mouths",
+                         iconCls: 'ic_export_img'
+                         })]*/
+                    }, new Ext.TabPanel({
+                        region: 'center',
+                        deferredRender: false,
+                        margins: "5 0 0 0",
+                        activeTab: 0,
+                        items: [{
+                            contentEl: 'center1',
+                            title: 'Close Me',
+                            closable: true,
+                            autoScroll: true
+                        }, {
+                            contentEl: 'center2',
+                            title: 'Center Panel',
+                            autoScroll: true
+                        }]
+                    })]
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="toolbar">
+        </div>
+        <div align="center">
+            <div id="content">
+            </div>
+        </div>
+        <div id="west">
+        </div>
+        <div id="center2">
+            Tab1
+        </div>
+        <div id="center1">
+            tab2
+        </div>
+        <div id="props-panel" style="width:200px;height:200px;overflow:hidden;">
+        </div>
+        <div id="south">
+            <p>
+                south - generally for informational stuff, also could be for status bar
+            </p>
+        </div>
+    </body>
+</html>

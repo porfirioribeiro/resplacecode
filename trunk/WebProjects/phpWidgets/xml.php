@@ -7,79 +7,121 @@ function has_ns($tag,$ns){
 //Initialize the XML parser
 $parser=xml_parser_create();
 
+
+function array_keys_tolower($arr){
+	$narr=array();
+	foreach ($arr as $k => $v) {
+		$narr[strtolower($k)]=$v;
+	}
+	return $narr;
+}
+
 //Function to use at the start of an element
-function start($parser,$element_name,$element_attrs){
-	if (has_ns($element_name,"pw")){
-		switch($element_name){
-			case "PW:NOTE":
-				echo "-- Note --<br />";
-				break;
-			case "PW:TO":
-				echo "To: ";
-				break;
-			case "PW:FROM":
-				echo "From: ";
-				break;
-			case "PW:HEADING":
-				echo "Heading: ";
-				break;
-			case "PW:BODY":
-				echo "Message: ";
+global $ct_tag, $ct_count;
+$stack=array();
+$depth=0;
+class Test{
+	function reqClass($name){
+		
+	}
+	function start($parser,$element_name,$attrs){
+		global $stack, $depth;
+		$attrs=array_keys_tolower($attrs);
+		$w=null;
+		$cn=explode(":",$element_name);
+		if (count($cn)>1){
+			$ns=$cn[0];
+			$cn=strtolower($cn[1]);
+			$dir=dirname(__FILE__).DIRECTORY_SEPARATOR."PWidgets".DIRECTORY_SEPARATOR.strtolower($ns).DIRECTORY_SEPARATOR;
+			$fn=$cn.".php";
+			$cls=$ns."_".$cn;
+			$f1=$dir.$fn;
+			$f2=$dir.$cn.DIRECTORY_SEPARATOR.$fn;
+			if (!class_exists($cls)){
+				if (is_file($f1)){
+					include_once $f1;
+				}else if (is_file($f2)){
+					include_once $f2;
+				}			
+			}
+			$w=new $cls($attrs);
+			echo($w);
+			echo get_class($w);
+		}else{
+			$attrsl="";
+			foreach ($attrs as $k => $v) {
+				$k=strtolower($k);
+				$attrsl.=" $k=\"$v\"";
+			}
+			echo "<$element_name$attrsl>";		
 		}
-	}else{
+		$stack[count($stack)] = $w;
+		$depth++;
+	}
+	
+	//Function to use at the end of an element
+	function stop($parser,$element_name){
+		global $stack, $depth;
 		$element_name=strtolower($element_name);
-		$attrs="";
-		foreach ($element_attrs as $k => $v) {
-			$k=strtolower($k);
-			$attrs.=" $k=\"$v\"";
+		$w=$stack[$depth-1];
+		if (has_ns($element_name,"pw")){	
+			if ($w!=null){
+				echo $w->close();
+			}			
+		}else{
+			echo "</$element_name>";
 		}
-		echo "<$element_name$attrs>";
+		array_pop($stack);
+	    $depth--;
 	}
-}
-
-//Function to use at the end of an element
-function stop($parser,$element_name){
-	$element_name=strtolower($element_name);
-	if (has_ns($element_name,"pw")){
-		echo "<br />";
-	}else{
-		echo "</$element_name>";
+	
+	function char($parser,$data){
+		echo $data;
 	}
+
 }
 
-//Function to use when finding character data
-function char($parser,$data)
-{
-	echo $data;
-}
+$test= new Test();
 
-
+Test::reqClass("pw::label");
 //Specify element handler
-xml_set_element_handler($parser,"start","stop");
+xml_set_element_handler($parser,array($test,"start"),array($test,"stop"));
+xml_set_default_handler($parser,array($test,"char"));
 
-//Specify data handler
-xml_set_character_data_handler($parser,"char");
 
 
 
 ob_start();
 
 ?>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="PWidgets/srv.php?css" type="text/css"/>
+		<script type="text/javascript" src="PWidgets/srv.php?js"></script>
+	</head>
+	<body>
+		<pw:panel onclick="alert(this)">
+			<pw:textfield onclick="alert(this)" id="idname" label="Name:" value="porfirio" bounds="50,150,200,210" textpos="top" style="border: 1px solid black;text-align:center;"/>
+			<pw:input onclick="alert(this)" type="button" value="Click" onmousedown="this.setText(${idname}.getValue())"></pw:input>
+		</pw:panel>
+		<br/>
+	</body>
+</html>
 
-<pw:note>
-	<pw:to>Tove</pw:to>
-	<pw:from>Jani</pw:from>
-	<pw:heading>Reminder</pw:heading>
-	<pw:body>
-	Don't forget me <b style="color:red;" onclick="alert(this)">this</b> weekend!
-	</pw:body>
-</pw:note>
-<b>nixe</b>
 <?php
 
 xml_parse($parser,ob_get_clean(),true);
 
+$error=xml_get_error_code($parser);
+if ($error){
+	echo xml_error_string($error);
+}
+//tests
+
+
 //Free the XML parser
 xml_parser_free($parser);
 
-	?>
+?>
