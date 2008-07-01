@@ -17,7 +17,7 @@ function array_keys_tolower($arr){
 }
 
 //Function to use at the start of an element
-global $ct_tag, $ct_count;
+global $ct_tag, $ct_count, $stack, $depth;
 $stack=array();
 $depth=0;
 class Test{
