@@ -118,14 +118,14 @@ class Str {
 	 * @param mixed $string
 	 * @param String $separator
 	 * @param int $howmany
-	 * @return array TODO use ArrayObject or other
+	 * @return ArrayExt
 	 */
 	function split($string, $separator, $howmany=null){
 		if (Str::is($separator)){
 			if ($howmany){
-				return explode($separator, $string, $howmany);
+				return arr(explode($separator, $string, $howmany));
 			}
-			return explode($separator, $string);
+			return arr(explode($separator, $string));
 		}else{
 			return null;//TODO implement RegEx on split
 		}
