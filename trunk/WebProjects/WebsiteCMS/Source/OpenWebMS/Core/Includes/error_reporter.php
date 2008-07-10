@@ -157,7 +157,15 @@ function ShowError($file,$id) {
 					?>
 						<div align="center">
 						<div align="left" class="Error">
-						<div style="float:right"><a href="<?=url(array("Admin","ErrorLog","Print",$id)) ?>"><img src='<?=$WebMS['CoreUrl'] ?>Images/print.png' border='0' alt='[=]' title='Print this error' style="vertical-align:middle" \></a><a href="<?=url(array("Admin","ErrorLog","Print",$id)) ?>">Print</a> <a href="<?=url(array("Admin","ErrorLog",'Del',$id)); ?>"><img src="<?=$WebMS['AdminUrl'] ?>icons/button_cancel.png" alt="[x]" title="Delete this error" border="0" style="vertical-align:middle"></a><a href="<?=url(array("Admin","ErrorLog",'Del',$id)); ?>">Delete</a></div>
+						<div style="float:right">
+							<?php
+								if (function_exists('url')) {
+									?><a href="<?=url(array("Admin","ErrorLog","Print",$id)) ?>"><img src='<?=$WebMS['CoreUrl'] ?>Images/print.png' border='0' alt='[=]' title='Print this error' style="vertical-align:middle" \></a><a href="<?=url(array("Admin","ErrorLog","Print",$id)) ?>">Print</a> <a href="<?=url(array("Admin","ErrorLog",'Del',$id)); ?>"><img src="<?=$WebMS['AdminUrl'] ?>icons/button_cancel.png" alt="[x]" title="Delete this error" border="0" style="vertical-align:middle"></a><a href="<?=url(array("Admin","ErrorLog",'Del',$id)); ?>">Delete</a><?php
+								} else {
+									echo '(Functions Unavailable)';
+								}
+							?>
+							</div>
 						<b>
 						<?php 
 							$errid=substr($header[5],0,1);
