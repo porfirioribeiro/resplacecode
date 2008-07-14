@@ -2,7 +2,7 @@
 
     include 'std/String.php';
     
-    has
+   
     $start = microtime(true); 
 
     for ($i = 0; $i <= 1000; $i++) { 
