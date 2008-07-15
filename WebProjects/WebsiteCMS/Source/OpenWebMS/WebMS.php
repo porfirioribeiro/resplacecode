@@ -93,11 +93,13 @@ class WebMS{
 		//Are they an administrator?
 		if ($WebMS["User_Userlvl"]==2) {
 			if (isset($WebMS["URLArray"][1]) && $WebMS["URLArray"][1]=="DevMode") {
-				$_SESSION['developer_mode']=(((!isset($_SESSION['developer_mode'])) || ($_SESSION['developer_mode']==false)) ? true:false);
+				$_SESSION['developer_mode']=(((!isset($_SESSION['developer_mode'])) || ($_SESSION['developer_mode']==false) || ($WebMS["URLArray"][1]=="Die")) ? true:false);
 			}
+			
+			//Moved to inside the check for user permission, just to make sure that ONLY admins can use DevMode.
+			$this->devMode=isset($_SESSION['developer_mode']) && $_SESSION['developer_mode'];
 		}
 		
-		$this->devMode=isset($_SESSION['developer_mode']) && $_SESSION['developer_mode'];
 		$this->self=$this;
 		$this->id=$_SERVER['PHP_SELF'];
 		//TODO is this replacement corrent?

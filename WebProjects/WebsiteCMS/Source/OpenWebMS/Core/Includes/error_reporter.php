@@ -4,8 +4,8 @@
 * Logs generated errors
 * Licenced under GPLv2 read GPL.txt for details
 * @version 1
-* @copyright ? 2007 ResPlace Team
-* @lastedit 03-10-07
+* @copyright (c) 2007 ResPlace Team
+* @lastedit 11-07-08
 */
 
 error_reporting(E_ALL);
@@ -147,7 +147,7 @@ function ShowError($file,$id) {
 			$filedata=fread($fh,filesize($file));
 			$errlength=$filedata;
 			
-			//chop and grab the header infirmation
+			//chop and grab the header information
 			if (preg_match("/\H\{\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\@\[(.*?)\]\}/",$filedata,$header)) {
 				//header was read successfully
 				//echo Header title
