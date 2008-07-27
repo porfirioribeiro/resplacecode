@@ -20,7 +20,7 @@ $WebMS["Version"]				="0.1|BETA";
 //Normal		- ?p=blah&amp;c=blah&amp;a=blah
 //CleanDots		- ?blah.blah.huh.yey
 //Slashs        - /blah/blah/blah/huh/yey
-$WebMS["URLFormat"]				="Slashs";
+$WebMS["URLFormat"]				="CleanDots";
 $WebMS["URLParts"]				=0;
 $WebMS["URLArray"]				=array();
 $WebMS["URLPage"]				="";
