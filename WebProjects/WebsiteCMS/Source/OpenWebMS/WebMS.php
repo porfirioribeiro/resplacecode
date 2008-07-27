@@ -397,6 +397,20 @@ class WebMS{
 			?><div class="ErrorO ErrorRel">
 			<div class="Title">Debug:</div>
 			<div class="Content">
+			<a name="goto3"> </a>
+			<b><a href="#goto3" style="text-decoration: none;" onclick="$('WEBMS_DEBUG_3').toggle()">$_SERVER:</a></b><br>
+			<table style="display: none;" id="WEBMS_DEBUG_3"><?php
+			foreach ($_SERVER as $key=>$value):
+				?>
+				<tr>
+					<td align="left"><?=$key ?></td>
+					<td align="center" width="25"><b>=&gt;</b></td>
+					<td align="left"><?=$value ?></td>
+				</tr>
+				<?php	
+			endforeach;
+			?></table>
+			<br>
 			<a name="goto1"> </a>
 			<b><a href="#goto1" style="text-decoration: none;" onclick="$('WEBMS_DEBUG_1').toggle()">$_REQUEST:</a></b><br>
 			<table style="display: none;" id="WEBMS_DEBUG_1"><?php
