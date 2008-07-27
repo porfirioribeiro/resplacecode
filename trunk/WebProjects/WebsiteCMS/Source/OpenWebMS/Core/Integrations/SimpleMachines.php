@@ -89,7 +89,14 @@ function CurrentUser() {
 		$WebMS["User_Email"]=$context['user']['email'];
 		
 		//Fetch users avatar URL
+		//Make sure the variable exists because its not set if the user hasnt set an avatar :o
+		if (isset($context['user']['avatar']['href'])) {
 		$WebMS["User_Avatar"]=$context['user']['avatar']['href'];
+		} else {
+			//no avatar, maybe have a blank avatar image here?
+			//TODO: Default Avatar Image
+			$WebMS['User_avatar']="";
+		}
 		
 		//fetch users signature
 		if (!empty($memberContext[$context['user']['id']]['signature'])){
