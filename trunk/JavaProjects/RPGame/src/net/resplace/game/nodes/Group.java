@@ -28,7 +28,7 @@ public class Group<T extends Node> extends ArrayList<T> implements NodeGroup<T> 
     }
 
     @Override
-    public boolean add(T e) {
+    public boolean addNode(T e) {
         e.init(this);
         return super.add(e);
     }
@@ -60,14 +60,14 @@ public class Group<T extends Node> extends ArrayList<T> implements NodeGroup<T> 
     /**
      * {@inheritDoc}
      */
-    public boolean remove(T node) {
-        return remove((Object) node);
+    public boolean removeNode(T node) {
+        return remove(node);
     }
     /**
      * {@inheritDoc}
      */
     public void destroy() {
-        getParentNode().remove(this);
+        getParentNode().removeNode(this);
     }
 
 }
