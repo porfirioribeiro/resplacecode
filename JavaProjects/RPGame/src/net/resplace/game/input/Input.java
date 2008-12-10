@@ -15,7 +15,6 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *
@@ -84,6 +83,7 @@ public class Input {
         public int wheelRotation = 0;
         public int clickCount;
 
+        @Override
         public void mouseClicked(MouseEvent e) {
             event=e;
             if (e.getButton() == MouseEvent.BUTTON1) {
@@ -92,6 +92,7 @@ public class Input {
             clickCount=e.getClickCount();
         }
 
+        @Override
         public void mousePressed(MouseEvent e) {
             event=e;
             if (e.getButton() == MouseEvent.BUTTON1) {
@@ -105,6 +106,7 @@ public class Input {
             }
         }
 
+        @Override
         public void mouseReleased(MouseEvent e) {
             event=e;
             if (e.getButton() == MouseEvent.BUTTON1) {
@@ -118,22 +120,26 @@ public class Input {
             }
         }
 
+        @Override
         public void mouseEntered(MouseEvent e) {
             event=e;
             in = true;
         }
 
+        @Override
         public void mouseExited(MouseEvent e) {
             event=e;
             in = false;
         }
 
+        @Override
         public void mouseDragged(MouseEvent e) {
             event=e;
             dragging = true;
             mouseMoved(e);
         }
 
+        @Override
         public void mouseMoved(MouseEvent e) {
             event=e;
             point = e.getPoint();
@@ -143,6 +149,7 @@ public class Input {
             yOnScreen = e.getYOnScreen();
         }
 
+        @Override
         public void mouseWheelMoved(MouseWheelEvent e) {
             event=e;
             wheelRotation = e.getWheelRotation();
@@ -163,11 +170,13 @@ public class Input {
         public int pressed=0;
         public int released=0;
 
+        @Override
         public void keyTyped(KeyEvent e) {
             Input.keyboardString+=e.getKeyChar();
             e.consume();
         }
 
+        @Override
         public void keyPressed(KeyEvent e) {
             pressed=e.getKeyCode();
             if (!keys.contains(e.getKeyCode())){
@@ -176,6 +185,7 @@ public class Input {
             e.consume();
         }
 
+        @Override
         public void keyReleased(KeyEvent e) {
             released=e.getKeyCode();
             keys.remove((Object)e.getKeyCode());
