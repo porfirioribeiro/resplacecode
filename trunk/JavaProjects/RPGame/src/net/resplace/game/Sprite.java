@@ -10,6 +10,8 @@ import java.awt.image.BufferedImage;
  * @author porf
  */
 public class Sprite {
+    public final BBox bbox=new BBox(this);
+
     private Image image=new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
 
     public Sprite(Image image) {
@@ -27,6 +29,12 @@ public class Sprite {
     public int getHeight(){
         return (image!=null)?image.getHeight(null):0;
     }
+
+    public void setBBox(int left, int top, int right, int bottom) {
+        bbox.setBBox(left, top, right, bottom);
+    }
+
+
 
     /**
      * Not need on static sprites, but might be used on animated sprites!

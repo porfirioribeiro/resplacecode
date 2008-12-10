@@ -13,6 +13,7 @@ import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Panel;
 import java.awt.Rectangle;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -30,6 +31,9 @@ public class TestGame extends GameEngine {
     public TestGame() {
         setSize(400, 400);
 
+        final Sprite sonicSprite= new Sprite(new ImageIcon(getClass().getResource("/net/resplace/game/sonic.png")).getImage());
+        sonicSprite.setBBox(10,30,10,5);
+        
         add(new AbstractNode() {
 
             @Override
@@ -38,7 +42,43 @@ public class TestGame extends GameEngine {
             }
 
         });
-        add(new NodePanel());
+        class Sonic extends Actor{
+
+            public Sonic(int width, int height) {
+                super(sonicSprite, width, height);
+            }
+
+            @Override
+            public void update(long elapsedTime) {
+                super.update(elapsedTime);
+                if (Input.isKeyDown(VK_LEFT)) {
+                    x--;
+                }
+                if (Input.isKeyDown(VK_RIGHT)) {
+                    x++;
+                }
+                if (Input.isKeyDown(VK_UP)) {
+                    y--;
+                }
+                if (Input.isKeyDown(VK_DOWN)) {
+                    y++;
+                }
+                if (getOutRect().contains(Input.mouse.point) && Input.mouse.leftButtonDown){
+                    destroy();
+                }
+
+            }
+
+            @Override
+            public void draw(Graphics2D g) {
+                super.draw(g);
+                g.setColor(Color.red);
+                g.draw(getColisionRect());
+            }
+
+        }
+        add(new Sonic(10, 10));
+        add(new Sonic(110, 10));
     }
 
     public static void main(String[] args) {
@@ -47,43 +87,4 @@ public class TestGame extends GameEngine {
     }
 }
 
-class NodePanel extends NewJPanel implements Node {
 
-    private NodeGroup parent;
-
-    public NodePanel() {
-        super();
-        
-    }
-
-    public void init(NodeGroup parent) {
-        this.parent = parent;
-    }
-
-    public NodeGroup getParentNode() {
-        return parent;
-    }
-
-    public void create() {
-        setSize(200, 200);
-        setLocation(100, 100);
-    }
-
-    public void update(long elapsedTime) {
-        if (Input.mouse.event != null) {
-            processMouseEvent(Input.mouse.event);
-        }
-    }
-
-    public void draw(Graphics2D g) {
-        g.translate(getX(), getY());
-        updateUI();
-        update(g);
-        jButton1.setSize(100, 20);
-        jButton1.setLocation(200, 200);
-        jButton1.update(g);
-    }
-
-    public void destroy() {
-    }
-}

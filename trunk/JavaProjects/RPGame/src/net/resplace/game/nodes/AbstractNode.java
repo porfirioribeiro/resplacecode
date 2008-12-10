@@ -17,6 +17,7 @@ public abstract class AbstractNode implements Node {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void init(NodeGroup parent) {
         this.parent = parent;
     }
@@ -24,6 +25,7 @@ public abstract class AbstractNode implements Node {
     /**
      * {@inheritDoc}
      */
+    @Override
     public NodeGroup getParentNode() {
         return parent;
     }
@@ -31,24 +33,28 @@ public abstract class AbstractNode implements Node {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void create() {
     }
 
     /**
      * {@inheritDoc}
      */
+    @Override
     public void update(long elapsedTime) {
     }
 
     /**
      * {@inheritDoc}
      */
+    @Override
     public void draw(Graphics2D g) {
     }
 
     /**
      * {@inheritDoc}
      */
+    @Override
     public void destroy() {
         getParentNode().removeNode(this);
     }

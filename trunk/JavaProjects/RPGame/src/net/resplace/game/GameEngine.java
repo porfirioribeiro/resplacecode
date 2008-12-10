@@ -102,15 +102,17 @@ public class GameEngine implements InputKeys{
         }
     }
     public void update(long elapsedTime){
-        for (Node node : nodes) {
+        nodes.update(elapsedTime);
+        /*for (Node node : nodes) {
             node.update(elapsedTime);
-        }
+        }*/
     }
 
     public void draw(Graphics2D g){
-        for (Node node : nodes) {
+        nodes.draw(g);
+        /*for (Node node : nodes) {
             node.draw(g);
-        }
+        }*/
     }
 
     public Cursor getCursor() {

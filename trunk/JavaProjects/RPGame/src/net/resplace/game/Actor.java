@@ -2,6 +2,7 @@ package net.resplace.game;
 
 import net.resplace.game.nodes.AbstractNode;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 /**
  *
@@ -14,14 +15,6 @@ public class Actor extends AbstractNode {
     public int y;
     public int width;
     public int height;
-
-    public Actor(Sprite sprite, int x, int y, int width, int height) {
-        this.sprite = sprite;
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-    }
 
     public Actor(Sprite sprite, int x, int y) {
         this.sprite = sprite;
@@ -38,6 +31,14 @@ public class Actor extends AbstractNode {
     }
 
     public Actor() {
+    }
+
+    public Rectangle getColisionRect(){
+        return new Rectangle(x+sprite.bbox.left, y+sprite.bbox.top, width-sprite.bbox.left-sprite.bbox.right, height-sprite.bbox.top-sprite.bbox.bottom);
+    }
+
+    public Rectangle getOutRect(){
+        return new Rectangle(x, y, width, height);
     }
 
     /**
@@ -61,9 +62,6 @@ public class Actor extends AbstractNode {
         }
     }
 
-    @Override
-    public void destroy() {
-    }
 
     /**
      * Test a simple box collision, returns true if collides
