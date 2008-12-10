@@ -15,10 +15,10 @@ public interface NodeGroup<T> extends Node {
      * @param node
      * @return
      */
-    public boolean add(T node);
+    public boolean addNode(T node);
     /**
      * Remove one node from this group
      * @param node
      */
-    public boolean remove(T node);
+    public boolean removeNode(T node);
 }

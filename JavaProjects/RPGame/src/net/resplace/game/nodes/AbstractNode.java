@@ -50,6 +50,6 @@ public abstract class AbstractNode implements Node {
      * {@inheritDoc}
      */
     public void destroy() {
-        getParentNode().remove(this);
+        getParentNode().removeNode(this);
     }
 }
