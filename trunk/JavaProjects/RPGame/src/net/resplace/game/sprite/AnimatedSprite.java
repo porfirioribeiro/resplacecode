@@ -15,7 +15,8 @@ import java.util.ArrayList;
 public class AnimatedSprite extends Sprite {
 
     public final ArrayList<BufferedImage> frames = new ArrayList<BufferedImage>();
-    private int currentFrameIndex=0;
+    private int currentFrameIndex = 0;
+
     public void add(BufferedImage BufferedImage) {
         frames.add(BufferedImage);
     }
@@ -23,9 +24,11 @@ public class AnimatedSprite extends Sprite {
     public BufferedImage get(int i) {
         return frames.get(i);
     }
+
     public BufferedImage getCurrentFrame() {
         return get(currentFrameIndex);
     }
+
     public void remove(BufferedImage BufferedImage) {
         frames.remove(BufferedImage);
     }
@@ -37,20 +40,30 @@ public class AnimatedSprite extends Sprite {
     public int countFrames() {
         return frames.size();
     }
+    private double fps = 5;
+    private long currentTime = 0;
 
     @Override
     public void update(long elapsedTime) {
-        image=getCurrentFrame();
-        currentFrameIndex++;
-        if (currentFrameIndex==frames.size()){
-            currentFrameIndex=0;
+        image = getCurrentFrame();
+        currentTime += elapsedTime;
+        if (fps > 0) {
+            if (currentTime > (1000 / fps)) {
+                currentFrameIndex++;
+                currentTime = 0;
+            }
+
         }
+
+        if (currentFrameIndex == frames.size()) {
+            currentFrameIndex = 0;
+        }
+
     }
 
     @Override
     public void draw(Graphics2D g, int x, int y, int width, int height) {
         super.draw(g, x, y, width, height);
-        System.out.println(width);
     }
 
     @Override
@@ -62,6 +75,4 @@ public class AnimatedSprite extends Sprite {
     public int getHeight() {
         return getCurrentFrame().getHeight();
     }
-
-
 }
