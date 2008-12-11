@@ -4,23 +4,14 @@
  */
 package net.resplace.game.tests;
 
-import java.awt.BorderLayout;
+import net.resplace.game.sprite.Sprite;
+import net.resplace.game.actor.Actor;
 import net.resplace.game.*;
 import net.resplace.game.input.Input;
-import net.resplace.game.nodes.AbstractNode;
+import net.resplace.game.node.AbstractNode;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Graphics2D;
-import java.awt.Panel;
-import java.awt.Rectangle;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.border.EtchedBorder;
-import net.resplace.game.nodes.Node;
-import net.resplace.game.nodes.NodeGroup;
-import org.w3c.dom.NodeList;
 
 /**
  *
@@ -38,10 +29,11 @@ public class TestGame extends GameEngine {
 
             @Override
             public void draw(Graphics2D g) {
-                g.fillRect(0, 0, 500, 500);
+                //g.fillRect(0, 0, 500, 500);
             }
 
         });
+
         class Sonic extends Actor{
 
             public Sonic(int width, int height) {
@@ -73,7 +65,12 @@ public class TestGame extends GameEngine {
             public void draw(Graphics2D g) {
                 super.draw(g);
                 g.setColor(Color.red);
-                g.draw(getColisionRect());
+                if (getColisionRect().contains(Input.mouse.point)){
+                    g.fill(getColisionRect());
+                }else{
+                    g.draw(getColisionRect());
+                }
+                
             }
 
         }

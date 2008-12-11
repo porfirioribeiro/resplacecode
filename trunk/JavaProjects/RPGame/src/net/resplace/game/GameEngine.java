@@ -6,9 +6,10 @@ package net.resplace.game;
 
 import net.resplace.game.input.Input;
 import net.resplace.game.input.InputKeys;
-import net.resplace.game.nodes.Group;
-import net.resplace.game.nodes.Node;
+import net.resplace.game.node.Group;
+import net.resplace.game.node.Node;
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
@@ -25,6 +26,8 @@ public class GameEngine implements InputKeys{
     private boolean running;
     private Group<Node> nodes=new Group<Node>();
     public Canvas canvas;
+    public Color backgroundColor=Color.WHITE;
+    
     public GameEngine() {
         canvas=new Canvas();
         Input.register(this);
@@ -109,6 +112,9 @@ public class GameEngine implements InputKeys{
     }
 
     public void draw(Graphics2D g){
+        g.setColor(backgroundColor);
+        g.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        g.setColor(Color.black);
         nodes.draw(g);
         /*for (Node node : nodes) {
             node.draw(g);

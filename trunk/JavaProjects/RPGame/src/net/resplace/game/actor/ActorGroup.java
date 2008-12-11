@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.resplace.game;
+package net.resplace.game.actor;
 
-import net.resplace.game.nodes.Group;
+import net.resplace.game.node.Group;
 
 /**
  *

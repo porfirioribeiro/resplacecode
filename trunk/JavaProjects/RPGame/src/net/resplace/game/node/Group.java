@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.resplace.game.nodes;
+package net.resplace.game.node;
 
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -13,27 +13,27 @@ import java.util.ArrayList;
  */
 public class Group<T extends Node> extends ArrayList<T> implements NodeGroup<T> {
 
-    private NodeGroup parent;
+    private NodeGroup<Node> parent;
     private ArrayList<Node> nodesToRemove=new ArrayList<Node>();
     /**
      * {@inheritDoc}
      */
     @Override
-    public NodeGroup getParentNode() {
+    public NodeGroup<Node> getParentNode() {
         return parent;
     }
     /**
      * {@inheritDoc}
      */
     @Override
-    public void init(NodeGroup parent) {
-        this.parent=parent;
+    public void init(NodeGroup<? extends Node> parent) {
+        this.parent=(NodeGroup<Node>) parent;
     }
 
     @Override
-    public boolean addNode(T e) {
+    public void addNode(T e) {
         e.init(this);
-        return super.add(e);
+        super.add(e);
     }
 
     /**
@@ -69,9 +69,8 @@ public class Group<T extends Node> extends ArrayList<T> implements NodeGroup<T> 
      * {@inheritDoc}
      */
     @Override
-    public boolean removeNode(T node) {
+    public void removeNode(T node) {
         nodesToRemove.add(node);
-        return true;
     }
     private void removeNodes(){
         if (!nodesToRemove.isEmpty()){

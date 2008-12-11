@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.resplace.game.nodes;
+package net.resplace.game.node;
 
 import net.resplace.game.input.InputKeys;
 import java.awt.Graphics2D;
@@ -19,12 +19,12 @@ public interface Node extends InputKeys {
      * Called internal, call this function might break
      * @param parent
      */
-    public void init(NodeGroup parent);
+    public void init(NodeGroup<? extends Node> parent);
     /**
      * Get the parent Node of this node
      * @return
      */
-    public NodeGroup getParentNode();
+    public NodeGroup<Node> getParentNode();
 
     /**
      * Called when the node is created

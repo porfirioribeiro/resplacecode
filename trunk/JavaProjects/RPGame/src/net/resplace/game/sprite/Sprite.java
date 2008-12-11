@@ -1,6 +1,7 @@
-package net.resplace.game;
+package net.resplace.game.sprite;
 
 
+import net.resplace.game.actor.BBox;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -39,7 +40,7 @@ public class Sprite {
     /**
      * Not need on static sprites, but might be used on animated sprites!
      */
-    void update(long elapsedTime) {
+    public void update(long elapsedTime) {
 
     }
     
