@@ -20,20 +20,19 @@ import net.resplace.game.sprite.StripSprite;
  */
 public class TestGame extends GameEngine {
 
-    Sonic sonic1, sonic2;
-
     public TestGame() {
         setSize(400, 400);
 
-        StripSprite sprite=new StripSprite(getClass().getResource("Actor1.png"), 32, 32);
+        StripSprite sprite = new StripSprite(getClass().getResource("Actor1.png"), 32, 32);
         /*for (int xi=0;xi<12;xi++){
-            for (int yi=0;yi<8;yi++){
-                add(new Actor(sprite.getSprite(xi, yi), xi*32, yi*32));
-            }
+        for (int yi=0;yi<8;yi++){
+        add(new Actor(sprite.getSprite(xi, yi), xi*32, yi*32));
+        }
         }*/
+        Sprite actorLeft = sprite.getSprite(0, 0, 0, 1, 0, 2);
+        add(new Actor(sprite.getSprite(0, 0, 0, 1, 0, 2), 10, 10));
 
-        add(new Actor(sprite.getSprite(new int[][]{{0,0},{0,1},{0,2}}), 10, 10));
-
+        add(new Actor(sprite.getSprite(1, 0, 1, 1, 1, 2), 10, 100));
 
 
     }

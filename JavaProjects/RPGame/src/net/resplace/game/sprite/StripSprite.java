@@ -79,13 +79,13 @@ public class StripSprite extends Sprite {
     }
 
     public BufferedImage getImage(int h, int v){
-        int x=(h*width) + hOffset;
+        int y=(h*width) + hOffset;
         if (h>0){
-            x+=(h*hSeparation);
+            y+=(h*hSeparation);
         }
-        int y=(v*height) + vOffset;
+        int x=(v*height) + vOffset;
         if (v>0){
-            y+=(v*vSeparation);
+            x+=(v*vSeparation);
         }
         /**if ((x + width>stripWidth) || (y + height>stripHeight)){
             throw new Exception("Trying to get a tile out of bounds!");
@@ -101,8 +101,17 @@ public class StripSprite extends Sprite {
         AnimatedSprite sprite= new AnimatedSprite();
         for (int i = 0; i < positions.length; i++) {
             int[] is = positions[i];
-            System.out.println("get "+is[0]+", "+is[1]+" "+getImage(is[0], is[1]));
             sprite.add(getImage(is[0], is[1]));
+        }
+        return sprite;
+    }
+    public AnimatedSprite getSprite(int ...positions){
+        AnimatedSprite sprite= new AnimatedSprite();
+        for (int i = 0; i < positions.length; i+=2) {
+            if (i+1==positions.length){
+                break;
+            }
+            sprite.add(getImage(positions[i], positions[i+1]));
         }
         return sprite;
     }
