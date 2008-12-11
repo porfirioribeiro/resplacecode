@@ -12,6 +12,7 @@ import net.resplace.game.node.AbstractNode;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
+import net.resplace.game.sprite.StripSprite;
 
 /**
  *
@@ -19,63 +20,27 @@ import javax.swing.ImageIcon;
  */
 public class TestGame extends GameEngine {
 
+    Sonic sonic1, sonic2;
+
     public TestGame() {
         setSize(400, 400);
 
-        final Sprite sonicSprite= new Sprite(new ImageIcon(getClass().getResource("/net/resplace/game/sonic.png")).getImage());
-        sonicSprite.setBBox(10,30,10,5);
-        
-        add(new AbstractNode() {
-
-            @Override
-            public void draw(Graphics2D g) {
-                //g.fillRect(0, 0, 500, 500);
+        StripSprite sprite=new StripSprite(getClass().getResource("Actor1.png"), 32, 32);
+        /*for (int xi=0;xi<12;xi++){
+            for (int yi=0;yi<8;yi++){
+                add(new Actor(sprite.getSprite(xi, yi), xi*32, yi*32));
             }
+        }*/
 
-        });
+        add(new Actor(sprite.getSprite(new int[][]{{0,0},{0,1},{0,2}}), 10, 10));
 
-        class Sonic extends Actor{
 
-            public Sonic(int width, int height) {
-                super(sonicSprite, width, height);
-            }
 
-            @Override
-            public void update(long elapsedTime) {
-                super.update(elapsedTime);
-                if (Input.isKeyDown(VK_LEFT)) {
-                    x--;
-                }
-                if (Input.isKeyDown(VK_RIGHT)) {
-                    x++;
-                }
-                if (Input.isKeyDown(VK_UP)) {
-                    y--;
-                }
-                if (Input.isKeyDown(VK_DOWN)) {
-                    y++;
-                }
-                if (getOutRect().contains(Input.mouse.point) && Input.mouse.leftButtonDown){
-                    destroy();
-                }
+    }
 
-            }
-
-            @Override
-            public void draw(Graphics2D g) {
-                super.draw(g);
-                g.setColor(Color.red);
-                if (getColisionRect().contains(Input.mouse.point)){
-                    g.fill(getColisionRect());
-                }else{
-                    g.draw(getColisionRect());
-                }
-                
-            }
-
-        }
-        add(new Sonic(10, 10));
-        add(new Sonic(110, 10));
+    @Override
+    public void update(long elapsedTime) {
+        super.update(elapsedTime);
     }
 
     public static void main(String[] args) {
