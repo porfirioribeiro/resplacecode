@@ -7,6 +7,7 @@ package net.resplace.game.input;
 import net.resplace.game.*;
 import java.awt.Component;
 import java.awt.Point;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -51,12 +52,27 @@ public class Input {
     public static void cleanup() {
         mouse.cleanup();
         key.cleanup();
+        event=null;
     }
     // </editor-fold>
     protected Component component;
     protected GameEngine engine;
     public static final Mouse mouse = new Mouse();
     public static final Key key= new Key();
+    private static InputEvent event;
+
+    public static boolean isShiftDown(){
+        return (event!=null && event.isShiftDown());
+    }
+    public static boolean isAltDown(){
+        return (event!=null && event.isAltDown());
+    }
+    public static boolean isControlDown(){
+        return (event!=null && event.isControlDown());
+    }
+    public static boolean isMetaDown(){
+        return (event!=null && event.isMetaDown());
+    }
     /**
      * Current keyboard String
      * This string increases as you type
@@ -68,7 +84,6 @@ public class Input {
     }
 
     public static class Mouse implements MouseListener, MouseMotionListener, MouseWheelListener {
-        public MouseEvent event;//experimental
         public Point point = new Point();
         public int x;
         public int y;
@@ -172,12 +187,14 @@ public class Input {
 
         @Override
         public void keyTyped(KeyEvent e) {
+            event=e;
             Input.keyboardString+=e.getKeyChar();
             e.consume();
         }
 
         @Override
         public void keyPressed(KeyEvent e) {
+            event=e;
             pressed=e.getKeyCode();
             if (!keys.contains(e.getKeyCode())){
                 keys.add(e.getKeyCode());
@@ -187,6 +204,7 @@ public class Input {
 
         @Override
         public void keyReleased(KeyEvent e) {
+            event=e;
             released=e.getKeyCode();
             keys.remove((Object)e.getKeyCode());
             e.consume();

@@ -31,6 +31,7 @@ public class GameEngine implements InputKeys{
     public GameEngine() {
         canvas=new Canvas();
         Input.register(this);
+        canvas.requestFocusInWindow();
         gameLoop();
     }
 

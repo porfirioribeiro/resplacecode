@@ -1,10 +1,13 @@
 package net.resplace.game.sprite;
 
 
+import java.net.URL;
 import net.resplace.game.actor.BBox;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -12,11 +15,25 @@ import java.awt.image.BufferedImage;
  */
 public class Sprite {
     public final BBox bbox=new BBox(this);
+    public final Point origin= new Point(0, 0);
+    protected BufferedImage image=new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
 
-    private Image image=new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
+    public int speed=1;
+
+    public Sprite() {
+    }
 
     public Sprite(Image image) {
-        this.image = image;
+        this.image=new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        this.image.getGraphics().drawImage(image, 0, 0, null);
+    }
+
+    public Sprite(String image) {
+        this(new ImageIcon(image).getImage());
+    }
+
+    public Sprite(URL image) {
+        this(new ImageIcon(image).getImage());
     }
     
     public Image getImage() {
@@ -54,7 +71,7 @@ public class Sprite {
      */
     public void draw(Graphics2D g, int x, int y, int width, int height){
         if (image!=null){
-            g.drawImage(image, x, y, width, height, null);
+            g.drawImage(image, x-origin.x, y-origin.y, width, height, null);
         }
     }
 
