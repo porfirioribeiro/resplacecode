@@ -1,6 +1,8 @@
-package net.resplace.game;
+package net.resplace.game.actor;
 
-import net.resplace.game.nodes.AbstractNode;
+import net.resplace.game.sprite.Sprite;
+import net.resplace.game.*;
+import net.resplace.game.node.AbstractNode;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 

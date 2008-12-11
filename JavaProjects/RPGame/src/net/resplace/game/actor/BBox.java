@@ -3,7 +3,10 @@
  * and open the template in the editor.
  */
 
-package net.resplace.game;
+package net.resplace.game.actor;
+
+import net.resplace.game.sprite.Sprite;
+import net.resplace.game.*;
 
 /**
  *

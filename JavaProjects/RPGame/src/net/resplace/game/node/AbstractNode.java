@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.resplace.game.nodes;
+package net.resplace.game.node;
 
 import java.awt.Graphics2D;
 
@@ -12,21 +12,21 @@ import java.awt.Graphics2D;
  */
 public abstract class AbstractNode implements Node {
 
-    private NodeGroup parent;
+    private NodeGroup<Node> parent;
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void init(NodeGroup parent) {
-        this.parent = parent;
+    public void init(NodeGroup<? extends Node> parent) {
+        this.parent = (NodeGroup<Node>) parent;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public NodeGroup getParentNode() {
+    public NodeGroup<Node> getParentNode() {
         return parent;
     }
 
