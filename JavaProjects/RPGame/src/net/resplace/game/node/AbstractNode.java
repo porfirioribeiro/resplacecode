@@ -18,6 +18,7 @@ public abstract class AbstractNode implements Node {
      * {@inheritDoc}
      */
     @Override
+    @SuppressWarnings("unchecked")
     public void init(NodeGroup<? extends Node> parent) {
         this.parent = (NodeGroup<Node>) parent;
     }
@@ -56,6 +57,6 @@ public abstract class AbstractNode implements Node {
      */
     @Override
     public void destroy() {
-        getParentNode().removeNode(this);
+        getParentNode().remove(this);
     }
 }

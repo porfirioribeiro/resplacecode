@@ -4,6 +4,7 @@
  */
 package net.resplace.game;
 
+import java.util.Iterator;
 import net.resplace.game.input.Input;
 import net.resplace.game.input.InputKeys;
 import net.resplace.game.node.Group;
@@ -14,13 +15,14 @@ import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
+import net.resplace.game.node.SimpleGroup;
 
 /**
  *
  * @author Porfirio
  */
 
-public class GameEngine implements InputKeys{
+public class GameEngine implements InputKeys, SimpleGroup<Node>{
 
     private boolean paused;
     private boolean running;
@@ -30,17 +32,26 @@ public class GameEngine implements InputKeys{
     
     public GameEngine() {
         canvas=new Canvas();
+        canvas.setIgnoreRepaint(true);
         Input.register(this);
         canvas.requestFocusInWindow();
         gameLoop();
     }
 
-    public void add(Node node){
+    @Override
+    public Node add(Node node){
         nodes.add(node);
         node.init(nodes);
         node.create();
+        return node;
     }
-
+    @Override
+    public Node[] add(Node[] arrayOfNodes){
+        for (Node node : arrayOfNodes) {
+            add(node);
+        }
+        return arrayOfNodes;
+    }
     public boolean isPaused() {
         return paused;
     }
@@ -132,5 +143,25 @@ public class GameEngine implements InputKeys{
 
     public void setSize(int width, int height){
         canvas.setSize(width, height);
+    }
+
+    @Override
+    public void remove(Node node) {
+        nodes.remove(node);
+    }
+
+    @Override
+    public Node get(int index) {
+        return nodes.get(index);
+    }
+
+    @Override
+    public int size() {
+        return nodes.size();
+    }
+
+    @Override
+    public Iterator<Node> iterator() {
+        return nodes.iterator();
     }
 }

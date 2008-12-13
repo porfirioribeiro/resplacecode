@@ -14,6 +14,12 @@ import java.util.ArrayList;
  */
 public class AnimatedSprite extends Sprite {
 
+    public AnimatedSprite() {
+        currentFrameIndex=0;
+        currentTime=0;
+    }
+
+
     public final ArrayList<BufferedImage> frames = new ArrayList<BufferedImage>();
     private int currentFrameIndex = 0;
 
@@ -47,6 +53,7 @@ public class AnimatedSprite extends Sprite {
     public void update(long elapsedTime) {
         image = getCurrentFrame();
         currentTime += elapsedTime;
+        System.out.println(currentTime);
         if (fps > 0) {
             if (currentTime > (1000 / fps)) {
                 currentFrameIndex++;

@@ -11,7 +11,13 @@ import net.resplace.game.input.Input;
 import net.resplace.game.node.AbstractNode;
 import java.awt.Color;
 import java.awt.Graphics2D;
-import javax.swing.ImageIcon;
+import java.awt.Paint;
+import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.Stroke;
+import net.resplace.game.actor.ActorGroup;
+import net.resplace.game.actor.Behaviores;
+import net.resplace.game.node.Node;
 import net.resplace.game.sprite.StripSprite;
 
 /**
@@ -29,17 +35,54 @@ public class TestGame extends GameEngine {
         add(new Actor(sprite.getSprite(xi, yi), xi*32, yi*32));
         }
         }*/
-        Sprite actorLeft = sprite.getSprite(0, 0, 0, 1, 0, 2);
-        add(new Actor(sprite.getSprite(0, 0, 0, 1, 0, 2), 10, 10));
+        final Sprite actorLeft = sprite.getSprite(1, 0, 1, 1, 1, 2);
+        final Sprite actorRight = sprite.getSprite(2, 0, 2, 1, 2, 2);
+        final Sprite actorUp = sprite.getSprite(3, 0, 3, 1, 3, 2);
+        final Sprite actorDown = sprite.getSprite(0, 0, 0, 1, 0, 2);
 
-        add(new Actor(sprite.getSprite(1, 0, 1, 1, 1, 2), 10, 100));
 
+        class MyActor extends Actor {
 
-    }
+            public MyActor(int x, int y) {
+                super(actorDown, x, y);
+            }
 
-    @Override
-    public void update(long elapsedTime) {
-        super.update(elapsedTime);
+            @Override
+            public void create() {
+                behaviors.add(Behaviores.dnd);
+            }
+
+            @Override
+            public void update(long elapsedTime) {
+                super.update(elapsedTime);
+                if (mouseIn() && Input.mouse.mid.pressed) {
+                    System.out.println("in and press");
+                    destroy();
+                }
+                if (Input.isKeyDown(VK_LEFT)) {
+                    sprite = actorLeft;
+                    x--;
+                } else if (Input.isKeyDown(VK_RIGHT)) {
+                    sprite = actorRight;
+                    x++;
+                } else if (Input.isKeyDown(VK_UP)) {
+                    sprite = actorUp;
+                    y--;
+                } else if (Input.isKeyDown(VK_DOWN)) {
+                    sprite = actorDown;
+                    y++;
+                }
+            }
+        }
+        ActorGroup myActors = new ActorGroup(new Actor[]{
+                    new MyActor(10, 10),
+                    new MyActor(10, 50),
+                    new MyActor(10, 90),
+                    new MyActor(10, 130)
+                });
+
+        add(myActors);
+
     }
 
     public static void main(String[] args) {

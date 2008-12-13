@@ -12,6 +12,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+import net.resplace.game.input.Input;
 
 /**
  *
@@ -56,6 +57,7 @@ public class GameRunner {
         JFrame frame = createFrame(game, width, height);
         frame.setTitle(title);
         frame.setVisible(true);
+        Input.register(frame);
         game.start();
     }
 

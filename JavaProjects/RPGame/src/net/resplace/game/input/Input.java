@@ -16,6 +16,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.util.ArrayList;
+import net.resplace.game.actor.Actor;
 
 /**
  *
@@ -36,14 +37,19 @@ public class Input {
     public static void register(GameEngine engine) {
         Input input = getInstance();
         input.engine=engine;
-        input.component = engine.canvas;
 
-        engine.canvas.setFocusTraversalKeysEnabled(false);
-        engine.canvas.addMouseListener(Input.mouse);
-        engine.canvas.addMouseMotionListener(Input.mouse);
-        engine.canvas.addMouseWheelListener(Input.mouse);
+        register(engine.canvas);
+    }
+    public static void register(Component c){
+        Input input = getInstance();
+        input.component = c;
 
-        engine.canvas.addKeyListener(Input.key);
+        c.setFocusTraversalKeysEnabled(false);
+        c.addMouseListener(Input.mouse);
+        c.addMouseMotionListener(Input.mouse);
+        c.addMouseWheelListener(Input.mouse);
+
+        c.addKeyListener(Input.key);
     }
     /**
      * Used to cleanup variables
@@ -73,6 +79,10 @@ public class Input {
     public static boolean isMetaDown(){
         return (event!=null && event.isMetaDown());
     }
+    public static String getKeyText(int keyCode) {
+        return KeyEvent.getKeyText(keyCode);
+    }
+
     /**
      * Current keyboard String
      * This string increases as you type
@@ -91,10 +101,19 @@ public class Input {
         public int yOnScreen = 0;
         public boolean in = false;
         public boolean dragging = false;
-        public boolean leftButtonDown = false;
-        public boolean midButtonDown = false;
-        public boolean rightButtonDown = false;
-        public boolean leftClick = false;
+        /**
+         * This object represents the state of the left mouse button
+         */
+        public final MouseButtonState left=new MouseButtonState();
+        /**
+         * This object represents the state of the middle mouse button
+         */
+        public final MouseButtonState mid=new MouseButtonState();
+        /**
+         * This object represents the state of the right mouse button
+         */
+        public final MouseButtonState right=new MouseButtonState();
+         
         public int wheelRotation = 0;
         public int clickCount;
 
@@ -102,7 +121,7 @@ public class Input {
         public void mouseClicked(MouseEvent e) {
             event=e;
             if (e.getButton() == MouseEvent.BUTTON1) {
-                leftClick=true;
+                left.clicked=true;
             }
             clickCount=e.getClickCount();
         }
@@ -111,13 +130,16 @@ public class Input {
         public void mousePressed(MouseEvent e) {
             event=e;
             if (e.getButton() == MouseEvent.BUTTON1) {
-                leftButtonDown = true;
+                left.pressed=true;
+                left.down = true;
             }
             if (e.getButton() == MouseEvent.BUTTON2) {
-                midButtonDown = true;
+                mid.pressed=true;
+                mid.down = true;
             }
             if (e.getButton() == MouseEvent.BUTTON3) {
-                rightButtonDown = true;
+                right.pressed=true;
+                right.down = true;
             }
         }
 
@@ -125,13 +147,16 @@ public class Input {
         public void mouseReleased(MouseEvent e) {
             event=e;
             if (e.getButton() == MouseEvent.BUTTON1) {
-                leftButtonDown = false;
+                left.released=true;
+                left.down = false;
             }
             if (e.getButton() == MouseEvent.BUTTON2) {
-                midButtonDown = false;
+                mid.released=true;
+                mid.down = false;
             }
             if (e.getButton() == MouseEvent.BUTTON3) {
-                rightButtonDown = false;
+                mid.released=true;
+                right.down = false;
             }
         }
 
@@ -174,8 +199,10 @@ public class Input {
             event=null;
             wheelRotation = 0;
             dragging=false;
-            leftClick=false;
             clickCount=0;
+            left.cleanup();
+            mid.cleanup();
+            right.cleanup();
         }
     }
 
@@ -195,8 +222,8 @@ public class Input {
         @Override
         public void keyPressed(KeyEvent e) {
             event=e;
-            pressed=e.getKeyCode();
             if (!keys.contains(e.getKeyCode())){
+                pressed=e.getKeyCode();
                 keys.add(e.getKeyCode());
             }
             e.consume();
@@ -211,6 +238,12 @@ public class Input {
         }
 
         public boolean isKeyDown(int keyCode){
+            if (keyCode==InputKeys.VK_ANY){
+                return keys.size()>0;
+            }
+            if (keyCode==InputKeys.VK_NONE){
+                return (keys.size()==0);
+            }
             return keys.contains(keyCode);
         }
 
@@ -219,6 +252,18 @@ public class Input {
             released=0;
         }
 
+    }
+    public static class MouseButtonState{
+        public boolean down=false;
+        public boolean clicked=false;
+        public boolean pressed=false;
+        public boolean released=false;
+        private void cleanup() {
+            down=false;
+            clicked=false;
+            pressed=false;
+            released=false;
+        }
     }
 }
 

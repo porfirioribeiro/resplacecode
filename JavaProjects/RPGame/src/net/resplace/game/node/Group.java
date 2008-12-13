@@ -6,15 +6,25 @@ package net.resplace.game.node;
 
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
  * @author Porfirio
  */
-public class Group<T extends Node> extends ArrayList<T> implements NodeGroup<T> {
+public class Group<T extends Node> implements NodeGroup<T>{
 
+    private ArrayList<T> nodes=new ArrayList<T>();
     private NodeGroup<Node> parent;
     private ArrayList<Node> nodesToRemove=new ArrayList<Node>();
+
+    public Group() {
+    }
+
+    public Group(T[] arrayOfNodes) {
+        add(arrayOfNodes);
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -26,16 +36,24 @@ public class Group<T extends Node> extends ArrayList<T> implements NodeGroup<T> 
      * {@inheritDoc}
      */
     @Override
+    @SuppressWarnings("unchecked")
     public void init(NodeGroup<? extends Node> parent) {
         this.parent=(NodeGroup<Node>) parent;
     }
 
     @Override
-    public void addNode(T e) {
+    public T add(T e) {
         e.init(this);
-        super.add(e);
+        nodes.add(e);
+        return e;
     }
-
+    @Override
+    public T[] add(T[] arrayOfNodes){
+        for (T node : arrayOfNodes) {
+            add(node);
+        }
+        return arrayOfNodes;
+    }
     /**
      * {@inheritDoc}
      */
@@ -69,12 +87,12 @@ public class Group<T extends Node> extends ArrayList<T> implements NodeGroup<T> 
      * {@inheritDoc}
      */
     @Override
-    public void removeNode(T node) {
+    public void remove(T node) {
         nodesToRemove.add(node);
     }
     private void removeNodes(){
         if (!nodesToRemove.isEmpty()){
-            this.removeAll(nodesToRemove);
+            nodes.removeAll(nodesToRemove);
             nodesToRemove.clear();
         }
     }
@@ -83,7 +101,28 @@ public class Group<T extends Node> extends ArrayList<T> implements NodeGroup<T> 
      */
     @Override
     public void destroy() {
-        getParentNode().removeNode(this);
+        getParentNode().remove(this);
+    }
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Iterator<T> iterator() {
+        return nodes.iterator();
+    }
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public T get(int index) {
+        return nodes.get(index);
+    }
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int size() {
+        return nodes.size();
     }
 
 }
