@@ -12,6 +12,10 @@ import net.resplace.game.node.Group;
  */
 public class ActorGroup extends Group<Actor> {
 
+    public ActorGroup(Actor[] actor) {
+        super(actor);
+    }
+
     public boolean colidesWith(Actor other) {
         for (Actor actor : this) {
             if (actor.colidesWith(other)) {
@@ -23,7 +27,7 @@ public class ActorGroup extends Group<Actor> {
 
     public boolean colidesWith(ActorGroup group) {
         for (int i = 0; i < group.size(); i++) {
-            Actor actor = (Actor) group.get(i);
+            Actor actor = group.get(i);
             if (colidesWith(actor)) {
                 return true;
             }

@@ -6,6 +6,9 @@ package net.resplace.game.input;
  */
 public interface InputKeys {
 
+    public static final int VK_ANY = 0x0F;
+    public static final int VK_NONE = 0x1F;
+    public static final int VK_UNDEFINED = 0x0;
     public static final int VK_ENTER = '\n';
     public static final int VK_BACK_SPACE = '\b';
     public static final int VK_TAB = '\t';
@@ -194,5 +197,4 @@ public interface InputKeys {
     public static final int VK_COMPOSE = 0xFF20;
     public static final int VK_ALT_GRAPH = 0xFF7E;
     public static final int VK_BEGIN = 0xFF58;
-    public static final int VK_UNDEFINED = 0x0;
 }
