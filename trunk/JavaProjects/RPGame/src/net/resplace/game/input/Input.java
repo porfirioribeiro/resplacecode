@@ -16,7 +16,6 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.util.ArrayList;
-import net.resplace.game.actor.Actor;
 
 /**
  *
@@ -118,7 +117,7 @@ public class Input {
         public int clickCount;
 
         @Override
-        public void mouseClicked(MouseEvent e) {
+        public synchronized void mouseClicked(MouseEvent e) {
             event=e;
             if (e.getButton() == MouseEvent.BUTTON1) {
                 left.clicked=true;
@@ -127,7 +126,7 @@ public class Input {
         }
 
         @Override
-        public void mousePressed(MouseEvent e) {
+        public synchronized void mousePressed(MouseEvent e) {
             event=e;
             if (e.getButton() == MouseEvent.BUTTON1) {
                 left.pressed=true;
@@ -144,7 +143,7 @@ public class Input {
         }
 
         @Override
-        public void mouseReleased(MouseEvent e) {
+        public synchronized void mouseReleased(MouseEvent e) {
             event=e;
             if (e.getButton() == MouseEvent.BUTTON1) {
                 left.released=true;
@@ -161,26 +160,26 @@ public class Input {
         }
 
         @Override
-        public void mouseEntered(MouseEvent e) {
+        public synchronized void mouseEntered(MouseEvent e) {
             event=e;
             in = true;
         }
 
         @Override
-        public void mouseExited(MouseEvent e) {
+        public synchronized void mouseExited(MouseEvent e) {
             event=e;
             in = false;
         }
 
         @Override
-        public void mouseDragged(MouseEvent e) {
+        public synchronized void mouseDragged(MouseEvent e) {
             event=e;
             dragging = true;
             mouseMoved(e);
         }
 
         @Override
-        public void mouseMoved(MouseEvent e) {
+        public synchronized void mouseMoved(MouseEvent e) {
             event=e;
             point = e.getPoint();
             x = e.getX();
@@ -190,12 +189,12 @@ public class Input {
         }
 
         @Override
-        public void mouseWheelMoved(MouseWheelEvent e) {
+        public synchronized void mouseWheelMoved(MouseWheelEvent e) {
             event=e;
             wheelRotation = e.getWheelRotation();
         }
 
-        private void cleanup() {
+        private synchronized void cleanup() {
             event=null;
             wheelRotation = 0;
             dragging=false;
@@ -207,45 +206,46 @@ public class Input {
     }
 
     public static class Key implements KeyListener{
-        protected ArrayList<Integer> keys= new ArrayList<Integer>();
+        ArrayList<Integer> keyList= new ArrayList<Integer>();
 
         public int pressed=0;
         public int released=0;
 
         @Override
-        public void keyTyped(KeyEvent e) {
+        public synchronized void keyTyped(KeyEvent e) {
             event=e;
             Input.keyboardString+=e.getKeyChar();
             e.consume();
         }
 
         @Override
-        public void keyPressed(KeyEvent e) {
+        public synchronized void keyPressed(KeyEvent e) {
             event=e;
-            if (!keys.contains(e.getKeyCode())){
+            if (!keyList.contains(e.getKeyCode())){
                 pressed=e.getKeyCode();
-                keys.add(e.getKeyCode());
+                keyList.add(e.getKeyCode());
             }
             e.consume();
         }
 
         @Override
-        public void keyReleased(KeyEvent e) {
+        public synchronized void keyReleased(KeyEvent e) {
             event=e;
             released=e.getKeyCode();
-            keys.remove((Object)e.getKeyCode());
+            keyList.remove((Object)e.getKeyCode());
             e.consume();
         }
 
-        public boolean isKeyDown(int keyCode){
+        public synchronized boolean isKeyDown(int keyCode){
             if (keyCode==InputKeys.VK_ANY){
-                return keys.size()>0;
+                return keyList.size()>0;
             }
             if (keyCode==InputKeys.VK_NONE){
-                return (keys.size()==0);
+                return (keyList.size()==0);
             }
-            return keys.contains(keyCode);
+            return keyList.contains(keyCode);
         }
+        
 
         private void cleanup() {
             pressed=0;

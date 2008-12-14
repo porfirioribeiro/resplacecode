@@ -12,7 +12,7 @@ import net.resplace.game.input.Input;
  */
 public class Behaviores {
 
-    public static final Behavior dnd = new AbstractBehavior() {
+    public static final class DnD extends AbstractBehavior {
 
         int dragX = 0;
         int dragY = 0;
@@ -38,5 +38,5 @@ public class Behaviores {
                 dragging = false;
             }
         }
-    };
+    }
 }
