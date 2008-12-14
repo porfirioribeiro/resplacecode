@@ -8,16 +8,8 @@ import net.resplace.game.sprite.Sprite;
 import net.resplace.game.actor.Actor;
 import net.resplace.game.*;
 import net.resplace.game.input.Input;
-import net.resplace.game.node.AbstractNode;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Paint;
-import java.awt.Rectangle;
-import java.awt.Shape;
-import java.awt.Stroke;
 import net.resplace.game.actor.ActorGroup;
 import net.resplace.game.actor.Behaviores;
-import net.resplace.game.node.Node;
 import net.resplace.game.sprite.StripSprite;
 
 /**
@@ -30,11 +22,7 @@ public class TestGame extends GameEngine {
         setSize(400, 400);
 
         StripSprite sprite = new StripSprite(getClass().getResource("Actor1.png"), 32, 32);
-        /*for (int xi=0;xi<12;xi++){
-        for (int yi=0;yi<8;yi++){
-        add(new Actor(sprite.getSprite(xi, yi), xi*32, yi*32));
-        }
-        }*/
+
         final Sprite actorLeft = sprite.getSprite(1, 0, 1, 1, 1, 2);
         final Sprite actorRight = sprite.getSprite(2, 0, 2, 1, 2, 2);
         final Sprite actorUp = sprite.getSprite(3, 0, 3, 1, 3, 2);
@@ -43,13 +31,15 @@ public class TestGame extends GameEngine {
 
         class MyActor extends Actor {
 
+            
             public MyActor(int x, int y) {
                 super(actorDown, x, y);
             }
 
             @Override
             public void create() {
-                behaviors.add(Behaviores.dnd);
+                behaviors.add(new Behaviores.DnD());
+                
             }
 
             @Override
@@ -59,18 +49,29 @@ public class TestGame extends GameEngine {
                     System.out.println("in and press");
                     destroy();
                 }
-                if (Input.isKeyDown(VK_LEFT)) {
+                if (Input.key.pressed==VK_LEFT) {
                     sprite = actorLeft;
-                    x--;
-                } else if (Input.isKeyDown(VK_RIGHT)) {
+                    frameSpeed=5;
+                    hspeed=-1;
+                    //x--;
+                } else if (Input.key.pressed==VK_RIGHT) {
                     sprite = actorRight;
-                    x++;
-                } else if (Input.isKeyDown(VK_UP)) {
+                    frameSpeed=5;
+                    hspeed=1;
+                } else if (Input.key.pressed==VK_UP) {
                     sprite = actorUp;
-                    y--;
-                } else if (Input.isKeyDown(VK_DOWN)) {
+                    frameSpeed=5;
+                    vspeed=-1;
+                } else if (Input.key.pressed==VK_DOWN) {
                     sprite = actorDown;
-                    y++;
+                    frameSpeed=5;
+                    vspeed=1;
+                }
+                if (Input.key.released!=0){
+                    frameSpeed=0;
+                    hspeed=0;
+                    vspeed=0;
+                    //frameIndex=0;
                 }
             }
         }

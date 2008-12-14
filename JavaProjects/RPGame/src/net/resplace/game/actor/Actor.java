@@ -4,6 +4,7 @@ import net.resplace.game.sprite.Sprite;
 import net.resplace.game.node.AbstractNode;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import net.resplace.game.input.Input;
 
@@ -11,13 +12,19 @@ import net.resplace.game.input.Input;
  *
  * @author porf
  */
-public class Actor extends AbstractNode{
+public class Actor extends AbstractNode {
 
     public Sprite sprite;
+    protected BufferedImage image;
+    private long currentTime = 0;
+    public int frameSpeed = 0;
+    public int frameIndex = 0;
     public int x;
     public int y;
     public int width;
     public int height;
+    public double hspeed=0;
+    public double vspeed=0;
     public final ArrayList<Behavior> behaviors = new ArrayList<Behavior>();
 
     public Actor() {
@@ -54,9 +61,23 @@ public class Actor extends AbstractNode{
      */
     @Override
     public void update(long elapsedTime) {
-        if (sprite != null) {
-            sprite.update(elapsedTime);
+        //Update sprite
+        currentTime += elapsedTime;
+        System.out.println(currentTime);
+        if (frameSpeed > 0) {
+            if (currentTime > (1000 / frameSpeed)) {
+                frameIndex++;
+                currentTime = 0;
+            }
         }
+        if (frameIndex == sprite.countFrames()) {
+            frameIndex = 0;
+        }
+
+        //update position acording to speed
+        x+=hspeed;
+        y+=vspeed;
+        //Do behaviors
         for (Behavior behavior : behaviors) {
             behavior.update(this, elapsedTime);
         }
@@ -69,23 +90,25 @@ public class Actor extends AbstractNode{
     @Override
     public void draw(Graphics2D g) {
         if (sprite != null) {
-            sprite.draw(g, x, y, width, height);
+            sprite.drawFrame(g, frameIndex, x, y);
         }
         for (Behavior behavior : behaviors) {
             behavior.draw(this, g);
         }
     }
 
-    public boolean mouseIn(boolean colisionRect){
-        if (colisionRect){
+    public boolean mouseIn(boolean colisionRect) {
+        if (colisionRect) {
             return getColisionRect().contains(Input.mouse.point);
-        }else{
+        } else {
             return getOutRect().contains(Input.mouse.point);
         }
     }
-    public boolean mouseIn(){
+
+    public boolean mouseIn() {
         return mouseIn(false);
     }
+
     /**
      * Test a simple box collision, returns true if collides
      * @param other
