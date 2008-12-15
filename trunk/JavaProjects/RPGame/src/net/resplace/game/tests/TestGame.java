@@ -34,6 +34,8 @@ public class TestGame extends GameEngine {
             
             public MyActor(int x, int y) {
                 super(actorDown, x, y);
+                //setMotion(45, 2);
+                motion.set(0, 1);
             }
 
             @Override
@@ -45,6 +47,11 @@ public class TestGame extends GameEngine {
             @Override
             public void update(long elapsedTime) {
                 super.update(elapsedTime);
+                if (Input.mouse.left.pressed){
+                    motion.setDirection(motion.getDirection()-5);
+                    System.out.println(motion.getDirection()-5);
+                }
+                
                 if (mouseIn() && Input.mouse.mid.pressed) {
                     System.out.println("in and press");
                     destroy();
@@ -76,9 +83,9 @@ public class TestGame extends GameEngine {
             }
         }
         ActorGroup myActors = new ActorGroup(new Actor[]{
-                    new MyActor(10, 10),
+                    /*new MyActor(10, 10),
                     new MyActor(10, 50),
-                    new MyActor(10, 90),
+                    new MyActor(10, 90),*/
                     new MyActor(10, 130)
                 });
 
