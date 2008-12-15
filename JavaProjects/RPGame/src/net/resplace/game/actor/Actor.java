@@ -23,8 +23,10 @@ public class Actor extends AbstractNode {
     public int y;
     public int width;
     public int height;
-    public double hspeed=0;
-    public double vspeed=0;
+    public double hspeed = 0;
+    public double vspeed = 0;
+    private double speed = 0;
+    private int direction = 0;
     public final ArrayList<Behavior> behaviors = new ArrayList<Behavior>();
 
     public Actor() {
@@ -63,7 +65,6 @@ public class Actor extends AbstractNode {
     public void update(long elapsedTime) {
         //Update sprite
         currentTime += elapsedTime;
-        System.out.println(currentTime);
         if (frameSpeed > 0) {
             if (currentTime > (1000 / frameSpeed)) {
                 frameIndex++;
@@ -75,8 +76,8 @@ public class Actor extends AbstractNode {
         }
 
         //update position acording to speed
-        x+=hspeed;
-        y+=vspeed;
+        x += hspeed;
+        y += vspeed;
         //Do behaviors
         for (Behavior behavior : behaviors) {
             behavior.update(this, elapsedTime);
@@ -108,6 +109,60 @@ public class Actor extends AbstractNode {
     public boolean mouseIn() {
         return mouseIn(false);
     }
+
+    public static class Motion {
+        protected Actor actor;
+        protected int direction = 0;
+        protected double speed = 0;
+
+        public Motion(Actor actor) {
+            this.actor = actor;
+        }
+
+        public int getDirection() {
+            return direction;
+        }
+
+        public void setDirection(int direction) {
+            set(direction, speed);
+        }
+
+        public double getSpeed() {
+            return speed;
+        }
+
+        public void setSpeed(double speed) {
+            set(direction, speed);
+        }
+
+        public void set(int direction, double speed) {
+            System.out.println(direction);
+            this.speed = speed;
+            this.direction = 90 - direction;
+            double d = (Math.floor(this.direction) % 360);
+            if (d < 0) {
+                this.direction = 360 + this.direction;
+            }
+            Double xdir = Math.sin(Math.PI * this.direction / 180);
+            Double ydir = Math.cos(Math.PI * this.direction / 180);
+            actor.hspeed = xdir * speed;
+            actor.vspeed = ydir * speed;
+        }
+        public void add(int direction, double speed) {
+            set(direction+this.direction, speed+this.speed);
+        }
+
+        public void addDirection(int direction){
+            setDirection(direction+this.direction);
+        }
+        public void addSpeed(double speed){
+            setSpeed(speed+this.speed);
+        }
+    }
+
+    public final Motion motion= new Motion(this);
+
+
 
     /**
      * Test a simple box collision, returns true if collides

@@ -12,6 +12,9 @@ import net.resplace.game.node.Group;
  */
 public class ActorGroup extends Group<Actor> {
 
+    public ActorGroup() {
+    }
+
     public ActorGroup(Actor[] actor) {
         super(actor);
     }
