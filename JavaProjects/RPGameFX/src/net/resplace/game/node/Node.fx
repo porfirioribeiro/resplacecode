@@ -23,7 +23,7 @@ public class Node {
     }
     public function create(){
     }
-    public function update(elapsedTime:Long){
+    public function update(elapsedTime:Number){
     }
     public function draw(g:Graphics2D){
     }
