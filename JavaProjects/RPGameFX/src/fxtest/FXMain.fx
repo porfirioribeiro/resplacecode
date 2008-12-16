@@ -8,23 +8,27 @@ package fxtest;
 
 import javafx.animation.Timeline;
 import javafx.animation.KeyFrame;
-
+import net.resplace.game.node.Group;
+import net.resplace.game.node.Node;
 
     /**
      * @author Porfirio
      */
      
     function main(args:String[]){
-        java.lang.System.out.println(args[0]);
-        FXMain{}
-    }
-    function run(args:String[]){
-        java.lang.System.out.println(args[0]);
         FXMain{}
     }
 public class FXMain {
     init{
-        var s:String="Works!!";
-        java.lang.System.out.println(s);
+        var node=Node{}
+        var group=Group{
+            nodes: [
+                node
+            ]
+        }
+        java.lang.System.out.println(group.empty);
+        group.remove(node);
+        
+        java.lang.System.out.println(group.size);
     }
 }

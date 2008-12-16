@@ -12,7 +12,8 @@ package net.resplace.game.node;
 
 public class NodeGroup {
     public var nodes:Node[];
-    public var size:Number=bind sizeof nodes;
+    public var size:Integer=bind sizeof nodes;
+    public var empty:Boolean=bind sizeof nodes==0;
     public function add(node:Node){
         insert node into nodes;
     }
