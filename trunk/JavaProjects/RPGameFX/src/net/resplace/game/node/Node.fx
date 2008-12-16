@@ -14,11 +14,11 @@ import java.awt.Graphics2D;
  */
 
 public class Node {
-    protected var parent:Node;
-    function setParent(parent:Node){
+    public-read var parent:NodeGroup;
+    function setParent(parent:NodeGroup){
         this.parent=parent;
     }
-    public function getParent():Node{
+    public function getParent():NodeGroup{
         return parent;
     }
     public function create(){
@@ -29,7 +29,7 @@ public class Node {
     }
     public function destroy(){
         if (parent!=null){
-            //TODO: parent remove
+            parent.remove(this);
         }
     }
 }
