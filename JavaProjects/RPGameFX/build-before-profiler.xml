@@ -10,7 +10,6 @@
 <project name="RPGameFX" default="default" basedir=".">
     <description>Builds, tests, and runs the project FXTest.</description>
     <import file="nbproject/build-impl.xml"/>
-    <import file="nbproject/profiler-build-impl.xml"/>
     <property name="javafxc.home" value="lib"/>
     <property name="javafxc.class.path" value="${javafxc.home}/javafxc.jar"/>
     <taskdef resource="javafxc-ant-task.properties" classpath="${javafxc.class.path}"/>
