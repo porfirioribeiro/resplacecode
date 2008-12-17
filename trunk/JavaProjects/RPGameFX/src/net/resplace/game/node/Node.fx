@@ -14,13 +14,8 @@ import java.awt.Graphics2D;
  */
 
 public class Node {
-    public-read var parent:NodeGroup;
-    function setParent(parent:NodeGroup){
-        this.parent=parent;
-    }
-    public function getParent():NodeGroup{
-        return parent;
-    }
+    package public-read var parent:Group;
+    package public-read var inUse=false;
     public function create(){
     }
     public function update(elapsedTime:Number){
