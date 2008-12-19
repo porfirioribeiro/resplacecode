@@ -20,6 +20,7 @@ import net.resplace.game.sprite.Sprite;
 import net.resplace.game.sprite.StripSprite;
 import java.awt.Graphics2D;
 import net.resplace.game.Input;
+import java.awt.event.KeyEvent;
 /**
  * @author Porfirio
  */
@@ -62,6 +63,7 @@ public class FXMain extends GameEngine{
 //        actorLeft=Sprite{
 //            frames: actors.getImage([[1,0],[1,1],[1,2]]);
 //        }
+
     }
     public override var stage=Stage{
         nodes:[
@@ -82,8 +84,21 @@ public class FXMain extends GameEngine{
                     g.fillRect(0,0,width,height);
                     g.drawString("Mouse wheel to resize",10,-10);
                 }
+            },
+            Node{
+                x:10
+                y:10
+                onUpdate:function(self:Node,elapsedTime:Number){
+                    if (Input.isKeyDown(KeyEvent.VK_LEFT)){
+                        self.x--;
+                    }
+                    java.lang.System.out.println(Input.lastKeyPressed);
+                }
+                onDraw:function(self:Node,g:Graphics2D){
+                    g.setColor(java.awt.Color.green);
+                    g.fillRect(0,0,10,10);
+                }
             }
-
         ]
 
     }
