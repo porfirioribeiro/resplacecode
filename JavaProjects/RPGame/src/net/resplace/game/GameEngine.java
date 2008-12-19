@@ -104,9 +104,9 @@ public class GameEngine implements InputKeys, SimpleGroup<Node>{
                 strategy.show();
             }
 
-        // Sync the display on some systems.
-        // (on Linux, this fixes event queue problems)
-        Toolkit.getDefaultToolkit().sync();
+            // Sync the display on some systems.
+            // (on Linux, this fixes event queue problems)
+            Toolkit.getDefaultToolkit().sync();
 
             Input.cleanup();
             // take a nap
