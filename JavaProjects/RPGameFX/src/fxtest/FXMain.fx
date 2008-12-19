@@ -33,9 +33,6 @@ class WindowClose extends WindowAdapter{
 
 
 function main(args:String[]){
-    var seq:Integer[]=[1,5,6];
-    java.lang.System.out.println(Input.sequenceContains(seq,2));
-
     def game:FXMain=FXMain{}
     game.canvas.setSize(400, 400);
     def frame:JFrame= new JFrame("GameFX!!!!");
@@ -52,19 +49,19 @@ function main(args:String[]){
 }
 
 public class FXMain extends GameEngine{
-    var actors:StripSprite;
-    var actorDown:Sprite;
-    var actorLeft:Sprite;
+//    var actors:StripSprite;
+//    var actorDown:Sprite;
+//    var actorLeft:Sprite;
     public override function load():Void{
-        actors=StripSprite{
-            image:Sprite.load("{__DIR__}Actor1.png")
-            width:32
-            height:32
-        }
-        actorDown=actors.getSprite([0,0,0,1,0,2,5]);
-        actorLeft=Sprite{
-            frames: actors.getImage([[1,0],[1,1],[1,2]]);
-        }
+//        actors=StripSprite{
+//            image:Sprite.load("{__DIR__}Actor1.png")
+//            width:32
+//            height:32
+//        }
+//        actorDown=actors.getSprite([0,0,0,1,0,2,5]);
+//        actorLeft=Sprite{
+//            frames: actors.getImage([[1,0],[1,1],[1,2]]);
+//        }
     }
     public override var stage=Stage{
         nodes:[
@@ -83,7 +80,7 @@ public class FXMain extends GameEngine{
                 }
                 onDraw:function(self:Node,g:Graphics2D){
                     g.fillRect(0,0,width,height);
-                    g.drawString("Hello",10,-10);
+                    g.drawString("Mouse wheel to resize",10,-10);
                 }
             }
 
