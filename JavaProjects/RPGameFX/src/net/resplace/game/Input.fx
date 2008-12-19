@@ -66,10 +66,19 @@ import net.resplace.game.shape.Point;
     // <editor-fold defaultstate="collapsed" desc="Key variables">
     public-read var keyEvent:KeyEvent;
     public-read var keyDownList:Integer[];
-    public-read var keyPressed:Integer=0;
+    public-read var lastKeyPressed:Integer=0;
     public-read var keyReleased:Integer=0;
     public-read var keyboardString:String="";
+    public function isKeyDown(keyCode:Integer):Boolean{
 
+        /*if (keyCode==InputKeys.VK_ANY){
+            return keyDownList.size()>0;
+        }
+        if (keyCode==InputKeys.VK_NONE){
+            return (keyDownList.size()==0);
+        }*/
+        return Util.sequenceContains(keyDownList, keyCode);
+    }
 // </editor-fold>
 public class Input extends MouseListener, MouseMotionListener, MouseWheelListener, KeyListener{
     // <editor-fold defaultstate="collapsed" desc="Mouse events">
@@ -162,10 +171,11 @@ public class Input extends MouseListener, MouseMotionListener, MouseWheelListene
         
         public override function keyPressed(e:KeyEvent) {
             keyEvent=e;
-            /*if (!keyDownList.contains(e.getKeyCode())){
-                keyPressed=e.getKeyCode();
-                keyDownList.add(e.getKeyCode());
-            }*/
+            var keyCode=e.getKeyCode();
+            if (not Util.sequenceContains(keyDownList, keyCode)){
+                lastKeyPressed=keyCode;
+                insert keyCode into keyDownList;
+            }
             e.consume();
         }
 
@@ -177,29 +187,11 @@ public class Input extends MouseListener, MouseMotionListener, MouseWheelListene
             e.consume();
         }
 
-
-        public function isKeyDown(keyCode:Integer):Boolean{
-            /*if (keyCode==InputKeys.VK_ANY){
-                return keyDownList.size()>0;
-            }
-            if (keyCode==InputKeys.VK_NONE){
-                return (keyDownList.size()==0);
-            }
-            return keyDownList.contains(keyCode);*/
-            return false;
-        }
     // </editor-fold>
 }
 
     // <editor-fold defaultstate="collapsed" desc="Helpers">
-    public function sequenceContains(seq:Object[],value:Object):Boolean{//TODO: Remove public!
-        for (item in seq){
-            if (item.equals(value)){
-                return true;
-            }
-        }
-        return false;
-    }
+
     public class MouseButtonState{
         public-read var down:Boolean=false;
         public-read var clicked:Boolean=false;

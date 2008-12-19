@@ -43,6 +43,7 @@ public class Node {
         onBeginDraw(this,g);
         onDraw(this,g);
         onEndDraw(this,g);
+        g.translate(-x, -y);
     }
     //destroy
     public var onDestroy:function(node:Node);
