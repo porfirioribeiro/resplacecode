@@ -6,8 +6,9 @@
 
 package net.resplace.game.node;
 
-import java.lang.Long;
 import java.awt.Graphics2D;
+import net.resplace.game.node.Group;
+import net.resplace.game.shape.Point;
 
 /**
  * @author Porfirio
@@ -16,15 +17,39 @@ import java.awt.Graphics2D;
 public class Node {
     package public-read var parent:Group;
     package public-read var inUse=false;
-    public function create(){
+    
+    public var x:Integer=0;
+    public var y:Integer=0;
+    //create
+    public var onCreate:function(node:Node);
+    package function createNode(){
+        onCreate(this);
     }
-    public function update(elapsedTime:Number){
+    //update
+    public var onBeginUpdate:function (node:Node,elapsedTime:Number);
+    public var onUpdate:function (node:Node,elapsedTime:Number);
+    public var onEndUpdate:function (node:Node,elapsedTime:Number);
+    package function updateNode(elapsedTime:Number){
+        onBeginUpdate(this,elapsedTime);
+        onUpdate(this,elapsedTime);
+        onEndUpdate(this,elapsedTime);
     }
-    public function draw(g:Graphics2D){
+    //draw
+    public var onBeginDraw:function (node:Node,g:Graphics2D);
+    public var onDraw:function (node:Node,g:Graphics2D);
+    public var onEndDraw:function (node:Node,g:Graphics2D);
+    package function drawNode(g:Graphics2D){
+        g.translate(x, y);
+        onBeginDraw(this,g);
+        onDraw(this,g);
+        onEndDraw(this,g);
     }
+    //destroy
+    public var onDestroy:function(node:Node);
     public function destroy(){
-        if (parent!=null){
+        if (parent != null){
             parent.remove(this);
+            onDestroy(this);
         }
     }
 }
