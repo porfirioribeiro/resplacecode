@@ -12,7 +12,7 @@ import java.awt.Graphics2D;
  * @author Porfirio
  */
 
-public class Group extends Node{
+public class Group extends Node{    
     public var nodes:Node[] on replace oldValue[idxA..idxB] = newElement {
         if (sizeof newElement > 0){
             for (node in newElement){
@@ -44,19 +44,19 @@ public class Group extends Node{
     public function clear(){
         delete nodes;
     }
-    public override function create(){
+    package override function createNode(){
         for (node:Node in nodes){
-            node.create();
+            node.createNode();
         }
     }
-    public override function update(elapsedTime:Number){
+    package override function updateNode(elapsedTime:Number){
         for (node:Node in nodes){
-            node.update(elapsedTime);
+            node.updateNode(elapsedTime);
         }
     }
-    public override function draw(g:Graphics2D){
+    package override function drawNode(g:Graphics2D){
         for (node:Node in nodes){
-            node.draw(g);
+            node.drawNode(g);
         }
     }
 }
