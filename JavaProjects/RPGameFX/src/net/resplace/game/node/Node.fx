@@ -9,17 +9,17 @@ package net.resplace.game.node;
 import java.awt.Graphics2D;
 import net.resplace.game.node.Group;
 import net.resplace.game.shape.Point;
-
+import net.resplace.game.EventObserver;
 /**
  * @author Porfirio
  */
 
-public class Node {
+public class Node extends EventObserver{
     package public-read var parent:Group;
     package public-read var inUse=false;
     
-    public var x:Integer=0;
-    public var y:Integer=0;
+    public var x:Number=0;
+    public var y:Number=0;
     //create
     public var onCreate:function(node:Node);
     package function createNode(){
