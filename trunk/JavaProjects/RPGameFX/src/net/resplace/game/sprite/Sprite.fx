@@ -71,12 +71,18 @@ public class Sprite {
     }
     public function add(image:BufferedImage){
         insert image into frames;
+        if (width==0){
+            width=image.getWidth();
+        }
+        if (height==0){
+            height=image.getHeight();
+        }
     }
     public function add(file:String){
-        insert load(file) into frames;
+        add(load(file));
     }
     public function add(url:URL){
-        insert load(url) into frames;
+        add(load(url));
     }
     public function remove(image:BufferedImage){
         delete image from frames;
@@ -89,7 +95,7 @@ public class Sprite {
     }
     public function drawFrame(g:Graphics2D, index:Integer, x:Number, y:Number){
         var image:BufferedImage=frames[index];
-        if (image!=null){
+        if (image != null){
             g.drawImage(image, x - origin.x, y - origin.y, null);
         }
     }

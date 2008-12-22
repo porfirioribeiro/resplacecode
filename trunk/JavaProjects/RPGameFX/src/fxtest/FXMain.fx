@@ -13,33 +13,38 @@ import java.lang.*;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import net.resplace.game.GameEngine;
+import net.resplace.game.Dir;
 import net.resplace.game.node.Stage;
 import net.resplace.game.node.Node;
 import net.resplace.game.shape.Point;
 import net.resplace.game.sprite.Sprite;
 import net.resplace.game.sprite.StripSprite;
+import net.resplace.game.actor.Actor;
 import java.awt.Graphics2D;
 import net.resplace.game.Input;
 import java.awt.event.KeyEvent;
+    import java.util.HashMap;
+    
 /**
- * @author Porfirio
- */
-class WindowClose extends WindowAdapter{
-    public-init var main:FXMain;
-    public override function windowClosing(e:WindowEvent){
+     * @author Porfirio
+     */
+    class WindowClose extends WindowAdapter{
+    
+        public-init var main:FXMain;
+        public override function windowClosing(e:WindowEvent){
         main.exit();
         System.exit(0);
+        }
     }
-}
 
 
-function main(args:String[]){
-    def game:FXMain=FXMain{}
+    function main(args:String[]){
+        def game:FXMain=FXMain{}
     game.canvas.setSize(400, 400);
-    def frame:JFrame= new JFrame("GameFX!!!!");
+        def frame:JFrame= new JFrame("GameFX!!!!");
     frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
     frame.addWindowListener(WindowClose{
-        main:game
+            main:game
     });
     frame.setSize(400, 400);
     frame.setLocationRelativeTo(null);
@@ -47,25 +52,41 @@ function main(args:String[]){
     frame.setVisible(true);
     Input.register(game);
     game.start();
-}
+    }
 
 public class FXMain extends GameEngine{
-//    var actors:StripSprite;
-//    var actorDown:Sprite;
-//    var actorLeft:Sprite;
-    public override function load():Void{
-//        actors=StripSprite{
-//            image:Sprite.load("{__DIR__}Actor1.png")
-//            width:32
-//            height:32
-//        }
-//        actorDown=actors.getSprite([0,0,0,1,0,2,5]);
-//        actorLeft=Sprite{
-//            frames: actors.getImage([[1,0],[1,1],[1,2]]);
-//        }
-
+    init{
+        var map:FXHashMap=new FXHashMap();
     }
+
+    var actors:StripSprite=StripSprite{
+            image:Sprite.load("{__DIR__}Actor1.png")
+            width:32
+            height:32
+        };
+    var actorDown:Sprite=actors.getSprite([0,0,0,1,0,2,5]);;
+    var actorLeft:Sprite=Sprite{
+            frames: actors.getImage([[1,0],[1,1],[1,2]]);
+        };
+    
+    var actor:Actor=Actor{
+            sprite: bind actorDown
+            frameSpeed:5
+            x:10
+            y:200
+            override var mouseInside=false;
+            //speed:1
+            //direction:Dir.ENE
+            onMouseMove:function(x:Number,y:Number){
+                java.lang.System.out.println("Actor.onMouseMove: {x} - {y} - {actor.mouseInside}");
+            }
+        };;
+    public override function load():Void{}
+
     public override var stage=Stage{
+        onMouseMove:function(x:Number,y:Number){
+            //java.lang.System.out.println("Stage.onMouseMove: {x} - {y}");
+        }
         nodes:[
             Node{
                 var width:Integer=100;
@@ -92,13 +113,14 @@ public class FXMain extends GameEngine{
                     if (Input.isKeyDown(KeyEvent.VK_LEFT)){
                         self.x--;
                     }
-                    java.lang.System.out.println(Input.lastKeyPressed);
+                    //java.lang.System.out.println(Input.lastKeyPressed);
                 }
                 onDraw:function(self:Node,g:Graphics2D){
                     g.setColor(java.awt.Color.green);
                     g.fillRect(0,0,10,10);
                 }
-            }
+            },
+            actor
         ]
 
     }
