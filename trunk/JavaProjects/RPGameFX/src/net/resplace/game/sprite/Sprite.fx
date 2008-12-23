@@ -48,7 +48,18 @@ import java.io.File;
     }
 
 public class Sprite {
-    public var frames:BufferedImage[];
+    public var frames:BufferedImage[] on replace oldValue[idxA..idxB] = newElement{
+        if (sizeof newElement > 0){
+            for (image in newElement){
+                if (width==0){
+                    width=image.getWidth();
+                }
+                if (height==0){
+                    height=image.getHeight();
+                }
+            }
+        }
+    }
     public def frameNumber:Integer=bind sizeof frames;
     package public-read var width:Number;
     package public-read var height:Number;
@@ -71,12 +82,6 @@ public class Sprite {
     }
     public function add(image:BufferedImage){
         insert image into frames;
-        if (width==0){
-            width=image.getWidth();
-        }
-        if (height==0){
-            height=image.getHeight();
-        }
     }
     public function add(file:String){
         add(load(file));

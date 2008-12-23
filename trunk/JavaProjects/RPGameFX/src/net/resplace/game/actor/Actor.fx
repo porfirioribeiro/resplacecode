@@ -11,7 +11,7 @@ import java.lang.Math;
 import net.resplace.game.node.Node;
 import net.resplace.game.sprite.Sprite;
 import java.awt.Rectangle;
-
+import net.resplace.game.node.Event.*;
 /**
  * @author Porfirio
  */
@@ -27,6 +27,7 @@ public class Actor extends Node{
     }
     public-read var width:Number=bind sprite.width;
     public-read var height:Number= bind sprite.height;
+    public-read var outRect:Rectangle=bind new Rectangle(x,y,width,height);
     public var frameSpeed:Integer;
     public var frameIndex:Integer on replace{
         if (frameIndex < 0 or frameIndex >= sprite.frameNumber){
@@ -57,9 +58,9 @@ public class Actor extends Node{
     }
     public var hspeed:Number;
     public var vspeed:Number;
-    public override var onUpdate=function (node:Node,elapsedTime:Number){
+    public override var onUpdate=function (e:UpdateEv){
         //Update sprite
-        currentTime += elapsedTime;
+        currentTime += e.elapsedTime;
         if (frameSpeed > 0) {
             if (currentTime > (1000 / frameSpeed)) {
                 frameIndex++;
@@ -69,7 +70,6 @@ public class Actor extends Node{
         if (frameIndex == sprite.frameNumber) {
             frameIndex = 0;
         }
-
         //update position acording to speed
         x += hspeed;
         y += vspeed;
@@ -79,13 +79,15 @@ public class Actor extends Node{
         }*/
 
     }
-    public override var onDraw=function (node:Node,g:Graphics2D){
+    public override var onDraw=function (e:DrawEv,g:Graphics2D){
         if (sprite!=null){
             sprite.drawFrame(g,frameIndex,0,0);
         }
     }
 
     protected override function isMouseInside(mx:Number,my:Number):Boolean{
+        //java.lang.System.out.println(sprite.width);
+        //outRect.contains(mx, my);
         //Rectangle
         //java.lang.System.out.println("inside");
         //return ((mx >= x) and (mx <= x + width)) and ((my > y) and (my <= y + height));

@@ -11,7 +11,6 @@ import java.awt.Graphics2D;
 /**
  * @author Porfirio
  */
-
 public class Stage extends Group{
     //Make this functions public on Stage
     public override function createNode(){

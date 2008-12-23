@@ -24,6 +24,15 @@ import java.awt.event.KeyEvent;
 /**
  * @author Porfirio
  */
+public var current:GameEngine;
+public function getWidth():Integer{
+    if (current!=null and current.canvas!=null){
+        return current.canvas.getWidth();
+    }
+    return 0;
+}
+
+//current.canvas.getWidth();
 
 public abstract class GameEngine{
     protected var canvas:Canvas;
@@ -64,6 +73,7 @@ public abstract class GameEngine{
     public var stage:Stage;
     
     init{
+        current=this;
         canvas=new Canvas();
         input=InputHandler{engine:this}
     }
