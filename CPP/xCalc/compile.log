@@ -1,0 +1,49 @@
+==Setup envoirement
+==Make project
+===QMake
+===Make
+mingw32-make -f Makefile.Release
+mingw32-make[1]: Entering directory `E:/Users/Porfirio/Ambiente de trabalho/xCalc'
+uic mainwindow.ui 
+uic panels\ivapanel.ui 
+uic panels\calcpanel.ui 
+compiling stable.h 
+compiling main.cpp 
+compiling qextserialport/qextserialbase.cpp 
+compiling qextserialport/qextserialport.cpp 
+compiling qextserialport/qextserialenumerator.cpp 
+compiling qextserialport/win_qextserialport.cpp 
+moc mainwindow.h 
+compiling build/tmp/moc_mainwindow.cpp 
+moc qextserialport\qextserialbase.h 
+compiling build/tmp/moc_qextserialbase.cpp 
+moc qextserialport\qextserialport.h 
+compiling build/tmp/moc_qextserialport.cpp 
+moc panels\ivapanel.h 
+compiling build/tmp/moc_ivapanel.cpp 
+moc panels\calcpanel.h 
+compiling build/tmp/moc_calcpanel.cpp 
+moc qextserialport\win_qextserialport.h 
+compiling build/tmp/moc_win_qextserialport.cpp 
+rcc res\res.qrc 
+compiling build/tmp/qrc_res.cpp 
+windres -i res\win.rc -o build\tmp\win_res.o --include-dir=./res
+linking build\XCalc.exe 
+mingw32-make[1]: Leaving directory `E:/Users/Porfirio/Ambiente de trabalho/xCalc'
+==Clean compile garbage
+mingw32-make -f Makefile.Release clean
+mingw32-make[1]: Entering directory `E:/Users/Porfirio/Ambiente de trabalho/xCalc'
+del build\tmp\moc_mainwindow.cpp build\tmp\moc_qextserialbase.cpp build\tmp\moc_qextserialport.cpp build\tmp\moc_ivapanel.cpp build\tmp\moc_calcpanel.cpp build\tmp\moc_win_qextserialport.cpp
+del build\tmp\qrc_res.cpp
+del build\tmp\ui_mainwindow.h build\tmp\ui_ivapanel.h build\tmp\ui_calcpanel.h
+del build\tmp\main.o build\tmp\qextserialbase.o build\tmp\qextserialport.o build\tmp\qextserialenumerator.o build\tmp\win_qextserialport.o build\tmp\moc_mainwindow.o build\tmp\moc_qextserialbase.o build\tmp\moc_qextserialport.o build\tmp\moc_ivapanel.o build\tmp\moc_calcpanel.o build\tmp\moc_win_qextserialport.o build\tmp\qrc_res.o
+del build\tmp\stable.h.gch\c build\tmp\stable.h.gch\c++
+del build\tmp\win_res.o
+mingw32-make[1]: Leaving directory `E:/Users/Porfirio/Ambiente de trabalho/xCalc'
+==Copy Dll's
+        1 ficheiro(s) copiado(s)
+        1 ficheiro(s) copiado(s)
+        1 ficheiro(s) copiado(s)
+        1 ficheiro(s) copiado(s)
+Run XCalc
+==All done!
