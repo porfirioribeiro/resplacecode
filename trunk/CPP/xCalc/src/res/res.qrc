@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="/" >
+    <file>window-close.png</file>
+    <file>edit-undo.svg</file>
+    <file>edit-redo.svg</file>
+    <file>mail-receive.svg</file>
+    <file>view-fullscreen.svg</file>
+    <file>application-exit.svg</file>
+    <file>dialog-close.svg</file>
+    <file>xcalc.svg</file>
+  </qresource>
+</RCC>
