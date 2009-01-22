@@ -1,9 +1,0 @@
-<RCC>
-  <qresource prefix="/" >
-    <file>mail-receive.svg</file>
-    <file>view-fullscreen.svg</file>
-    <file>application-exit.svg</file>
-    <file>dialog-close.svg</file>
-    <file>xcalc.svg</file>
-  </qresource>
-</RCC>
