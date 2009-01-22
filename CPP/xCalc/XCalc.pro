@@ -14,15 +14,15 @@ PRECOMPILED_HEADER = stable.h
 # CONFIG += console
 # CONFIG -= app_bundle
 # end
-OBJECTS_DIR = build/tmp
-MOC_DIR = build/tmp
-UI_DIR = build/tmp
-RCC_DIR = build/tmp
+OBJECTS_DIR = build/tmp/o
+MOC_DIR = build/tmp/moc
+UI_DIR = build/tmp/ui
+RCC_DIR = build/tmp/rcc
 DESTDIR = build
 CONFIG(debug, debug|release):TARGET = XCalcd
 else:TARGET = XCalc
 INCLUDEPATH += properties \
-    build/tmp \
+    build/tmp/ui \
     qextserialport \
     panels
 
