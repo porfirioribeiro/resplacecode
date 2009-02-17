@@ -43,7 +43,8 @@ void Calc::changeEvent(QEvent *e)
 
 
 void Calc::clickNumber(){
-
+    QToolButton *b = (QToolButton*) sender();
+    //ui->lineEdit->insert(b->text());
 }
 
 
