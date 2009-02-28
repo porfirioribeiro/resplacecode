@@ -31,6 +31,7 @@ protected:
 
 public slots:
     void handleSingleInstanceMessage(const QString& message);
+    void setAllwaysOnTop(bool);
     //actions
     void openDrawer();
     void quit();

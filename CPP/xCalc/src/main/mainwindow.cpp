@@ -24,6 +24,9 @@ MainWindow::MainWindow(QWidget *parent) :
     trayIcon->setContextMenu(trayIconMenu);
     trayIcon->show();
     ui->tabWidget->setCurrentIndex(0);
+
+    ui->chStayOnTop->setChecked(settings.value("window.stayOnTop",false).toBool());
+
 }
 
 MainWindow::~MainWindow()
@@ -90,4 +93,15 @@ void MainWindow::on_trayIcon_activated(QSystemTrayIcon::ActivationReason reason)
 }
 void MainWindow::on_trayIcon_messageClicked() {
     settings.setValue("trayIcon/showBaloon",false);
+}
+//other
+void MainWindow::setAllwaysOnTop(bool visible){
+    settings.setValue("window.stayOnTop",visible);
+    if (visible && !(windowFlags() & Qt::WindowStaysOnTopHint)){
+        setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
+    }else{
+        setWindowFlags(windowFlags() ^ Qt::WindowStaysOnTopHint);
+    }
+
+    show();
 }

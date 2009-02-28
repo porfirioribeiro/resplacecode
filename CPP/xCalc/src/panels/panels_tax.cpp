@@ -28,7 +28,7 @@ void Tax::changeEvent(QEvent *e)
 
 void Tax::doCalc() {
 
-    qDebug() << ui->Inicial->value();
+    //qDebug() << ui->Inicial->value();
     double inicial = ui->Inicial->value();
     double descP = ui->DescP->value();
     double desc = inicial * (descP / 100);
