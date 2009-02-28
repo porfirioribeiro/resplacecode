@@ -39,7 +39,7 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
-         <widget class="QCheckBox" name="checkBox">
+         <widget class="QCheckBox" name="chStayOnTop">
           <property name="text">
            <string>Always ontop?</string>
           </property>
@@ -102,7 +102,7 @@
    <addaction name="menuEdit"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QToolBar" name="toolBar">
+  <widget class="QToolBar" name="mainToolBar">
    <property name="windowTitle">
     <string>toolBar</string>
    </property>
@@ -114,10 +114,20 @@
    </attribute>
    <addaction name="actionOpenDrawer"/>
    <addaction name="separator"/>
+   <addaction name="actionExit"/>
+  </widget>
+  <widget class="QToolBar" name="undoRedoToolbar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
    <addaction name="actionUndo"/>
    <addaction name="actionRedo"/>
-   <addaction name="actionClose"/>
-   <addaction name="actionExit"/>
   </widget>
   <action name="actionOpenDrawer">
    <property name="icon">
@@ -258,7 +268,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>checkBox</sender>
+   <sender>chStayOnTop</sender>
    <signal>toggled(bool)</signal>
    <receiver>MainWindow</receiver>
    <slot>setAllwaysOnTop(bool)</slot>

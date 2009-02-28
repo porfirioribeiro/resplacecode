@@ -19,9 +19,14 @@ namespace Panels{
         Ui::Calc *ui;
         MainWindow *mw;
         QUndoStack *undoStack;
+        QUndoCommand *lastCommand;
+        float displayNumber;
+        float currentValue;
 
     public slots:
         void clickNumber();
+        void backSpace();
+        void clear();
         void addiction();
         void division();
         void equals();
@@ -31,7 +36,10 @@ namespace Panels{
     protected:
         virtual void changeEvent(QEvent *e);
         virtual void setVisible(bool visible);
-    };
+
+private slots:
+    void on_lineEdit_textChanged(QString );
+};
 
 }
 #include "ui_calc.h"

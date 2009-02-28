@@ -150,9 +150,9 @@
     <filter
        id="filter6458">
       <feGaussianBlur
-         inkscape:collect="always"
+         id="feGaussianBlur6460"
          stdDeviation="0.28444187"
-         id="feGaussianBlur6460" />
+         inkscape:collect="always" />
     </filter>
     <linearGradient
        x1="21.094994"
@@ -245,9 +245,9 @@
     <filter
        id="filter3281">
       <feGaussianBlur
-         inkscape:collect="always"
+         id="feGaussianBlur3283"
          stdDeviation="0.32872878"
-         id="feGaussianBlur3283" />
+         inkscape:collect="always" />
     </filter>
     <linearGradient
        x1="60.402065"
@@ -260,25 +260,25 @@
     <filter
        id="filter3319">
       <feGaussianBlur
-         inkscape:collect="always"
+         id="feGaussianBlur3321"
          stdDeviation="1.6179775"
-         id="feGaussianBlur3321" />
+         inkscape:collect="always" />
     </filter>
     <filter
        id="filter3033">
       <feGaussianBlur
-         inkscape:collect="always"
+         id="feGaussianBlur3035"
          stdDeviation="0.33295155"
-         id="feGaussianBlur3035" />
+         inkscape:collect="always" />
     </filter>
     <filter
        id="filter3045">
       <feGaussianBlur
-         inkscape:collect="always"
+         id="feGaussianBlur3047"
          stdDeviation="0.46608189"
-         id="feGaussianBlur3047" />
+         inkscape:collect="always" />
     </filter>
-    <radialGradient
+        <radialGradient
        cx="-20"
        cy="64"
        r="35.412899"
@@ -312,6 +312,7 @@
          id="path3057"
          style="opacity:1;fill:url(#radialGradient3059);fill-opacity:1;stroke:none;stroke-width:0.13749999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:4.15;stroke-opacity:1" />
     </clipPath>
+
     <radialGradient
        cx="-20"
        cy="64"
