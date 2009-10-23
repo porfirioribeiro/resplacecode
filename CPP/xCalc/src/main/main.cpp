@@ -1,8 +1,13 @@
 #include <QtGui>
+#include <QtPlugin>
 #include "singleapplication.h"
 
 #include "mainwindow.h"
 #include "qserialprinter.h"
+
+#ifdef QT_RELEASE
+Q_IMPORT_PLUGIN(qsvg)
+#endif
 
 void test(){
 

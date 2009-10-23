@@ -13,5 +13,5 @@ win32:DEFINES += _TTY_WIN_
 
 contains(TEMPLATE, lib){
     # Force Relink when we change a library project
-    QMAKE_POST_LINK = $$QMAKE_DEL_FILE ..\..\build\xCalc*
+    #QMAKE_POST_LINK = $$QMAKE_DEL_FILE ..\..\build\xCalc*
 }

@@ -1,10 +1,20 @@
 
-# QT       += network opengl script sql svg webkit xml xmlpatterns phonon qtestlib dbus
+QT              += svg #network opengl script sql svg webkit xml xmlpatterns phonon qtestlib dbus
 CONFIG		*= qt
 QT		*= core network
 CONFIG		+= debug_and_release
 CONFIG		*= qt thread warn_on
 CONFIG		-= exceptions rtti
+
+CONFIG(debug, debug|release){
+    TARGET    = XCalcd
+    DEFINES  += QT_DEBUG
+}else{
+    TARGET    = XCalc
+    DEFINES  += QT_RELEASE
+    CONFIG   += static
+    QTPLUGIN += qsvg
+}
 
 
 OBJECTS_DIR = ../../tmp/main
@@ -21,8 +31,6 @@ FORMS      += mainwindow.ui
 RESOURCES  += ../res/res.qrc
 RC_FILE    += ../res/win.rc
 
-CONFIG(debug, debug|release):TARGET = XCalcd
-else:TARGET = XCalc
 include(../common.pri)
 
 LIBS  += -L../../lib -lpanels -lqextserialport -lsingleapplication
