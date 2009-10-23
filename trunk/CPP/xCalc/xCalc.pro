@@ -2,6 +2,7 @@
 TEMPLATE  = subdirs
 CONFIG   += ordered
 
+
 SUBDIRS  += src/singleapplication
 SUBDIRS  += src/qextserialport
 SUBDIRS  += src/panels
